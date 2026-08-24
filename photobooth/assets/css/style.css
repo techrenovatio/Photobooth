@@ -1,0 +1,845 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   ROOT & VARIABLES
+========================================= */
+
+:root {
+    --background: #f7f7f5;
+    --surface: #ffffff;
+    --text: #222222;
+    --text-secondary: #777777;
+    --text-light: #999999;
+    --border: #e8e8e5;
+    --accent: #222222;
+    --accent-soft: #f0f0ed;
+
+    --shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
+    --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.11);
+
+    /* TOAST FLOATING LIGHT MODE */
+    --toast-bg: rgba(255, 255, 255, 0.98);
+    --toast-text: #222222;
+    --toast-border: rgba(0, 0, 0, 0.15);
+}
+
+body.dark-theme {
+    /* TOAST FLOATING DARK MODE OVERRIDE */
+    --toast-bg: rgba(15, 23, 42, 0.98);
+    --toast-text: #ffffff;
+    --toast-border: rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================================
+   FLOATING TOAST NOTIFICATION (SUPER FIXED)
+========================================= */
+
+.toast-floating {
+    position: fixed !important;
+    top: 24px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 99999999 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 12px 28px !important;
+    background: var(--toast-bg, #ffffff) !important;
+    color: var(--toast-text, #0f172a) !important;
+    border: 1px solid var(--toast-border, rgba(0,0,0,0.15)) !important;
+    border-radius: 50px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: none !important;
+}
+
+.toast-floating.hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translate(-50%, -20px) !important;
+}
+
+
+/* =========================================
+   BODY & APP
+========================================= */
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+}
+
+.app {
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   SCREEN SYSTEM
+========================================= */
+
+.screen {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.screen.active {
+    display: flex;
+}
+
+
+/* =========================================
+   GLOBAL BUTTONS
+========================================= */
+
+button {
+    font-family: inherit;
+}
+
+/* PRIMARY BUTTON */
+.primary-button {
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    background: var(--accent);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.primary-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.17);
+}
+
+.primary-button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* SECONDARY BUTTON */
+.secondary-button {
+    border: 1px solid var(--border);
+    padding: 13px 30px;
+    border-radius: 50px;
+    background: white;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.secondary-button:hover {
+    background: #fafafa;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+
+/* =========================================
+   WELCOME SCREEN
+========================================= */
+
+.welcome-screen {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: var(--background);
+    color: var(--text);
+}
+
+.welcome-content {
+    padding: 30px;
+}
+
+/* CAMERA ICON */
+.welcome-logo {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 30px;
+    border-radius: 25px;
+    background: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* WELCOME SMALL */
+.welcome-small {
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: var(--text-light);
+    margin-bottom: 12px;
+}
+
+/* MAIN TITLE */
+.welcome-content h1 {
+    font-size: clamp(44px, 8vw, 88px);
+    letter-spacing: 7px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+/* SUBTITLE */
+.welcome-content h2 {
+    margin-top: 18px;
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 400;
+    color: #666;
+}
+
+/* DESCRIPTION */
+.welcome-description {
+    margin-top: 20px;
+    font-size: 16px;
+    color: var(--text-secondary);
+}
+
+/* START */
+.start-anywhere {
+    margin-top: 45px;
+    border: none;
+    background: var(--text);
+    color: white;
+    padding: 16px 42px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.start-anywhere:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
+}
+
+.tap-info {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+
+/* =========================================
+   FRAME SCREEN
+========================================= */
+
+.frame-screen {
+    flex-direction: column;
+    align-items: center;
+    padding: 55px 25px;
+}
+
+.screen-header {
+    text-align: center;
+}
+
+.screen-header p,
+.step-label {
+    color: var(--text-light);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.screen-header h1 {
+    margin-top: 10px;
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 800;
+    color: var(--text);
+}
+
+.screen-header span {
+    display: block;
+    margin-top: 10px;
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+/* FRAME LIST */
+.frame-list {
+    width: 100%;
+    max-width: 1050px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+/* FRAME CARD */
+.frame-card {
+    background: var(--surface);
+    border-radius: 18px;
+    padding: 12px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.frame-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.frame-card.selected {
+    border-color: var(--text);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+}
+
+/* FRAME PLACEHOLDER */
+.frame-placeholder {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    border-radius: 10px;
+    background: #f1f1ef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 35px;
+}
+
+/* FRAME NAME */
+.frame-name {
+    text-align: center;
+    margin-top: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+}
+
+/* FRAME ACTION */
+.frame-action {
+    margin-top: 40px;
+}
+
+
+/* =========================================
+   READY / REVIEW / RESULT / QR
+========================================= */
+
+.ready-screen,
+.review-screen,
+.result-screen,
+.qr-screen {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.ready-screen {
+    position: relative;
+}
+
+.ready-content,
+.review-content,
+.result-content,
+.qr-content {
+    width: 100%;
+    max-width: 700px;
+}
+
+/* HEADINGS */
+.ready-content h1,
+.review-content h1,
+.result-content h1,
+.qr-content h1 {
+    margin-top: 12px;
+    font-size: clamp(32px, 5vw, 52px);
+    color: var(--text);
+    font-weight: 800;
+}
+
+/* PARAGRAPH */
+.ready-content > p:not(.step-label),
+.review-content > p:not(.step-label),
+.result-content > p:not(.step-label),
+.qr-content > p:not(.step-label) {
+    margin-top: 9px;
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+
+/* =========================================
+   SELECTED FRAME
+========================================= */
+
+.selected-frame-preview {
+    width: 250px;
+    max-width: 70vw;
+    aspect-ratio: 2 / 3;
+    margin: 30px auto;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.10);
+}
+
+.selected-frame-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* =========================================
+   CAMERA SCREEN
+========================================= */
+
+.camera-screen {
+    flex-direction: column;
+    padding: 25px;
+    background: #f2f2f0;
+}
+
+.camera-header {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 20px;
+}
+
+.camera-header h1 {
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.camera-header p {
+    color: var(--text-secondary);
+    margin-top: 4px;
+    font-size: 13px;
+}
+
+.camera-layout {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(200px, 1fr);
+    gap: 25px;
+    align-items: center;
+}
+
+.camera-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.camera-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #111;
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.16);
+}
+
+#video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scaleX(-1);
+}
+
+.camera-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.corner {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    border-color: white;
+    border-style: solid;
+    opacity: 0.75;
+}
+
+.top-left {
+    top: 18px;
+    left: 18px;
+    border-width: 3px 0 0 3px;
+}
+
+.top-right {
+    top: 18px;
+    right: 18px;
+    border-width: 3px 3px 0 0;
+}
+
+.bottom-left {
+    bottom: 18px;
+    left: 18px;
+    border-width: 0 0 3px 3px;
+}
+
+.bottom-right {
+    bottom: 18px;
+    right: 18px;
+    border-width: 0 3px 3px 0;
+}
+
+
+/* =========================================
+   COUNTDOWN & COUNTER
+========================================= */
+
+.countdown {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: clamp(80px, 15vw, 180px);
+    font-weight: 900;
+    text-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
+}
+
+.photo-counter {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-weight: bold;
+    opacity: 0;
+}
+
+.flash {
+    position: absolute;
+    inset: 0;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.flash.active {
+    animation: cameraFlash 0.35s ease;
+}
+
+@keyframes cameraFlash {
+    0% { opacity: 0; }
+    30% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.camera-status {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #e0a11a;
+}
+
+
+/* =========================================
+   FRAME PREVIEW
+========================================= */
+
+.frame-preview-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.frame-preview-area > p {
+    margin-bottom: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--text-light);
+}
+
+.live-frame {
+    width: min(100%, 280px);
+    aspect-ratio: 2 / 3;
+    background: #eee;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* =========================================
+   BUTTONS & CAPTURED PREVIEW
+========================================= */
+
+.btn-start-photo {
+    border: none;
+    outline: none;
+    padding: 15px 34px;
+    border-radius: 50px;
+    background: var(--text);
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-start-photo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.20);
+}
+
+.btn-start-photo:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.captured-preview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.captured-preview.active {
+    display: flex;
+}
+
+.captured-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.retake-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+    padding: 9px 18px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.btn-continue-photo {
+    display: none;
+    border: none;
+    outline: none;
+    padding: 14px 34px;
+    border-radius: 50px;
+    background: var(--text);
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transition: 0.2s ease;
+}
+
+.btn-continue-photo.active {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-continue-photo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================
+   RESULT & DOWNLOAD
+========================================= */
+
+.final-photo {
+    width: 350px;
+    max-width: 80vw;
+    aspect-ratio: 9 / 16;
+    margin: 30px auto;
+    background: #eee;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.10);
+}
+
+.final-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.result-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-download {
+    border: none;
+    padding: 14px 30px;
+    border-radius: 50px;
+    background: #eeeeeb;
+    color: #222;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn-download:hover {
+    transform: translateY(-2px);
+    background: #e4e4e0;
+}
+
+
+/* =========================================
+   QR & BACK BUTTON
+========================================= */
+
+.qr-code {
+    width: 280px;
+    height: 280px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.qr-info {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.back-button {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    border: none;
+    background: white;
+    color: #555;
+    padding: 10px 18px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.back-button:hover {
+    transform: translateX(-3px);
+    background: #fafafa;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET & MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+    .frame-list {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 600px;
+    }
+
+    .camera-layout {
+        grid-template-columns: minmax(0, 2fr) minmax(160px, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .welcome-content { padding: 20px; }
+    .welcome-logo { width: 75px; height: 75px; font-size: 35px; }
+    .welcome-content h1 { letter-spacing: 4px; }
+    .welcome-content h2 { margin-top: 14px; }
+    .frame-screen { padding: 35px 15px; }
+    .frame-list { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 30px; }
+    .frame-card { padding: 8px; border-radius: 14px; }
+    .frame-name { font-size: 12px; }
+    .frame-action { margin-top: 25px; }
+    .ready-screen, .review-screen, .result-screen, .qr-screen { padding: 20px 15px; }
+    .camera-screen { padding: 15px; }
+    .camera-layout { grid-template-columns: 1fr; }
+    .frame-preview-area { order: 2; }
+    .live-frame { width: 150px; }
+    .camera-wrapper { border-radius: 15px; }
+    .camera-header { margin-bottom: 12px; }
+    .camera-header h1 { font-size: 20px; }
+    .final-photo { width: 300px; }
+    .qr-code { width: 240px; height: 240px; }
+    .primary-button, .secondary-button, .btn-download { padding: 13px 24px; font-size: 13px; }
+}

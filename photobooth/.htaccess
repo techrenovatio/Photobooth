@@ -1,0 +1,27 @@
+# 1. SECURITY HEADERS
+<IfModule mod_headers.c>
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# 2. MATIKAN DIRECTORY LISTING (MEMBLOKIR AKSES DAFTAR FOLDER UPLOADS)
+Options -Indexes
+
+# 3. BLOKIR AKSES KETAT KE FILE AKUN & KONFIGURASI
+<FilesMatch "^\.env|\.git|config\.php$">
+    Require all denied
+</FilesMatch>
+
+# 4. ROUTING URL DENGAN MOD_REWRITE
+RewriteEngine On
+RewriteBase /photobooth/
+
+# 5. PEMETIKAN RUTE /dashboard SECARA EKSPLISIT KE admin.php
+RewriteRule ^dashboard/?$ admin.php [L,QSA]
+
+# 6. MENGHILANGKAN EKSTENSI .PHP UNTUK HALAMAN LAIN (CONTOH: /login -> login.php)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^\/]+)/?$ $1.php [L,QSA]
