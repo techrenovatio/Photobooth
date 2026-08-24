@@ -159,7 +159,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- PHOTOBOOTH -->
+                <!-- PHOTOBOOTH (TARGET _BLANK KE TAB BARU) -->
                 <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
                     <div>
                         <div class="w-14 h-14 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-himsiMaroon group-hover:text-white transition">
@@ -172,7 +172,7 @@
                             Abadikan momen seru dengan frame eksklusif Kabinet Genesis. Dilengkapi auto-send email softfile dan QR Code scanner.
                         </p>
                     </div>
-                    <a href="photobooth/" class="inline-flex items-center justify-center w-full bg-himsiMaroon text-white font-bold text-sm py-3.5 rounded-xl hover:bg-opacity-90 transition shadow-sm">
+                    <a href="photobooth/" target="_blank" class="inline-flex items-center justify-center w-full bg-himsiMaroon text-white font-bold text-sm py-3.5 rounded-xl hover:bg-opacity-90 transition shadow-sm">
                         Buka Aplikasi Photobooth &rarr;
                     </a>
                 </div>
@@ -258,11 +258,11 @@
         </div>
     </footer>
 
-    <!-- MODAL EMBED GAME DENGAN HEADER DARI JUDUL BESAR -->
+    <!-- MODAL EMBED GAME -->
     <div id="gameModal" class="fixed inset-0 bg-black/85 z-50 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
         <div class="bg-slate-900 rounded-2xl overflow-hidden w-[96vw] max-w-7xl h-[88vh] shadow-2xl border border-slate-700 flex flex-col justify-between">
             
-            <!-- HEADER MODAL DENGAN UKURAN TEKS BESAR DAN TEBAL -->
+            <!-- HEADER MODAL -->
             <div class="px-5 py-4 bg-slate-800 flex justify-between items-center border-b border-slate-700 shrink-0">
                 <div class="flex items-center gap-3">
                     <span class="text-2xl md:text-3xl">🎮</span>
