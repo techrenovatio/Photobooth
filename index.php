@@ -45,7 +45,7 @@
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white">
 
-    <!-- HEADER / NAVIGATION -->
+    <!-- HEADER / NAVIGATION (TANPA TOMBOL PHOTOBOOTH POJOK KANAN) -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             
@@ -59,19 +59,13 @@
             </a>
 
             <!-- Menu Navigasi -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+            <nav class="flex items-center space-x-8 text-sm font-semibold text-slate-700">
                 <a href="#beranda" class="hover:text-himsiMaroon transition">Beranda</a>
-                <a href="#aplikasi" class="text-himsiMaroon font-bold transition">Aplikasi & Layanan</a>
+                <a href="#layanan" class="text-himsiMaroon font-bold transition">Layanan Digital</a>
                 <a href="#karya" class="hover:text-himsiMaroon transition">Karya Mahasiswa</a>
                 <a href="#tentang" class="hover:text-himsiMaroon transition">Tentang Kami</a>
             </nav>
 
-            <!-- Tombol Direct Link Photobooth -->
-            <div>
-                <a href="photobooth/" class="bg-himsiMaroon text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow hover:bg-opacity-90 transition flex items-center gap-2">
-                    <span>📸</span> Buka Photobooth
-                </a>
-            </div>
         </div>
     </header>
 
@@ -89,11 +83,11 @@
             </h1>
 
             <p class="text-slate-200 text-base md:text-xl font-light max-w-3xl mx-auto mb-10 leading-relaxed">
-                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang — Kabinet Genesis. Wadah inovasi, portofolio karya, dan layanan digital himpunan.
+                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang — Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
             </p>
 
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#aplikasi" class="bg-white text-himsiMaroon px-8 py-3.5 rounded-lg font-bold text-sm shadow-xl hover:bg-himsiCream transition transform hover:-translate-y-0.5">
+                <a href="#layanan" class="bg-white text-himsiMaroon px-8 py-3.5 rounded-lg font-bold text-sm shadow-xl hover:bg-himsiCream transition transform hover:-translate-y-0.5">
                     Jelajahi Layanan Digital
                 </a>
                 <a href="#karya" class="border-2 border-white/80 text-white px-8 py-3.5 rounded-lg font-bold text-sm hover:bg-white hover:text-himsiMaroon transition transform hover:-translate-y-0.5">
@@ -103,35 +97,19 @@
         </div>
     </section>
 
-    <!-- PORTAL DIRECT LINK / APLIKASI DIGITAL -->
-    <section id="aplikasi" class="py-20 px-6 max-w-7xl mx-auto">
+    <!-- PORTAL LAYANAN & APLIKASI DIGITAL -->
+    <section id="layanan" class="py-20 px-6 max-w-7xl mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Direct Hub Access</span>
             <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Layanan & Aplikasi Digital</h2>
             <p class="text-slate-600 text-sm">
-                Akses instan platform digital resmi HIMSI UNIS.
+                Akses instan seluruh platform digital resmi HIMSI UNIS Tangerang.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- CARD 1: PHOTOBOOTH PKKMB -->
-            <div class="bg-white rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
-                <div>
-                    <div class="w-14 h-14 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-himsiMaroon group-hover:text-white transition">
-                        📸
-                    </div>
-                    <span class="text-xs font-bold text-himsiGold uppercase tracking-wider block mb-1">Aplikasi Publik</span>
-                    <h3 class="serif-title text-xl font-bold text-slate-900 mb-3">Photobooth PKKMB 2026</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                        Abadikan momen seru dengan frame eksklusif Kabinet Genesis. Dilengkapi auto-send email softfile dan QR Code scanner.
-                    </p>
-                </div>
-                <a href="photobooth/" class="inline-flex items-center justify-center w-full bg-himsiMaroon text-white font-bold text-sm py-3.5 rounded-xl hover:bg-opacity-90 transition shadow-sm">
-                    Buka Aplikasi Photobooth &rarr;
-                </a>
-            </div>
-
-            <!-- CARD 2: PROFIL KABINET GENESIS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            
+            <!-- CARD 1: PROFIL KABINET GENESIS -->
             <div class="bg-white rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
                 <div>
                     <div class="w-14 h-14 bg-amber-50 text-amber-700 rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-himsiMaroon group-hover:text-white transition">
@@ -140,7 +118,7 @@
                     <span class="text-xs font-bold text-himsiMaroon uppercase tracking-wider block mb-1">Profil Organisasi</span>
                     <h3 class="serif-title text-xl font-bold text-slate-900 mb-3">Kabinet Genesis</h3>
                     <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                        Mengenal lebih dekat visi, misi, divisi, dan pengurus Himpunan Mahasiswa Sistem Informasi UNIS Tangerang.
+                        Mengenal lebih dekat visi, misi, divisi, dan pengurus Himpunan Mahasiswa Sistem Informasi UNIS Tangerang periode 2026.
                     </p>
                 </div>
                 <a href="#tentang" class="inline-flex items-center justify-center w-full bg-slate-900 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-slate-800 transition shadow-sm">
@@ -148,7 +126,7 @@
                 </a>
             </div>
 
-            <!-- CARD 3: RESOURCE CENTER SI -->
+            <!-- CARD 2: RESOURCE CENTER SI -->
             <div class="bg-white rounded-2xl border border-slate-200 shadow-md p-8 flex flex-col justify-between opacity-80">
                 <div>
                     <div class="w-14 h-14 bg-slate-100 text-slate-400 rounded-xl flex items-center justify-center text-3xl font-bold mb-6">
@@ -164,61 +142,75 @@
                     Segera Hadir
                 </button>
             </div>
+
         </div>
     </section>
 
-    <!-- SECTION SHOWCASE KARYA MAHASISWA -->
+    <!-- SECTION SHOWCASE KARYA MAHASISWA (TERMASUK PHOTOBOOTH & PAHRI BROS) -->
     <section id="karya" class="py-20 bg-slate-100/70 border-t border-slate-200 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Student Showcase</span>
                 <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Karya & Inovasi Mahasiswa</h2>
                 <p class="text-slate-600 text-sm">
-                    Apresiasi hasil karya buatan mahasiswa Sistem Informasi UNIS Tangerang.
+                    Apresiasi dan portofolio hasil karya buatan mahasiswa Sistem Informasi UNIS Tangerang.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- KARYA 1: PAHRI BROS GAME -->
-                <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col justify-between">
+                
+                <!-- KARYA 1: PHOTOBOOTH PKKMB 2026 -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
                     <div>
-                        <div class="bg-slate-900 h-48 flex items-center justify-center relative overflow-hidden group">
-                            <span class="text-6xl group-hover:scale-110 transition transform">🎮</span>
+                        <div class="w-14 h-14 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-himsiMaroon group-hover:text-white transition">
+                            📸
+                        </div>
+                        <span class="text-xs font-bold text-himsiGold uppercase tracking-wider block mb-1">Web Application</span>
+                        <h3 class="serif-title text-xl font-bold text-slate-900 mb-2">Photobooth PKKMB 2026</h3>
+                        <p class="text-xs text-himsiMaroon font-semibold mb-3">Oleh: Mahasiswa SI UNIS</p>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Abadikan momen seru dengan frame eksklusif Kabinet Genesis. Dilengkapi auto-send email softfile dan QR Code scanner.
+                        </p>
+                    </div>
+                    <a href="photobooth/" class="inline-flex items-center justify-center w-full bg-himsiMaroon text-white font-bold text-sm py-3.5 rounded-xl hover:bg-opacity-90 transition shadow-sm">
+                        Buka Aplikasi Photobooth &rarr;
+                    </a>
+                </div>
+
+                <!-- KARYA 2: PAHRI BROS GAME -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                    <div>
+                        <div class="bg-slate-900 h-32 flex items-center justify-center relative overflow-hidden">
+                            <span class="text-5xl group-hover:scale-110 transition transform">🎮</span>
                             <span class="absolute top-3 right-3 bg-himsiGold text-slate-900 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Game Dev</span>
                         </div>
                         <div class="p-6">
                             <h3 class="serif-title text-xl font-bold text-slate-900 mb-1">Pahri Bros</h3>
                             <p class="text-xs text-himsiMaroon font-semibold mb-3">Oleh: Mahasiswa SI UNIS</p>
                             <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                                Game retro 2D platformer bertema petualangan yang dibangun menggunakan teknologi HTML5 & JavaScript.
+                                Game retro 2D platformer bertema petualangan yang dibangun menggunakan teknologi HTML5 & JavaScript dengan efek suara chiptune.
                             </p>
                         </div>
                     </div>
                     <div class="p-6 pt-0">
-                        <button onclick="bukaGameModal('karya/pahri-bros/')" class="w-full bg-himsiMaroon text-white font-bold text-sm py-3 rounded-xl hover:bg-opacity-90 transition flex items-center justify-center gap-2">
+                        <button onclick="bukaGameModal('karya/pahri-bros/')" class="w-full bg-himsiMaroon text-white font-bold text-sm py-3.5 rounded-xl hover:bg-opacity-90 transition flex items-center justify-center gap-2 shadow-sm">
                             <span>▶️</span> Mainkan Game Sekarang
                         </button>
                     </div>
                 </div>
 
-                <!-- PLACEHOLDER KARYA 2 -->
-                <div class="bg-white rounded-2xl border border-slate-200 shadow-md p-6 flex flex-col justify-center items-center text-center opacity-60">
-                    <span class="text-4xl mb-3">💻</span>
-                    <h3 class="serif-title font-bold text-slate-700">Project Selanjutnya</h3>
-                    <p class="text-xs text-slate-500 mt-1">Karya mahasiswa SI berikutnya akan ditampilkan di sini.</p>
-                </div>
-
-                <!-- PLACEHOLDER KARYA 3 -->
+                <!-- KARYA 3: PLACEHOLDER -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-md p-6 flex flex-col justify-center items-center text-center opacity-60">
                     <span class="text-4xl mb-3">🚀</span>
                     <h3 class="serif-title font-bold text-slate-700">Project Selanjutnya</h3>
                     <p class="text-xs text-slate-500 mt-1">Karya mahasiswa SI berikutnya akan ditampilkan di sini.</p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- SECTION TENTANG -->
+    <!-- SECTION TENTANG KABINET GENESIS -->
     <section id="tentang" class="bg-white py-20 border-y border-slate-200 px-6">
         <div class="max-w-4xl mx-auto text-center">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">HIMSI UNIS Tangerang</span>
