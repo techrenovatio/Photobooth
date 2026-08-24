@@ -45,32 +45,35 @@
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white">
 
-    <!-- HEADER / NAVIGATION (TANPA TOMBOL PHOTOBOOTH POJOK KANAN) -->
+    <!-- HEADER / NAVIGATION (PERBESAR LOGO & SIMETRIS CENTER NAVIGATION) -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-8 h-24 flex items-center justify-between">
             
-            <!-- Brand & Logo -->
-            <a href="#" class="flex items-center space-x-3 group">
-                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-12 h-12 object-contain group-hover:scale-105 transition transform">
+            <!-- Brand & Logo (Logo Diperbesar dari 12 ke 16/w-16 h-16) -->
+            <a href="#" class="flex items-center space-x-4 group">
+                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-14 h-14 md:w-16 md:h-16 object-contain group-hover:scale-105 transition transform">
                 <div>
-                    <span class="serif-title font-bold text-xl tracking-tight text-himsiMaroon block leading-none">HIMSI UNIS</span>
-                    <span class="text-[10px] text-slate-500 font-semibold tracking-widest uppercase mt-1 block">Kabinet Genesis</span>
+                    <span class="serif-title font-bold text-2xl tracking-tight text-himsiMaroon block leading-none">HIMSI UNIS</span>
+                    <span class="text-[11px] text-slate-500 font-semibold tracking-widest uppercase mt-1 block">Kabinet Genesis</span>
                 </div>
             </a>
 
-            <!-- Menu Navigasi -->
-            <nav class="flex items-center space-x-8 text-sm font-semibold text-slate-700">
-                <a href="#beranda" class="hover:text-himsiMaroon transition">Beranda</a>
-                <a href="#layanan" class="text-himsiMaroon font-bold transition">Layanan Digital</a>
-                <a href="#karya" class="hover:text-himsiMaroon transition">Karya Mahasiswa</a>
-                <a href="#tentang" class="hover:text-himsiMaroon transition">Tentang Kami</a>
+            <!-- Menu Navigasi (Center & Presisi) -->
+            <nav class="hidden md:flex items-center space-x-10 text-base font-semibold text-slate-700">
+                <a href="#beranda" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Beranda</a>
+                <a href="#layanan" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Layanan Digital</a>
+                <a href="#karya" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Karya Mahasiswa</a>
+                <a href="#tentang" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Tentang Kami</a>
             </nav>
+
+            <!-- Spacer Kanan Agar Logo & Navigasi Terbagi Secara Presisi -->
+            <div class="hidden md:block w-36"></div>
 
         </div>
     </header>
 
     <!-- HERO SECTION -->
-    <section id="beranda" class="relative bg-himsiMaroon text-white py-24 px-6 overflow-hidden">
+    <section id="beranda" class="relative bg-himsiMaroon text-white py-28 px-6 overflow-hidden">
         <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]"></div>
 
         <div class="max-w-5xl mx-auto relative z-10 text-center">
@@ -146,7 +149,7 @@
         </div>
     </section>
 
-    <!-- SECTION SHOWCASE KARYA MAHASISWA (TERMASUK PHOTOBOOTH & PAHRI BROS) -->
+    <!-- SECTION SHOWCASE KARYA MAHASISWA -->
     <section id="karya" class="py-20 bg-slate-100/70 border-t border-slate-200 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
@@ -244,8 +247,8 @@
     <!-- FOOTER -->
     <footer id="kontak" class="bg-darkNavy text-white py-12 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center space-x-3">
-                <img src="Logohimsi.png" alt="Logo Footer" class="w-10 h-10 object-contain">
+            <div class="flex items-center space-x-4">
+                <img src="Logohimsi.png" alt="Logo Footer" class="w-12 h-12 object-contain">
                 <div>
                     <h3 class="serif-title text-base font-bold text-white">HIMSI UNIS Tangerang</h3>
                     <p class="text-slate-400 text-xs">Himpunan Mahasiswa Sistem Informasi — Kabinet Genesis</p>
