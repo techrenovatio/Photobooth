@@ -50,12 +50,12 @@
         <img src="Logohimsi.png" alt="HIMSI Giant Watermark" class="w-[110vw] max-w-[1100px] h-auto opacity-[0.12] select-none transform scale-105">
     </div>
 
-    <!-- HEADER / NAVIGATION (LOGO ULTRA BESAR 15X) -->
+    <!-- HEADER / NAVIGATION (LINK LOGO DIRECT KE #tentang) -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-4">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
             
-            <a href="#" class="flex items-center space-x-5 md:space-x-8 group">
-                <!-- LOGO DIBUAT ULTRA BESAR (15X DARI AWAL) -->
+            <!-- DIRECT KE SECTION TENTANG KABINET GENESIS -->
+            <a href="#tentang" class="flex items-center space-x-5 md:space-x-8 group">
                 <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 object-contain group-hover:scale-105 transition transform drop-shadow-md">
                 <div class="border-l-4 border-himsiMaroon pl-4 md:pl-6 py-2">
                     <span class="serif-title font-bold text-2xl sm:text-3xl md:text-5xl tracking-tight text-himsiMaroon block leading-tight">HIMSI UNIS</span>
