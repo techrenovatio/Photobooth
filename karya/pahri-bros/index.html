@@ -14,8 +14,8 @@
         }
 
         html, body {
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background-color: #030712;
             color: #ffffff;
             font-family: 'Courier New', Courier, monospace;
@@ -25,81 +25,114 @@
             overflow: hidden;
         }
 
-        /* CONTAINER MENJAGA PROPORSI CANVAS LANDSCAPE 16:9 DENGAN SKALA PAS */
-        #game-container {
+        /* DYNAMIC RESPONSIVE CANVAS CONTAINER DENGAN RASIO PRESISI */
+        #game-wrapper {
             position: relative;
-            width: min(100vw, 177.78vh);
-            height: min(100vh, 56.25vw);
-            max-width: 100%;
-            max-height: 100%;
-            background: linear-gradient(to bottom, #070e26, #0a1b42);
-            border: 2px solid #38bdf8;
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+            width: 100vw;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            background: #030712;
+        }
+
+        #canvas-box {
+            position: relative;
+            width: min(100vw, 177.78vh);
+            height: min(100vh, 56.25vw);
+            background: linear-gradient(to bottom, #070e26, #0a1b42);
+            border: 3px solid #38bdf8;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
             border-radius: 8px;
+            overflow: hidden;
         }
 
         canvas {
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: contain;
             image-rendering: pixelated;
         }
 
+        /* OVERLAY UI MENU DIBUAT DENGAN UKURAN PROPORSIONAL & LEGA */
         .overlay-screen {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(7, 14, 38, 0.92);
+            inset: 0;
+            background: rgba(7, 14, 38, 0.94);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 10;
-            padding: 15px;
+            z-index: 20;
+            padding: 20px;
         }
 
         .hidden { display: none !important; }
 
         .pixel-title {
-            font-size: clamp(22px, 4vw, 36px);
+            font-size: clamp(28px, 6vw, 54px);
             font-weight: 900;
             color: #ec4899;
-            text-shadow: 3px 3px 0px #38bdf8;
-            margin-bottom: 20px;
+            text-shadow: 4px 4px 0px #38bdf8;
+            margin-bottom: 25px;
             text-align: center;
+            letter-spacing: 2px;
         }
 
         .btn-pixel {
             background: linear-gradient(135deg, #0ea5e9, #2563eb);
             color: white;
-            border: 2px solid #38bdf8;
-            padding: 10px 24px;
+            border: 3px solid #38bdf8;
+            padding: 14px 32px;
             font-family: inherit;
-            font-size: 15px;
+            font-size: clamp(14px, 2.5vw, 20px);
             font-weight: bold;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
-            margin: 6px;
-            width: 200px;
+            margin: 8px;
+            width: min(320px, 80vw);
             text-align: center;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+            transition: all 0.2s ease;
         }
 
+        .btn-pixel:hover {
+            transform: translateY(-2px) scale(1.03);
+            background: linear-gradient(135deg, #38bdf8, #1d4ed8);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
+        }
+
+        input[type="text"] {
+            padding: 14px 20px;
+            border-radius: 8px;
+            border: 3px solid #38bdf8;
+            background: #0f172a;
+            color: white;
+            font-family: inherit;
+            font-size: clamp(14px, 2.5vw, 18px);
+            font-weight: bold;
+            margin-bottom: 15px;
+            width: min(320px, 80vw);
+            text-align: center;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #ec4899;
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
+        }
+
+        /* TOUCH CONTROLS FOR MOBILE DEVICE ONLY */
         #touch-controls {
             position: absolute;
-            bottom: 15px;
+            bottom: 20px;
             left: 0;
             right: 0;
             display: flex;
             justify-content: space-between;
-            padding: 0 20px;
-            z-index: 5;
+            padding: 0 25px;
+            z-index: 10;
             pointer-events: none;
         }
 
@@ -111,18 +144,18 @@
 
         .touch-group {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             pointer-events: auto;
         }
 
         .touch-btn {
-            width: 48px;
-            height: 48px;
-            background: rgba(56, 189, 248, 0.35);
+            width: 55px;
+            height: 55px;
+            background: rgba(56, 189, 248, 0.4);
             border: 2px solid #38bdf8;
             border-radius: 50%;
             color: white;
-            font-size: 18px;
+            font-size: 22px;
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -132,55 +165,87 @@
         }
 
         .touch-btn:active {
-            background: rgba(56, 189, 248, 0.8);
-            transform: scale(0.95);
+            background: rgba(56, 189, 248, 0.85);
+            transform: scale(0.92);
         }
 
-        .save-list { width: 90%; max-width: 380px; max-height: 180px; overflow-y: auto; margin-bottom: 12px; }
-        .save-item { background: rgba(15, 23, 42, 0.8); border: 1px solid #38bdf8; border-radius: 6px; padding: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
-        .save-info { font-size: 12px; color: #38bdf8; }
-        .save-actions button { padding: 4px 8px; font-size: 10px; border-radius: 4px; border: none; font-weight: bold; }
-        .btn-play { background: #22c55e; color: white; }
-        input[type="text"] { padding: 8px; border-radius: 6px; border: 2px solid #38bdf8; background: #0f172a; color: white; font-size: 13px; margin-bottom: 10px; width: 200px; text-align: center; }
+        .save-list {
+            width: min(420px, 85vw);
+            max-height: 220px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+        }
+
+        .save-item {
+            background: rgba(15, 23, 42, 0.9);
+            border: 2px solid #38bdf8;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .save-info {
+            font-size: 13px;
+            color: #38bdf8;
+            text-align: left;
+        }
+
+        .btn-play {
+            background: #22c55e;
+            color: white;
+            padding: 8px 16px;
+            font-size: 12px;
+            border-radius: 6px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-    <div id="game-container">
-        <canvas id="gameCanvas" width="800" height="450"></canvas>
+    <div id="game-wrapper">
+        <div id="canvas-box">
+            <canvas id="gameCanvas" width="800" height="450"></canvas>
 
-        <div id="touch-controls">
-            <div class="touch-group">
-                <button class="touch-btn" id="btnLeft">◀</button>
-                <button class="touch-btn" id="btnRight">▶</button>
+            <!-- CONTROLS FOR TOUCH SCREEN -->
+            <div id="touch-controls">
+                <div class="touch-group">
+                    <button class="touch-btn" id="btnLeft">◀</button>
+                    <button class="touch-btn" id="btnRight">▶</button>
+                </div>
+                <div class="touch-group">
+                    <button class="touch-btn" id="btnJump" style="background: rgba(236, 72, 153, 0.45); border-color:#ec4899;">▲</button>
+                </div>
             </div>
-            <div class="touch-group">
-                <button class="touch-btn" id="btnJump" style="background: rgba(236, 72, 153, 0.45); border-color:#ec4899;">▲</button>
+
+            <!-- OVERLAY UI MENU SYSTEM -->
+            <div id="mainMenu" class="overlay-screen">
+                <h1 class="pixel-title">PAHRI BROS.</h1>
+                <button class="btn-pixel" onclick="showNewGameScreen()">NEW GAME</button>
+                <button class="btn-pixel" onclick="showLoadGameScreen()">LOAD GAME</button>
             </div>
-        </div>
 
-        <div id="mainMenu" class="overlay-screen">
-            <h1 class="pixel-title">PAHRI BROS.</h1>
-            <button class="btn-pixel" onclick="showNewGameScreen()">NEW GAME</button>
-            <button class="btn-pixel" onclick="showLoadGameScreen()">LOAD GAME</button>
-        </div>
+            <div id="newGameScreen" class="overlay-screen hidden">
+                <h2 class="pixel-title" style="font-size:clamp(20px, 4vw, 32px);">MASUKKAN NAMA</h2>
+                <input type="text" id="playerNameInput" placeholder="Nama Pemain..." maxlength="10">
+                <button class="btn-pixel" onclick="startNewGame()">MULAI MAIN</button>
+                <button class="btn-pixel" style="background:#64748b; border-color:#94a3b8;" onclick="showMainMenu()">KEMBALI</button>
+            </div>
 
-        <div id="newGameScreen" class="overlay-screen hidden">
-            <h2 class="pixel-title" style="font-size:20px;">MASUKKAN NAMA</h2>
-            <input type="text" id="playerNameInput" placeholder="Nama Pemain..." maxlength="10">
-            <button class="btn-pixel" onclick="startNewGame()">MULAI MAIN</button>
-            <button class="btn-pixel" style="background:#64748b;" onclick="showMainMenu()">KEMBALI</button>
-        </div>
+            <div id="loadGameScreen" class="overlay-screen hidden">
+                <h2 class="pixel-title" style="font-size:clamp(20px, 4vw, 32px); margin-bottom:15px;">PILIH SAVE GAME</h2>
+                <div id="saveList" class="save-list"></div>
+                <button class="btn-pixel" style="background:#64748b; border-color:#94a3b8;" onclick="showMainMenu()">KEMBALI</button>
+            </div>
 
-        <div id="loadGameScreen" class="overlay-screen hidden">
-            <h2 class="pixel-title" style="font-size:20px; margin-bottom:10px;">PILIH SAVE GAME</h2>
-            <div id="saveList" class="save-list"></div>
-            <button class="btn-pixel" style="background:#64748b;" onclick="showMainMenu()">KEMBALI</button>
-        </div>
-
-        <div id="levelTransitionScreen" class="overlay-screen hidden">
-            <h1 id="transLevelTitle" class="pixel-title" style="color:#38bdf8;">LEVEL 1</h1>
-            <p id="transLivesText" style="font-size:16px; color:#38bdf8; font-weight:bold;">NYAWA x 10</p>
+            <div id="levelTransitionScreen" class="overlay-screen hidden">
+                <h1 id="transLevelTitle" class="pixel-title" style="color:#38bdf8;">LEVEL 1</h1>
+                <p id="transLivesText" style="font-size:clamp(16px, 3vw, 24px); color:#38bdf8; font-weight:bold;">NYAWA x 10</p>
+            </div>
         </div>
     </div>
 
@@ -341,13 +406,10 @@
                 e.x += e.vx;
                 if (e.x <= e.minX || e.x >= e.maxX) e.vx *= -1;
 
-                // Cek Tabrakan Pemain vs Musuh
                 if (player.x < e.x + e.w && player.x + player.width > e.x && player.y < e.y + e.h && player.y + player.height > e.y) {
-                    // Lompat injak musuh dari atas
                     if (player.vy > 0 && player.y + player.height - player.vy <= e.y + 10) {
                         e.alive = false; player.vy = -8; score += 200; playSound('coin');
                     } else {
-                        // Kena musuh dari samping
                         playSound('hit');
                         lives--;
                         triggerLevelStart(currentLevelNum);
@@ -355,7 +417,6 @@
                 }
             });
 
-            // Jatuh ke jurang
             if (player.y > 480) { playSound('hit'); lives--; triggerLevelStart(currentLevelNum); }
         }
 
@@ -372,29 +433,28 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.save(); ctx.translate(-cameraX, 0);
 
-            // Gambar Platform
+            // Platform
             platforms.forEach(p => { ctx.fillStyle = "#0284c7"; ctx.fillRect(p.x, p.y, p.w, p.h); });
 
-            // Gambar Duri
+            // Spikes
             spikes.forEach(s => { ctx.fillStyle = "#ef4444"; ctx.fillRect(s.x, s.y, s.w, s.h); });
 
-            // Gambar Ikan
+            // Ikan
             fishes.forEach(f => {
                 if (!f.collected) {
                     ctx.fillStyle = "#38bdf8"; ctx.beginPath(); ctx.arc(f.x, f.y, 7, 0, Math.PI * 2); ctx.fill();
                 }
             });
 
-            // Gambar Musuh (Kotak Merah)
+            // Musuh (Kotak Merah)
             enemies.forEach(e => {
                 if (e.alive) {
                     ctx.fillStyle = "#ec4899"; ctx.fillRect(e.x, e.y, e.w, e.h);
-                    // Mata Musuh
                     ctx.fillStyle = "#ffffff"; ctx.fillRect(e.x + 4, e.y + 5, 4, 4); ctx.fillRect(e.x + 14, e.y + 5, 4, 4);
                 }
             });
 
-            // Gambar Pemain (Karakter Putih)
+            // Pemain (Putih)
             ctx.fillStyle = "#ffffff"; ctx.fillRect(player.x, player.y, player.width, player.height);
 
             ctx.restore();
