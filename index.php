@@ -258,9 +258,9 @@
         </div>
     </footer>
 
-    <!-- MODAL EMBED GAME (SUPER LEBAR UNTUK DESKTOP LAPTOP) -->
-    <div id="gameModal" class="fixed inset-0 bg-black/85 z-50 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
-        <div class="bg-slate-900 rounded-2xl overflow-hidden w-[96vw] max-w-[1500px] h-[88vh] shadow-2xl border border-slate-700 flex flex-col justify-between">
+    <!-- MODAL EMBED GAME LEBAR & PRESISI -->
+    <div id="gameModal" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
+        <div class="bg-slate-900 rounded-2xl overflow-hidden w-[96vw] max-w-7xl h-[88vh] shadow-2xl border border-slate-700 flex flex-col justify-between">
             
             <!-- HEADER MODAL -->
             <div class="p-3 sm:p-4 bg-slate-800 flex justify-between items-center border-b border-slate-700 shrink-0">
@@ -276,8 +276,8 @@
                 </div>
             </div>
 
-            <!-- CONTAINER IFRAME GAME -->
-            <div class="relative w-full h-full bg-black flex items-center justify-center overflow-hidden grow p-2">
+            <!-- CONTAINER IFRAME GAME FULL CONTAINER -->
+            <div class="relative w-full h-full bg-slate-950 flex items-center justify-center overflow-hidden grow p-0">
                 <iframe id="gameIframe" src="" class="w-full h-full border-0"></iframe>
             </div>
 
