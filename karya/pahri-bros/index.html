@@ -25,7 +25,6 @@
             overflow: hidden;
         }
 
-        /* CONTAINER UTAMA DIBUAT VERTIKAL PADA LAYAR HP */
         #game-wrapper {
             position: relative;
             width: 100vw;
@@ -38,7 +37,6 @@
             padding: 10px;
         }
 
-        /* BOX CANVAS GAME BERSIH DARI TOMBOL */
         #canvas-box {
             position: relative;
             width: min(100vw, 177.78vh);
@@ -59,7 +57,6 @@
             image-rendering: pixelated;
         }
 
-        /* AREA KONTROL D-PAD DI LUAR CANVAS (DI BAGIAN BAWAH) */
         #touch-controls-external {
             width: 100%;
             max-width: 500px;
@@ -73,7 +70,7 @@
 
         @media (min-width: 1024px) {
             #touch-controls-external {
-                display: none; /* Sembunyikan D-Pad di laptop/PC */
+                display: none !important;
             }
         }
 
@@ -106,7 +103,6 @@
             transform: scale(0.92);
         }
 
-        /* OVERLAY MENU RESPONSIF */
         .overlay-screen {
             position: absolute;
             inset: 0;
@@ -160,7 +156,7 @@
         }
 
         .save-list { width: 90%; max-width: 320px; max-height: 140px; overflow-y: auto; margin-bottom: 10px; }
-        .save-item { background: rgba(15, 23, 42, 0.9); border: 1.5px solid #38bdf8; border-radius: 6px; padding: 8px; margin-bottom: 6px; display: flex; justify-content: space-between; items-center; }
+        .save-item { background: rgba(15, 23, 42, 0.9); border: 1.5px solid #38bdf8; border-radius: 6px; padding: 8px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; }
         .save-info { font-size: 11px; color: #38bdf8; text-align: left; }
         .btn-play { background: #22c55e; color: white; padding: 5px 10px; font-size: 10px; border-radius: 4px; border: none; font-weight: bold; cursor: pointer; }
     </style>
@@ -168,11 +164,9 @@
 <body>
 
     <div id="game-wrapper">
-        <!-- GAME CANVAS (BERSIH TANPA TOMBOL DI DALAMNYA) -->
         <div id="canvas-box">
             <canvas id="gameCanvas" width="800" height="450"></canvas>
 
-            <!-- OVERLAY MENU -->
             <div id="mainMenu" class="overlay-screen">
                 <h1 class="pixel-title">PAHRI BROS.</h1>
                 <button class="btn-pixel" onclick="showNewGameScreen()">NEW GAME</button>
@@ -198,8 +192,8 @@
             </div>
         </div>
 
-        <!-- D-PAD SEKARANG BERADA DI LUAR CANVAS (DI AREA BAWAH) -->
-        <div id="touch-controls-external">
+        <!-- D-PAD SECARA DEFAULT HIDDEN DAN HANYA MUNCUL SAAT BERMAIN -->
+        <div id="touch-controls-external" class="hidden">
             <div class="touch-group">
                 <button class="touch-btn" id="btnLeft">◀</button>
                 <button class="touch-btn" id="btnRight">▶</button>
@@ -291,6 +285,7 @@
         const btnLeft = document.getElementById("btnLeft");
         const btnRight = document.getElementById("btnRight");
         const btnJump = document.getElementById("btnJump");
+        const touchControls = document.getElementById("touch-controls-external");
 
         const bindTouch = (elem, keyName) => {
             elem.addEventListener("touchstart", (e) => { e.preventDefault(); initAudio(); keys[keyName] = true; if(keyName === 'up' && gameState === 'PLAYING' && player.grounded) { player.vy = -player.jumpStrength; player.grounded = false; playSound('jump'); } });
@@ -320,7 +315,8 @@
             if (e.code === "ArrowUp" || e.code === "KeyW" || e.code === "Space") keys.up = false;
         });
 
-        const player = { x: 50, y: 300, width: 24, height: 32, vx: 0, vy: 0, speed: 3.8, jumpStrength: 10.5, gravity: 0.5, grounded: false };
+        // FISIKA DISESUAIKAN: KECAPATAN 5.2, GRAVITASI 0.8, JUMP STRENGTH 12.5
+        const player = { x: 50, y: 300, width: 24, height: 32, vx: 0, vy: 0, speed: 5.2, jumpStrength: 12.5, gravity: 0.8, grounded: false };
         let platforms = [], fishes = [], enemies = [], spikes = [];
 
         function loadLevel(levelNum) {
@@ -336,15 +332,29 @@
                 spikes.push({ x: 600, y: 430, w: 80, h: 20 });
                 fishes.push({ x: 200, y: 260, collected: false }, { x: 240, y: 260, collected: false }, { x: 380, y: 200, collected: false });
                 enemies.push(
-                    { x: 300, y: 356, w: 24, h: 24, vx: -1.5, minX: 100, maxX: 550, alive: true },
-                    { x: 800, y: 356, w: 24, h: 24, vx: -2, minX: 700, maxX: 1200, alive: true }
+                    { x: 300, y: 356, w: 24, h: 24, vx: -2, minX: 100, maxX: 550, alive: true },
+                    { x: 800, y: 356, w: 24, h: 24, vx: -2.5, minX: 700, maxX: 1200, alive: true }
                 );
             }
         }
 
-        function showMainMenu() { document.getElementById("mainMenu").classList.remove("hidden"); document.getElementById("newGameScreen").classList.add("hidden"); document.getElementById("loadGameScreen").classList.add("hidden"); }
-        function showNewGameScreen() { document.getElementById("mainMenu").classList.add("hidden"); document.getElementById("newGameScreen").classList.remove("hidden"); }
-        function showLoadGameScreen() { document.getElementById("mainMenu").classList.add("hidden"); document.getElementById("loadGameScreen").classList.remove("hidden"); renderSaveSlots(); }
+        function showMainMenu() {
+            touchControls.classList.add("hidden");
+            document.getElementById("mainMenu").classList.remove("hidden");
+            document.getElementById("newGameScreen").classList.add("hidden");
+            document.getElementById("loadGameScreen").classList.add("hidden");
+        }
+        function showNewGameScreen() {
+            touchControls.classList.add("hidden");
+            document.getElementById("mainMenu").classList.add("hidden");
+            document.getElementById("newGameScreen").classList.remove("hidden");
+        }
+        function showLoadGameScreen() {
+            touchControls.classList.add("hidden");
+            document.getElementById("mainMenu").classList.add("hidden");
+            document.getElementById("loadGameScreen").classList.remove("hidden");
+            renderSaveSlots();
+        }
 
         function startNewGame() {
             initAudio();
@@ -355,12 +365,18 @@
         }
 
         function triggerLevelStart(lvlNum) {
-            gameState = "LEVEL_TRANSITION"; loadLevel(lvlNum);
+            gameState = "LEVEL_TRANSITION";
+            touchControls.classList.add("hidden");
+            loadLevel(lvlNum);
             const transScreen = document.getElementById("levelTransitionScreen");
             document.getElementById("transLevelTitle").textContent = `LEVEL ${lvlNum}`;
             document.getElementById("transLivesText").textContent = `NYAWA x ${lives}`;
             transScreen.classList.remove("hidden");
-            setTimeout(() => { transScreen.classList.add("hidden"); gameState = "PLAYING"; }, 1800);
+            setTimeout(() => {
+                transScreen.classList.add("hidden");
+                gameState = "PLAYING";
+                touchControls.classList.remove("hidden"); // TAMPILKAN TOMBOL SAAT GAMEPLAY DIMULAI
+            }, 1800);
         }
 
         function renderSaveSlots() {
@@ -403,7 +419,7 @@
 
                 if (player.x < e.x + e.w && player.x + player.width > e.x && player.y < e.y + e.h && player.y + player.height > e.y) {
                     if (player.vy > 0 && player.y + player.height - player.vy <= e.y + 10) {
-                        e.alive = false; player.vy = -8; score += 200; playSound('coin');
+                        e.alive = false; player.vy = -10; score += 200; playSound('coin');
                     } else {
                         playSound('hit');
                         lives--;
