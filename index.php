@@ -45,13 +45,6 @@
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen">
 
-    <!-- =========================================================
-         GLOBAL FULLPAGE WATERMARK LOGO SANGAT BESAR & JELAS
-    ========================================================= -->
-    <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
-        <img src="Logohimsi.png" alt="HIMSI Giant Watermark" class="w-[110vw] max-w-[1200px] h-auto opacity-[0.12] select-none transform scale-110">
-    </div>
-
     <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
@@ -78,11 +71,16 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="beranda" class="relative bg-himsiMaroon/95 text-white py-32 px-6 overflow-hidden z-10 border-b border-white/10">
+    <!-- HERO SECTION (DIBUAT TRANSLUCENT UNTUK MEMPERLIHATKAN WATERMARK) -->
+    <section id="beranda" class="relative bg-himsiMaroon text-white py-32 px-6 overflow-hidden z-10 border-b border-white/10">
         
         <!-- Grid Pattern Overlay -->
         <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
+
+        <!-- WATERMARK KHUSUS BAGIAN HERO (WARNA PUTIH TRANSPARAN AGAR TERLIHAT DI LATAR MAROON) -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
+            <img src="Logohimsi.png" alt="Hero Watermark" class="w-[110vw] max-w-[1200px] h-auto opacity-[0.15] filter brightness-200 invert-0 select-none transform scale-110">
+        </div>
 
         <div class="max-w-5xl mx-auto relative z-10 text-center">
             <span class="text-himsiGold font-bold tracking-widest text-xs uppercase bg-white/10 px-4 py-1.5 rounded-full inline-block mb-6 border border-white/10 backdrop-blur-sm">
@@ -107,6 +105,11 @@
             </div>
         </div>
     </section>
+
+    <!-- GLOBAL WATERMARK UNTUK BAGIAN BAWAH (BACKGROUND TERANG) -->
+    <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
+        <img src="Logohimsi.png" alt="HIMSI Giant Watermark" class="w-[110vw] max-w-[1200px] h-auto opacity-[0.12] select-none transform scale-110">
+    </div>
 
     <!-- PORTAL LAYANAN & APLIKASI DIGITAL -->
     <section id="layanan" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
