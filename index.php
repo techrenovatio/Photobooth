@@ -62,8 +62,8 @@
             <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-700">
                 <a href="#beranda" class="hover:text-himsiMaroon transition">Beranda</a>
                 <a href="#aplikasi" class="text-himsiMaroon font-bold transition">Aplikasi & Layanan</a>
+                <a href="#karya" class="hover:text-himsiMaroon transition">Karya Mahasiswa</a>
                 <a href="#tentang" class="hover:text-himsiMaroon transition">Tentang Kami</a>
-                <a href="#kontak" class="hover:text-himsiMaroon transition">Kontak</a>
             </nav>
 
             <!-- Tombol Direct Link Photobooth -->
@@ -89,15 +89,15 @@
             </h1>
 
             <p class="text-slate-200 text-base md:text-xl font-light max-w-3xl mx-auto mb-10 leading-relaxed">
-                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang - Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
+                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang — Kabinet Genesis. Wadah inovasi, portofolio karya, dan layanan digital himpunan.
             </p>
 
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#aplikasi" class="bg-white text-himsiMaroon px-8 py-3.5 rounded-lg font-bold text-sm shadow-xl hover:bg-himsiCream transition transform hover:-translate-y-0.5">
                     Jelajahi Layanan Digital
                 </a>
-                <a href="photobooth/" class="border-2 border-white/80 text-white px-8 py-3.5 rounded-lg font-bold text-sm hover:bg-white hover:text-himsiMaroon transition transform hover:-translate-y-0.5">
-                    Photobooth PKKMB 2026 ✨
+                <a href="#karya" class="border-2 border-white/80 text-white px-8 py-3.5 rounded-lg font-bold text-sm hover:bg-white hover:text-himsiMaroon transition transform hover:-translate-y-0.5">
+                    Lihat Karya Mahasiswa 🎮
                 </a>
             </div>
         </div>
@@ -109,12 +109,11 @@
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Direct Hub Access</span>
             <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Layanan & Aplikasi Digital</h2>
             <p class="text-slate-600 text-sm">
-                Akses instan seluruh platform digital HIMSI UNIS. Pilih layanan yang ingin Anda jalankan di bawah ini.
+                Akses instan platform digital resmi HIMSI UNIS.
             </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
             <!-- CARD 1: PHOTOBOOTH PKKMB -->
             <div class="bg-white rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
                 <div>
@@ -132,7 +131,7 @@
                 </a>
             </div>
 
-            <!-- CARD 2: PROFIL KABINET GENESIS (PENGGANTI DASHBOARD ADMIN) -->
+            <!-- CARD 2: PROFIL KABINET GENESIS -->
             <div class="bg-white rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
                 <div>
                     <div class="w-14 h-14 bg-amber-50 text-amber-700 rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-himsiMaroon group-hover:text-white transition">
@@ -141,7 +140,7 @@
                     <span class="text-xs font-bold text-himsiMaroon uppercase tracking-wider block mb-1">Profil Organisasi</span>
                     <h3 class="serif-title text-xl font-bold text-slate-900 mb-3">Kabinet Genesis</h3>
                     <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                        Mengenal lebih dekat visi, misi, divisi, dan pengurus Himpunan Mahasiswa Sistem Informasi UNIS Tangerang periode 2026.
+                        Mengenal lebih dekat visi, misi, divisi, dan pengurus Himpunan Mahasiswa Sistem Informasi UNIS Tangerang.
                     </p>
                 </div>
                 <a href="#tentang" class="inline-flex items-center justify-center w-full bg-slate-900 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-slate-800 transition shadow-sm">
@@ -165,7 +164,57 @@
                     Segera Hadir
                 </button>
             </div>
+        </div>
+    </section>
 
+    <!-- SECTION SHOWCASE KARYA MAHASISWA -->
+    <section id="karya" class="py-20 bg-slate-100/70 border-t border-slate-200 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Student Showcase</span>
+                <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Karya & Inovasi Mahasiswa</h2>
+                <p class="text-slate-600 text-sm">
+                    Apresiasi hasil karya buatan mahasiswa Sistem Informasi UNIS Tangerang.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- KARYA 1: PAHRI BROS GAME -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="bg-slate-900 h-48 flex items-center justify-center relative overflow-hidden group">
+                            <span class="text-6xl group-hover:scale-110 transition transform">🎮</span>
+                            <span class="absolute top-3 right-3 bg-himsiGold text-slate-900 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Game Dev</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="serif-title text-xl font-bold text-slate-900 mb-1">Pahri Bros</h3>
+                            <p class="text-xs text-himsiMaroon font-semibold mb-3">Oleh: Mahasiswa SI UNIS</p>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Game retro 2D platformer bertema petualangan yang dibangun menggunakan teknologi HTML5 & JavaScript.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="bukaGameModal('karya/pahri-bros/')" class="w-full bg-himsiMaroon text-white font-bold text-sm py-3 rounded-xl hover:bg-opacity-90 transition flex items-center justify-center gap-2">
+                            <span>▶️</span> Mainkan Game Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PLACEHOLDER KARYA 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-md p-6 flex flex-col justify-center items-center text-center opacity-60">
+                    <span class="text-4xl mb-3">💻</span>
+                    <h3 class="serif-title font-bold text-slate-700">Project Selanjutnya</h3>
+                    <p class="text-xs text-slate-500 mt-1">Karya mahasiswa SI berikutnya akan ditampilkan di sini.</p>
+                </div>
+
+                <!-- PLACEHOLDER KARYA 3 -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-md p-6 flex flex-col justify-center items-center text-center opacity-60">
+                    <span class="text-4xl mb-3">🚀</span>
+                    <h3 class="serif-title font-bold text-slate-700">Project Selanjutnya</h3>
+                    <p class="text-xs text-slate-500 mt-1">Karya mahasiswa SI berikutnya akan ditampilkan di sini.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -176,7 +225,7 @@
             <h2 class="serif-title text-3xl font-bold text-slate-900 mb-6">Tentang Kabinet Genesis</h2>
             
             <p class="text-slate-700 text-base leading-relaxed mb-10">
-                Kabinet Genesis berdiri sebagai simbol awal baru yang membawa semangat inovasi teknologi, integritas akademik, dan kepemimpinan adaptif bagi seluruh Mahasiswa Sistem Informasi Universitas Islam Syekh Yusuf Tangerang.
+                Kabinet Genesis berdiri sebagai simbol awal baru yang membawa semangat inovasi teknologi, integritas akademik, dan kepemimpinan adaptif bagi seluruh mahasiswa Sistem Informasi Universitas Islam Syekh Yusuf Tangerang.
             </p>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-slate-100">
@@ -217,6 +266,36 @@
             </div>
         </div>
     </footer>
+
+    <!-- MODAL EMBED GAME -->
+    <div id="gameModal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-slate-900 rounded-2xl overflow-hidden w-full max-w-4xl shadow-2xl border border-slate-700">
+            <div class="p-4 bg-slate-800 flex justify-between items-center border-b border-slate-700">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🎮</span>
+                    <h3 class="font-bold text-white text-sm" id="gameTitle">Pahri Bros — Game Showcase</h3>
+                </div>
+                <button onclick="tutupGameModal()" class="text-slate-400 hover:text-white text-xl font-bold px-2">&times;</button>
+            </div>
+            <div class="relative aspect-video w-full bg-black">
+                <iframe id="gameIframe" src="" class="w-full h-full border-0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function bukaGameModal(gameUrl) {
+            document.getElementById('gameIframe').src = gameUrl;
+            document.getElementById('gameModal').classList.remove('hidden');
+            document.getElementById('gameModal').classList.add('flex');
+        }
+
+        function tutupGameModal() {
+            document.getElementById('gameIframe').src = '';
+            document.getElementById('gameModal').classList.remove('flex');
+            document.getElementById('gameModal').classList.add('hidden');
+        }
+    </script>
 
 </body>
 </html>
