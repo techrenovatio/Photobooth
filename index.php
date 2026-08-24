@@ -50,15 +50,16 @@
         <img src="Logohimsi.png" alt="HIMSI Giant Watermark" class="w-[110vw] max-w-[1100px] h-auto opacity-[0.12] select-none transform scale-105">
     </div>
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
+    <!-- HEADER / NAVIGATION (DENGAN LOGO RAKSASA & TINGGI FLEKSIBEL) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm py-3">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
             
-            <a href="#" class="flex items-center space-x-4 group">
-                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-12 h-12 md:w-16 md:h-16 object-contain group-hover:scale-105 transition transform py-1">
-                <div class="border-l-2 border-slate-200 pl-3 md:pl-4 py-1">
-                    <span class="serif-title font-bold text-lg md:text-2xl tracking-tight text-himsiMaroon block leading-none">HIMSI UNIS</span>
-                    <span class="text-[9px] md:text-[11px] text-slate-500 font-bold tracking-widest uppercase mt-1 block">Kabinet Genesis</span>
+            <a href="#" class="flex items-center space-x-4 md:space-x-5 group">
+                <!-- LOGO DIBUAT 7X LEBIH BESAR -->
+                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36 object-contain group-hover:scale-105 transition transform py-1">
+                <div class="border-l-2 md:border-l-3 border-slate-200 pl-3 md:pl-5 py-1">
+                    <span class="serif-title font-bold text-xl sm:text-2xl md:text-3xl tracking-tight text-himsiMaroon block leading-tight">HIMSI UNIS</span>
+                    <span class="text-[11px] sm:text-xs md:text-sm text-slate-500 font-bold tracking-widest uppercase mt-1 block">Kabinet Genesis</span>
                 </div>
             </a>
 
@@ -69,7 +70,7 @@
                 <a href="#tentang" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Tentang Kami</a>
             </nav>
 
-            <div class="hidden md:block w-48"></div>
+            <div class="hidden md:block w-24"></div>
 
         </div>
     </header>
@@ -159,7 +160,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- PHOTOBOOTH (OPEN IN NEW TAB) -->
+                <!-- PHOTOBOOTH (TARGET _BLANK KE TAB BARU) -->
                 <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
                     <div>
                         <div class="w-14 h-14 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-himsiMaroon group-hover:text-white transition">
