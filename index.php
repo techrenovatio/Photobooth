@@ -26,7 +26,7 @@
         }
     </script>
 
-    <!-- Google Fonts ala Harvard -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
@@ -45,27 +45,23 @@
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen overflow-x-hidden">
 
-    <!-- =========================================================
-         SATU-SATUNYA GLOBAL WATERMARK RAKSASA (FIXED DI TENGAH)
-    ========================================================= -->
+    <!-- GLOBAL WATERMARK LOGO -->
     <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
-        <img src="Logohimsi.png" alt="HIMSI Single Giant Watermark" class="w-[110vw] max-w-[1100px] h-auto opacity-[0.14] select-none transform scale-105 filter contrast-125">
+        <img src="Logohimsi.png" alt="HIMSI Giant Watermark" class="w-[110vw] max-w-[1100px] h-auto opacity-[0.12] select-none transform scale-105">
     </div>
 
     <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
             
-            <!-- Brand & Logo -->
             <a href="#" class="flex items-center space-x-4 group">
-                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-14 h-14 md:w-16 md:h-16 object-contain group-hover:scale-105 transition transform py-1">
-                <div class="border-l-2 border-slate-200 pl-4 py-1">
-                    <span class="serif-title font-bold text-xl md:text-2xl tracking-tight text-himsiMaroon block leading-none">HIMSI UNIS</span>
-                    <span class="text-[10px] md:text-[11px] text-slate-500 font-bold tracking-widest uppercase mt-1 block">Kabinet Genesis</span>
+                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-12 h-12 md:w-16 md:h-16 object-contain group-hover:scale-105 transition transform py-1">
+                <div class="border-l-2 border-slate-200 pl-3 md:pl-4 py-1">
+                    <span class="serif-title font-bold text-lg md:text-2xl tracking-tight text-himsiMaroon block leading-none">HIMSI UNIS</span>
+                    <span class="text-[9px] md:text-[11px] text-slate-500 font-bold tracking-widest uppercase mt-1 block">Kabinet Genesis</span>
                 </div>
             </a>
 
-            <!-- Menu Navigasi Presisi Center -->
             <nav class="hidden md:flex items-center space-x-10 text-base font-semibold text-slate-700">
                 <a href="#beranda" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Beranda</a>
                 <a href="#layanan" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Layanan Digital</a>
@@ -78,10 +74,8 @@
         </div>
     </header>
 
-    <!-- HERO SECTION (TRANSPARAN SEBAGIAN AGAR SATU WATERMARK DI BELAKANG DENGAN MUDAH TEMBUS) -->
-    <section id="beranda" class="relative bg-himsiMaroon/85 text-white py-32 px-6 overflow-hidden z-10 border-b border-white/10 backdrop-blur-[2px]">
-        
-        <!-- Grid Pattern Overlay -->
+    <!-- HERO SECTION -->
+    <section id="beranda" class="relative bg-himsiMaroon/90 text-white py-24 md:py-32 px-6 overflow-hidden z-10 border-b border-white/10">
         <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
 
         <div class="max-w-5xl mx-auto relative z-20 text-center">
@@ -89,26 +83,26 @@
                 Universitas Islam Syekh Yusuf Tangerang
             </span>
 
-            <h1 class="serif-title text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 drop-shadow-md">
+            <h1 class="serif-title text-3xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 drop-shadow-md">
                 Technology Innovation & Synergistic Leadership
             </h1>
 
-            <p class="text-slate-200 text-base md:text-xl font-light max-w-3xl mx-auto mb-10 leading-relaxed drop-shadow-sm">
+            <p class="text-slate-200 text-sm md:text-xl font-light max-w-3xl mx-auto mb-10 leading-relaxed drop-shadow-sm">
                 Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang — Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
             </p>
 
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#layanan" class="bg-white text-himsiMaroon px-8 py-3.5 rounded-lg font-bold text-sm shadow-xl hover:bg-himsiCream transition transform hover:-translate-y-0.5">
+                <a href="#layanan" class="bg-white text-himsiMaroon px-6 md:px-8 py-3.5 rounded-lg font-bold text-sm shadow-xl hover:bg-himsiCream transition transform hover:-translate-y-0.5">
                     Jelajahi Layanan Digital
                 </a>
-                <a href="#karya" class="border-2 border-white/80 text-white px-8 py-3.5 rounded-lg font-bold text-sm hover:bg-white hover:text-himsiMaroon transition transform hover:-translate-y-0.5 backdrop-blur-sm">
+                <a href="#karya" class="border-2 border-white/80 text-white px-6 md:px-8 py-3.5 rounded-lg font-bold text-sm hover:bg-white hover:text-himsiMaroon transition transform hover:-translate-y-0.5 backdrop-blur-sm">
                     Lihat Karya Mahasiswa 🎮
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- PORTAL LAYANAN & APLIKASI DIGITAL -->
+    <!-- PORTAL LAYANAN DIGITAL -->
     <section id="layanan" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Direct Hub Access</span>
@@ -119,8 +113,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            
-            <!-- CARD 1: PROFIL KABINET GENESIS -->
             <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
                 <div>
                     <div class="w-14 h-14 bg-amber-50 text-amber-700 rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-himsiMaroon group-hover:text-white transition">
@@ -137,7 +129,6 @@
                 </a>
             </div>
 
-            <!-- CARD 2: RESOURCE CENTER SI -->
             <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md p-8 flex flex-col justify-between opacity-80">
                 <div>
                     <div class="w-14 h-14 bg-slate-100 text-slate-400 rounded-xl flex items-center justify-center text-3xl font-bold mb-6">
@@ -153,7 +144,6 @@
                     Segera Hadir
                 </button>
             </div>
-
         </div>
     </section>
 
@@ -169,8 +159,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- KARYA 1: PHOTOBOOTH PKKMB 2026 -->
+                <!-- PHOTOBOOTH -->
                 <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
                     <div>
                         <div class="w-14 h-14 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-himsiMaroon group-hover:text-white transition">
@@ -188,7 +177,7 @@
                     </a>
                 </div>
 
-                <!-- KARYA 2: PAHRI BROS GAME -->
+                <!-- PAHRI BROS -->
                 <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col justify-between group hover:-translate-y-1">
                     <div>
                         <div class="bg-slate-900 h-32 flex items-center justify-center relative overflow-hidden">
@@ -210,18 +199,17 @@
                     </div>
                 </div>
 
-                <!-- KARYA 3: PLACEHOLDER -->
+                <!-- PLACEHOLDER -->
                 <div class="bg-white/75 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md p-6 flex flex-col justify-center items-center text-center opacity-60">
                     <span class="text-4xl mb-3">🚀</span>
                     <h3 class="serif-title font-bold text-slate-700">Project Selanjutnya</h3>
                     <p class="text-xs text-slate-500 mt-1">Karya mahasiswa SI berikutnya akan ditampilkan di sini.</p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- SECTION TENTANG KABINET GENESIS -->
+    <!-- SECTION TENTANG -->
     <section id="tentang" class="bg-white/85 backdrop-blur-sm py-20 border-y border-slate-200 px-6 relative z-10">
         <div class="max-w-4xl mx-auto text-center">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">HIMSI UNIS Tangerang</span>
@@ -270,17 +258,22 @@
         </div>
     </footer>
 
-    <!-- MODAL EMBED GAME -->
-    <div id="gameModal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-slate-900 rounded-2xl overflow-hidden w-full max-w-4xl shadow-2xl border border-slate-700">
-            <div class="p-4 bg-slate-800 flex justify-between items-center border-b border-slate-700">
+    <!-- MODAL EMBED GAME DENGAN FITUR FULLSCREEN/TAB BARU UNTUK MOBILE -->
+    <div id="gameModal" class="fixed inset-0 bg-black/85 z-50 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
+        <div class="bg-slate-900 rounded-2xl overflow-hidden w-full max-w-4xl shadow-2xl border border-slate-700 flex flex-col">
+            <div class="p-3 sm:p-4 bg-slate-800 flex justify-between items-center border-b border-slate-700">
                 <div class="flex items-center gap-2">
-                    <span class="text-xl">🎮</span>
-                    <h3 class="font-bold text-white text-sm" id="gameTitle">Pahri Bros — Game Showcase</h3>
+                    <span class="text-lg">🎮</span>
+                    <h3 class="font-bold text-white text-xs sm:text-sm">Pahri Bros — Game Showcase</h3>
                 </div>
-                <button onclick="tutupGameModal()" class="text-slate-400 hover:text-white text-xl font-bold px-2">&times;</button>
+                <div class="flex items-center gap-2">
+                    <a id="btnFullscreen" href="karya/pahri-bros/" target="_blank" class="bg-sky-600 text-white text-[10px] sm:text-xs px-2.5 py-1 rounded font-semibold hover:bg-sky-500 transition">
+                        ↗️ Tab Baru (Fullscreen)
+                    </a>
+                    <button onclick="tutupGameModal()" class="text-slate-400 hover:text-white text-xl font-bold px-2">&times;</button>
+                </div>
             </div>
-            <div class="relative aspect-video w-full bg-black">
+            <div class="relative w-full aspect-video bg-black flex items-center justify-center">
                 <iframe id="gameIframe" src="" class="w-full h-full border-0"></iframe>
             </div>
         </div>

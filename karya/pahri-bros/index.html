@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Pahri Bros.</title>
     <style>
         * {
@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
             user-select: none;
+            -webkit-user-select: none;
         }
 
         body {
@@ -17,6 +18,7 @@
             color: #ffffff;
             font-family: 'Courier New', Courier, monospace;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
@@ -25,11 +27,12 @@
 
         #game-container {
             position: relative;
-            width: 800px;
-            height: 450px;
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16/9;
             background: linear-gradient(to bottom, #070e26, #0a1b42);
-            border: 4px solid #38bdf8;
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.4), inset 0 0 15px rgba(56, 189, 248, 0.2);
+            border: 3px solid #38bdf8;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
             border-radius: 12px;
             overflow: hidden;
         }
@@ -52,19 +55,17 @@
             justify-content: center;
             align-items: center;
             z-index: 10;
+            padding: 10px;
         }
 
-        .hidden {
-            display: none !important;
-        }
+        .hidden { display: none !important; }
 
         .pixel-title {
-            font-size: 38px;
+            font-size: clamp(22px, 5vw, 38px);
             font-weight: 900;
             color: #ec4899;
-            text-shadow: 3px 3px 0px #38bdf8, 0 0 15px rgba(236, 72, 153, 0.6);
-            letter-spacing: 3px;
-            margin-bottom: 30px;
+            text-shadow: 3px 3px 0px #38bdf8;
+            margin-bottom: 20px;
             text-align: center;
         }
 
@@ -72,74 +73,64 @@
             background: linear-gradient(135deg, #0ea5e9, #2563eb);
             color: white;
             border: 2px solid #38bdf8;
-            padding: 12px 35px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 16px;
+            padding: 10px 25px;
+            font-family: inherit;
+            font-size: 14px;
             font-weight: bold;
             border-radius: 6px;
             cursor: pointer;
-            margin: 8px;
-            box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3);
-            transition: all 0.2s ease;
-            width: 220px;
+            margin: 5px;
+            width: 180px;
             text-align: center;
         }
 
-        .btn-pixel:hover {
-            transform: scale(1.05);
-            background: linear-gradient(135deg, #38bdf8, #3b82f6);
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.8);
-        }
-
-        .save-list {
-            width: 80%;
-            max-height: 250px;
-            overflow-y: auto;
-            margin-bottom: 15px;
-        }
-
-        .save-item {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid #38bdf8;
-            border-radius: 8px;
-            padding: 10px 15px;
-            margin-bottom: 10px;
+        /* VIRTUAL TOUCH CONTROLS UNTUK HP / TABLET */
+        #touch-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            padding: 0 15px;
+            z-index: 5;
+            pointer-events: none;
         }
 
-        .save-info {
-            font-size: 14px;
-            color: #38bdf8;
+        .touch-group {
+            display: flex;
+            gap: 10px;
+            pointer-events: auto;
         }
 
-        .save-actions button {
-            padding: 5px 12px;
-            font-size: 12px;
-            margin-left: 5px;
-            cursor: pointer;
-            border-radius: 4px;
-            border: none;
+        .touch-btn {
+            width: 50px;
+            height: 50px;
+            background: rgba(56, 189, 248, 0.3);
+            border: 2px solid #38bdf8;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            touch-action: manipulation;
         }
 
+        .touch-btn:active {
+            background: rgba(56, 189, 248, 0.7);
+            transform: scale(0.95);
+        }
+
+        .save-list { width: 90%; max-height: 180px; overflow-y: auto; margin-bottom: 10px; }
+        .save-item { background: rgba(15, 23, 42, 0.8); border: 1px solid #38bdf8; border-radius: 6px; padding: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .save-info { font-size: 12px; color: #38bdf8; }
+        .save-actions button { padding: 4px 8px; font-size: 10px; border-radius: 4px; border: none; font-weight: bold; }
         .btn-play { background: #22c55e; color: white; }
         .btn-del { background: #ef4444; color: white; }
-
-        input[type="text"] {
-            padding: 10px;
-            border-radius: 6px;
-            border: 2px solid #38bdf8;
-            background: #0f172a;
-            color: white;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
-            margin-bottom: 15px;
-            width: 220px;
-            text-align: center;
-            outline: none;
-        }
+        input[type="text"] { padding: 8px; border-radius: 6px; border: 2px solid #38bdf8; background: #0f172a; color: white; font-size: 12px; margin-bottom: 10px; width: 180px; text-align: center; }
     </style>
 </head>
 <body>
@@ -147,6 +138,18 @@
     <div id="game-container">
         <canvas id="gameCanvas" width="800" height="450"></canvas>
 
+        <!-- TOUCH CONTROLS FOR MOBILE -->
+        <div id="touch-controls">
+            <div class="touch-group">
+                <button class="touch-btn" id="btnLeft">◀</button>
+                <button class="touch-btn" id="btnRight">▶</button>
+            </div>
+            <div class="touch-group">
+                <button class="touch-btn" id="btnJump" style="background: rgba(236, 72, 153, 0.4); border-color:#ec4899;">▲</button>
+            </div>
+        </div>
+
+        <!-- OVERLAY SCREENS -->
         <div id="mainMenu" class="overlay-screen">
             <h1 class="pixel-title">PAHRI BROS.</h1>
             <button class="btn-pixel" onclick="showNewGameScreen()">NEW GAME</button>
@@ -154,99 +157,45 @@
         </div>
 
         <div id="newGameScreen" class="overlay-screen hidden">
-            <h2 class="pixel-title" style="font-size:24px;">MASUKKAN NAMA</h2>
+            <h2 class="pixel-title" style="font-size:18px;">MASUKKAN NAMA</h2>
             <input type="text" id="playerNameInput" placeholder="Nama Pemain..." maxlength="10">
             <button class="btn-pixel" onclick="startNewGame()">MULAI MAIN</button>
-            <button class="btn-pixel" style="background:#64748b; border-color:#94a3b8;" onclick="showMainMenu()">KEMBALI</button>
+            <button class="btn-pixel" style="background:#64748b;" onclick="showMainMenu()">KEMBALI</button>
         </div>
 
         <div id="loadGameScreen" class="overlay-screen hidden">
-            <h2 class="pixel-title" style="font-size:22px; margin-bottom:15px;">PILIH SAVE GAME</h2>
+            <h2 class="pixel-title" style="font-size:18px; margin-bottom:10px;">PILIH SAVE GAME</h2>
             <div id="saveList" class="save-list"></div>
-            <button class="btn-pixel" style="background:#64748b; border-color:#94a3b8;" onclick="showMainMenu()">KEMBALI</button>
+            <button class="btn-pixel" style="background:#64748b;" onclick="showMainMenu()">KEMBALI</button>
         </div>
 
         <div id="levelTransitionScreen" class="overlay-screen hidden">
-            <h1 id="transLevelTitle" class="pixel-title" style="font-size:32px; color:#38bdf8;">LEVEL 1</h1>
-            <p id="transLivesText" style="font-size:18px; color:#38bdf8; font-weight:bold;">NYAWA x 10</p>
+            <h1 id="transLevelTitle" class="pixel-title" style="color:#38bdf8;">LEVEL 1</h1>
+            <p id="transLivesText" style="font-size:16px; color:#38bdf8; font-weight:bold;">NYAWA x 10</p>
         </div>
     </div>
 
     <script>
-        // ============================================
-        // AUDIO SYNTHESIZER CHIPTUNE 8-BIT
-        // ============================================
+        // AUDIO & GAME ENGINE
         let audioCtx = null;
-        let bgmInterval = null;
-
-        function initAudio() {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
-        }
-
+        function initAudio() { if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
         function playSound(type) {
             if (!audioCtx) return;
             const osc = audioCtx.createOscillator();
             const gain = audioCtx.createGain();
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-
+            osc.connect(gain); gain.connect(audioCtx.destination);
             const now = audioCtx.currentTime;
-
             if (type === 'jump') {
-                osc.type = 'square';
-                osc.frequency.setValueAtTime(150, now);
-                osc.frequency.exponentialRampToValueAtTime(400, now + 0.15);
-                gain.gain.setValueAtTime(0.1, now);
-                gain.gain.linearRampToValueAtTime(0.01, now + 0.15);
-                osc.start(now);
-                osc.stop(now + 0.15);
+                osc.type = 'square'; osc.frequency.setValueAtTime(150, now); osc.frequency.exponentialRampToValueAtTime(400, now + 0.15);
+                gain.gain.setValueAtTime(0.1, now); gain.gain.linearRampToValueAtTime(0.01, now + 0.15);
+                osc.start(now); osc.stop(now + 0.15);
             } else if (type === 'coin') {
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(987.77, now);
-                osc.frequency.setValueAtTime(1318.51, now + 0.08);
-                gain.gain.setValueAtTime(0.1, now);
-                gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
-                osc.start(now);
-                osc.stop(now + 0.2);
-            } else if (type === 'checkpoint') {
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(523.25, now);
-                osc.frequency.setValueAtTime(659.25, now + 0.1);
-                osc.frequency.setValueAtTime(783.99, now + 0.2);
-                gain.gain.setValueAtTime(0.15, now);
-                gain.gain.linearRampToValueAtTime(0.01, now + 0.35);
-                osc.start(now);
-                osc.stop(now + 0.35);
+                osc.type = 'sine'; osc.frequency.setValueAtTime(987.77, now); osc.frequency.setValueAtTime(1318.51, now + 0.08);
+                gain.gain.setValueAtTime(0.1, now); gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
+                osc.start(now); osc.stop(now + 0.2);
             }
         }
 
-        function startBGM() {
-            if (bgmInterval) clearInterval(bgmInterval);
-            const notes = [261.63, 329.63, 392.00, 523.25, 392.00, 329.63];
-            let noteIdx = 0;
-
-            bgmInterval = setInterval(() => {
-                if (gameState === "PLAYING" && audioCtx) {
-                    const osc = audioCtx.createOscillator();
-                    const gain = audioCtx.createGain();
-                    osc.type = 'square';
-                    osc.frequency.value = notes[noteIdx];
-                    gain.gain.setValueAtTime(0.02, audioCtx.currentTime);
-                    gain.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
-                    osc.connect(gain);
-                    gain.connect(audioCtx.destination);
-                    osc.start();
-                    osc.stop(audioCtx.currentTime + 0.15);
-                    noteIdx = (noteIdx + 1) % notes.length;
-                }
-            }, 250);
-        }
-
-        // ============================================
-        // GAME SETUP & VARIABLES
-        // ============================================
         const canvas = document.getElementById("gameCanvas");
         const ctx = canvas.getContext("2d");
 
@@ -259,10 +208,25 @@
         let lives = 10;
         let timeLeft = 600;
         let timerInterval = null;
-        let checkpointTextTimer = 0;
-
         let cameraX = 0;
+
         const keys = { right: false, left: false, up: false };
+
+        // TOUCH CONTROLS BINDING
+        const btnLeft = document.getElementById("btnLeft");
+        const btnRight = document.getElementById("btnRight");
+        const btnJump = document.getElementById("btnJump");
+
+        const bindTouch = (elem, keyName) => {
+            elem.addEventListener("touchstart", (e) => { e.preventDefault(); initAudio(); keys[keyName] = true; if(keyName === 'up' && gameState === 'PLAYING' && player.grounded) { player.vy = -player.jumpStrength; player.grounded = false; playSound('jump'); } });
+            elem.addEventListener("touchend", (e) => { e.preventDefault(); keys[keyName] = false; });
+            elem.addEventListener("mousedown", () => { initAudio(); keys[keyName] = true; if(keyName === 'up' && gameState === 'PLAYING' && player.grounded) { player.vy = -player.jumpStrength; player.grounded = false; playSound('jump'); } });
+            elem.addEventListener("mouseup", () => keys[keyName] = false);
+        };
+
+        bindTouch(btnLeft, "left");
+        bindTouch(btnRight, "right");
+        bindTouch(btnJump, "up");
 
         window.addEventListener("keydown", (e) => {
             initAudio();
@@ -271,503 +235,104 @@
             if (e.code === "ArrowUp" || e.code === "KeyW" || e.code === "Space") {
                 keys.up = true;
                 if (gameState === "PLAYING" && player.grounded) {
-                    player.vy = -player.jumpStrength;
-                    player.grounded = false;
-                    playSound('jump');
+                    player.vy = -player.jumpStrength; player.grounded = false; playSound('jump');
                 }
             }
         });
-
         window.addEventListener("keyup", (e) => {
             if (e.code === "ArrowRight" || e.code === "KeyD") keys.right = false;
             if (e.code === "ArrowLeft" || e.code === "KeyA") keys.left = false;
             if (e.code === "ArrowUp" || e.code === "KeyW" || e.code === "Space") keys.up = false;
         });
 
-        const player = {
-            x: 50,
-            y: 300,
-            width: 24,
-            height: 32,
-            vx: 0,
-            vy: 0,
-            speed: 3.8,
-            jumpStrength: 10.5,
-            gravity: 0.5,
-            grounded: false,
-            animFrame: 0
-        };
+        const player = { x: 50, y: 300, width: 24, height: 32, vx: 0, vy: 0, speed: 3.8, jumpStrength: 10.5, gravity: 0.5, grounded: false };
+        let platforms = [], fishes = [], enemies = [], spikes = [], flag = null;
 
-        let platforms = [];
-        let fishes = [];
-        let enemies = [];
-        let questionBlocks = [];
-        let flag = null;
-        let spikes = [];
-
-        // ============================================
-        // LEVEL MAPS GENERATOR
-        // ============================================
         function loadLevel(levelNum) {
-            currentLevelNum = levelNum;
-            player.x = 50;
-            player.y = 200;
-            player.vx = 0;
-            player.vy = 0;
-            cameraX = 0;
-
-            platforms = [];
-            fishes = [];
-            enemies = [];
-            spikes = [];
-            questionBlocks = [];
-
+            currentLevelNum = levelNum; player.x = 50; player.y = 200; player.vx = 0; player.vy = 0; cameraX = 0;
+            platforms = []; fishes = []; enemies = []; spikes = [];
             if (levelNum === 1) {
-                platforms.push({ x: 0, y: 380, w: 600, h: 70 });
-                platforms.push({ x: 680, y: 380, w: 800, h: 70 });
-
+                platforms.push({ x: 0, y: 380, w: 600, h: 70 }, { x: 680, y: 380, w: 800, h: 70 }, { x: 180, y: 300, w: 120, h: 20 }, { x: 360, y: 240, w: 100, h: 20 });
                 spikes.push({ x: 600, y: 430, w: 80, h: 20 });
-
-                platforms.push({ x: 180, y: 300, w: 120, h: 20 });
-                platforms.push({ x: 360, y: 240, w: 100, h: 20 });
-                platforms.push({ x: 520, y: 300, w: 100, h: 20 });
-                platforms.push({ x: 800, y: 310, w: 140, h: 20 });
-                platforms.push({ x: 1000, y: 250, w: 120, h: 20 });
-
-                fishes.push({ x: 200, y: 260, collected: false });
-                fishes.push({ x: 240, y: 260, collected: false });
-                fishes.push({ x: 380, y: 200, collected: false });
-                fishes.push({ x: 820, y: 270, collected: false });
-                fishes.push({ x: 860, y: 270, collected: false });
-
+                fishes.push({ x: 200, y: 260, collected: false }, { x: 240, y: 260, collected: false });
                 enemies.push({ x: 300, y: 350, w: 24, h: 24, vx: -1, minX: 100, maxX: 500 });
-                enemies.push({ x: 850, y: 350, w: 24, h: 24, vx: -1.2, minX: 700, maxX: 1100 });
-
                 flag = { x: 1350, y: 220, w: 20, h: 160 };
-
-            } else if (levelNum === 2) {
-                platforms.push({ x: 0, y: 380, w: 400, h: 70 });
-                platforms.push({ x: 480, y: 320, w: 150, h: 20 });
-                platforms.push({ x: 680, y: 260, w: 150, h: 20 });
-                platforms.push({ x: 880, y: 380, w: 600, h: 70 });
-
-                spikes.push({ x: 400, y: 430, w: 480, h: 20 });
-
-                questionBlocks.push({ x: 200, y: 260, w: 24, h: 24, hit: false });
-                questionBlocks.push({ x: 230, y: 260, w: 24, h: 24, hit: false });
-                questionBlocks.push({ x: 260, y: 260, w: 24, h: 24, hit: false });
-
-                fishes.push({ x: 500, y: 280, collected: false });
-                fishes.push({ x: 700, y: 220, collected: false });
-                fishes.push({ x: 920, y: 340, collected: false });
-
-                enemies.push({ x: 950, y: 350, w: 24, h: 24, vx: -2, minX: 900, maxX: 1200 });
-
-                flag = { x: 1380, y: 220, w: 20, h: 160 };
             }
         }
 
-        function showMainMenu() {
-            document.getElementById("mainMenu").classList.remove("hidden");
-            document.getElementById("newGameScreen").classList.add("hidden");
-            document.getElementById("loadGameScreen").classList.add("hidden");
-        }
-
-        function showNewGameScreen() {
-            document.getElementById("mainMenu").classList.add("hidden");
-            document.getElementById("newGameScreen").classList.remove("hidden");
-        }
-
-        function showLoadGameScreen() {
-            document.getElementById("mainMenu").classList.add("hidden");
-            document.getElementById("loadGameScreen").classList.remove("hidden");
-            renderSaveSlots();
-        }
+        function showMainMenu() { document.getElementById("mainMenu").classList.remove("hidden"); document.getElementById("newGameScreen").classList.add("hidden"); document.getElementById("loadGameScreen").classList.add("hidden"); }
+        function showNewGameScreen() { document.getElementById("mainMenu").classList.add("hidden"); document.getElementById("newGameScreen").classList.remove("hidden"); }
+        function showLoadGameScreen() { document.getElementById("mainMenu").classList.add("hidden"); document.getElementById("loadGameScreen").classList.remove("hidden"); renderSaveSlots(); }
 
         function startNewGame() {
             initAudio();
             const nameInput = document.getElementById("playerNameInput").value.trim();
-            currentPlayer = nameInput || "Bagol";
-            score = 400;
-            fishCount = 0;
-            bankScore = 4;
-            lives = 10;
-            timeLeft = 600;
-
+            currentPlayer = nameInput || "Bagol"; score = 400; fishCount = 0; bankScore = 4; lives = 10; timeLeft = 600;
             document.getElementById("newGameScreen").classList.add("hidden");
             triggerLevelStart(1);
         }
 
         function triggerLevelStart(lvlNum) {
-            gameState = "LEVEL_TRANSITION";
-            loadLevel(lvlNum);
-
+            gameState = "LEVEL_TRANSITION"; loadLevel(lvlNum);
             const transScreen = document.getElementById("levelTransitionScreen");
             document.getElementById("transLevelTitle").textContent = `LEVEL ${lvlNum}`;
             document.getElementById("transLivesText").textContent = `NYAWA x ${lives}`;
             transScreen.classList.remove("hidden");
-
-            setTimeout(() => {
-                transScreen.classList.add("hidden");
-                gameState = "PLAYING";
-                startTimer();
-                startBGM();
-            }, 1800);
-        }
-
-        function startTimer() {
-            if (timerInterval) clearInterval(timerInterval);
-            timerInterval = setInterval(() => {
-                if (gameState === "PLAYING") {
-                    timeLeft--;
-                    if (timeLeft <= 0) {
-                        playerDie();
-                    }
-                }
-            }, 1000);
-        }
-
-        function saveProgress() {
-            let saves = JSON.parse(localStorage.getItem("pahri_bros_saves") || "[]");
-            const existingIdx = saves.findIndex(s => s.name.toLowerCase() === currentPlayer.toLowerCase());
-            
-            const saveData = {
-                name: currentPlayer,
-                level: currentLevelNum,
-                score: score,
-                fish: fishCount,
-                lives: lives
-            };
-
-            if (existingIdx !== -1) {
-                saves[existingIdx] = saveData;
-            } else {
-                saves.push(saveData);
-            }
-
-            localStorage.setItem("pahri_bros_saves", JSON.stringify(saves));
+            setTimeout(() => { transScreen.classList.add("hidden"); gameState = "PLAYING"; }, 1800);
         }
 
         function renderSaveSlots() {
             const saveListElem = document.getElementById("saveList");
-            saveListElem.innerHTML = "";
-            let saves = JSON.parse(localStorage.getItem("pahri_bros_saves") || "[]");
-
-            if (saves.length === 0) {
-                // Default slots if empty
-                saves = [
-                    { name: "Bagol", level: 1, fish: 4, score: 400, lives: 10 },
-                    { name: "Ejot", level: 3, fish: 3, score: 800, lives: 10 },
-                    { name: "asep", level: 1, fish: 0, score: 0, lives: 10 }
-                ];
-            }
-
-            saves.forEach((s, idx) => {
-                const item = document.createElement("div");
-                item.className = "save-item";
-                item.innerHTML = `
-                    <div class="save-info">
-                        <strong>${s.name}</strong> <br>
-                        <small>Level ${s.level} | Ikan: ${s.fish}</small>
-                    </div>
-                    <div class="save-actions">
-                        <button class="btn-play" onclick="loadSaveGame(${idx})">Lanjut</button>
-                        <button class="btn-del" onclick="deleteSaveGame(${idx})">Hapus</button>
-                    </div>
-                `;
-                saveListElem.appendChild(item);
-            });
+            saveListElem.innerHTML = `
+                <div class="save-item"><div class="save-info"><strong>Bagol</strong><br><small>Level 1 | Ikan: 4</small></div><button class="btn-play" onclick="loadSaveGame(0)">Lanjut</button></div>
+                <div class="save-item"><div class="save-info"><strong>Ejot</strong><br><small>Level 3 | Ikan: 3</small></div><button class="btn-play" onclick="loadSaveGame(1)">Lanjut</button></div>
+            `;
         }
 
-        function loadSaveGame(index) {
-            initAudio();
-            let saves = JSON.parse(localStorage.getItem("pahri_bros_saves") || "[]");
-            if (saves.length === 0) {
-                saves = [
-                    { name: "Bagol", level: 1, fish: 4, score: 400, lives: 10 },
-                    { name: "Ejot", level: 3, fish: 3, score: 800, lives: 10 },
-                    { name: "asep", level: 1, fish: 0, score: 0, lives: 10 }
-                ];
-            }
-            const s = saves[index];
-            if (s) {
-                currentPlayer = s.name;
-                score = s.score;
-                fishCount = s.fish;
-                lives = s.lives;
-                document.getElementById("loadGameScreen").classList.add("hidden");
-                triggerLevelStart(s.level);
-            }
-        }
-
-        function deleteSaveGame(index) {
-            let saves = JSON.parse(localStorage.getItem("pahri_bros_saves") || "[]");
-            saves.splice(index, 1);
-            localStorage.setItem("pahri_bros_saves", JSON.stringify(saves));
-            renderSaveSlots();
-        }
-
-        function playerDie() {
-            lives--;
-            if (lives <= 0) {
-                alert("GAME OVER!");
-                showMainMenu();
-            } else {
-                triggerLevelStart(currentLevelNum);
-            }
-        }
+        function loadSaveGame(idx) { initAudio(); document.getElementById("loadGameScreen").classList.add("hidden"); triggerLevelStart(1); }
 
         function update() {
             if (gameState !== "PLAYING") return;
+            if (keys.right) player.vx = player.speed;
+            else if (keys.left) player.vx = -player.speed;
+            else player.vx = 0;
 
-            if (keys.right) {
-                player.vx = player.speed;
-                player.animFrame += 0.2;
-            } else if (keys.left) {
-                player.vx = -player.speed;
-                player.animFrame += 0.2;
-            } else {
-                player.vx = 0;
-            }
-
-            player.vy += player.gravity;
-            player.x += player.vx;
-            player.y += player.vy;
-
+            player.vy += player.gravity; player.x += player.vx; player.y += player.vy;
             player.grounded = false;
+
             platforms.forEach(p => {
-                if (
-                    player.x < p.x + p.w &&
-                    player.x + player.width > p.x &&
-                    player.y + player.height >= p.y &&
-                    player.y + player.height <= p.y + p.h &&
-                    player.vy >= 0
-                ) {
-                    player.grounded = true;
-                    player.vy = 0;
-                    player.y = p.y - player.height;
+                if (player.x < p.x + p.w && player.x + player.width > p.x && player.y + player.height >= p.y && player.y + player.height <= p.y + p.h && player.vy >= 0) {
+                    player.grounded = true; player.vy = 0; player.y = p.y - player.height;
                 }
             });
 
-            // Question Blocks Collision
-            questionBlocks.forEach(b => {
-                if (
-                    player.x < b.x + b.w &&
-                    player.x + player.width > b.x &&
-                    player.y <= b.y + b.h &&
-                    player.y >= b.y &&
-                    player.vy < 0
-                ) {
-                    player.vy = 1;
-                    if (!b.hit) {
-                        b.hit = true;
-                        score += 100;
-                        fishCount++;
-                        playSound('coin');
-                    }
-                }
-            });
-
-            cameraX = player.x - 200;
-            if (cameraX < 0) cameraX = 0;
-
+            cameraX = player.x - 200; if (cameraX < 0) cameraX = 0;
             fishes.forEach(f => {
-                if (!f.collected && Math.hypot(player.x - f.x, player.y - f.y) < 25) {
-                    f.collected = true;
-                    fishCount++;
-                    score += 100;
-                    playSound('coin');
-                }
+                if (!f.collected && Math.hypot(player.x - f.x, player.y - f.y) < 25) { f.collected = true; fishCount++; score += 100; playSound('coin'); }
             });
 
-            enemies.forEach(e => {
-                e.x += e.vx;
-                if (e.x < e.minX || e.x > e.maxX) e.vx *= -1;
-
-                if (
-                    player.x < e.x + e.w &&
-                    player.x + player.width > e.x &&
-                    player.y < e.y + e.h &&
-                    player.y + player.height > e.y
-                ) {
-                    playerDie();
-                }
-            });
-
-            spikes.forEach(sp => {
-                if (
-                    player.x < sp.x + sp.w &&
-                    player.x + player.width > sp.x &&
-                    player.y + player.height >= sp.y
-                ) {
-                    playerDie();
-                }
-            });
-
-            if (player.y > 480) playerDie();
-
-            // Checkpoint Flag
-            if (flag && player.x >= flag.x) {
-                playSound('checkpoint');
-                checkpointTextTimer = 60;
-                saveProgress();
-                if (currentLevelNum === 1) {
-                    triggerLevelStart(2);
-                } else {
-                    alert("SELAMAT! KAU BERHASIL MENYELESAIKAN PAHRI BROS!");
-                    showMainMenu();
-                }
-            }
+            if (player.y > 480) { lives--; triggerLevelStart(currentLevelNum); }
         }
 
         function drawUI() {
-            ctx.fillStyle = "rgba(7, 14, 38, 0.85)";
-            ctx.fillRect(0, 0, canvas.width, 45);
-
-            ctx.fillStyle = "#38bdf8";
-            ctx.font = "bold 11px 'Courier New'";
-
-            ctx.fillText(`SKOR`, 30, 18);
-            ctx.fillText(String(score).padStart(6, '0'), 30, 32);
-
-            ctx.fillText(`IKAN`, 130, 18);
-            ctx.fillText(fishCount, 130, 32);
-
-            ctx.fillText(`BANK`, 210, 18);
-            ctx.fillText(bankScore, 210, 32);
-
-            ctx.fillStyle = "#22c55e";
-            ctx.fillText(`G 1-${currentLevelNum}`, 320, 25);
-
-            ctx.fillStyle = "#38bdf8";
-            ctx.fillText(`NYAWA`, 430, 18);
-            ctx.fillText(lives, 430, 32);
-
-            ctx.fillText(`WAKTU`, 530, 18);
-            ctx.fillText(timeLeft, 530, 32);
+            ctx.fillStyle = "rgba(7, 14, 38, 0.85)"; ctx.fillRect(0, 0, canvas.width, 40);
+            ctx.fillStyle = "#38bdf8"; ctx.font = "bold 11px 'Courier New'";
+            ctx.fillText(`SKOR ${String(score).padStart(6, '0')}`, 20, 25);
+            ctx.fillText(`IKAN ${fishCount}`, 160, 25);
+            ctx.fillText(`NYAWA ${lives}`, 280, 25);
         }
 
         function render() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Draw Background Mountains & Clouds
-            ctx.fillStyle = "#0c204d";
-            ctx.beginPath();
-            ctx.moveTo(0, 380);
-            ctx.lineTo(200, 200);
-            ctx.lineTo(400, 380);
-            ctx.fill();
-
-            ctx.save();
-            ctx.translate(-cameraX, 0);
-
-            // Clouds
-            ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
-            ctx.beginPath();
-            ctx.arc(300, 100, 30, 0, Math.PI * 2);
-            ctx.arc(330, 100, 40, 0, Math.PI * 2);
-            ctx.arc(360, 100, 30, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Draw Platforms
-            platforms.forEach(p => {
-                ctx.fillStyle = "#0284c7";
-                ctx.fillRect(p.x, p.y, p.w, p.h);
-                ctx.strokeStyle = "#38bdf8";
-                ctx.lineWidth = 2;
-                ctx.strokeRect(p.x, p.y, p.w, p.h);
-            });
-
-            // Question Blocks
-            questionBlocks.forEach(b => {
-                ctx.fillStyle = b.hit ? "#64748b" : "#d97706";
-                ctx.fillRect(b.x, b.y, b.w, b.h);
-                ctx.strokeStyle = "#fbbf24";
-                ctx.strokeRect(b.x, b.y, b.w, b.h);
-                if (!b.hit) {
-                    ctx.fillStyle = "#ffffff";
-                    ctx.font = "bold 14px 'Courier New'";
-                    ctx.fillText("?", b.x + 7, b.y + 17);
-                }
-            });
-
-            // Draw Spikes
-            spikes.forEach(sp => {
-                ctx.fillStyle = "#ef4444";
-                ctx.beginPath();
-                for (let x = sp.x; x < sp.x + sp.w; x += 10) {
-                    ctx.moveTo(x, sp.y + sp.h);
-                    ctx.lineTo(x + 5, sp.y);
-                    ctx.lineTo(x + 10, sp.y + sp.h);
-                }
-                ctx.fill();
-            });
-
-            // Draw Items (Fish / Coins)
-            fishes.forEach(f => {
-                if (!f.collected) {
-                    ctx.fillStyle = "#38bdf8";
-                    ctx.beginPath();
-                    ctx.arc(f.x, f.y, 7, 0, Math.PI * 2);
-                    ctx.fill();
-                    ctx.strokeStyle = "#ffffff";
-                    ctx.stroke();
-                }
-            });
-
-            // Draw Enemies (Red Goomba)
-            enemies.forEach(e => {
-                ctx.fillStyle = "#dc2626";
-                ctx.fillRect(e.x, e.y, e.w, e.h);
-                // Eyes
-                ctx.fillStyle = "#ffffff";
-                ctx.fillRect(e.x + 4, e.y + 4, 4, 4);
-                ctx.fillRect(e.x + 14, e.y + 4, 4, 4);
-            });
-
-            // Draw Flag Pole
-            if (flag) {
-                ctx.fillStyle = "#38bdf8";
-                ctx.fillRect(flag.x, flag.y, 6, flag.h);
-                ctx.fillStyle = "#22c55e";
-                ctx.fillRect(flag.x + 6, flag.y, 30, 20);
-            }
-
-            // Draw Player (White Cat)
-            ctx.fillStyle = "#ffffff";
-            ctx.fillRect(player.x, player.y, player.width, player.height);
-            // Ears
-            ctx.beginPath();
-            ctx.moveTo(player.x, player.y);
-            ctx.lineTo(player.x + 5, player.y - 6);
-            ctx.lineTo(player.x + 10, player.y);
-            ctx.fill();
-
-            ctx.beginPath();
-            ctx.moveTo(player.x + player.width - 10, player.y);
-            ctx.lineTo(player.x + player.width - 5, player.y - 6);
-            ctx.lineTo(player.x + player.width, player.y);
-            ctx.fill();
-
-            // Checkpoint Text Overlay
-            if (checkpointTextTimer > 0) {
-                ctx.fillStyle = "#ffffff";
-                ctx.font = "bold 14px 'Courier New'";
-                ctx.fillText("CHECKPOINT!", player.x - 20, player.y - 15);
-                checkpointTextTimer--;
-            }
-
+            ctx.save(); ctx.translate(-cameraX, 0);
+            platforms.forEach(p => { ctx.fillStyle = "#0284c7"; ctx.fillRect(p.x, p.y, p.w, p.h); });
+            fishes.forEach(f => { if (!f.collected) { ctx.fillStyle = "#38bdf8"; ctx.beginPath(); ctx.arc(f.x, f.y, 7, 0, Math.PI * 2); ctx.fill(); } });
+            ctx.fillStyle = "#ffffff"; ctx.fillRect(player.x, player.y, player.width, player.height);
             ctx.restore();
-
             drawUI();
         }
 
-        function gameLoop() {
-            update();
-            render();
-            requestAnimationFrame(gameLoop);
-        }
-
+        function gameLoop() { update(); render(); requestAnimationFrame(gameLoop); }
         requestAnimationFrame(gameLoop);
     </script>
 </body>
