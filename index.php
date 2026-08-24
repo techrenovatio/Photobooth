@@ -258,21 +258,21 @@
         </div>
     </footer>
 
-    <!-- MODAL EMBED GAME -->
+    <!-- MODAL EMBED GAME DENGAN HEADER TEKS BESAR DAN JELAS -->
     <div id="gameModal" class="fixed inset-0 bg-black/85 z-50 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
         <div class="bg-slate-900 rounded-2xl overflow-hidden w-[96vw] max-w-7xl h-[88vh] shadow-2xl border border-slate-700 flex flex-col justify-between">
             
-            <!-- HEADER MODAL -->
-            <div class="p-3 sm:p-4 bg-slate-800 flex justify-between items-center border-b border-slate-700 shrink-0">
-                <div class="flex items-center gap-2">
-                    <span class="text-lg sm:text-xl">🎮</span>
-                    <h3 class="font-bold text-white text-xs sm:text-sm">Pahri Bros — Game Showcase</h3>
+            <!-- HEADER MODAL (TEKS DIPERBESAR DAN TEBAL) -->
+            <div class="px-5 py-4 bg-slate-800 flex justify-between items-center border-b border-slate-700 shrink-0">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl md:text-3xl">🎮</span>
+                    <h3 class="font-bold text-white text-base md:text-xl tracking-wide">Pahri Bros — Game Showcase</h3>
                 </div>
-                <div class="flex items-center gap-2">
-                    <a id="btnFullscreen" href="karya/pahri-bros/" target="_blank" class="bg-sky-600 hover:bg-sky-500 text-white text-[10px] sm:text-xs px-3 py-1.5 rounded-lg font-bold transition flex items-center gap-1 shadow">
-                        <span>↗️</span> <span class="hidden sm:inline">Main</span> Fullscreen
+                <div class="flex items-center gap-3">
+                    <a id="btnFullscreen" href="karya/pahri-bros/" target="_blank" class="bg-sky-600 hover:bg-sky-500 text-white text-xs md:text-sm px-4 py-2 rounded-lg font-bold transition flex items-center gap-2 shadow-md">
+                        <span>↗️</span> <span>Main Fullscreen</span>
                     </a>
-                    <button onclick="tutupGameModal()" class="text-slate-400 hover:text-white text-2xl font-bold px-2 leading-none">&times;</button>
+                    <button onclick="tutupGameModal()" class="text-slate-400 hover:text-white text-3xl font-bold px-2 leading-none transition">&times;</button>
                 </div>
             </div>
 
