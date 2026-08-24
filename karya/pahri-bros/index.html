@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pahri Bros</title>
+    <title>Pahri Bros.</title>
     <style>
         * {
             box-sizing: border-box;
@@ -40,7 +40,6 @@
             height: 100%;
         }
 
-        /* OVERLAY MENU STYLING */
         .overlay-screen {
             position: absolute;
             top: 0;
@@ -92,7 +91,6 @@
             box-shadow: 0 0 15px rgba(56, 189, 248, 0.8);
         }
 
-        /* SAVE SLOT STYLING */
         .save-list {
             width: 80%;
             max-height: 250px;
@@ -147,17 +145,14 @@
 <body>
 
     <div id="game-container">
-        <!-- CANVAS GAME -->
         <canvas id="gameCanvas" width="800" height="450"></canvas>
 
-        <!-- SCREEN 1: MAIN MENU -->
         <div id="mainMenu" class="overlay-screen">
             <h1 class="pixel-title">PAHRI BROS.</h1>
             <button class="btn-pixel" onclick="showNewGameScreen()">NEW GAME</button>
             <button class="btn-pixel" onclick="showLoadGameScreen()">LOAD GAME</button>
         </div>
 
-        <!-- SCREEN 2: INPUT NAME (NEW GAME) -->
         <div id="newGameScreen" class="overlay-screen hidden">
             <h2 class="pixel-title" style="font-size:24px;">MASUKKAN NAMA</h2>
             <input type="text" id="playerNameInput" placeholder="Nama Pemain..." maxlength="10">
@@ -165,44 +160,112 @@
             <button class="btn-pixel" style="background:#64748b; border-color:#94a3b8;" onclick="showMainMenu()">KEMBALI</button>
         </div>
 
-        <!-- SCREEN 3: LOAD GAME / SAVE SLOTS -->
         <div id="loadGameScreen" class="overlay-screen hidden">
             <h2 class="pixel-title" style="font-size:22px; margin-bottom:15px;">PILIH SAVE GAME</h2>
             <div id="saveList" class="save-list"></div>
             <button class="btn-pixel" style="background:#64748b; border-color:#94a3b8;" onclick="showMainMenu()">KEMBALI</button>
         </div>
 
-        <!-- SCREEN 4: LEVEL TRANSITION SCREEN -->
         <div id="levelTransitionScreen" class="overlay-screen hidden">
             <h1 id="transLevelTitle" class="pixel-title" style="font-size:32px; color:#38bdf8;">LEVEL 1</h1>
-            <p id="transLivesText" style="font-size:18px; color:#f43f5e; font-weight:bold;">NYAWA x 10</p>
+            <p id="transLivesText" style="font-size:18px; color:#38bdf8; font-weight:bold;">NYAWA x 10</p>
         </div>
     </div>
 
     <script>
+        // ============================================
+        // AUDIO SYNTHESIZER CHIPTUNE 8-BIT
+        // ============================================
+        let audioCtx = null;
+        let bgmInterval = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function playSound(type) {
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            const now = audioCtx.currentTime;
+
+            if (type === 'jump') {
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(150, now);
+                osc.frequency.exponentialRampToValueAtTime(400, now + 0.15);
+                gain.gain.setValueAtTime(0.1, now);
+                gain.gain.linearRampToValueAtTime(0.01, now + 0.15);
+                osc.start(now);
+                osc.stop(now + 0.15);
+            } else if (type === 'coin') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(987.77, now);
+                osc.frequency.setValueAtTime(1318.51, now + 0.08);
+                gain.gain.setValueAtTime(0.1, now);
+                gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
+                osc.start(now);
+                osc.stop(now + 0.2);
+            } else if (type === 'checkpoint') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(523.25, now);
+                osc.frequency.setValueAtTime(659.25, now + 0.1);
+                osc.frequency.setValueAtTime(783.99, now + 0.2);
+                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.linearRampToValueAtTime(0.01, now + 0.35);
+                osc.start(now);
+                osc.stop(now + 0.35);
+            }
+        }
+
+        function startBGM() {
+            if (bgmInterval) clearInterval(bgmInterval);
+            const notes = [261.63, 329.63, 392.00, 523.25, 392.00, 329.63];
+            let noteIdx = 0;
+
+            bgmInterval = setInterval(() => {
+                if (gameState === "PLAYING" && audioCtx) {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'square';
+                    osc.frequency.value = notes[noteIdx];
+                    gain.gain.setValueAtTime(0.02, audioCtx.currentTime);
+                    gain.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.15);
+                    noteIdx = (noteIdx + 1) % notes.length;
+                }
+            }, 250);
+        }
+
         // ============================================
         // GAME SETUP & VARIABLES
         // ============================================
         const canvas = document.getElementById("gameCanvas");
         const ctx = canvas.getContext("2d");
 
-        let gameState = "MENU"; // MENU, PLAYING, LEVEL_TRANSITION
+        let gameState = "MENU";
         let currentPlayer = "Bagol";
         let currentLevelNum = 1;
-        let score = 0;
+        let score = 400;
         let fishCount = 0;
-        let bankScore = 0;
+        let bankScore = 4;
         let lives = 10;
         let timeLeft = 600;
         let timerInterval = null;
+        let checkpointTextTimer = 0;
 
-        // Camera scroll
         let cameraX = 0;
-
-        // Controls
         const keys = { right: false, left: false, up: false };
 
         window.addEventListener("keydown", (e) => {
+            initAudio();
             if (e.code === "ArrowRight" || e.code === "KeyD") keys.right = true;
             if (e.code === "ArrowLeft" || e.code === "KeyA") keys.left = true;
             if (e.code === "ArrowUp" || e.code === "KeyW" || e.code === "Space") {
@@ -210,6 +273,7 @@
                 if (gameState === "PLAYING" && player.grounded) {
                     player.vy = -player.jumpStrength;
                     player.grounded = false;
+                    playSound('jump');
                 }
             }
         });
@@ -220,9 +284,6 @@
             if (e.code === "ArrowUp" || e.code === "KeyW" || e.code === "Space") keys.up = false;
         });
 
-        // ============================================
-        // GAME OBJECTS
-        // ============================================
         const player = {
             x: 50,
             y: 300,
@@ -233,12 +294,14 @@
             speed: 3.8,
             jumpStrength: 10.5,
             gravity: 0.5,
-            grounded: false
+            grounded: false,
+            animFrame: 0
         };
 
         let platforms = [];
         let fishes = [];
         let enemies = [];
+        let questionBlocks = [];
         let flag = null;
         let spikes = [];
 
@@ -257,44 +320,42 @@
             fishes = [];
             enemies = [];
             spikes = [];
+            questionBlocks = [];
 
             if (levelNum === 1) {
-                // Ground
                 platforms.push({ x: 0, y: 380, w: 600, h: 70 });
                 platforms.push({ x: 680, y: 380, w: 800, h: 70 });
 
-                // Spikes
                 spikes.push({ x: 600, y: 430, w: 80, h: 20 });
 
-                // Raised Platforms
                 platforms.push({ x: 180, y: 300, w: 120, h: 20 });
                 platforms.push({ x: 360, y: 240, w: 100, h: 20 });
                 platforms.push({ x: 520, y: 300, w: 100, h: 20 });
                 platforms.push({ x: 800, y: 310, w: 140, h: 20 });
                 platforms.push({ x: 1000, y: 250, w: 120, h: 20 });
 
-                // Fishes / Items
                 fishes.push({ x: 200, y: 260, collected: false });
                 fishes.push({ x: 240, y: 260, collected: false });
                 fishes.push({ x: 380, y: 200, collected: false });
                 fishes.push({ x: 820, y: 270, collected: false });
                 fishes.push({ x: 860, y: 270, collected: false });
 
-                // Enemies
                 enemies.push({ x: 300, y: 350, w: 24, h: 24, vx: -1, minX: 100, maxX: 500 });
                 enemies.push({ x: 850, y: 350, w: 24, h: 24, vx: -1.2, minX: 700, maxX: 1100 });
 
-                // Flag Goal
                 flag = { x: 1350, y: 220, w: 20, h: 160 };
 
             } else if (levelNum === 2) {
-                // Level 2 ( harder platforming )
                 platforms.push({ x: 0, y: 380, w: 400, h: 70 });
                 platforms.push({ x: 480, y: 320, w: 150, h: 20 });
                 platforms.push({ x: 680, y: 260, w: 150, h: 20 });
                 platforms.push({ x: 880, y: 380, w: 600, h: 70 });
 
                 spikes.push({ x: 400, y: 430, w: 480, h: 20 });
+
+                questionBlocks.push({ x: 200, y: 260, w: 24, h: 24, hit: false });
+                questionBlocks.push({ x: 230, y: 260, w: 24, h: 24, hit: false });
+                questionBlocks.push({ x: 260, y: 260, w: 24, h: 24, hit: false });
 
                 fishes.push({ x: 500, y: 280, collected: false });
                 fishes.push({ x: 700, y: 220, collected: false });
@@ -306,9 +367,6 @@
             }
         }
 
-        // ============================================
-        // MENU NAVIGATION LOGIC
-        // ============================================
         function showMainMenu() {
             document.getElementById("mainMenu").classList.remove("hidden");
             document.getElementById("newGameScreen").classList.add("hidden");
@@ -327,11 +385,12 @@
         }
 
         function startNewGame() {
+            initAudio();
             const nameInput = document.getElementById("playerNameInput").value.trim();
-            currentPlayer = nameInput || "Pahri";
-            score = 0;
+            currentPlayer = nameInput || "Bagol";
+            score = 400;
             fishCount = 0;
-            bankScore = 0;
+            bankScore = 4;
             lives = 10;
             timeLeft = 600;
 
@@ -352,6 +411,7 @@
                 transScreen.classList.add("hidden");
                 gameState = "PLAYING";
                 startTimer();
+                startBGM();
             }, 1800);
         }
 
@@ -367,9 +427,6 @@
             }, 1000);
         }
 
-        // ============================================
-        // SAVE & LOAD STORAGE SYSTEM
-        // ============================================
         function saveProgress() {
             let saves = JSON.parse(localStorage.getItem("pahri_bros_saves") || "[]");
             const existingIdx = saves.findIndex(s => s.name.toLowerCase() === currentPlayer.toLowerCase());
@@ -397,8 +454,12 @@
             let saves = JSON.parse(localStorage.getItem("pahri_bros_saves") || "[]");
 
             if (saves.length === 0) {
-                saveListElem.innerHTML = `<p style="text-align:center; color:#94a3b8; font-size:14px;">Belum ada save data.</p>`;
-                return;
+                // Default slots if empty
+                saves = [
+                    { name: "Bagol", level: 1, fish: 4, score: 400, lives: 10 },
+                    { name: "Ejot", level: 3, fish: 3, score: 800, lives: 10 },
+                    { name: "asep", level: 1, fish: 0, score: 0, lives: 10 }
+                ];
             }
 
             saves.forEach((s, idx) => {
@@ -407,7 +468,7 @@
                 item.innerHTML = `
                     <div class="save-info">
                         <strong>${s.name}</strong> <br>
-                        <small>Level ${s.level} | Ikan: ${s.fish} | Nyawa: ${s.lives}</small>
+                        <small>Level ${s.level} | Ikan: ${s.fish}</small>
                     </div>
                     <div class="save-actions">
                         <button class="btn-play" onclick="loadSaveGame(${idx})">Lanjut</button>
@@ -419,7 +480,15 @@
         }
 
         function loadSaveGame(index) {
+            initAudio();
             let saves = JSON.parse(localStorage.getItem("pahri_bros_saves") || "[]");
+            if (saves.length === 0) {
+                saves = [
+                    { name: "Bagol", level: 1, fish: 4, score: 400, lives: 10 },
+                    { name: "Ejot", level: 3, fish: 3, score: 800, lives: 10 },
+                    { name: "asep", level: 1, fish: 0, score: 0, lives: 10 }
+                ];
+            }
             const s = saves[index];
             if (s) {
                 currentPlayer = s.name;
@@ -438,9 +507,6 @@
             renderSaveSlots();
         }
 
-        // ============================================
-        // GAME UPDATE & PHYSICS
-        // ============================================
         function playerDie() {
             lives--;
             if (lives <= 0) {
@@ -454,17 +520,20 @@
         function update() {
             if (gameState !== "PLAYING") return;
 
-            // Player Movement
-            if (keys.right) player.vx = player.speed;
-            else if (keys.left) player.vx = -player.speed;
-            else player.vx = 0;
+            if (keys.right) {
+                player.vx = player.speed;
+                player.animFrame += 0.2;
+            } else if (keys.left) {
+                player.vx = -player.speed;
+                player.animFrame += 0.2;
+            } else {
+                player.vx = 0;
+            }
 
             player.vy += player.gravity;
-
             player.x += player.vx;
             player.y += player.vy;
 
-            // Ground & Platform Collision
             player.grounded = false;
             platforms.forEach(p => {
                 if (
@@ -480,25 +549,41 @@
                 }
             });
 
-            // Camera follow
+            // Question Blocks Collision
+            questionBlocks.forEach(b => {
+                if (
+                    player.x < b.x + b.w &&
+                    player.x + player.width > b.x &&
+                    player.y <= b.y + b.h &&
+                    player.y >= b.y &&
+                    player.vy < 0
+                ) {
+                    player.vy = 1;
+                    if (!b.hit) {
+                        b.hit = true;
+                        score += 100;
+                        fishCount++;
+                        playSound('coin');
+                    }
+                }
+            });
+
             cameraX = player.x - 200;
             if (cameraX < 0) cameraX = 0;
 
-            // Item collection
             fishes.forEach(f => {
                 if (!f.collected && Math.hypot(player.x - f.x, player.y - f.y) < 25) {
                     f.collected = true;
                     fishCount++;
                     score += 100;
+                    playSound('coin');
                 }
             });
 
-            // Enemies collision & movement
             enemies.forEach(e => {
                 e.x += e.vx;
                 if (e.x < e.minX || e.x > e.maxX) e.vx *= -1;
 
-                // Player hit enemy
                 if (
                     player.x < e.x + e.w &&
                     player.x + player.width > e.x &&
@@ -509,7 +594,6 @@
                 }
             });
 
-            // Spikes death
             spikes.forEach(sp => {
                 if (
                     player.x < sp.x + sp.w &&
@@ -520,24 +604,22 @@
                 }
             });
 
-            // Bottom pit death
             if (player.y > 480) playerDie();
 
-            // Flag Goal Collision (Level Cleared)
+            // Checkpoint Flag
             if (flag && player.x >= flag.x) {
+                playSound('checkpoint');
+                checkpointTextTimer = 60;
                 saveProgress();
                 if (currentLevelNum === 1) {
                     triggerLevelStart(2);
                 } else {
-                    alert("SELAMAT! KAU BERHASIL MENYELESAIKAN GAME PAHRI BROS!");
+                    alert("SELAMAT! KAU BERHASIL MENYELESAIKAN PAHRI BROS!");
                     showMainMenu();
                 }
             }
         }
 
-        // ============================================
-        // RENDER DRAWING
-        // ============================================
         function drawUI() {
             ctx.fillStyle = "rgba(7, 14, 38, 0.85)";
             ctx.fillRect(0, 0, canvas.width, 45);
@@ -568,8 +650,24 @@
         function render() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+            // Draw Background Mountains & Clouds
+            ctx.fillStyle = "#0c204d";
+            ctx.beginPath();
+            ctx.moveTo(0, 380);
+            ctx.lineTo(200, 200);
+            ctx.lineTo(400, 380);
+            ctx.fill();
+
             ctx.save();
             ctx.translate(-cameraX, 0);
+
+            // Clouds
+            ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+            ctx.beginPath();
+            ctx.arc(300, 100, 30, 0, Math.PI * 2);
+            ctx.arc(330, 100, 40, 0, Math.PI * 2);
+            ctx.arc(360, 100, 30, 0, Math.PI * 2);
+            ctx.fill();
 
             // Draw Platforms
             platforms.forEach(p => {
@@ -578,6 +676,19 @@
                 ctx.strokeStyle = "#38bdf8";
                 ctx.lineWidth = 2;
                 ctx.strokeRect(p.x, p.y, p.w, p.h);
+            });
+
+            // Question Blocks
+            questionBlocks.forEach(b => {
+                ctx.fillStyle = b.hit ? "#64748b" : "#d97706";
+                ctx.fillRect(b.x, b.y, b.w, b.h);
+                ctx.strokeStyle = "#fbbf24";
+                ctx.strokeRect(b.x, b.y, b.w, b.h);
+                if (!b.hit) {
+                    ctx.fillStyle = "#ffffff";
+                    ctx.font = "bold 14px 'Courier New'";
+                    ctx.fillText("?", b.x + 7, b.y + 17);
+                }
             });
 
             // Draw Spikes
@@ -597,7 +708,7 @@
                 if (!f.collected) {
                     ctx.fillStyle = "#38bdf8";
                     ctx.beginPath();
-                    ctx.arc(f.x, f.y, 8, 0, Math.PI * 2);
+                    ctx.arc(f.x, f.y, 7, 0, Math.PI * 2);
                     ctx.fill();
                     ctx.strokeStyle = "#ffffff";
                     ctx.stroke();
@@ -608,20 +719,24 @@
             enemies.forEach(e => {
                 ctx.fillStyle = "#dc2626";
                 ctx.fillRect(e.x, e.y, e.w, e.h);
+                // Eyes
+                ctx.fillStyle = "#ffffff";
+                ctx.fillRect(e.x + 4, e.y + 4, 4, 4);
+                ctx.fillRect(e.x + 14, e.y + 4, 4, 4);
             });
 
             // Draw Flag Pole
             if (flag) {
                 ctx.fillStyle = "#38bdf8";
                 ctx.fillRect(flag.x, flag.y, 6, flag.h);
-                ctx.fillStyle = "#ec4899";
-                ctx.fillRect(flag.x + 6, flag.y, 25, 20);
+                ctx.fillStyle = "#22c55e";
+                ctx.fillRect(flag.x + 6, flag.y, 30, 20);
             }
 
-            // Draw Player (White Cat Character)
+            // Draw Player (White Cat)
             ctx.fillStyle = "#ffffff";
             ctx.fillRect(player.x, player.y, player.width, player.height);
-            // Cat ears
+            // Ears
             ctx.beginPath();
             ctx.moveTo(player.x, player.y);
             ctx.lineTo(player.x + 5, player.y - 6);
@@ -634,15 +749,19 @@
             ctx.lineTo(player.x + player.width, player.y);
             ctx.fill();
 
+            // Checkpoint Text Overlay
+            if (checkpointTextTimer > 0) {
+                ctx.fillStyle = "#ffffff";
+                ctx.font = "bold 14px 'Courier New'";
+                ctx.fillText("CHECKPOINT!", player.x - 20, player.y - 15);
+                checkpointTextTimer--;
+            }
+
             ctx.restore();
 
-            // Draw Top HUD UI
             drawUI();
         }
 
-        // ============================================
-        // MAIN GAME LOOP
-        // ============================================
         function gameLoop() {
             update();
             render();
