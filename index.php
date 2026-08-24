@@ -258,12 +258,12 @@
         </div>
     </footer>
 
-    <!-- MODAL EMBED GAME (DIPERBESAR DI LAPTOP & OPTIMAL DI MOBILE) -->
-    <div id="gameModal" class="fixed inset-0 bg-black/85 z-50 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
-        <div class="bg-slate-900 rounded-2xl overflow-hidden w-full max-w-6xl h-[85vh] sm:h-auto shadow-2xl border border-slate-700 flex flex-col justify-between">
+    <!-- MODAL EMBED GAME -->
+    <div id="gameModal" class="fixed inset-0 bg-black/85 z-50 hidden items-center justify-center p-2 sm:p-6 backdrop-blur-sm">
+        <div class="bg-slate-900 rounded-2xl overflow-hidden w-[95vw] md:w-[90vw] max-w-6xl h-[85vh] shadow-2xl border border-slate-700 flex flex-col justify-between">
             
             <!-- HEADER MODAL -->
-            <div class="p-3 sm:p-4 bg-slate-800 flex justify-between items-center border-b border-slate-700">
+            <div class="p-3 sm:p-4 bg-slate-800 flex justify-between items-center border-b border-slate-700 shrink-0">
                 <div class="flex items-center gap-2">
                     <span class="text-lg sm:text-xl">🎮</span>
                     <h3 class="font-bold text-white text-xs sm:text-sm">Pahri Bros — Game Showcase</h3>
@@ -277,7 +277,7 @@
             </div>
 
             <!-- CONTAINER IFRAME GAME -->
-            <div class="relative w-full h-full sm:aspect-video bg-black flex items-center justify-center overflow-hidden">
+            <div class="relative w-full h-full bg-black flex items-center justify-center overflow-hidden grow">
                 <iframe id="gameIframe" src="" class="w-full h-full border-0"></iframe>
             </div>
 
