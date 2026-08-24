@@ -109,7 +109,7 @@
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Direct Hub Access</span>
             <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Layanan & Aplikasi Digital</h2>
             <p class="text-slate-600 text-sm">
-                Akses instan seluruh platform digital HIMSI UNIS. Pilih aplikasi yang ingin Anda gunakan di bawah ini.
+                Akses instan seluruh platform digital HIMSI UNIS. Pilih layanan yang ingin Anda jalankan di bawah ini.
             </p>
         </div>
 
@@ -121,7 +121,7 @@
                     <div class="w-14 h-14 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-himsiMaroon group-hover:text-white transition">
                         📸
                     </div>
-                    <span class="text-xs font-bold text-himsiGold uppercase tracking-wider block mb-1">Aplikasi Aktif</span>
+                    <span class="text-xs font-bold text-himsiGold uppercase tracking-wider block mb-1">Aplikasi Publik</span>
                     <h3 class="serif-title text-xl font-bold text-slate-900 mb-3">Photobooth PKKMB 2026</h3>
                     <p class="text-slate-600 text-sm leading-relaxed mb-6">
                         Abadikan momen seru dengan frame eksklusif Kabinet Genesis. Dilengkapi auto-send email softfile dan QR Code scanner.
@@ -132,20 +132,20 @@
                 </a>
             </div>
 
-            <!-- CARD 2: ADMIN DASHBOARD PHOTOBOOTH -->
+            <!-- CARD 2: PROFIL KABINET GENESIS (PENGGANTI DASHBOARD ADMIN) -->
             <div class="bg-white rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
                 <div>
-                    <div class="w-14 h-14 bg-amber-50 text-amber-700 rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-slate-900 group-hover:text-white transition">
-                        🔐
+                    <div class="w-14 h-14 bg-amber-50 text-amber-700 rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-himsiMaroon group-hover:text-white transition">
+                        🏛️
                     </div>
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Internal Panitia / Admin</span>
-                    <h3 class="serif-title text-xl font-bold text-slate-900 mb-3">Dashboard Presensi & Admin</h3>
+                    <span class="text-xs font-bold text-himsiMaroon uppercase tracking-wider block mb-1">Profil Organisasi</span>
+                    <h3 class="serif-title text-xl font-bold text-slate-900 mb-3">Kabinet Genesis</h3>
                     <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                        Panel kelola data mahasiswa, rekapitulasi foto tersimpan, ekspor data, serta pengaturan user pengurus HIMSI.
+                        Mengenal lebih dekat visi, misi, divisi, dan pengurus Himpunan Mahasiswa Sistem Informasi UNIS Tangerang periode 2026.
                     </p>
                 </div>
-                <a href="photobooth/dashboard" class="inline-flex items-center justify-center w-full bg-slate-900 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-slate-800 transition shadow-sm">
-                    Masuk Panel Admin &rarr;
+                <a href="#tentang" class="inline-flex items-center justify-center w-full bg-slate-900 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-slate-800 transition shadow-sm">
+                    Lihat Struktur Organisasi &rarr;
                 </a>
             </div>
 
