@@ -258,9 +258,9 @@
         </div>
     </footer>
 
-    <!-- MODAL EMBED GAME -->
-    <div id="gameModal" class="fixed inset-0 bg-black/85 z-50 hidden items-center justify-center p-2 sm:p-6 backdrop-blur-sm">
-        <div class="bg-slate-900 rounded-2xl overflow-hidden w-[95vw] md:w-[90vw] max-w-6xl h-[85vh] shadow-2xl border border-slate-700 flex flex-col justify-between">
+    <!-- MODAL EMBED GAME (MEMENUHI LAYAR DESKTOP LEBAR 95VW) -->
+    <div id="gameModal" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
+        <div class="bg-slate-900 rounded-2xl overflow-hidden w-[95vw] max-w-[1400px] h-[90vh] shadow-2xl border border-slate-700 flex flex-col justify-between">
             
             <!-- HEADER MODAL -->
             <div class="p-3 sm:p-4 bg-slate-800 flex justify-between items-center border-b border-slate-700 shrink-0">
