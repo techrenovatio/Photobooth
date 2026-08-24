@@ -40,17 +40,15 @@
         .serif-title {
             font-family: 'Merriweather', serif;
         }
+
+        /* WATERMARK BLEND MODE UNTUK MENEMBUS BACKGROUND SOLID */
+        .watermark-blend {
+            mix-blend-mode: overlay;
+        }
     </style>
 </head>
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen">
-
-    <!-- =========================================================
-         HANYA 1 GLOBAL WATERMARK RAKSASA MEMENUHI SELURUH WEB
-    ========================================================= -->
-    <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-10 overflow-hidden">
-        <img src="Logohimsi.png" alt="HIMSI Giant Watermark" class="w-[110vw] max-w-[1100px] h-auto opacity-[0.12] select-none transform scale-105">
-    </div>
 
     <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
@@ -78,13 +76,18 @@
         </div>
     </header>
 
-    <!-- HERO SECTION (TRANSPARAN SEBAGIAN AGAR LOGO DIBELAKANGNYA TEMBUS) -->
-    <section id="beranda" class="relative bg-himsiMaroon/90 text-white py-32 px-6 overflow-hidden z-20 border-b border-white/10">
+    <!-- HERO SECTION -->
+    <section id="beranda" class="relative bg-himsiMaroon text-white py-32 px-6 overflow-hidden z-10 border-b border-white/10">
         
         <!-- Grid Pattern Overlay -->
         <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
 
-        <div class="max-w-5xl mx-auto relative z-20 text-center">
+        <!-- LOGO WATERMARK KHUSUS HERO SECTION (TEMBUS WARNA MAROON) -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
+            <img src="Logohimsi.png" alt="Hero Watermark" class="w-[110vw] max-w-[1100px] h-auto opacity-20 filter brightness-200 select-none transform scale-105">
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
             <span class="text-himsiGold font-bold tracking-widest text-xs uppercase bg-white/10 px-4 py-1.5 rounded-full inline-block mb-6 border border-white/10 backdrop-blur-sm">
                 Universitas Islam Syekh Yusuf Tangerang
             </span>
@@ -109,7 +112,13 @@
     </section>
 
     <!-- PORTAL LAYANAN & APLIKASI DIGITAL -->
-    <section id="layanan" class="py-20 px-6 max-w-7xl mx-auto relative z-20">
+    <section id="layanan" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
+        
+        <!-- LOGO WATERMARK UNTUK BAGIAN HALAMAN TERANG -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none -z-10 overflow-hidden">
+            <img src="Logohimsi.png" alt="Content Watermark" class="w-[110vw] max-w-[1100px] h-auto opacity-[0.12] select-none transform scale-105">
+        </div>
+
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Direct Hub Access</span>
             <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Layanan & Aplikasi Digital</h2>
@@ -158,7 +167,7 @@
     </section>
 
     <!-- SECTION SHOWCASE KARYA MAHASISWA -->
-    <section id="karya" class="py-20 bg-slate-100/60 border-t border-slate-200 px-6 relative z-20">
+    <section id="karya" class="py-20 bg-slate-100/60 border-t border-slate-200 px-6 relative z-10">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Student Showcase</span>
@@ -222,7 +231,7 @@
     </section>
 
     <!-- SECTION TENTANG KABINET GENESIS -->
-    <section id="tentang" class="bg-white/90 backdrop-blur-sm py-20 border-y border-slate-200 px-6 relative z-20">
+    <section id="tentang" class="bg-white/90 backdrop-blur-sm py-20 border-y border-slate-200 px-6 relative z-10">
         <div class="max-w-4xl mx-auto text-center">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">HIMSI UNIS Tangerang</span>
             <h2 class="serif-title text-3xl font-bold text-slate-900 mb-6">Tentang Kabinet Genesis</h2>
@@ -253,7 +262,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer id="kontak" class="bg-darkNavy/95 text-white py-12 px-6 relative z-20">
+    <footer id="kontak" class="bg-darkNavy/95 text-white py-12 px-6 relative z-10">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center space-x-4">
                 <img src="Logohimsi.png" alt="Logo Footer" class="w-12 h-12 object-contain">
