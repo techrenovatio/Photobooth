@@ -40,15 +40,17 @@
         .serif-title {
             font-family: 'Merriweather', serif;
         }
-
-        /* WATERMARK BLEND MODE UNTUK MENEMBUS BACKGROUND SOLID */
-        .watermark-blend {
-            mix-blend-mode: overlay;
-        }
     </style>
 </head>
 
-<body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen">
+<body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen overflow-x-hidden">
+
+    <!-- =========================================================
+         SATU-SATUNYA GLOBAL WATERMARK RAKSASA (FIXED DI TENGAH)
+    ========================================================= -->
+    <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
+        <img src="Logohimsi.png" alt="HIMSI Single Giant Watermark" class="w-[110vw] max-w-[1100px] h-auto opacity-[0.14] select-none transform scale-105 filter contrast-125">
+    </div>
 
     <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
@@ -76,18 +78,13 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="beranda" class="relative bg-himsiMaroon text-white py-32 px-6 overflow-hidden z-10 border-b border-white/10">
+    <!-- HERO SECTION (TRANSPARAN SEBAGIAN AGAR SATU WATERMARK DI BELAKANG DENGAN MUDAH TEMBUS) -->
+    <section id="beranda" class="relative bg-himsiMaroon/85 text-white py-32 px-6 overflow-hidden z-10 border-b border-white/10 backdrop-blur-[2px]">
         
         <!-- Grid Pattern Overlay -->
         <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
 
-        <!-- LOGO WATERMARK KHUSUS HERO SECTION (TEMBUS WARNA MAROON) -->
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
-            <img src="Logohimsi.png" alt="Hero Watermark" class="w-[110vw] max-w-[1100px] h-auto opacity-20 filter brightness-200 select-none transform scale-105">
-        </div>
-
-        <div class="max-w-5xl mx-auto relative z-10 text-center">
+        <div class="max-w-5xl mx-auto relative z-20 text-center">
             <span class="text-himsiGold font-bold tracking-widest text-xs uppercase bg-white/10 px-4 py-1.5 rounded-full inline-block mb-6 border border-white/10 backdrop-blur-sm">
                 Universitas Islam Syekh Yusuf Tangerang
             </span>
@@ -113,12 +110,6 @@
 
     <!-- PORTAL LAYANAN & APLIKASI DIGITAL -->
     <section id="layanan" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
-        
-        <!-- LOGO WATERMARK UNTUK BAGIAN HALAMAN TERANG -->
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none -z-10 overflow-hidden">
-            <img src="Logohimsi.png" alt="Content Watermark" class="w-[110vw] max-w-[1100px] h-auto opacity-[0.12] select-none transform scale-105">
-        </div>
-
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Direct Hub Access</span>
             <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Layanan & Aplikasi Digital</h2>
@@ -130,7 +121,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             
             <!-- CARD 1: PROFIL KABINET GENESIS -->
-            <div class="bg-white/90 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
+            <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
                 <div>
                     <div class="w-14 h-14 bg-amber-50 text-amber-700 rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-himsiMaroon group-hover:text-white transition">
                         🏛️
@@ -147,7 +138,7 @@
             </div>
 
             <!-- CARD 2: RESOURCE CENTER SI -->
-            <div class="bg-white/90 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md p-8 flex flex-col justify-between opacity-80">
+            <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md p-8 flex flex-col justify-between opacity-80">
                 <div>
                     <div class="w-14 h-14 bg-slate-100 text-slate-400 rounded-xl flex items-center justify-center text-3xl font-bold mb-6">
                         📚
@@ -167,7 +158,7 @@
     </section>
 
     <!-- SECTION SHOWCASE KARYA MAHASISWA -->
-    <section id="karya" class="py-20 bg-slate-100/60 border-t border-slate-200 px-6 relative z-10">
+    <section id="karya" class="py-20 bg-slate-100/50 border-t border-slate-200 px-6 relative z-10">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Student Showcase</span>
@@ -180,7 +171,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
                 <!-- KARYA 1: PHOTOBOOTH PKKMB 2026 -->
-                <div class="bg-white/90 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
+                <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
                     <div>
                         <div class="w-14 h-14 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-himsiMaroon group-hover:text-white transition">
                             📸
@@ -198,7 +189,7 @@
                 </div>
 
                 <!-- KARYA 2: PAHRI BROS GAME -->
-                <div class="bg-white/90 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col justify-between group hover:-translate-y-1">
                     <div>
                         <div class="bg-slate-900 h-32 flex items-center justify-center relative overflow-hidden">
                             <span class="text-5xl group-hover:scale-110 transition transform">🎮</span>
@@ -220,7 +211,7 @@
                 </div>
 
                 <!-- KARYA 3: PLACEHOLDER -->
-                <div class="bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md p-6 flex flex-col justify-center items-center text-center opacity-60">
+                <div class="bg-white/75 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md p-6 flex flex-col justify-center items-center text-center opacity-60">
                     <span class="text-4xl mb-3">🚀</span>
                     <h3 class="serif-title font-bold text-slate-700">Project Selanjutnya</h3>
                     <p class="text-xs text-slate-500 mt-1">Karya mahasiswa SI berikutnya akan ditampilkan di sini.</p>
@@ -231,7 +222,7 @@
     </section>
 
     <!-- SECTION TENTANG KABINET GENESIS -->
-    <section id="tentang" class="bg-white/90 backdrop-blur-sm py-20 border-y border-slate-200 px-6 relative z-10">
+    <section id="tentang" class="bg-white/85 backdrop-blur-sm py-20 border-y border-slate-200 px-6 relative z-10">
         <div class="max-w-4xl mx-auto text-center">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">HIMSI UNIS Tangerang</span>
             <h2 class="serif-title text-3xl font-bold text-slate-900 mb-6">Tentang Kabinet Genesis</h2>
