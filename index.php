@@ -45,20 +45,20 @@
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white">
 
-    <!-- HEADER / NAVIGATION (LOGO JAUH LEBIH BESAR & HEADER LEBIH MEGAH) -->
+    <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-8 h-28 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
             
-            <!-- Brand & Logo (Logo Diperbesar Signifikan ke w-20 h-20 / w-24 h-24) -->
-            <a href="#" class="flex items-center space-x-5 group">
-                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-20 h-20 md:w-24 md:h-24 object-contain group-hover:scale-105 transition transform drop-shadow-sm py-1">
+            <!-- Brand & Logo -->
+            <a href="#" class="flex items-center space-x-4 group">
+                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-14 h-14 md:w-16 md:h-16 object-contain group-hover:scale-105 transition transform py-1">
                 <div class="border-l-2 border-slate-200 pl-4 py-1">
-                    <span class="serif-title font-bold text-2xl md:text-3xl tracking-tight text-himsiMaroon block leading-none">HIMSI UNIS</span>
-                    <span class="text-[12px] text-slate-500 font-bold tracking-widest uppercase mt-1.5 block">Kabinet Genesis</span>
+                    <span class="serif-title font-bold text-xl md:text-2xl tracking-tight text-himsiMaroon block leading-none">HIMSI UNIS</span>
+                    <span class="text-[10px] md:text-[11px] text-slate-500 font-bold tracking-widest uppercase mt-1 block">Kabinet Genesis</span>
                 </div>
             </a>
 
-            <!-- Menu Navigasi (Center & Presisi) -->
+            <!-- Menu Navigasi Presisi Center -->
             <nav class="hidden md:flex items-center space-x-10 text-base font-semibold text-slate-700">
                 <a href="#beranda" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Beranda</a>
                 <a href="#layanan" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Layanan Digital</a>
@@ -66,26 +66,32 @@
                 <a href="#tentang" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Tentang Kami</a>
             </nav>
 
-            <!-- Spacer Kanan Agar Logo & Navigasi Terbagi Secara Presisi -->
             <div class="hidden md:block w-48"></div>
 
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="beranda" class="relative bg-himsiMaroon text-white py-28 px-6 overflow-hidden">
-        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+    <!-- HERO SECTION DENGAN WATERMARK LOGO RAKSASA TRANSPARAN -->
+    <section id="beranda" class="relative bg-himsiMaroon text-white py-32 px-6 overflow-hidden">
+        
+        <!-- Grid Pattern Overlay -->
+        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
+
+        <!-- WATERMARK LOGO TRANSPARAN RAKSASA (CENTER BACKGROUND) -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+            <img src="Logohimsi.png" alt="Watermark HIMSI" class="w-[550px] sm:w-[700px] md:w-[850px] max-w-none opacity-[0.08] filter brightness-200 transform select-none">
+        </div>
 
         <div class="max-w-5xl mx-auto relative z-10 text-center">
-            <span class="text-himsiGold font-bold tracking-widest text-xs uppercase bg-white/10 px-4 py-1.5 rounded-full inline-block mb-6 border border-white/10">
+            <span class="text-himsiGold font-bold tracking-widest text-xs uppercase bg-white/10 px-4 py-1.5 rounded-full inline-block mb-6 border border-white/10 backdrop-blur-sm">
                 Universitas Islam Syekh Yusuf Tangerang
             </span>
 
-            <h1 class="serif-title text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
+            <h1 class="serif-title text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 drop-shadow-md">
                 Technology Innovation & Synergistic Leadership
             </h1>
 
-            <p class="text-slate-200 text-base md:text-xl font-light max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p class="text-slate-200 text-base md:text-xl font-light max-w-3xl mx-auto mb-10 leading-relaxed drop-shadow-sm">
                 Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang — Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
             </p>
 
@@ -93,7 +99,7 @@
                 <a href="#layanan" class="bg-white text-himsiMaroon px-8 py-3.5 rounded-lg font-bold text-sm shadow-xl hover:bg-himsiCream transition transform hover:-translate-y-0.5">
                     Jelajahi Layanan Digital
                 </a>
-                <a href="#karya" class="border-2 border-white/80 text-white px-8 py-3.5 rounded-lg font-bold text-sm hover:bg-white hover:text-himsiMaroon transition transform hover:-translate-y-0.5">
+                <a href="#karya" class="border-2 border-white/80 text-white px-8 py-3.5 rounded-lg font-bold text-sm hover:bg-white hover:text-himsiMaroon transition transform hover:-translate-y-0.5 backdrop-blur-sm">
                     Lihat Karya Mahasiswa 🎮
                 </a>
             </div>
@@ -248,9 +254,9 @@
     <footer id="kontak" class="bg-darkNavy text-white py-12 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center space-x-4">
-                <img src="Logohimsi.png" alt="Logo Footer" class="w-16 h-16 object-contain">
+                <img src="Logohimsi.png" alt="Logo Footer" class="w-12 h-12 object-contain">
                 <div>
-                    <h3 class="serif-title text-lg font-bold text-white">HIMSI UNIS Tangerang</h3>
+                    <h3 class="serif-title text-base font-bold text-white">HIMSI UNIS Tangerang</h3>
                     <p class="text-slate-400 text-xs">Himpunan Mahasiswa Sistem Informasi — Kabinet Genesis</p>
                 </div>
             </div>
