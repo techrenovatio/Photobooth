@@ -46,10 +46,10 @@
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen">
 
     <!-- =========================================================
-         GLOBAL FULLPAGE WATERMARK LOGO RAKSASA (FIXED & CENTERED)
+         GLOBAL FULLPAGE WATERMARK LOGO SANGAT BESAR & JELAS
     ========================================================= -->
     <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
-        <img src="Logohimsi.png" alt="HIMSI Giant Watermark" class="w-[85vw] max-w-[900px] h-auto opacity-[0.04] select-none transform scale-105">
+        <img src="Logohimsi.png" alt="HIMSI Giant Watermark" class="w-[110vw] max-w-[1200px] h-auto opacity-[0.12] select-none transform scale-110">
     </div>
 
     <!-- HEADER / NAVIGATION -->
