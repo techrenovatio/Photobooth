@@ -25,14 +25,23 @@
             overflow: hidden;
         }
 
+        /* WRAPPER DIPOSISIKAN RATA BAWAH (FLEX-END) UNTUK TAMPILAN HP */
         #game-wrapper {
             position: relative;
             width: 100vw;
             height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end;
+            padding-bottom: 12px;
             background: #030712;
+        }
+
+        @media (min-width: 768px) {
+            #game-wrapper {
+                align-items: center;
+                padding-bottom: 0;
+            }
         }
 
         #canvas-box {
@@ -53,7 +62,6 @@
             image-rendering: pixelated;
         }
 
-        /* OVERLAY MENU RESPONSIF DI HP (TIDAK TERPOTONG) */
         .overlay-screen {
             position: absolute;
             inset: 0;
@@ -108,7 +116,7 @@
             text-align: center;
         }
 
-        /* D-PAD KECIL TRANSPARAN DI HP AGAR TIDAK MENGGANGGU PERMAINAN */
+        /* TOUCH CONTROLS UNTUK HP */
         #touch-controls {
             position: absolute;
             bottom: 8px;
@@ -163,7 +171,6 @@
         <div id="canvas-box">
             <canvas id="gameCanvas" width="800" height="450"></canvas>
 
-            <!-- D-PAD HP -->
             <div id="touch-controls">
                 <div class="touch-group">
                     <button class="touch-btn" id="btnLeft">◀</button>
@@ -174,7 +181,6 @@
                 </div>
             </div>
 
-            <!-- OVERLAY MENU -->
             <div id="mainMenu" class="overlay-screen">
                 <h1 class="pixel-title">PAHRI BROS.</h1>
                 <button class="btn-pixel" onclick="showNewGameScreen()">NEW GAME</button>

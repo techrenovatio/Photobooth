@@ -159,7 +159,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- PHOTOBOOTH (TARGET _BLANK KE TAB BARU) -->
+                <!-- PHOTOBOOTH (OPEN IN NEW TAB) -->
                 <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
                     <div>
                         <div class="w-14 h-14 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-himsiMaroon group-hover:text-white transition">
@@ -260,24 +260,24 @@
 
     <!-- MODAL EMBED GAME -->
     <div id="gameModal" class="fixed inset-0 bg-black/85 z-50 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
-        <div class="bg-slate-900 rounded-2xl overflow-hidden w-[96vw] max-w-7xl h-[88vh] shadow-2xl border border-slate-700 flex flex-col justify-between">
+        <div class="bg-slate-900 rounded-2xl overflow-hidden w-[96vw] max-w-7xl h-auto md:h-[88vh] max-h-[85vh] shadow-2xl border border-slate-700 flex flex-col justify-between">
             
             <!-- HEADER MODAL -->
-            <div class="px-5 py-4 bg-slate-800 flex justify-between items-center border-b border-slate-700 shrink-0">
+            <div class="px-4 py-3 md:px-5 md:py-4 bg-slate-800 flex justify-between items-center border-b border-slate-700 shrink-0">
                 <div class="flex items-center gap-3">
-                    <span class="text-2xl md:text-3xl">🎮</span>
-                    <h3 class="font-bold text-white text-base md:text-xl tracking-wide">Pahri Bros — Game Showcase</h3>
+                    <span class="text-xl md:text-3xl">🎮</span>
+                    <h3 class="font-bold text-white text-sm md:text-xl tracking-wide">Pahri Bros — Game Showcase</h3>
                 </div>
-                <div class="flex items-center gap-3">
-                    <a id="btnFullscreen" href="karya/pahri-bros/" target="_blank" class="bg-sky-600 hover:bg-sky-500 text-white text-xs md:text-sm px-4 py-2 rounded-lg font-bold transition flex items-center gap-2 shadow-md">
-                        <span>↗️</span> <span>Main Fullscreen</span>
+                <div class="flex items-center gap-2 md:gap-3">
+                    <a id="btnFullscreen" href="karya/pahri-bros/" target="_blank" class="bg-sky-600 hover:bg-sky-500 text-white text-xs md:text-sm px-3 py-1.5 md:px-4 md:py-2 rounded-lg font-bold transition flex items-center gap-1.5 shadow-md">
+                        <span>↗️</span> <span class="hidden sm:inline">Main Fullscreen</span>
                     </a>
-                    <button onclick="tutupGameModal()" class="text-slate-400 hover:text-white text-3xl font-bold px-2 leading-none transition">&times;</button>
+                    <button onclick="tutupGameModal()" class="text-slate-400 hover:text-white text-2xl md:text-3xl font-bold px-2 leading-none transition">&times;</button>
                 </div>
             </div>
 
             <!-- CONTAINER IFRAME GAME -->
-            <div class="relative w-full h-full bg-slate-950 flex items-center justify-center overflow-hidden grow p-0">
+            <div class="relative w-full h-[60vh] md:h-full bg-slate-950 flex items-center justify-center overflow-hidden grow p-0">
                 <iframe id="gameIframe" src="" class="w-full h-full border-0"></iframe>
             </div>
 
