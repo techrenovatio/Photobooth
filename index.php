@@ -258,11 +258,11 @@
         </div>
     </footer>
 
-    <!-- MODAL EMBED GAME DENGAN HEADER TEKS BESAR DAN JELAS -->
+    <!-- MODAL EMBED GAME DENGAN HEADER DARI JUDUL BESAR -->
     <div id="gameModal" class="fixed inset-0 bg-black/85 z-50 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
         <div class="bg-slate-900 rounded-2xl overflow-hidden w-[96vw] max-w-7xl h-[88vh] shadow-2xl border border-slate-700 flex flex-col justify-between">
             
-            <!-- HEADER MODAL (TEKS DIPERBESAR DAN TEBAL) -->
+            <!-- HEADER MODAL DENGAN UKURAN TEKS BESAR DAN TEBAL -->
             <div class="px-5 py-4 bg-slate-800 flex justify-between items-center border-b border-slate-700 shrink-0">
                 <div class="flex items-center gap-3">
                     <span class="text-2xl md:text-3xl">🎮</span>

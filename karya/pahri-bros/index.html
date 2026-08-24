@@ -25,7 +25,6 @@
             overflow: hidden;
         }
 
-        /* DYNAMIC RESPONSIVE CANVAS CONTAINER DENGAN RASIO PRESISI */
         #game-wrapper {
             position: relative;
             width: 100vw;
@@ -54,7 +53,6 @@
             image-rendering: pixelated;
         }
 
-        /* OVERLAY UI MENU DIBUAT DENGAN UKURAN PROPORSIONAL & LEGA */
         .overlay-screen {
             position: absolute;
             inset: 0;
@@ -114,16 +112,8 @@
             margin-bottom: 15px;
             width: min(320px, 80vw);
             text-align: center;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
         }
 
-        input[type="text"]:focus {
-            outline: none;
-            border-color: #ec4899;
-            box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
-        }
-
-        /* TOUCH CONTROLS FOR MOBILE DEVICE ONLY */
         #touch-controls {
             position: absolute;
             bottom: 20px;
@@ -169,40 +159,10 @@
             transform: scale(0.92);
         }
 
-        .save-list {
-            width: min(420px, 85vw);
-            max-height: 220px;
-            overflow-y: auto;
-            margin-bottom: 15px;
-        }
-
-        .save-item {
-            background: rgba(15, 23, 42, 0.9);
-            border: 2px solid #38bdf8;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .save-info {
-            font-size: 13px;
-            color: #38bdf8;
-            text-align: left;
-        }
-
-        .btn-play {
-            background: #22c55e;
-            color: white;
-            padding: 8px 16px;
-            font-size: 12px;
-            border-radius: 6px;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-        }
+        .save-list { width: min(420px, 85vw); max-height: 220px; overflow-y: auto; margin-bottom: 15px; }
+        .save-item { background: rgba(15, 23, 42, 0.9); border: 2px solid #38bdf8; border-radius: 8px; padding: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+        .save-info { font-size: 13px; color: #38bdf8; text-align: left; }
+        .btn-play { background: #22c55e; color: white; padding: 8px 16px; font-size: 12px; border-radius: 6px; border: none; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -211,7 +171,6 @@
         <div id="canvas-box">
             <canvas id="gameCanvas" width="800" height="450"></canvas>
 
-            <!-- CONTROLS FOR TOUCH SCREEN -->
             <div id="touch-controls">
                 <div class="touch-group">
                     <button class="touch-btn" id="btnLeft">◀</button>
@@ -222,7 +181,6 @@
                 </div>
             </div>
 
-            <!-- OVERLAY UI MENU SYSTEM -->
             <div id="mainMenu" class="overlay-screen">
                 <h1 class="pixel-title">PAHRI BROS.</h1>
                 <button class="btn-pixel" onclick="showNewGameScreen()">NEW GAME</button>
@@ -250,8 +208,26 @@
     </div>
 
     <script>
+        // WEB AUDIO BGM & SFX ENGINE
         let audioCtx = null;
-        function initAudio() { if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+        let isMusicPlaying = false;
+        let bgmNoteIndex = 0;
+        let bgmTimer = null;
+
+        // MARIO THEME MELODY FREQUENCIES (HZ)
+        const E5 = 659.25, C5 = 523.25, G5 = 783.99, G4 = 392.00, A4 = 440.00, B4 = 493.88, AS4 = 466.16, F5 = 698.46, D5 = 587.33;
+        const marioTheme = [
+            { f: E5, d: 150 }, { f: E5, d: 150 }, { f: 0, d: 150 }, { f: E5, d: 150 }, { f: 0, d: 150 }, { f: C5, d: 150 }, { f: E5, d: 150 }, { f: 0, d: 150 },
+            { f: G5, d: 300 }, { f: 0, d: 150 }, { f: G4, d: 300 }, { f: 0, d: 300 },
+            { f: C5, d: 200 }, { f: 0, d: 100 }, { f: G4, d: 200 }, { f: 0, d: 100 }, { f: E5, d: 200 }, { f: 0, d: 100 }, { f: A4, d: 150 }, { f: B4, d: 150 }, { f: AS4, d: 150 }, { f: A4, d: 150 }
+        ];
+
+        function initAudio() {
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            startBGM();
+        }
+
         function playSound(type) {
             if (!audioCtx) return;
             const osc = audioCtx.createOscillator();
@@ -260,17 +236,42 @@
             const now = audioCtx.currentTime;
             if (type === 'jump') {
                 osc.type = 'square'; osc.frequency.setValueAtTime(150, now); osc.frequency.exponentialRampToValueAtTime(400, now + 0.15);
-                gain.gain.setValueAtTime(0.1, now); gain.gain.linearRampToValueAtTime(0.01, now + 0.15);
+                gain.gain.setValueAtTime(0.08, now); gain.gain.linearRampToValueAtTime(0.01, now + 0.15);
                 osc.start(now); osc.stop(now + 0.15);
             } else if (type === 'coin') {
                 osc.type = 'sine'; osc.frequency.setValueAtTime(987.77, now); osc.frequency.setValueAtTime(1318.51, now + 0.08);
-                gain.gain.setValueAtTime(0.1, now); gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
+                gain.gain.setValueAtTime(0.08, now); gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
                 osc.start(now); osc.stop(now + 0.2);
             } else if (type === 'hit') {
                 osc.type = 'sawtooth'; osc.frequency.setValueAtTime(300, now); osc.frequency.linearRampToValueAtTime(80, now + 0.2);
-                gain.gain.setValueAtTime(0.2, now); gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
+                gain.gain.setValueAtTime(0.15, now); gain.gain.linearRampToValueAtTime(0.01, now + 0.2);
                 osc.start(now); osc.stop(now + 0.2);
             }
+        }
+
+        function startBGM() {
+            if (isMusicPlaying) return;
+            isMusicPlaying = true;
+            playBGMNote();
+        }
+
+        function playBGMNote() {
+            if (!isMusicPlaying || !audioCtx) return;
+            const note = marioTheme[bgmNoteIndex];
+            if (note.f > 0 && gameState === "PLAYING") {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(note.f, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.02, audioCtx.currentTime);
+                gain.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + (note.d / 1000));
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + (note.d / 1000));
+            }
+            bgmNoteIndex = (bgmNoteIndex + 1) % marioTheme.length;
+            bgmTimer = setTimeout(playBGMNote, note.d);
         }
 
         const canvas = document.getElementById("gameCanvas");
@@ -325,18 +326,14 @@
             currentLevelNum = levelNum; player.x = 50; player.y = 200; player.vx = 0; player.vy = 0; cameraX = 0;
             platforms = []; fishes = []; enemies = []; spikes = [];
             if (levelNum === 1) {
-                // Platform
                 platforms.push(
                     { x: 0, y: 380, w: 600, h: 70 },
                     { x: 680, y: 380, w: 800, h: 70 },
                     { x: 180, y: 300, w: 120, h: 20 },
                     { x: 360, y: 240, w: 100, h: 20 }
                 );
-                // Duri / Spikes
                 spikes.push({ x: 600, y: 430, w: 80, h: 20 });
-                // Ikan / Koin
                 fishes.push({ x: 200, y: 260, collected: false }, { x: 240, y: 260, collected: false }, { x: 380, y: 200, collected: false });
-                // Musuh
                 enemies.push(
                     { x: 300, y: 356, w: 24, h: 24, vx: -1.5, minX: 100, maxX: 550, alive: true },
                     { x: 800, y: 356, w: 24, h: 24, vx: -2, minX: 700, maxX: 1200, alive: true }
@@ -384,7 +381,6 @@
             player.vy += player.gravity; player.x += player.vx; player.y += player.vy;
             player.grounded = false;
 
-            // Tabrakan Platform
             platforms.forEach(p => {
                 if (player.x < p.x + p.w && player.x + player.width > p.x && player.y + player.height >= p.y && player.y + player.height <= p.y + p.h && player.vy >= 0) {
                     player.grounded = true; player.vy = 0; player.y = p.y - player.height;
@@ -393,14 +389,12 @@
 
             cameraX = player.x - 200; if (cameraX < 0) cameraX = 0;
 
-            // Ambil Ikan
             fishes.forEach(f => {
                 if (!f.collected && Math.hypot((player.x + 12) - f.x, (player.y + 16) - f.y) < 22) {
                     f.collected = true; fishCount++; score += 100; playSound('coin');
                 }
             });
 
-            // Gerakan & Tabrakan Musuh
             enemies.forEach(e => {
                 if (!e.alive) return;
                 e.x += e.vx;
@@ -433,28 +427,19 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.save(); ctx.translate(-cameraX, 0);
 
-            // Platform
             platforms.forEach(p => { ctx.fillStyle = "#0284c7"; ctx.fillRect(p.x, p.y, p.w, p.h); });
-
-            // Spikes
             spikes.forEach(s => { ctx.fillStyle = "#ef4444"; ctx.fillRect(s.x, s.y, s.w, s.h); });
-
-            // Ikan
             fishes.forEach(f => {
                 if (!f.collected) {
                     ctx.fillStyle = "#38bdf8"; ctx.beginPath(); ctx.arc(f.x, f.y, 7, 0, Math.PI * 2); ctx.fill();
                 }
             });
-
-            // Musuh (Kotak Merah)
             enemies.forEach(e => {
                 if (e.alive) {
                     ctx.fillStyle = "#ec4899"; ctx.fillRect(e.x, e.y, e.w, e.h);
                     ctx.fillStyle = "#ffffff"; ctx.fillRect(e.x + 4, e.y + 5, 4, 4); ctx.fillRect(e.x + 14, e.y + 5, 4, 4);
                 }
             });
-
-            // Pemain (Putih)
             ctx.fillStyle = "#ffffff"; ctx.fillRect(player.x, player.y, player.width, player.height);
 
             ctx.restore();
