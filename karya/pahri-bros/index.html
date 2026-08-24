@@ -84,10 +84,9 @@
             text-align: center;
         }
 
-        /* VIRTUAL TOUCH CONTROLS UNTUK HP / TABLET */
         #touch-controls {
             position: absolute;
-            bottom: 10px;
+            bottom: 12px;
             left: 0;
             right: 0;
             display: flex;
@@ -104,13 +103,13 @@
         }
 
         .touch-btn {
-            width: 50px;
-            height: 50px;
-            background: rgba(56, 189, 248, 0.3);
+            width: 48px;
+            height: 48px;
+            background: rgba(56, 189, 248, 0.35);
             border: 2px solid #38bdf8;
             border-radius: 50%;
             color: white;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -120,7 +119,7 @@
         }
 
         .touch-btn:active {
-            background: rgba(56, 189, 248, 0.7);
+            background: rgba(56, 189, 248, 0.8);
             transform: scale(0.95);
         }
 
@@ -138,18 +137,16 @@
     <div id="game-container">
         <canvas id="gameCanvas" width="800" height="450"></canvas>
 
-        <!-- TOUCH CONTROLS FOR MOBILE -->
         <div id="touch-controls">
             <div class="touch-group">
                 <button class="touch-btn" id="btnLeft">◀</button>
                 <button class="touch-btn" id="btnRight">▶</button>
             </div>
             <div class="touch-group">
-                <button class="touch-btn" id="btnJump" style="background: rgba(236, 72, 153, 0.4); border-color:#ec4899;">▲</button>
+                <button class="touch-btn" id="btnJump" style="background: rgba(236, 72, 153, 0.45); border-color:#ec4899;">▲</button>
             </div>
         </div>
 
-        <!-- OVERLAY SCREENS -->
         <div id="mainMenu" class="overlay-screen">
             <h1 class="pixel-title">PAHRI BROS.</h1>
             <button class="btn-pixel" onclick="showNewGameScreen()">NEW GAME</button>
@@ -176,7 +173,6 @@
     </div>
 
     <script>
-        // AUDIO & GAME ENGINE
         let audioCtx = null;
         function initAudio() { if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
         function playSound(type) {
@@ -207,12 +203,10 @@
         let bankScore = 4;
         let lives = 10;
         let timeLeft = 600;
-        let timerInterval = null;
         let cameraX = 0;
 
         const keys = { right: false, left: false, up: false };
 
-        // TOUCH CONTROLS BINDING
         const btnLeft = document.getElementById("btnLeft");
         const btnRight = document.getElementById("btnRight");
         const btnJump = document.getElementById("btnJump");
