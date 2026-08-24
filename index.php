@@ -45,16 +45,16 @@
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white">
 
-    <!-- HEADER / NAVIGATION (PERBESAR LOGO & SIMETRIS CENTER NAVIGATION) -->
+    <!-- HEADER / NAVIGATION (LOGO JAUH LEBIH BESAR & HEADER LEBIH MEGAH) -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-8 h-24 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-8 h-28 flex items-center justify-between">
             
-            <!-- Brand & Logo (Logo Diperbesar dari 12 ke 16/w-16 h-16) -->
-            <a href="#" class="flex items-center space-x-4 group">
-                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-14 h-14 md:w-16 md:h-16 object-contain group-hover:scale-105 transition transform">
-                <div>
-                    <span class="serif-title font-bold text-2xl tracking-tight text-himsiMaroon block leading-none">HIMSI UNIS</span>
-                    <span class="text-[11px] text-slate-500 font-semibold tracking-widest uppercase mt-1 block">Kabinet Genesis</span>
+            <!-- Brand & Logo (Logo Diperbesar Signifikan ke w-20 h-20 / w-24 h-24) -->
+            <a href="#" class="flex items-center space-x-5 group">
+                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-20 h-20 md:w-24 md:h-24 object-contain group-hover:scale-105 transition transform drop-shadow-sm py-1">
+                <div class="border-l-2 border-slate-200 pl-4 py-1">
+                    <span class="serif-title font-bold text-2xl md:text-3xl tracking-tight text-himsiMaroon block leading-none">HIMSI UNIS</span>
+                    <span class="text-[12px] text-slate-500 font-bold tracking-widest uppercase mt-1.5 block">Kabinet Genesis</span>
                 </div>
             </a>
 
@@ -67,7 +67,7 @@
             </nav>
 
             <!-- Spacer Kanan Agar Logo & Navigasi Terbagi Secara Presisi -->
-            <div class="hidden md:block w-36"></div>
+            <div class="hidden md:block w-48"></div>
 
         </div>
     </header>
@@ -248,9 +248,9 @@
     <footer id="kontak" class="bg-darkNavy text-white py-12 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center space-x-4">
-                <img src="Logohimsi.png" alt="Logo Footer" class="w-12 h-12 object-contain">
+                <img src="Logohimsi.png" alt="Logo Footer" class="w-16 h-16 object-contain">
                 <div>
-                    <h3 class="serif-title text-base font-bold text-white">HIMSI UNIS Tangerang</h3>
+                    <h3 class="serif-title text-lg font-bold text-white">HIMSI UNIS Tangerang</h3>
                     <p class="text-slate-400 text-xs">Himpunan Mahasiswa Sistem Informasi — Kabinet Genesis</p>
                 </div>
             </div>
