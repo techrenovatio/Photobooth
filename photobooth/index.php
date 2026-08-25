@@ -490,7 +490,10 @@ require_once "config.php";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <script>
-    // FUNGSI UTAMA UNTUK MENAMPILKAN TOAST FLOATING NOTIFICATION
+    // PERBAIKAN FUNGSI TOAST AGAR TIDAK BENTROK/NYANGKUT
+    // Variabel global untuk menyimpan timeout ID
+    let currentToastTimeoutId = null;
+
     function showToast(message, icon = '📸', duration = 3000) {
         const toast = document.getElementById('toastNotification');
         const toastMsg = document.getElementById('toastMessage');
@@ -498,18 +501,27 @@ require_once "config.php";
 
         if (!toast || !toastMsg || !toastIcn) return;
 
-        toastMsg.textContent = message;
-        toastIcn.textContent = icon;
-
-        toast.classList.remove('hidden');
-
-        if (window.toastTimeout) clearTimeout(window.toastTimeout);
-
-        if (duration > 0) {
-            window.toastTimeout = setTimeout(() => {
-                toast.classList.add('hidden');
-            }, duration);
+        // Reset timeout sebelumnya jika ada (agar toast baru tidak tertutup prematur)
+        if (currentToastTimeoutId !== null) {
+            clearTimeout(currentToastTimeoutId);
+            currentToastTimeoutId = null;
         }
+
+        // Paksa toast disembunyikan sejenak (untuk efek animasi ulang jika bertumpuk)
+        toast.classList.add('hidden');
+
+        // Gunakan setTimeout kecil untuk memberi jeda DOM memproses state "hidden"
+        setTimeout(() => {
+            toastMsg.textContent = message;
+            toastIcn.textContent = icon;
+            toast.classList.remove('hidden');
+
+            if (duration > 0) {
+                currentToastTimeoutId = setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, duration);
+            }
+        }, 50);
     }
 
     // MUNCULKAN TOAST SELAMAT DATANG SAAT HALAMAN PERTAMA DIBUKA
