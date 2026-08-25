@@ -118,7 +118,7 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </section>
 
-    <!-- PORTAL LAYANAN DIGITAL (SCROLL-MT DIATUR UNTUK LANDING PRESISI PADA TEKS LAYANAN DIGITAL) -->
+    <!-- PORTAL LAYANAN DIGITAL -->
     <section id="layanan" class="py-20 px-6 max-w-7xl mx-auto relative z-10 scroll-mt-36 sm:scroll-mt-44 md:scroll-mt-56">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Direct Hub Access</span>
@@ -163,7 +163,7 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </section>
 
-    <!-- SECTION BERITA & KEGIATAN (BARU) -->
+    <!-- SECTION BERITA & KEGIATAN -->
     <section id="kegiatan" class="py-20 bg-himsiCream/80 border-y border-slate-200 px-6 relative z-10 scroll-mt-36 sm:scroll-mt-44 md:scroll-mt-56">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
@@ -178,8 +178,8 @@ header("X-XSS-Protection: 1; mode=block");
                 
                 <!-- CARD KEGIATAN 1: PELANTIKAN -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group hover:-translate-y-1">
-                    <!-- Thumbnail Kegiatan (Gunakan gambar Anda jika sudah diupload ke folder kegiatan) -->
                     <div class="h-48 bg-slate-200 overflow-hidden relative">
+                        <!-- Path disesuaikan menggunakan pelantikan-1.png sebagai thumbnail utama -->
                         <img src="kegiatan/pelantikan-1.png" alt="Pelantikan HIMSI 2026" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 fallback-bg" onerror="this.src='Logohimsi.png'; this.classList.add('p-8','object-contain','opacity-50')">
                         <div class="absolute top-3 right-3 bg-himsiMaroon text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
                             10 Feb 2026
@@ -197,7 +197,7 @@ header("X-XSS-Protection: 1; mode=block");
                     </div>
                 </div>
 
-                <!-- CARD PLACEHOLDER UNTUK KEGIATAN BERIKUTNYA -->
+                <!-- CARD PLACEHOLDER -->
                 <div class="bg-white/50 rounded-2xl border border-dashed border-slate-300 shadow-sm p-8 flex flex-col justify-center items-center text-center opacity-70">
                     <span class="text-4xl mb-3">📰</span>
                     <h3 class="serif-title font-bold text-slate-700">Kegiatan Selanjutnya</h3>
@@ -208,7 +208,7 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </section>
 
-    <!-- SECTION SHOWCASE KARYA MAHASISWA (SCROLL-MT DIATUR UNTUK LANDING PRESISI PADA TEKS KARYA MAHASISWA) -->
+    <!-- SECTION SHOWCASE KARYA MAHASISWA -->
     <section id="karya" class="py-20 bg-slate-100/50 border-t border-slate-200 px-6 relative z-10 scroll-mt-36 sm:scroll-mt-44 md:scroll-mt-56">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
@@ -336,10 +336,20 @@ header("X-XSS-Protection: 1; mode=block");
 
             <!-- Body Modal (Galeri Display) -->
             <div class="flex flex-col grow overflow-hidden bg-black relative">
-                <!-- Main Media Display -->
+                <!-- Main Media Display & Tombol Navigasi Panah -->
                 <div class="w-full h-full flex items-center justify-center grow p-2 relative group">
                     <img id="mainMediaDisplay" src="" alt="Galeri" class="max-w-full max-h-full object-contain transition duration-300">
                     <iframe id="mainVideoDisplay" src="" class="w-full h-full border-0 hidden" allowfullscreen></iframe>
+                    
+                    <!-- Tombol Navigasi Kiri -->
+                    <button onclick="navigasiGaleri(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-himsiMaroon/90 border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 z-10 shadow-lg">
+                        <span class="text-xl md:text-2xl font-bold">&larr;</span>
+                    </button>
+                    
+                    <!-- Tombol Navigasi Kanan -->
+                    <button onclick="navigasiGaleri(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-himsiMaroon/90 border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 z-10 shadow-lg">
+                        <span class="text-xl md:text-2xl font-bold">&rarr;</span>
+                    </button>
                 </div>
 
                 <!-- Deskripsi Kegiatan -->
@@ -348,7 +358,7 @@ header("X-XSS-Protection: 1; mode=block");
                 </div>
 
                 <!-- Thumbnail Slider di bagian bawah -->
-                <div class="h-24 bg-slate-950 border-t border-slate-800 p-3 shrink-0 flex items-center overflow-x-auto gallery-scroll space-x-3" id="thumbnailContainer">
+                <div class="h-24 bg-slate-950 border-t border-slate-800 p-3 shrink-0 flex items-center overflow-x-auto gallery-scroll space-x-3 scroll-smooth" id="thumbnailContainer">
                     <!-- Thumbnails di-generate via JavaScript -->
                 </div>
             </div>
@@ -399,7 +409,7 @@ header("X-XSS-Protection: 1; mode=block");
         // SCRIPT UNTUK MODAL GALERI KEGIATAN HIMSI
         // -----------------------------------------
         
-        // Data Base Dummy untuk Kegiatan
+        // Data Base untuk Kegiatan
         const databaseKegiatan = {
             'pelantikan': {
                 judul: 'Pelantikan Pengurus HIMSI Kabinet Genesis',
@@ -421,9 +431,16 @@ header("X-XSS-Protection: 1; mode=block");
             }
         };
 
+        // Variabel untuk melacak status galeri saat ini
+        let currentGalleryData = [];
+        let currentGalleryIndex = 0;
+
         function bukaModalKegiatan(idKegiatan) {
             const data = databaseKegiatan[idKegiatan];
             if(!data) return;
+
+            currentGalleryData = data.media;
+            currentGalleryIndex = 0; // Reset ke index 0
 
             document.getElementById('modalKegiatanJudul').innerText = data.judul;
             document.getElementById('modalKegiatanTanggal').innerText = data.tanggal;
@@ -438,8 +455,9 @@ header("X-XSS-Protection: 1; mode=block");
                 const thumbUrl = isVideo ? 'https://img.youtube.com/vi/'+ item.url.split('/').pop() +'/0.jpg' : item.url;
                 
                 const btn = document.createElement('button');
-                btn.className = `h-16 w-24 shrink-0 rounded-md overflow-hidden border-2 transition ${index === 0 ? 'border-himsiGold opacity-100' : 'border-transparent opacity-50 hover:opacity-100'} relative`;
-                btn.onclick = () => gantiMediaUtama(item, btn);
+                btn.className = `h-16 w-24 shrink-0 rounded-md overflow-hidden border-2 transition relative`;
+                // Set click event memanggil index
+                btn.onclick = () => gantiMediaUtama(index);
                 
                 btn.innerHTML = `
                     <img src="${thumbUrl}" onerror="this.src='Logohimsi.png'" class="w-full h-full object-cover">
@@ -448,25 +466,36 @@ header("X-XSS-Protection: 1; mode=block");
                 thumbContainer.appendChild(btn);
             });
 
-            // Set media pertama aktif
-            gantiMediaUtama(data.media[0], thumbContainer.firstChild);
+            // Buka gambar pertama (index 0)
+            gantiMediaUtama(0);
 
             document.getElementById('kegiatanModal').classList.remove('hidden');
             document.getElementById('kegiatanModal').classList.add('flex');
         }
 
-        function gantiMediaUtama(mediaObj, activeBtn) {
+        function gantiMediaUtama(index) {
+            // Validasi index
+            if (index < 0 || index >= currentGalleryData.length) return;
+            
+            currentGalleryIndex = index;
+            const mediaObj = currentGalleryData[index];
+
             const imgDisplay = document.getElementById('mainMediaDisplay');
             const vidDisplay = document.getElementById('mainVideoDisplay');
-
-            // Reset UI Active Button
             const thumbContainer = document.getElementById('thumbnailContainer');
+            const activeBtn = thumbContainer.children[index];
+
+            // Reset style semua thumbnail
             Array.from(thumbContainer.children).forEach(btn => {
                 btn.classList.remove('border-himsiGold', 'opacity-100');
                 btn.classList.add('border-transparent', 'opacity-50');
             });
+            // Beri style pada thumbnail aktif
             activeBtn.classList.add('border-himsiGold', 'opacity-100');
             activeBtn.classList.remove('border-transparent', 'opacity-50');
+
+            // Scroll otomatis ke thumbnail yang aktif
+            activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 
             // Switch content Image vs Video
             if (mediaObj.type === 'video') {
@@ -481,6 +510,20 @@ header("X-XSS-Protection: 1; mode=block");
                 imgDisplay.onerror = function() { this.src='Logohimsi.png'; this.classList.add('opacity-50'); };
                 imgDisplay.classList.remove('opacity-50');
             }
+        }
+
+        // Fungsi untuk tombol panah kiri / kanan
+        function navigasiGaleri(arah) {
+            let nextIndex = currentGalleryIndex + arah;
+            
+            // Looping balik ke awal/akhir jika melewari batas
+            if (nextIndex < 0) {
+                nextIndex = currentGalleryData.length - 1; // Balik ke foto paling akhir
+            } else if (nextIndex >= currentGalleryData.length) {
+                nextIndex = 0; // Balik ke foto pertama
+            }
+            
+            gantiMediaUtama(nextIndex);
         }
 
         function tutupModalKegiatan() {
