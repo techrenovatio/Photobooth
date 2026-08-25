@@ -490,8 +490,7 @@ require_once "config.php";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <script>
-    // PERBAIKAN FUNGSI TOAST AGAR TIDAK BENTROK/NYANGKUT
-    // Variabel global untuk menyimpan timeout ID
+    // FIX NOTIFIKASI TOAST LENGKAP & STABIL
     let currentToastTimeoutId = null;
 
     function showToast(message, icon = '📸', duration = 3000) {
@@ -501,16 +500,13 @@ require_once "config.php";
 
         if (!toast || !toastMsg || !toastIcn) return;
 
-        // Reset timeout sebelumnya jika ada (agar toast baru tidak tertutup prematur)
         if (currentToastTimeoutId !== null) {
             clearTimeout(currentToastTimeoutId);
             currentToastTimeoutId = null;
         }
 
-        // Paksa toast disembunyikan sejenak (untuk efek animasi ulang jika bertumpuk)
         toast.classList.add('hidden');
 
-        // Gunakan setTimeout kecil untuk memberi jeda DOM memproses state "hidden"
         setTimeout(() => {
             toastMsg.textContent = message;
             toastIcn.textContent = icon;
@@ -524,12 +520,10 @@ require_once "config.php";
         }, 50);
     }
 
-    // MUNCULKAN TOAST SELAMAT DATANG SAAT HALAMAN PERTAMA DIBUKA
     window.addEventListener('DOMContentLoaded', () => {
         showToast("Selamat datang! Klik tombol 'TAP TO START' untuk memulai.", "👋", 4000);
     });
 
-    // LOGIKA TOGGLE THEME SYSTEM
     function applyTheme(themeName) {
         const body = document.body;
         const btn = document.getElementById('themeBtn');
@@ -607,7 +601,6 @@ require_once "config.php";
         }
     }
 
-    // FUNGSI MEMBUKA MODAL DAN MENGUBAH TEKS TOAST MENJADI INSTRUKSI PENGISIAN FORM
     function bukaModalPresensi() {
         sessionStorage.clear();
 
@@ -624,11 +617,9 @@ require_once "config.php";
 
         document.getElementById('modalPresensi').style.display = 'flex';
 
-        // TAMPILKAN TOAST INSTRUKSI PENGISIAN FORM YANG SESUAI
         showToast("Silakan isi identitas lengkap Anda.", "📝", 4000);
     }
 
-    // VALIDASI MANDATORY INPUT & FORMAT EMAIL KETAT
     function simpanPresensiDanLanjut() {
         const nama = document.getElementById('mabaNama').value.trim();
         const nim = document.getElementById('mabaNim').value.trim();
