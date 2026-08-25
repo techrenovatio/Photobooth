@@ -62,9 +62,9 @@ header("X-XSS-Protection: 1; mode=block");
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen overflow-x-hidden">
 
-    <!-- GLOBAL WATERMARK LOGO -->
+    <!-- GLOBAL WATERMARK LOGO (Disesuaikan ukurannya agar lebih besar dan lebih jelas) -->
     <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden p-4 md:p-12">
-        <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-full h-full max-w-full max-h-full object-contain opacity-[0.10] select-none">
+        <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-full h-full object-contain opacity-[0.18] select-none transform scale-[2.5] md:scale-[1.5]">
     </div>
 
     <!-- HEADER / NAVIGATION -->
@@ -89,7 +89,7 @@ header("X-XSS-Protection: 1; mode=block");
             </nav>
 
             <!-- Tombol Hamburger Menu Mobile -->
-            <button id="mobileMenuBtn" class="lg:hidden text-slate-800 hover:text-himsiMaroon focus:outline-none p-2 transition-transform transform active:scale-95">
+            <button id="mobileMenuBtn" class="lg:hidden text-slate-800 hover:text-himsiMaroon focus:outline-none p-2 transition-transform transform active:scale-95 z-50">
                 <svg class="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -203,7 +203,7 @@ header("X-XSS-Protection: 1; mode=block");
                     <div class="p-6">
                         <h3 class="serif-title text-xl font-bold text-slate-900 mb-2 leading-tight">Pelantikan Pengurus HIMSI Kabinet Genesis</h3>
                         <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3">
-                            Momen sakral pelantikan seluruh pengurus dan anggota Himpunan Mahasiswa Sistem Informasi UNIS Tangerang periode 2026 secara resmi, membawa semangat integritas dan sinergi.
+                            Momen sakral pelantikan seluruh pengurus Himpunan Mahasiswa Sistem Informasi UNIS Tangerang periode 2026 secara resmi, membawa semangat integritas dan sinergi.
                         </p>
                         <button onclick="bukaModalKegiatan('pelantikan')" class="w-full bg-slate-900 text-white font-bold text-sm py-3 rounded-xl hover:bg-slate-800 transition flex items-center justify-center gap-2">
                             <span>📸</span> Lihat Dokumentasi
@@ -353,6 +353,7 @@ header("X-XSS-Protection: 1; mode=block");
                 <!-- Main Media Display & Tombol Navigasi Panah -->
                 <div class="w-full flex-1 min-h-0 flex items-center justify-center p-2 relative group">
                     
+                    <!-- Loading Spinner saat gambar didownload -->
                     <div id="mediaLoader" class="absolute inset-0 flex items-center justify-center pointer-events-none hidden z-0">
                         <svg class="animate-spin h-12 w-12 text-white opacity-70" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -408,7 +409,6 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </div>
 
-    <!-- JAVASCRIPT -->
     <script>
         // -----------------------------------------
         // SCRIPT UNTUK MOBILE MENU
