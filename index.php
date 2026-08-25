@@ -49,17 +49,18 @@ header("X-XSS-Protection: 1; mode=block");
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen overflow-x-hidden">
 
-    <!-- GLOBAL WATERMARK LOGO -->
+    <!-- GLOBAL WATERMARK LOGO (DIPERBESAR 5X DARI SEBELUMNYA) -->
     <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
-        <img src="Logohimsi.png" alt="HIMSI Giant Watermark" class="w-[110vw] max-w-[1100px] h-auto opacity-[0.12] select-none transform scale-105">
+        <img src="Logohimsi.png" alt="HIMSI Giant Watermark" class="w-[550vw] max-w-[5500px] h-auto opacity-[0.12] select-none transform scale-[5]">
     </div>
 
-    <!-- HEADER / NAVIGATION (LINK LOGO DIRECT KE #tentang) -->
+    <!-- HEADER / NAVIGATION (LOGO DIBUAT 5X LEBIH BESAR DARI SEBELUMNYA) -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-4">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
             
             <a href="#tentang" class="flex items-center space-x-5 md:space-x-8 group">
-                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 object-contain group-hover:scale-105 transition transform drop-shadow-md">
+                <!-- LOGO HEADER DIBUAT 5X LEBIH BESAR -->
+                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-[32rem] h-[32rem] sm:w-[40rem] sm:h-[40rem] md:w-[50rem] md:h-[50rem] max-w-[85vw] object-contain group-hover:scale-105 transition transform drop-shadow-md">
                 <div class="border-l-4 border-himsiMaroon pl-4 md:pl-6 py-2">
                     <span class="serif-title font-bold text-2xl sm:text-3xl md:text-5xl tracking-tight text-himsiMaroon block leading-tight">HIMSI UNIS</span>
                     <span class="text-xs sm:text-sm md:text-lg text-slate-600 font-extrabold tracking-widest uppercase mt-1 block">Kabinet Genesis</span>
@@ -264,7 +265,7 @@ header("X-XSS-Protection: 1; mode=block");
     <div id="gameModal" class="fixed inset-0 bg-black/85 z-50 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
         <div class="bg-slate-900 rounded-2xl overflow-hidden w-[96vw] max-w-7xl h-auto md:h-[88vh] max-h-[85vh] shadow-2xl border border-slate-700 flex flex-col justify-between">
             
-            <!-- HEADER MODAL (TEKS SUPER PAHRI) -->
+            <!-- HEADER MODAL -->
             <div class="px-4 py-3 md:px-5 md:py-4 bg-slate-800 flex justify-between items-center border-b border-slate-700 shrink-0">
                 <div class="flex items-center gap-3">
                     <span class="text-xl md:text-3xl">🎮</span>
