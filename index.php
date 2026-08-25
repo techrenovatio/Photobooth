@@ -51,22 +51,23 @@ header("X-XSS-Protection: 1; mode=block");
 
     <!-- GLOBAL WATERMARK LOGO -->
     <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
-        <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-[275vw] max-w-[2750px] h-auto opacity-[0.12] select-none transform scale-[2.5]">
+        <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-[350vw] max-w-[3500px] h-auto opacity-[0.12] select-none transform scale-[3.5]">
     </div>
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-2.5">
+    <!-- HEADER / NAVIGATION (LOGO DIPERBESAR 7X DARI UKURAN TERAKHIR) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-4">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
             
-            <a href="#tentang" class="flex items-center space-x-3 md:space-x-5 group">
-                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain group-hover:scale-105 transition transform drop-shadow-sm">
-                <div class="border-l-2 md:border-l-3 border-himsiMaroon pl-3 md:pl-4 py-1">
-                    <span class="serif-title font-bold text-lg sm:text-xl md:text-2xl tracking-tight text-himsiMaroon block leading-tight">HIMSI UNIS</span>
-                    <span class="text-[10px] sm:text-xs md:text-sm text-slate-600 font-extrabold tracking-widest uppercase mt-0.5 block">Kabinet Genesis</span>
+            <a href="#tentang" class="flex items-center space-x-4 md:space-x-6 group">
+                <!-- LOGO HEADER DIBUAT 7X LEBIH BESAR -->
+                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-[28rem] h-[28rem] sm:w-[35rem] sm:h-[35rem] md:w-[42rem] md:h-[42rem] max-w-[75vw] object-contain group-hover:scale-105 transition transform drop-shadow-md">
+                <div class="border-l-3 md:border-l-4 border-himsiMaroon pl-3 md:pl-5 py-2">
+                    <span class="serif-title font-bold text-xl sm:text-2xl md:text-4xl tracking-tight text-himsiMaroon block leading-tight">HIMSI UNIS</span>
+                    <span class="text-[11px] sm:text-xs md:text-base text-slate-600 font-extrabold tracking-widest uppercase mt-1 block">Kabinet Genesis</span>
                 </div>
             </a>
 
-            <nav class="hidden lg:flex items-center space-x-8 text-base font-bold text-slate-700">
+            <nav class="hidden lg:flex items-center space-x-8 text-lg font-bold text-slate-700">
                 <a href="#beranda" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Beranda</a>
                 <a href="#layanan" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Layanan Digital</a>
                 <a href="#karya" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Karya Mahasiswa</a>
@@ -104,7 +105,7 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </section>
 
-    <!-- PORTAL LAYANAN DIGITAL (DITAMBAHKAN SCROLL-MT AGAR LANDING PAS) -->
+    <!-- PORTAL LAYANAN DIGITAL -->
     <section id="layanan" class="py-20 px-6 max-w-7xl mx-auto relative z-10 scroll-mt-20 lg:scroll-mt-24">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Direct Hub Access</span>
