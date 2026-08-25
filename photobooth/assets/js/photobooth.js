@@ -86,13 +86,15 @@ const frameData = [
             width: 1080,
             height: 1920,
             photos: [
-                // Koordinat disamakan dengan Frame 1
-                { x: 61,  y: 425, width: 388, height: 334 },
-                { x: 622, y: 400, width: 389, height: 334 },
-                { x: 63,  y: 868, width: 389, height: 334 },
-                { x: 623, y: 848, width: 388, height: 334 },
-                { x: 63,  y: 1314, width: 389, height: 334 },
-                { x: 627, y: 1298, width: 389, height: 334 }
+                // KOORDINAT AKURAT FRAME 2 (Sesuai Gambar Asli)
+                // Kolom Kiri
+                { x: 77, y: 488, width: 398, height: 290 },
+                { x: 77, y: 848, width: 398, height: 290 },
+                { x: 77, y: 1221, width: 398, height: 290 },
+                // Kolom Kanan
+                { x: 618, y: 488, width: 398, height: 290 },
+                { x: 618, y: 848, width: 398, height: 290 },
+                { x: 618, y: 1221, width: 398, height: 290 }
             ]
         }
     },
