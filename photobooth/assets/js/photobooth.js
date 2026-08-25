@@ -87,14 +87,14 @@ const frameData = [
             height: 1920,
             photos: [
                 // Baris 1 (Telah Dikalibrasi Presisi)
-                { x: 55, y: 350, width: 440, height: 315 },
-                { x: 585, y: 350, width: 440, height: 315 },
+                { x: 63, y: 278, width: 414, height: 365 },
+                { x: 603, y: 278, width: 414, height: 365 },
                 // Baris 2
-                { x: 55, y: 740, width: 440, height: 315 },
-                { x: 585, y: 740, width: 440, height: 315 },
+                { x: 63, y: 708, width: 414, height: 365 },
+                { x: 603, y: 708, width: 414, height: 365 },
                 // Baris 3
-                { x: 55, y: 1130, width: 440, height: 315 },
-                { x: 585, y: 1130, width: 440, height: 315 }
+                { x: 63, y: 1138, width: 414, height: 365 },
+                { x: 603, y: 1138, width: 414, height: 365 }
             ]
         }
     },
