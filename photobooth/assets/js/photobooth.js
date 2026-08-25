@@ -86,15 +86,15 @@ const frameData = [
             width: 1080,
             height: 1920,
             photos: [
-                // Baris 1 (Telah Dikalibrasi Presisi)
-                { x: 63, y: 278, width: 414, height: 365 },
-                { x: 603, y: 278, width: 414, height: 365 },
+                // Baris 1 (Telah Dikalibrasi Piksel Presisi Tinggi)
+                { x: 53, y: 288, width: 424, height: 358 },
+                { x: 603, y: 288, width: 424, height: 358 },
                 // Baris 2
-                { x: 63, y: 708, width: 414, height: 365 },
-                { x: 603, y: 708, width: 414, height: 365 },
+                { x: 53, y: 713, width: 424, height: 358 },
+                { x: 603, y: 713, width: 424, height: 358 },
                 // Baris 3
-                { x: 63, y: 1138, width: 414, height: 365 },
-                { x: 603, y: 1138, width: 414, height: 365 }
+                { x: 53, y: 1138, width: 424, height: 358 },
+                { x: 603, y: 1138, width: 424, height: 358 }
             ]
         }
     },
