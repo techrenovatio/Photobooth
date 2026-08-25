@@ -86,15 +86,15 @@ const frameData = [
             width: 1080,
             height: 1920,
             photos: [
-                // PERBAIKAN KOORDINAT FRAME 2 (PRESISI 100% AREA PUTIH)
+                // KOORDINAT AKURAT FRAME 2 (Retro Browser)
                 // Kolom Kiri
-                { x: 58, y: 320, width: 424, height: 346 },
-                { x: 58, y: 793, width: 424, height: 346 },
-                { x: 58, y: 1266, width: 424, height: 346 },
+                { x: 70, y: 288, width: 400, height: 285 },
+                { x: 70, y: 752, width: 400, height: 285 },
+                { x: 70, y: 1216, width: 400, height: 285 },
                 // Kolom Kanan
-                { x: 598, y: 320, width: 424, height: 346 },
-                { x: 598, y: 793, width: 424, height: 346 },
-                { x: 598, y: 1266, width: 424, height: 346 }
+                { x: 610, y: 288, width: 400, height: 285 },
+                { x: 610, y: 752, width: 400, height: 285 },
+                { x: 610, y: 1216, width: 400, height: 285 }
             ]
         }
     },
@@ -245,7 +245,7 @@ const frameData = [
 ];
 
 // ============================================
-// UTILS & TOAST HELPER (FLOATING PERSISTENT TOAST)
+// UTILS & TOAST HELPER
 // ============================================
 
 let currentToastTimeout = null;
