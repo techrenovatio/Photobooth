@@ -179,7 +179,6 @@ header("X-XSS-Protection: 1; mode=block");
                 <!-- CARD KEGIATAN 1: PELANTIKAN -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group hover:-translate-y-1">
                     <div class="h-48 bg-slate-200 overflow-hidden relative">
-                        <!-- Thumbnail dirubah ke .webp -->
                         <img src="kegiatan/pelantikan-1.webp" loading="lazy" alt="Pelantikan HIMSI 2026" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 fallback-bg" onerror="this.src='Logohimsi.png'; this.classList.add('p-8','object-contain','opacity-50')">
                         <div class="absolute top-3 right-3 bg-himsiMaroon text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
                             10 Feb 2026
@@ -541,6 +540,30 @@ header("X-XSS-Protection: 1; mode=block");
             document.getElementById('kegiatanModal').classList.add('hidden');
             document.getElementById('mainVideoDisplay').src = ''; 
         }
+
+        // ==========================================
+        // EVENT LISTENER UNTUK NAVIGASI KEYBOARD
+        // ==========================================
+        document.addEventListener('keydown', function(event) {
+            const kegiatanModal = document.getElementById('kegiatanModal');
+            const gameModal = document.getElementById('gameModal');
+            
+            // Jika modal galeri terbuka, izinkan pakai panah Kiri/Kanan dan tombol ESC
+            if (!kegiatanModal.classList.contains('hidden')) {
+                if (event.key === 'ArrowLeft') {
+                    navigasiGaleri(-1);
+                } else if (event.key === 'ArrowRight') {
+                    navigasiGaleri(1);
+                } else if (event.key === 'Escape') {
+                    tutupModalKegiatan();
+                }
+            }
+            
+            // Jika game modal terbuka, izinkan tombol ESC untuk keluar
+            if (!gameModal.classList.contains('hidden') && event.key === 'Escape') {
+                tutupGameModal();
+            }
+        });
     </script>
 
 </body>
