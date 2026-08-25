@@ -86,15 +86,15 @@ const frameData = [
             width: 1080,
             height: 1920,
             photos: [
-                // Baris 1: Diperlebar dan ditinggikan agar tersembunyi sempurna di bawah garis frame
-                { x: 50, y: 280, width: 434, height: 414 },
-                { x: 596, y: 280, width: 434, height: 414 },
-                // Baris 2
-                { x: 50, y: 753, width: 434, height: 414 },
-                { x: 596, y: 753, width: 434, height: 414 },
-                // Baris 3
-                { x: 50, y: 1226, width: 434, height: 414 },
-                { x: 596, y: 1226, width: 434, height: 414 }
+                // PERBAIKAN KOORDINAT FRAME 2 (Retro Browser)
+                // Kolom Kiri
+                { x: 80, y: 476, width: 383, height: 286 },
+                { x: 80, y: 843, width: 383, height: 286 },
+                { x: 80, y: 1211, width: 383, height: 286 },
+                // Kolom Kanan
+                { x: 618, y: 476, width: 383, height: 286 },
+                { x: 618, y: 843, width: 383, height: 286 },
+                { x: 618, y: 1211, width: 383, height: 286 }
             ]
         }
     },
