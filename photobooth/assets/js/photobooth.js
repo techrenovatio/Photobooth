@@ -86,15 +86,15 @@ const frameData = [
             width: 1080,
             height: 1920,
             photos: [
-                // PERBAIKAN PIXEL-PERFECT KOORDINAT FRAME 2
+                // PERBAIKAN KOORDINAT FRAME 2 (PRESISI 100% AREA PUTIH)
                 // Kolom Kiri
-                { x: 60, y: 332, width: 414, height: 352 },
-                { x: 60, y: 798, width: 414, height: 352 },
-                { x: 60, y: 1264, width: 414, height: 352 },
+                { x: 58, y: 320, width: 424, height: 346 },
+                { x: 58, y: 793, width: 424, height: 346 },
+                { x: 58, y: 1266, width: 424, height: 346 },
                 // Kolom Kanan
-                { x: 606, y: 332, width: 414, height: 352 },
-                { x: 606, y: 798, width: 414, height: 352 },
-                { x: 606, y: 1264, width: 414, height: 352 }
+                { x: 598, y: 320, width: 424, height: 346 },
+                { x: 598, y: 793, width: 424, height: 346 },
+                { x: 598, y: 1266, width: 424, height: 346 }
             ]
         }
     },
