@@ -51,19 +51,19 @@ header("X-XSS-Protection: 1; mode=block");
 
     <!-- GLOBAL WATERMARK LOGO -->
     <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
-        <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-[350vw] max-w-[3500px] h-auto opacity-[0.12] select-none transform scale-[3.5]">
+        <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-[180vw] max-w-[1800px] h-auto opacity-[0.12] select-none transform scale-[1.8]">
     </div>
 
-    <!-- HEADER / NAVIGATION (LOGO DIPERBESAR 7X DARI UKURAN TERAKHIR) -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-4">
+    <!-- HEADER / NAVIGATION (LOGO HEADER DIBUAT 5X BESARNYA) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-3">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
             
             <a href="#tentang" class="flex items-center space-x-4 md:space-x-6 group">
-                <!-- LOGO HEADER DIBUAT 7X LEBIH BESAR -->
-                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-[28rem] h-[28rem] sm:w-[35rem] sm:h-[35rem] md:w-[42rem] md:h-[42rem] max-w-[75vw] object-contain group-hover:scale-105 transition transform drop-shadow-md">
-                <div class="border-l-3 md:border-l-4 border-himsiMaroon pl-3 md:pl-5 py-2">
-                    <span class="serif-title font-bold text-xl sm:text-2xl md:text-4xl tracking-tight text-himsiMaroon block leading-tight">HIMSI UNIS</span>
-                    <span class="text-[11px] sm:text-xs md:text-base text-slate-600 font-extrabold tracking-widest uppercase mt-1 block">Kabinet Genesis</span>
+                <!-- LOGO HEADER DIBUAT 5X LEBIH BESAR -->
+                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 object-contain group-hover:scale-105 transition transform drop-shadow-md">
+                <div class="border-l-3 md:border-l-4 border-himsiMaroon pl-3 md:pl-5 py-1.5">
+                    <span class="serif-title font-bold text-xl sm:text-2xl md:text-3xl tracking-tight text-himsiMaroon block leading-tight">HIMSI UNIS</span>
+                    <span class="text-[11px] sm:text-xs md:text-sm text-slate-600 font-extrabold tracking-widest uppercase mt-1 block">Kabinet Genesis</span>
                 </div>
             </a>
 
