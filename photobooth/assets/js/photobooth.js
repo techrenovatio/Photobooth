@@ -86,16 +86,15 @@ const frameData = [
             width: 1080,
             height: 1920,
             photos: [
-                // PERBAIKAN KOORDINAT FRAME 2 (PRESISI KE KOTAK PUTIH RETRO BROWSER)
-                // Baris 1
-                { x: 60, y: 288, width: 420, height: 366 },
-                { x: 600, y: 288, width: 420, height: 366 },
-                // Baris 2
-                { x: 60, y: 752, width: 420, height: 366 },
-                { x: 600, y: 752, width: 420, height: 366 },
-                // Baris 3
-                { x: 60, y: 1216, width: 420, height: 366 },
-                { x: 600, y: 1216, width: 420, height: 366 }
+                // PERBAIKAN KOORDINAT FRAME 2 (PRESISI KE DALAM LUBANG PUTIH)
+                // Kolom Kiri
+                { x: 72, y: 330, width: 396, height: 316 },
+                { x: 72, y: 794, width: 396, height: 316 },
+                { x: 72, y: 1258, width: 396, height: 316 },
+                // Kolom Kanan
+                { x: 612, y: 330, width: 396, height: 316 },
+                { x: 612, y: 794, width: 396, height: 316 },
+                { x: 612, y: 1258, width: 396, height: 316 }
             ]
         }
     },
