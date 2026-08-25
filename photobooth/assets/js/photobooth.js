@@ -86,15 +86,13 @@ const frameData = [
             width: 1080,
             height: 1920,
             photos: [
-                // KOORDINAT KHUSUS FRAME 2 (Presisi ke area putih retro window)
-                // Kolom Kiri
-                { x: 70, y: 288, width: 400, height: 285 },
-                { x: 70, y: 752, width: 400, height: 285 },
-                { x: 70, y: 1216, width: 400, height: 285 },
-                // Kolom Kanan
-                { x: 610, y: 288, width: 400, height: 285 },
-                { x: 610, y: 752, width: 400, height: 285 },
-                { x: 610, y: 1216, width: 400, height: 285 }
+                // Koordinat disamakan dengan Frame 1
+                { x: 61,  y: 425, width: 388, height: 334 },
+                { x: 622, y: 400, width: 389, height: 334 },
+                { x: 63,  y: 868, width: 389, height: 334 },
+                { x: 623, y: 848, width: 388, height: 334 },
+                { x: 63,  y: 1314, width: 389, height: 334 },
+                { x: 627, y: 1298, width: 389, height: 334 }
             ]
         }
     },
