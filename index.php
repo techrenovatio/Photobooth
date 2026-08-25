@@ -423,7 +423,7 @@ header("X-XSS-Protection: 1; mode=block");
             'pelantikan': {
                 judul: 'Pelantikan Pengurus HIMSI Kabinet Genesis',
                 tanggal: '10 Februari 2026',
-                deskripsi: 'Dokumentasi resmi kegiatan pelantikan seluruh pengurus Himpunan Mahasiswa Sistem Informasi Universitas Islam Syekh Yusuf Tangerang periode 2026. Kabinet Genesis resmi mengemban amanah dengan visi inovasi teknologi.',
+                deskripsi: 'Dokumentasi resmi kegiatan pelantikan seluruh pengurus dan anggota Himpunan Mahasiswa Sistem Informasi Universitas Islam Syekh Yusuf Tangerang periode 2026. Kabinet Genesis resmi mengemban amanah dengan visi inovasi teknologi.',
                 media: [
                     { type: 'image', url: 'kegiatan/pelantikan-1.png' }, 
                     { type: 'image', url: 'kegiatan/pelantikan-2.png' },
