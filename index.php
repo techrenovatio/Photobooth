@@ -68,7 +68,7 @@ header("X-XSS-Protection: 1; mode=block");
     </div>
 
     <!-- HEADER / NAVIGATION -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-3">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-3 relative">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
             
             <a href="#tentang" class="flex items-center space-x-3 md:space-x-5 group">
@@ -79,6 +79,7 @@ header("X-XSS-Protection: 1; mode=block");
                 </div>
             </a>
 
+            <!-- Navigasi Desktop -->
             <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-base lg:text-lg font-bold text-slate-700">
                 <a href="#beranda" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Beranda</a>
                 <a href="#layanan" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Layanan Digital</a>
@@ -87,6 +88,21 @@ header("X-XSS-Protection: 1; mode=block");
                 <a href="#tentang" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Tentang Kami</a>
             </nav>
 
+            <!-- Tombol Hamburger Menu Mobile -->
+            <button id="mobileMenuBtn" class="lg:hidden text-slate-800 hover:text-himsiMaroon focus:outline-none p-2 transition-transform transform active:scale-95">
+                <svg class="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Dropdown Menu Mobile -->
+        <div id="mobileMenuPanel" class="hidden lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xl flex flex-col py-4 px-6 space-y-4 font-bold text-slate-700">
+            <a href="#beranda" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Beranda</a>
+            <a href="#layanan" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Layanan Digital</a>
+            <a href="#kegiatan" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Berita & Kegiatan</a>
+            <a href="#karya" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Karya Mahasiswa</a>
+            <a href="#tentang" class="mobile-link block hover:text-himsiMaroon transition pb-2">Tentang Kami</a>
         </div>
     </header>
 
@@ -187,7 +203,7 @@ header("X-XSS-Protection: 1; mode=block");
                     <div class="p-6">
                         <h3 class="serif-title text-xl font-bold text-slate-900 mb-2 leading-tight">Pelantikan Pengurus HIMSI Kabinet Genesis</h3>
                         <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3">
-                            Momen sakral pelantikan seluruh pengurus Himpunan Mahasiswa Sistem Informasi UNIS Tangerang periode 2026 secara resmi, membawa semangat integritas dan sinergi.
+                            Momen sakral pelantikan seluruh pengurus dan anggota Himpunan Mahasiswa Sistem Informasi UNIS Tangerang periode 2026 secara resmi, membawa semangat integritas dan sinergi.
                         </p>
                         <button onclick="bukaModalKegiatan('pelantikan')" class="w-full bg-slate-900 text-white font-bold text-sm py-3 rounded-xl hover:bg-slate-800 transition flex items-center justify-center gap-2">
                             <span>📸</span> Lihat Dokumentasi
@@ -337,7 +353,6 @@ header("X-XSS-Protection: 1; mode=block");
                 <!-- Main Media Display & Tombol Navigasi Panah -->
                 <div class="w-full flex-1 min-h-0 flex items-center justify-center p-2 relative group">
                     
-                    <!-- Loading Spinner saat gambar didownload -->
                     <div id="mediaLoader" class="absolute inset-0 flex items-center justify-center pointer-events-none hidden z-0">
                         <svg class="animate-spin h-12 w-12 text-white opacity-70" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -393,7 +408,28 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </div>
 
+    <!-- JAVASCRIPT -->
     <script>
+        // -----------------------------------------
+        // SCRIPT UNTUK MOBILE MENU
+        // -----------------------------------------
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuPanel.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuPanel.classList.add('hidden'); // Tutup menu saat link diklik
+            });
+        });
+
+        // -----------------------------------------
+        // SCRIPT UNTUK MODAL KARYA GAME
+        // -----------------------------------------
         function bukaGameModal(gameUrl) {
             if (gameUrl.startsWith('karya/')) {
                 document.getElementById('gameIframe').src = gameUrl;
@@ -411,8 +447,6 @@ header("X-XSS-Protection: 1; mode=block");
         // -----------------------------------------
         // SCRIPT UNTUK MODAL GALERI KEGIATAN HIMSI
         // -----------------------------------------
-        
-        // Data Base untuk Kegiatan
         const databaseKegiatan = {
             'pelantikan': {
                 judul: 'Pelantikan Pengurus HIMSI Kabinet Genesis',
