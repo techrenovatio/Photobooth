@@ -179,8 +179,8 @@ header("X-XSS-Protection: 1; mode=block");
                 <!-- CARD KEGIATAN 1: PELANTIKAN -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group hover:-translate-y-1">
                     <div class="h-48 bg-slate-200 overflow-hidden relative">
-                        <!-- Path disesuaikan menggunakan pelantikan-1.png sebagai thumbnail utama -->
-                        <img src="kegiatan/pelantikan-1.png" alt="Pelantikan HIMSI 2026" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 fallback-bg" onerror="this.src='Logohimsi.png'; this.classList.add('p-8','object-contain','opacity-50')">
+                        <!-- Thumbnail menggunakan lazy load -->
+                        <img src="kegiatan/pelantikan-1.png" loading="lazy" alt="Pelantikan HIMSI 2026" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 fallback-bg" onerror="this.src='Logohimsi.png'; this.classList.add('p-8','object-contain','opacity-50')">
                         <div class="absolute top-3 right-3 bg-himsiMaroon text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
                             10 Feb 2026
                         </div>
@@ -335,30 +335,39 @@ header("X-XSS-Protection: 1; mode=block");
             </div>
 
             <!-- Body Modal (Galeri Display) -->
-            <div class="flex flex-col grow overflow-hidden bg-black relative">
-                <!-- Main Media Display & Tombol Navigasi Panah -->
-                <div class="w-full h-full flex items-center justify-center grow p-2 relative group">
-                    <img id="mainMediaDisplay" src="" alt="Galeri" class="max-w-full max-h-full object-contain transition duration-300">
-                    <iframe id="mainVideoDisplay" src="" class="w-full h-full border-0 hidden" allowfullscreen></iframe>
+            <div class="flex flex-col grow min-h-0 bg-black relative">
+                <!-- Main Media Display & Tombol Navigasi Panah (DITAMBAHKAN MIN-H-0 AGAR TIDAK MENDORONG KE BAWAH) -->
+                <div class="w-full flex-1 min-h-0 flex items-center justify-center p-2 relative group">
+                    
+                    <!-- Loading Spinner saat gambar didownload -->
+                    <div id="mediaLoader" class="absolute inset-0 flex items-center justify-center pointer-events-none hidden z-0">
+                        <svg class="animate-spin h-12 w-12 text-white opacity-70" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
+
+                    <img id="mainMediaDisplay" src="" alt="Galeri" class="max-w-full max-h-full object-contain transition duration-300 relative z-10">
+                    <iframe id="mainVideoDisplay" src="" class="w-full h-full border-0 hidden relative z-10" allowfullscreen></iframe>
                     
                     <!-- Tombol Navigasi Kiri -->
-                    <button onclick="navigasiGaleri(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-himsiMaroon/90 border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 z-10 shadow-lg">
+                    <button onclick="navigasiGaleri(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-himsiMaroon/90 border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 z-20 shadow-lg">
                         <span class="text-xl md:text-2xl font-bold">&larr;</span>
                     </button>
                     
                     <!-- Tombol Navigasi Kanan -->
-                    <button onclick="navigasiGaleri(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-himsiMaroon/90 border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 z-10 shadow-lg">
+                    <button onclick="navigasiGaleri(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-himsiMaroon/90 border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 z-20 shadow-lg">
                         <span class="text-xl md:text-2xl font-bold">&rarr;</span>
                     </button>
                 </div>
 
                 <!-- Deskripsi Kegiatan -->
-                <div class="px-6 py-4 bg-slate-900 border-t border-slate-800 shrink-0">
+                <div class="px-6 py-4 bg-slate-900 border-t border-slate-800 shrink-0 z-20">
                     <p id="modalKegiatanDesc" class="text-slate-300 text-sm leading-relaxed"></p>
                 </div>
 
                 <!-- Thumbnail Slider di bagian bawah -->
-                <div class="h-24 bg-slate-950 border-t border-slate-800 p-3 shrink-0 flex items-center overflow-x-auto gallery-scroll space-x-3 scroll-smooth" id="thumbnailContainer">
+                <div class="h-24 bg-slate-950 border-t border-slate-800 p-3 shrink-0 flex items-center overflow-x-auto gallery-scroll space-x-3 scroll-smooth z-20" id="thumbnailContainer">
                     <!-- Thumbnails di-generate via JavaScript -->
                 </div>
             </div>
@@ -456,11 +465,11 @@ header("X-XSS-Protection: 1; mode=block");
                 
                 const btn = document.createElement('button');
                 btn.className = `h-16 w-24 shrink-0 rounded-md overflow-hidden border-2 transition relative`;
-                // Set click event memanggil index
                 btn.onclick = () => gantiMediaUtama(index);
                 
+                // Tambahkan lazy load agar browser tidak freeze mendownload seluruh PNG seketika
                 btn.innerHTML = `
-                    <img src="${thumbUrl}" onerror="this.src='Logohimsi.png'" class="w-full h-full object-cover">
+                    <img src="${thumbUrl}" loading="lazy" decoding="async" onerror="this.src='Logohimsi.png'" class="w-full h-full object-cover">
                     ${isVideo ? '<div class="absolute inset-0 flex items-center justify-center bg-black/40"><span class="text-white text-xl">▶</span></div>' : ''}
                 `;
                 thumbContainer.appendChild(btn);
@@ -474,7 +483,6 @@ header("X-XSS-Protection: 1; mode=block");
         }
 
         function gantiMediaUtama(index) {
-            // Validasi index
             if (index < 0 || index >= currentGalleryData.length) return;
             
             currentGalleryIndex = index;
@@ -482,6 +490,7 @@ header("X-XSS-Protection: 1; mode=block");
 
             const imgDisplay = document.getElementById('mainMediaDisplay');
             const vidDisplay = document.getElementById('mainVideoDisplay');
+            const loader = document.getElementById('mediaLoader');
             const thumbContainer = document.getElementById('thumbnailContainer');
             const activeBtn = thumbContainer.children[index];
 
@@ -497,18 +506,34 @@ header("X-XSS-Protection: 1; mode=block");
             // Scroll otomatis ke thumbnail yang aktif
             activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 
+            // Tampilkan animasi loading
+            loader.classList.remove('hidden');
+
             // Switch content Image vs Video
             if (mediaObj.type === 'video') {
                 imgDisplay.classList.add('hidden');
                 vidDisplay.classList.remove('hidden');
                 vidDisplay.src = mediaObj.url;
+                loader.classList.add('hidden');
             } else {
                 vidDisplay.classList.add('hidden');
                 vidDisplay.src = '';
                 imgDisplay.classList.remove('hidden');
+                
+                // Matikan animasi loading jika gambar sukses diload
+                imgDisplay.onload = function() {
+                    loader.classList.add('hidden');
+                    this.classList.remove('opacity-50');
+                };
+                // Fallback jika gambar error/tidak ada
+                imgDisplay.onerror = function() { 
+                    this.src='Logohimsi.png'; 
+                    this.classList.add('opacity-50');
+                    loader.classList.add('hidden');
+                };
+                
+                // Set source memicu browser mengunduh
                 imgDisplay.src = mediaObj.url;
-                imgDisplay.onerror = function() { this.src='Logohimsi.png'; this.classList.add('opacity-50'); };
-                imgDisplay.classList.remove('opacity-50');
             }
         }
 
@@ -516,11 +541,10 @@ header("X-XSS-Protection: 1; mode=block");
         function navigasiGaleri(arah) {
             let nextIndex = currentGalleryIndex + arah;
             
-            // Looping balik ke awal/akhir jika melewari batas
             if (nextIndex < 0) {
-                nextIndex = currentGalleryData.length - 1; // Balik ke foto paling akhir
+                nextIndex = currentGalleryData.length - 1;
             } else if (nextIndex >= currentGalleryData.length) {
-                nextIndex = 0; // Balik ke foto pertama
+                nextIndex = 0;
             }
             
             gantiMediaUtama(nextIndex);
@@ -529,7 +553,7 @@ header("X-XSS-Protection: 1; mode=block");
         function tutupModalKegiatan() {
             document.getElementById('kegiatanModal').classList.remove('flex');
             document.getElementById('kegiatanModal').classList.add('hidden');
-            document.getElementById('mainVideoDisplay').src = ''; // Matikan video jika jalan
+            document.getElementById('mainVideoDisplay').src = ''; // Matikan video
         }
     </script>
 
