@@ -86,15 +86,15 @@ const frameData = [
             width: 1080,
             height: 1920,
             photos: [
-                // PERBAIKAN KOORDINAT FRAME 2 (PRESISI KE DALAM LUBANG PUTIH)
+                // PERBAIKAN FINAL KOORDINAT FRAME 2 (Sangat Presisi di Dalam Jendela)
                 // Kolom Kiri
-                { x: 72, y: 330, width: 396, height: 316 },
-                { x: 72, y: 794, width: 396, height: 316 },
-                { x: 72, y: 1258, width: 396, height: 316 },
+                { x: 80, y: 338, width: 380, height: 298 },
+                { x: 80, y: 802, width: 380, height: 298 },
+                { x: 80, y: 1266, width: 380, height: 298 },
                 // Kolom Kanan
-                { x: 612, y: 330, width: 396, height: 316 },
-                { x: 612, y: 794, width: 396, height: 316 },
-                { x: 612, y: 1258, width: 396, height: 316 }
+                { x: 620, y: 338, width: 380, height: 298 },
+                { x: 620, y: 802, width: 380, height: 298 },
+                { x: 620, y: 1266, width: 380, height: 298 }
             ]
         }
     },
