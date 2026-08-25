@@ -1,5 +1,9 @@
 <?php
 // index.php - Portal Utama HIMSI UNIS Tangerang (Kabinet Genesis)
+// Mencegah clickjacking dengan Header Security
+header("X-Frame-Options: SAMEORIGIN");
+header("X-Content-Type-Options: nosniff");
+header("X-XSS-Protection: 1; mode=block");
 ?>
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
@@ -54,7 +58,6 @@
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-4">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
             
-            <!-- DIRECT KE SECTION TENTANG DENGAN OFFSET PRESISI -->
             <a href="#tentang" class="flex items-center space-x-5 md:space-x-8 group">
                 <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 object-contain group-hover:scale-105 transition transform drop-shadow-md">
                 <div class="border-l-4 border-himsiMaroon pl-4 md:pl-6 py-2">
@@ -87,7 +90,7 @@
             </h1>
 
             <p class="text-slate-200 text-sm md:text-xl font-light max-w-3xl mx-auto mb-10 leading-relaxed drop-shadow-sm">
-                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang - Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
+                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang — Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
             </p>
 
             <div class="flex flex-wrap justify-center gap-4">
@@ -153,7 +156,7 @@
                 <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Student Showcase</span>
                 <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Karya & Inovasi Mahasiswa</h2>
                 <p class="text-slate-600 text-sm">
-                    Apresiasi dan portofolio hasil karya buatan Mahasiswa Sistem Informasi UNIS Tangerang.
+                    Apresiasi dan portofolio hasil karya buatan mahasiswa Sistem Informasi UNIS Tangerang.
                 </p>
             </div>
 
@@ -171,7 +174,7 @@
                             Abadikan momen seru dengan frame eksklusif Kabinet Genesis. Dilengkapi auto-send email softfile dan QR Code scanner.
                         </p>
                     </div>
-                    <a href="photobooth/" target="_blank" class="inline-flex items-center justify-center w-full bg-himsiMaroon text-white font-bold text-sm py-3.5 rounded-xl hover:bg-opacity-90 transition shadow-sm">
+                    <a href="photobooth/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full bg-himsiMaroon text-white font-bold text-sm py-3.5 rounded-xl hover:bg-opacity-90 transition shadow-sm">
                         Buka Aplikasi Photobooth &rarr;
                     </a>
                 </div>
@@ -184,10 +187,10 @@
                             <span class="absolute top-3 right-3 bg-himsiGold text-slate-900 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Game Dev</span>
                         </div>
                         <div class="p-6">
-                            <h3 class="serif-title text-xl font-bold text-slate-900 mb-1">Pahri Bros</h3>
+                            <h3 class="serif-title text-xl font-bold text-slate-900 mb-1">Super Pahri</h3>
                             <p class="text-xs text-himsiMaroon font-semibold mb-3">Oleh: Mahasiswa SI UNIS</p>
                             <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                                Game retro 2D platformer bertema petualangan yang dibangun menggunakan teknologi HTML5 & JavaScript dengan efek suara chiptune.
+                                Game retro 2D platformer bertema petualangan yang dibangun menggunakan teknologi HTML5 & JavaScript dengan toko item, BGM chiptune, dan multi-level.
                             </p>
                         </div>
                     </div>
@@ -208,14 +211,14 @@
         </div>
     </section>
 
-    <!-- SECTION TENTANG (DENGAN SCROLL MARGIN TOP AGAR DITAMPILKAN TEPAT BERSAMA HEADER) -->
+    <!-- SECTION TENTANG -->
     <section id="tentang" class="bg-white/85 backdrop-blur-sm py-20 border-y border-slate-200 px-6 relative z-10 scroll-mt-28 lg:scroll-mt-48">
         <div class="max-w-4xl mx-auto text-center">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">HIMSI UNIS Tangerang</span>
             <h2 class="serif-title text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Tentang Kabinet Genesis</h2>
             
             <p class="text-slate-700 text-base md:text-lg leading-relaxed mb-10">
-                Kabinet Genesis berdiri sebagai simbol awal baru yang membawa semangat inovasi teknologi, integritas akademik, dan kepemimpinan adaptif bagi seluruh Mahasiswa Sistem Informasi Universitas Islam Syekh Yusuf Tangerang.
+                Kabinet Genesis berdiri sebagai simbol awal baru yang membawa semangat inovasi teknologi, integritas akademik, dan kepemimpinan adaptif bagi seluruh mahasiswa Sistem Informasi Universitas Islam Syekh Yusuf Tangerang.
             </p>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-slate-100">
@@ -246,7 +249,7 @@
                 <img src="Logohimsi.png" alt="Logo Footer" class="w-16 h-16 object-contain">
                 <div>
                     <h3 class="serif-title text-base font-bold text-white">HIMSI UNIS Tangerang</h3>
-                    <p class="text-slate-400 text-xs">Himpunan Mahasiswa Sistem Informasi - Kabinet Genesis</p>
+                    <p class="text-slate-400 text-xs">Himpunan Mahasiswa Sistem Informasi — Kabinet Genesis</p>
                 </div>
             </div>
 
@@ -261,14 +264,14 @@
     <div id="gameModal" class="fixed inset-0 bg-black/85 z-50 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
         <div class="bg-slate-900 rounded-2xl overflow-hidden w-[96vw] max-w-7xl h-auto md:h-[88vh] max-h-[85vh] shadow-2xl border border-slate-700 flex flex-col justify-between">
             
-            <!-- HEADER MODAL -->
+            <!-- HEADER MODAL (TEKS SUPER PAHRI) -->
             <div class="px-4 py-3 md:px-5 md:py-4 bg-slate-800 flex justify-between items-center border-b border-slate-700 shrink-0">
                 <div class="flex items-center gap-3">
                     <span class="text-xl md:text-3xl">🎮</span>
-                    <h3 class="font-bold text-white text-sm md:text-xl tracking-wide">Pahri Bros — Game Showcase</h3>
+                    <h3 class="font-bold text-white text-sm md:text-xl tracking-wide">Super Pahri — Game Showcase</h3>
                 </div>
                 <div class="flex items-center gap-2 md:gap-3">
-                    <a id="btnFullscreen" href="karya/pahri-bros/" target="_blank" class="bg-sky-600 hover:bg-sky-500 text-white text-xs md:text-sm px-3 py-1.5 md:px-4 md:py-2 rounded-lg font-bold transition flex items-center gap-1.5 shadow-md">
+                    <a id="btnFullscreen" href="karya/pahri-bros/" target="_blank" rel="noopener noreferrer" class="bg-sky-600 hover:bg-sky-500 text-white text-xs md:text-sm px-3 py-1.5 md:px-4 md:py-2 rounded-lg font-bold transition flex items-center gap-1.5 shadow-md">
                         <span>↗️</span> <span class="hidden sm:inline">Main Fullscreen</span>
                     </a>
                     <button onclick="tutupGameModal()" class="text-slate-400 hover:text-white text-2xl md:text-3xl font-bold px-2 leading-none transition">&times;</button>
@@ -285,9 +288,11 @@
 
     <script>
         function bukaGameModal(gameUrl) {
-            document.getElementById('gameIframe').src = gameUrl;
-            document.getElementById('gameModal').classList.remove('hidden');
-            document.getElementById('gameModal').classList.add('flex');
+            if (gameUrl.startsWith('karya/')) {
+                document.getElementById('gameIframe').src = gameUrl;
+                document.getElementById('gameModal').classList.remove('hidden');
+                document.getElementById('gameModal').classList.add('flex');
+            }
         }
 
         function tutupGameModal() {
