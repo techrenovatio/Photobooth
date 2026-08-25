@@ -90,7 +90,7 @@ header("X-XSS-Protection: 1; mode=block");
             </h1>
 
             <p class="text-slate-200 text-sm md:text-xl font-light max-w-3xl mx-auto mb-10 leading-relaxed drop-shadow-sm">
-                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang - Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
+                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang — Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
             </p>
 
             <div class="flex flex-wrap justify-center gap-4">
@@ -104,8 +104,8 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </section>
 
-    <!-- PORTAL LAYANAN DIGITAL (SCROLL-MT DIATUR UNTUK LANDING PRESISI PADA TEKS LAYANAN DIGITAL) -->
-    <section id="layanan" class="py-20 px-6 max-w-7xl mx-auto relative z-10 scroll-mt-12 md:scroll-mt-16">
+    <!-- PORTAL LAYANAN DIGITAL (SCROLL-MT DITAMBAHKAN AGAR MENDARAT DENGAN PRESISI PADA TEKS "DIRECT HUB ACCESS") -->
+    <section id="layanan" class="py-20 px-6 max-w-7xl mx-auto relative z-10 scroll-mt-28 lg:scroll-mt-32">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Direct Hub Access</span>
             <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Layanan & Aplikasi Digital</h2>
@@ -149,8 +149,8 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </section>
 
-    <!-- SECTION SHOWCASE KARYA MAHASISWA (SCROLL-MT DIATUR UNTUK LANDING PRESISI PADA TEKS KARYA MAHASISWA) -->
-    <section id="karya" class="py-20 bg-slate-100/50 border-t border-slate-200 px-6 relative z-10 scroll-mt-12 md:scroll-mt-16">
+    <!-- SECTION SHOWCASE KARYA MAHASISWA (SCROLL-MT DITAMBAHKAN AGAR MENDARAT DENGAN PRESISI PADA TEKS "STUDENT SHOWCASE") -->
+    <section id="karya" class="py-20 bg-slate-100/50 border-t border-slate-200 px-6 relative z-10 scroll-mt-28 lg:scroll-mt-32">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Student Showcase</span>
@@ -212,7 +212,7 @@ header("X-XSS-Protection: 1; mode=block");
     </section>
 
     <!-- SECTION TENTANG -->
-    <section id="tentang" class="bg-white/85 backdrop-blur-sm py-20 border-y border-slate-200 px-6 relative z-10 scroll-mt-12 md:scroll-mt-16">
+    <section id="tentang" class="bg-white/85 backdrop-blur-sm py-20 border-y border-slate-200 px-6 relative z-10 scroll-mt-28 lg:scroll-mt-32">
         <div class="max-w-4xl mx-auto text-center">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">HIMSI UNIS Tangerang</span>
             <h2 class="serif-title text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Tentang Kabinet Genesis</h2>
@@ -249,7 +249,7 @@ header("X-XSS-Protection: 1; mode=block");
                 <img src="Logohimsi.png" alt="Logo Footer" class="w-16 h-16 object-contain">
                 <div>
                     <h3 class="serif-title text-base font-bold text-white">HIMSI UNIS Tangerang</h3>
-                    <p class="text-slate-400 text-xs">Himpunan Mahasiswa Sistem Informasi - Kabinet Genesis</p>
+                    <p class="text-slate-400 text-xs">Himpunan Mahasiswa Sistem Informasi — Kabinet Genesis</p>
                 </div>
             </div>
 
