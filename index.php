@@ -179,8 +179,8 @@ header("X-XSS-Protection: 1; mode=block");
                 <!-- CARD KEGIATAN 1: PELANTIKAN -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group hover:-translate-y-1">
                     <div class="h-48 bg-slate-200 overflow-hidden relative">
-                        <!-- Thumbnail menggunakan lazy load -->
-                        <img src="kegiatan/pelantikan-1.png" loading="lazy" alt="Pelantikan HIMSI 2026" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 fallback-bg" onerror="this.src='Logohimsi.png'; this.classList.add('p-8','object-contain','opacity-50')">
+                        <!-- Thumbnail dirubah ke .webp -->
+                        <img src="kegiatan/pelantikan-1.webp" loading="lazy" alt="Pelantikan HIMSI 2026" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 fallback-bg" onerror="this.src='Logohimsi.png'; this.classList.add('p-8','object-contain','opacity-50')">
                         <div class="absolute top-3 right-3 bg-himsiMaroon text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
                             10 Feb 2026
                         </div>
@@ -190,7 +190,6 @@ header("X-XSS-Protection: 1; mode=block");
                         <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3">
                             Momen sakral pelantikan seluruh pengurus Himpunan Mahasiswa Sistem Informasi UNIS Tangerang periode 2026 secara resmi, membawa semangat integritas dan sinergi.
                         </p>
-                        <!-- Tombol untuk membuka Modal -->
                         <button onclick="bukaModalKegiatan('pelantikan')" class="w-full bg-slate-900 text-white font-bold text-sm py-3 rounded-xl hover:bg-slate-800 transition flex items-center justify-center gap-2">
                             <span>📸</span> Lihat Dokumentasi
                         </button>
@@ -336,7 +335,7 @@ header("X-XSS-Protection: 1; mode=block");
 
             <!-- Body Modal (Galeri Display) -->
             <div class="flex flex-col grow min-h-0 bg-black relative">
-                <!-- Main Media Display & Tombol Navigasi Panah (DITAMBAHKAN MIN-H-0 AGAR TIDAK MENDORONG KE BAWAH) -->
+                <!-- Main Media Display & Tombol Navigasi Panah -->
                 <div class="w-full flex-1 min-h-0 flex items-center justify-center p-2 relative group">
                     
                     <!-- Loading Spinner saat gambar didownload -->
@@ -347,16 +346,16 @@ header("X-XSS-Protection: 1; mode=block");
                         </svg>
                     </div>
 
-                    <img id="mainMediaDisplay" src="" alt="Galeri" class="max-w-full max-h-full object-contain transition duration-300 relative z-10">
+                    <img id="mainMediaDisplay" src="" alt="Galeri" class="max-w-full max-h-full object-contain transition-opacity duration-300 relative z-10 opacity-0">
                     <iframe id="mainVideoDisplay" src="" class="w-full h-full border-0 hidden relative z-10" allowfullscreen></iframe>
                     
                     <!-- Tombol Navigasi Kiri -->
-                    <button onclick="navigasiGaleri(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-himsiMaroon/90 border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 z-20 shadow-lg">
+                    <button onclick="navigasiGaleri(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-himsiMaroon/90 border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 z-20 shadow-lg cursor-pointer">
                         <span class="text-xl md:text-2xl font-bold">&larr;</span>
                     </button>
                     
                     <!-- Tombol Navigasi Kanan -->
-                    <button onclick="navigasiGaleri(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-himsiMaroon/90 border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 z-20 shadow-lg">
+                    <button onclick="navigasiGaleri(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-himsiMaroon/90 border border-white/20 text-white rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 z-20 shadow-lg cursor-pointer">
                         <span class="text-xl md:text-2xl font-bold">&rarr;</span>
                     </button>
                 </div>
@@ -395,11 +394,7 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </div>
 
-    <!-- JAVASCRIPT UNTUK MODAL GAME & GALERI KEGIATAN -->
     <script>
-        // -----------------------------------------
-        // SCRIPT UNTUK MODAL KARYA GAME
-        // -----------------------------------------
         function bukaGameModal(gameUrl) {
             if (gameUrl.startsWith('karya/')) {
                 document.getElementById('gameIframe').src = gameUrl;
@@ -423,24 +418,23 @@ header("X-XSS-Protection: 1; mode=block");
             'pelantikan': {
                 judul: 'Pelantikan Pengurus HIMSI Kabinet Genesis',
                 tanggal: '10 Februari 2026',
-                deskripsi: 'Dokumentasi resmi kegiatan pelantikan seluruh pengurus dan anggota Himpunan Mahasiswa Sistem Informasi Universitas Islam Syekh Yusuf Tangerang periode 2026. Kabinet Genesis resmi mengemban amanah dengan visi inovasi teknologi.',
+                deskripsi: 'Dokumentasi resmi kegiatan pelantikan seluruh pengurus Himpunan Mahasiswa Sistem Informasi Universitas Islam Syekh Yusuf Tangerang periode 2026. Kabinet Genesis resmi mengemban amanah dengan visi inovasi teknologi.',
                 media: [
-                    { type: 'image', url: 'kegiatan/pelantikan-1.png' }, 
-                    { type: 'image', url: 'kegiatan/pelantikan-2.png' },
-                    { type: 'image', url: 'kegiatan/pelantikan-3.png' },
-                    { type: 'image', url: 'kegiatan/pelantikan-4.png' },
-                    { type: 'image', url: 'kegiatan/pelantikan-5.png' },
-                    { type: 'image', url: 'kegiatan/pelantikan-6.png' },
-                    { type: 'image', url: 'kegiatan/pelantikan-7.png' },
-                    { type: 'image', url: 'kegiatan/pelantikan-8.png' },
-                    { type: 'image', url: 'kegiatan/pelantikan-9.png' },
-                    { type: 'image', url: 'kegiatan/pelantikan-10.png' },
-                    { type: 'image', url: 'kegiatan/pelantikan-11.png' }
+                    { type: 'image', url: 'kegiatan/pelantikan-1.webp' }, 
+                    { type: 'image', url: 'kegiatan/pelantikan-2.webp' },
+                    { type: 'image', url: 'kegiatan/pelantikan-3.webp' },
+                    { type: 'image', url: 'kegiatan/pelantikan-4.webp' },
+                    { type: 'image', url: 'kegiatan/pelantikan-5.webp' },
+                    { type: 'image', url: 'kegiatan/pelantikan-6.webp' },
+                    { type: 'image', url: 'kegiatan/pelantikan-7.webp' },
+                    { type: 'image', url: 'kegiatan/pelantikan-8.webp' },
+                    { type: 'image', url: 'kegiatan/pelantikan-9.webp' },
+                    { type: 'image', url: 'kegiatan/pelantikan-10.webp' },
+                    { type: 'image', url: 'kegiatan/pelantikan-11.webp' }
                 ]
             }
         };
 
-        // Variabel untuk melacak status galeri saat ini
         let currentGalleryData = [];
         let currentGalleryIndex = 0;
 
@@ -449,25 +443,23 @@ header("X-XSS-Protection: 1; mode=block");
             if(!data) return;
 
             currentGalleryData = data.media;
-            currentGalleryIndex = 0; // Reset ke index 0
+            currentGalleryIndex = 0;
 
             document.getElementById('modalKegiatanJudul').innerText = data.judul;
             document.getElementById('modalKegiatanTanggal').innerText = data.tanggal;
             document.getElementById('modalKegiatanDesc').innerText = data.deskripsi;
 
             const thumbContainer = document.getElementById('thumbnailContainer');
-            thumbContainer.innerHTML = ''; // Kosongkan thumbnail sebelumnya
+            thumbContainer.innerHTML = '';
 
-            // Buat Thumbnail Loop
             data.media.forEach((item, index) => {
                 const isVideo = item.type === 'video';
                 const thumbUrl = isVideo ? 'https://img.youtube.com/vi/'+ item.url.split('/').pop() +'/0.jpg' : item.url;
                 
                 const btn = document.createElement('button');
-                btn.className = `h-16 w-24 shrink-0 rounded-md overflow-hidden border-2 transition relative`;
+                btn.className = `h-16 w-24 shrink-0 rounded-md overflow-hidden border-2 transition relative focus:outline-none`;
                 btn.onclick = () => gantiMediaUtama(index);
                 
-                // Tambahkan lazy load agar browser tidak freeze mendownload seluruh PNG seketika
                 btn.innerHTML = `
                     <img src="${thumbUrl}" loading="lazy" decoding="async" onerror="this.src='Logohimsi.png'" class="w-full h-full object-cover">
                     ${isVideo ? '<div class="absolute inset-0 flex items-center justify-center bg-black/40"><span class="text-white text-xl">▶</span></div>' : ''}
@@ -475,7 +467,6 @@ header("X-XSS-Protection: 1; mode=block");
                 thumbContainer.appendChild(btn);
             });
 
-            // Buka gambar pertama (index 0)
             gantiMediaUtama(0);
 
             document.getElementById('kegiatanModal').classList.remove('hidden');
@@ -494,22 +485,18 @@ header("X-XSS-Protection: 1; mode=block");
             const thumbContainer = document.getElementById('thumbnailContainer');
             const activeBtn = thumbContainer.children[index];
 
-            // Reset style semua thumbnail
             Array.from(thumbContainer.children).forEach(btn => {
                 btn.classList.remove('border-himsiGold', 'opacity-100');
                 btn.classList.add('border-transparent', 'opacity-50');
             });
-            // Beri style pada thumbnail aktif
             activeBtn.classList.add('border-himsiGold', 'opacity-100');
             activeBtn.classList.remove('border-transparent', 'opacity-50');
 
-            // Scroll otomatis ke thumbnail yang aktif
             activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 
-            // Tampilkan animasi loading
+            imgDisplay.classList.add('opacity-0');
             loader.classList.remove('hidden');
 
-            // Switch content Image vs Video
             if (mediaObj.type === 'video') {
                 imgDisplay.classList.add('hidden');
                 vidDisplay.classList.remove('hidden');
@@ -520,24 +507,23 @@ header("X-XSS-Protection: 1; mode=block");
                 vidDisplay.src = '';
                 imgDisplay.classList.remove('hidden');
                 
-                // Matikan animasi loading jika gambar sukses diload
                 imgDisplay.onload = function() {
                     loader.classList.add('hidden');
+                    this.classList.remove('opacity-0'); 
                     this.classList.remove('opacity-50');
                 };
-                // Fallback jika gambar error/tidak ada
+                
                 imgDisplay.onerror = function() { 
                     this.src='Logohimsi.png'; 
+                    this.classList.remove('opacity-0');
                     this.classList.add('opacity-50');
                     loader.classList.add('hidden');
                 };
                 
-                // Set source memicu browser mengunduh
                 imgDisplay.src = mediaObj.url;
             }
         }
 
-        // Fungsi untuk tombol panah kiri / kanan
         function navigasiGaleri(arah) {
             let nextIndex = currentGalleryIndex + arah;
             
@@ -553,7 +539,7 @@ header("X-XSS-Protection: 1; mode=block");
         function tutupModalKegiatan() {
             document.getElementById('kegiatanModal').classList.remove('flex');
             document.getElementById('kegiatanModal').classList.add('hidden');
-            document.getElementById('mainVideoDisplay').src = ''; // Matikan video
+            document.getElementById('mainVideoDisplay').src = ''; 
         }
     </script>
 
