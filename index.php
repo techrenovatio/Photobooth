@@ -49,24 +49,25 @@ header("X-XSS-Protection: 1; mode=block");
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen overflow-x-hidden">
 
-    <!-- GLOBAL WATERMARK LOGO -->
+    <!-- GLOBAL WATERMARK LOGO (DIPERKECIL 2X SUPAYA PROPORSIONAL) -->
     <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
-        <img src="Logohimsi.png" alt="HIMSI Giant Watermark" class="w-[550vw] max-w-[5500px] h-auto opacity-[0.12] select-none transform scale-[5]">
+        <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-[275vw] max-w-[2750px] h-auto opacity-[0.12] select-none transform scale-[2.5]">
     </div>
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-4">
+    <!-- HEADER / NAVIGATION (LOGO HEADER DIPERKECIL 2X AGAR RAPI) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-2.5">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
             
-            <a href="#tentang" class="flex items-center space-x-5 md:space-x-8 group">
-                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-[32rem] h-[32rem] sm:w-[40rem] sm:h-[40rem] md:w-[50rem] md:h-[50rem] max-w-[85vw] object-contain group-hover:scale-105 transition transform drop-shadow-md">
-                <div class="border-l-4 border-himsiMaroon pl-4 md:pl-6 py-2">
-                    <span class="serif-title font-bold text-2xl sm:text-3xl md:text-5xl tracking-tight text-himsiMaroon block leading-tight">HIMSI UNIS</span>
-                    <span class="text-xs sm:text-sm md:text-lg text-slate-600 font-extrabold tracking-widest uppercase mt-1 block">Kabinet Genesis</span>
+            <a href="#tentang" class="flex items-center space-x-3 md:space-x-5 group">
+                <!-- LOGO HEADER DIPERKECIL 2X DARI UKURAN PREVIOUS (DARI 50rem MENJADI 25rem/max-h-24) -->
+                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain group-hover:scale-105 transition transform drop-shadow-sm">
+                <div class="border-l-2 md:border-l-3 border-himsiMaroon pl-3 md:pl-4 py-1">
+                    <span class="serif-title font-bold text-lg sm:text-xl md:text-2xl tracking-tight text-himsiMaroon block leading-tight">HIMSI UNIS</span>
+                    <span class="text-[10px] sm:text-xs md:text-sm text-slate-600 font-extrabold tracking-widest uppercase mt-0.5 block">Kabinet Genesis</span>
                 </div>
             </a>
 
-            <nav class="hidden lg:flex items-center space-x-10 text-lg font-bold text-slate-700">
+            <nav class="hidden lg:flex items-center space-x-8 text-base font-bold text-slate-700">
                 <a href="#beranda" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Beranda</a>
                 <a href="#layanan" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Layanan Digital</a>
                 <a href="#karya" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Karya Mahasiswa</a>
@@ -90,7 +91,7 @@ header("X-XSS-Protection: 1; mode=block");
             </h1>
 
             <p class="text-slate-200 text-sm md:text-xl font-light max-w-3xl mx-auto mb-10 leading-relaxed drop-shadow-sm">
-                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang - Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
+                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang — Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
             </p>
 
             <div class="flex flex-wrap justify-center gap-4">
@@ -150,8 +151,8 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </section>
 
-    <!-- SECTION SHOWCASE KARYA MAHASISWA (DITAMBAHKAN SCROLL-MT AGAR LANDING PAS) -->
-    <section id="karya" class="py-20 bg-slate-100/50 border-t border-slate-200 px-6 relative z-10 scroll-mt-28 lg:scroll-mt-36">
+    <!-- SECTION SHOWCASE KARYA MAHASISWA -->
+    <section id="karya" class="py-20 bg-slate-100/50 border-t border-slate-200 px-6 relative z-10 scroll-mt-20 lg:scroll-mt-24">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Student Showcase</span>
@@ -213,7 +214,7 @@ header("X-XSS-Protection: 1; mode=block");
     </section>
 
     <!-- SECTION TENTANG -->
-    <section id="tentang" class="bg-white/85 backdrop-blur-sm py-20 border-y border-slate-200 px-6 relative z-10 scroll-mt-28 lg:scroll-mt-48">
+    <section id="tentang" class="bg-white/85 backdrop-blur-sm py-20 border-y border-slate-200 px-6 relative z-10 scroll-mt-20 lg:scroll-mt-24">
         <div class="max-w-4xl mx-auto text-center">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">HIMSI UNIS Tangerang</span>
             <h2 class="serif-title text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Tentang Kabinet Genesis</h2>
@@ -250,7 +251,7 @@ header("X-XSS-Protection: 1; mode=block");
                 <img src="Logohimsi.png" alt="Logo Footer" class="w-16 h-16 object-contain">
                 <div>
                     <h3 class="serif-title text-base font-bold text-white">HIMSI UNIS Tangerang</h3>
-                    <p class="text-slate-400 text-xs">Himpunan Mahasiswa Sistem Informasi - Kabinet Genesis</p>
+                    <p class="text-slate-400 text-xs">Himpunan Mahasiswa Sistem Informasi — Kabinet Genesis</p>
                 </div>
             </div>
 
