@@ -86,15 +86,15 @@ const frameData = [
             width: 1080,
             height: 1920,
             photos: [
-                // Baris 1 (Diperkecil width & height, digeser X & Y agar masuk presisi di dalam garis)
-                { x: 85, y: 338, width: 385, height: 298 },
-                { x: 610, y: 338, width: 385, height: 298 },
+                // Baris 1: Diperlebar dan ditinggikan agar tersembunyi sempurna di bawah garis frame
+                { x: 50, y: 280, width: 434, height: 414 },
+                { x: 596, y: 280, width: 434, height: 414 },
                 // Baris 2
-                { x: 85, y: 758, width: 385, height: 298 },
-                { x: 610, y: 758, width: 385, height: 298 },
+                { x: 50, y: 753, width: 434, height: 414 },
+                { x: 596, y: 753, width: 434, height: 414 },
                 // Baris 3
-                { x: 85, y: 1178, width: 385, height: 298 },
-                { x: 610, y: 1178, width: 385, height: 298 }
+                { x: 50, y: 1226, width: 434, height: 414 },
+                { x: 596, y: 1226, width: 434, height: 414 }
             ]
         }
     },
