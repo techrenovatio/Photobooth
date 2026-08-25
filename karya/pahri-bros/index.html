@@ -14,11 +14,19 @@
             overflow: hidden; user-select: none;
         }
 
+        /* CONTAINER DIBUAT FLEKSIBEL VERTIKAL */
         #game-container {
-            position: relative; width: 900px; max-width: 100%; height: 500px;
+            position: relative; width: 900px; max-width: 100%; height: 100vh; max-height: 580px;
+            background: #050505; display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            overflow: hidden; border-radius: 10px;
+        }
+
+        #canvas-box {
+            position: relative; width: 100%; height: 500px; max-height: 75vh;
             background: linear-gradient(180deg, #0b0b2a 0%, #1e3c72 50%, #2a5298 100%);
             box-shadow: 0 0 30px #4facfe, 0 0 60px #00f2fe inset;
-            overflow: hidden; border-radius: 10px; border: 2px solid #4facfe;
+            overflow: hidden; border-radius: 10px; border: 2px solid #4facfe; flex-shrink: 0;
         }
 
         canvas { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
@@ -62,7 +70,6 @@
             text-transform: uppercase; width: 300px; max-width: 80%;
         }
 
-        /* LOAD SAVE LIST */
         #save-list { width: 80%; max-width: 500px; max-height: 250px; overflow-y: auto; margin-bottom: 20px; }
         .save-card {
             background: rgba(20, 20, 40, 0.8); border: 2px solid #4facfe; border-radius: 5px;
@@ -76,7 +83,6 @@
         .btn-delete { background: #ff0000; color: white; border: 1px solid #fff; border-radius: 3px; padding: 6px 8px; font-size: 8px; cursor: pointer; font-family: 'Press Start 2P', cursive; transition: 0.2s; }
         .btn-delete:hover { background: #990000; transform: scale(1.1); }
 
-        /* UI TOKO CLEAN */
         #shop-content { width: 95%; height: 85%; overflow-y: auto; background: rgba(0,0,0,0.85); border: 2px solid #ffd700; border-radius: 10px; padding: 20px; box-sizing: border-box;}
         .shop-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px dashed #555; padding-bottom: 10px; margin-bottom: 20px; position: sticky; top:0; background:rgba(0,0,0,0.95); z-index:20; }
         .bank-ikan { font-size: 18px; color: #ffd700; text-shadow: 0 0 10px #ffd700; }
@@ -92,14 +98,23 @@
         .btn-equip { background: #00b09b; color: white; }
         .btn-equipped { background: #ffd700; color: #000; font-weight: bold; }
 
-        /* HUD & MOBILE */
         #hud { position: absolute; top: 15px; left: 10px; right: 10px; color: white; font-size: 12px; z-index: 5; text-shadow: 2px 2px 0 #000; display: none; justify-content: space-between; text-align: center; }
         #hud div { margin: 0 5px; }
         #hud-pause-btn { font-size: 20px; cursor: pointer; padding: 5px; background: rgba(0,0,0,0.5); border: 2px solid #fff; border-radius: 5px; pointer-events: auto; }
-        #mobile-controls { position: absolute; bottom: 20px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 20px; z-index: 5; pointer-events: none; }
-        .d-pad, .action-btn { display: flex; gap: 15px; pointer-events: auto; }
-        .c-btn { width: 60px; height: 60px; background: rgba(255, 255, 255, 0.2); border: 2px solid rgba(255,255,255,0.8); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 24px; color: white; font-weight: bold; backdrop-filter: blur(2px); }
+        
+        /* D-PAD DIPINDAHKAN KE LUAR CANVAS DI BAGIAN BAWAH */
+        #mobile-controls {
+            width: 100%; display: flex; justify-content: space-between;
+            padding: 10px 15px; box-sizing: border-box; z-index: 15;
+            background: #050505; flex-shrink: 0;
+        }
+        .d-pad, .action-btn { display: flex; gap: 12px; }
+        .c-btn { width: 50px; height: 50px; background: rgba(255, 255, 255, 0.2); border: 2px solid rgba(255,255,255,0.8); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 20px; color: white; font-weight: bold; backdrop-filter: blur(2px); touch-action: manipulation; }
         .btn-shoot { background: rgba(0, 255, 0, 0.4) !important; border-color: #0f0 !important; }
+
+        @media (min-width: 1024px) {
+            #mobile-controls { display: none !important; }
+        }
 
         @media (max-width: 800px) {
             #game-container { height: 100vh; border-radius: 0; border: none; } h1 { font-size: 24px; } 
@@ -110,18 +125,105 @@
 <body>
 
     <div id="game-container">
-        <canvas id="gameCanvas" width="900" height="500"></canvas>
+        <!-- CANVAS BOX (GAME AREA) -->
+        <div id="canvas-box">
+            <canvas id="gameCanvas" width="900" height="500"></canvas>
 
-        <div id="hud">
-            <div>SKOR<br><br><span id="hud-score">000000</span></div>
-            <div>IKAN🐟<br><br><span id="hud-coins">0</span></div>
-            <div>BANK🏦<br><br><span id="hud-total-coins">0</span></div>
-            <div><span id="hud-mode" style="color:#0f0;">G</span> 1-<span id="hud-level">1</span></div>
-            <div>NYAWA❤️<br><br><span id="hud-lives">5</span></div>
-            <div>WAKTU⏳<br><br><span id="hud-time">400</span></div>
-            <div id="hud-pause-btn" onclick="togglePause()">⏸️</div>
+            <div id="hud">
+                <div>SKOR<br><br><span id="hud-score">000000</span></div>
+                <div>IKAN🐟<br><br><span id="hud-coins">0</span></div>
+                <div>BANK🏦<br><br><span id="hud-total-coins">0</span></div>
+                <div><span id="hud-mode" style="color:#0f0;">G</span> 1-<span id="hud-level">1</span></div>
+                <div>NYAWA❤️<br><br><span id="hud-lives">5</span></div>
+                <div>WAKTU⏳<br><br><span id="hud-time">400</span></div>
+                <div id="hud-pause-btn" onclick="togglePause()">⏸️</div>
+            </div>
+
+            <div id="init-screen" class="screen" onclick="unlockAudioAndEnter()">
+                <h1 style="font-size: 40px; color: #fff; text-shadow: 0 0 20px #fff;">SYSTEM BOOT</h1>
+                <p class="blinking-text">-- KLIK LAYAR UNTUK MASUK --</p>
+            </div>
+
+            <!-- MAIN MENU -->
+            <div id="menu-screen" class="screen hidden" style="background: rgba(0,0,15,0.6);">
+                <h1 style="margin-top:-30px;">SUPER🐾PAHRI</h1>
+                <div class="btn-container" style="flex-direction: column; align-items: center;">
+                    <button class="btn btn-action" onclick="showNewGameScreen()">NEW GAME</button>
+                    <button class="btn btn-toko" style="width: 250px; margin-top: 0;" onclick="showLoadGameScreen()">LOAD GAME</button>
+                </div>
+            </div>
+
+            <!-- NEW GAME DIFFICULTY SCREEN -->
+            <div id="newgame-screen" class="screen hidden">
+                <h2 style="margin-bottom: 30px;">PILIH KESULITAN</h2>
+                <div class="btn-container">
+                    <button class="btn btn-gampang" onclick="startNewGame('GAMPANG')">GAMPANG</button>
+                    <button class="btn btn-normal" onclick="startNewGame('NORMAL')">NORMAL</button>
+                    <button class="btn btn-sulit" onclick="startNewGame('SULIT')">SULIT</button>
+                </div>
+                <button class="btn" style="margin-top: 50px; background: #444; border-color:#fff;" onclick="showMainMenu()">KEMBALI</button>
+            </div>
+
+            <!-- LOAD GAME SCREEN -->
+            <div id="load-screen" class="screen hidden">
+                <h2>PILIH SAVE GAME</h2>
+                <div id="save-list"></div>
+                <button class="btn" style="margin-top: 20px; background: #444; border-color:#fff;" onclick="showMainMenu()">KEMBALI</button>
+            </div>
+
+            <!-- SAVE NAME SCREEN -->
+            <div id="save-name-screen" class="screen hidden" style="background: rgba(0,0,0,0.9);">
+                <h2>BERI NAMA SAVE-AN</h2>
+                <input type="text" id="save-name-input" placeholder="NAMA..." maxlength="10">
+                <div class="btn-container">
+                    <button class="btn btn-normal" onclick="submitSaveName()">SIMPAN</button>
+                    <button class="btn btn-sulit" onclick="pauseNyerah()">BATAL (JANGAN SIMPAN)</button>
+                </div>
+            </div>
+
+            <!-- TOKO SCREEN -->
+            <div id="shop-screen" class="screen hidden">
+                <div id="shop-content">
+                    <div class="shop-header">
+                        <h2 style="margin:0; color:#fff;">TOKO ITEM</h2>
+                        <div class="bank-ikan">🐟 <span id="shop-bank">0</span></div>
+                    </div>
+                    
+                    <div class="shop-section-title">GAYA</div>
+                    <div class="shop-grid" id="shop-grid-gaya"></div>
+                    
+                    <div class="shop-section-title">SKILL</div>
+                    <div class="shop-grid" id="shop-grid-skill"></div>
+                    
+                    <button class="btn" style="width:100%; margin-top:20px; background:#444; border-color:#fff;" onclick="closeShop()">KEMBALI</button>
+                </div>
+            </div>
+
+            <!-- PAUSE SCREEN -->
+            <div id="pause-screen" class="screen hidden" style="background: rgba(0,0,0,0.8);">
+                <h1>PAUSED</h1>
+                <div class="btn-container" style="flex-direction: column; align-items: center;">
+                    <button class="btn btn-action" onclick="togglePause()">LANJUT MAIN</button>
+                    <button class="btn btn-toko" style="width: 250px; margin-top: 0;" onclick="openShop()">🛒 BUKA TOKO</button>
+                    <button class="btn btn-normal" style="width: 250px; margin-top: 0;" onclick="pauseSimpanKeluar()">UDAHAN & SIMPEN</button>
+                    <button class="btn btn-sulit" style="width: 250px; margin-top: 0;" onclick="pauseNyerah()">NYERAH (EXIT)</button>
+                </div>
+            </div>
+
+            <!-- IN-GAME SCREENS -->
+            <div id="level-screen" class="screen hidden">
+                <h1 id="level-text-title" style="color: #00ffcc;">LEVEL 1</h1>
+                <h2 id="lives-title">NYAWA x 5</h2>
+            </div>
+
+            <div id="gameover-screen" class="screen hidden">
+                <h1 id="end-title">GAME OVER</h1>
+                <h2>SKOR: <span id="final-score">0</span></h2>
+                <button class="btn btn-action" style="margin-top:20px; width: 250px;" onclick="gameoverLanjut()">LANJUT</button>
+            </div>
         </div>
 
+        <!-- D-PAD BAWAH DI LUAR CANVAS -->
         <div id="mobile-controls" class="hidden">
             <div class="d-pad">
                 <div class="c-btn" id="btn-left">◀</div>
@@ -131,89 +233,6 @@
                 <div class="c-btn btn-shoot" id="btn-shoot">O</div>
                 <div class="c-btn" id="btn-jump" style="background: rgba(255, 0, 85, 0.5);">A</div>
             </div>
-        </div>
-
-        <div id="init-screen" class="screen" onclick="unlockAudioAndEnter()">
-            <h1 style="font-size: 40px; color: #fff; text-shadow: 0 0 20px #fff;">SYSTEM BOOT</h1>
-            <p class="blinking-text">-- KLIK LAYAR UNTUK MASUK --</p>
-        </div>
-
-        <!-- MAIN MENU -->
-        <div id="menu-screen" class="screen hidden" style="background: rgba(0,0,15,0.6);">
-            <h1 style="margin-top:-30px;">SUPER🐾PAHRI</h1>
-            <div class="btn-container" style="flex-direction: column; align-items: center;">
-                <button class="btn btn-action" onclick="showNewGameScreen()">NEW GAME</button>
-                <button class="btn btn-toko" style="width: 250px; margin-top: 0;" onclick="showLoadGameScreen()">LOAD GAME</button>
-            </div>
-        </div>
-
-        <!-- NEW GAME DIFFICULTY SCREEN -->
-        <div id="newgame-screen" class="screen hidden">
-            <h2 style="margin-bottom: 30px;">PILIH KESULITAN</h2>
-            <div class="btn-container">
-                <button class="btn btn-gampang" onclick="startNewGame('GAMPANG')">GAMPANG</button>
-                <button class="btn btn-normal" onclick="startNewGame('NORMAL')">NORMAL</button>
-                <button class="btn btn-sulit" onclick="startNewGame('SULIT')">SULIT</button>
-            </div>
-            <button class="btn" style="margin-top: 50px; background: #444; border-color:#fff;" onclick="showMainMenu()">KEMBALI</button>
-        </div>
-
-        <!-- LOAD GAME SCREEN -->
-        <div id="load-screen" class="screen hidden">
-            <h2>PILIH SAVE GAME</h2>
-            <div id="save-list"></div>
-            <button class="btn" style="margin-top: 20px; background: #444; border-color:#fff;" onclick="showMainMenu()">KEMBALI</button>
-        </div>
-
-        <!-- SAVE NAME SCREEN (When Saving a New Game) -->
-        <div id="save-name-screen" class="screen hidden" style="background: rgba(0,0,0,0.9);">
-            <h2>BERI NAMA SAVE-AN</h2>
-            <input type="text" id="save-name-input" placeholder="NAMA..." maxlength="10">
-            <div class="btn-container">
-                <button class="btn btn-normal" onclick="submitSaveName()">SIMPAN</button>
-                <button class="btn btn-sulit" onclick="pauseNyerah()">BATAL (JANGAN SIMPAN)</button>
-            </div>
-        </div>
-
-        <!-- TOKO SCREEN -->
-        <div id="shop-screen" class="screen hidden">
-            <div id="shop-content">
-                <div class="shop-header">
-                    <h2 style="margin:0; color:#fff;">TOKO ITEM</h2>
-                    <div class="bank-ikan">🐟 <span id="shop-bank">0</span></div>
-                </div>
-                
-                <div class="shop-section-title">GAYA</div>
-                <div class="shop-grid" id="shop-grid-gaya"></div>
-                
-                <div class="shop-section-title">SKILL</div>
-                <div class="shop-grid" id="shop-grid-skill"></div>
-                
-                <button class="btn" style="width:100%; margin-top:20px; background:#444; border-color:#fff;" onclick="closeShop()">KEMBALI</button>
-            </div>
-        </div>
-
-        <!-- PAUSE SCREEN -->
-        <div id="pause-screen" class="screen hidden" style="background: rgba(0,0,0,0.8);">
-            <h1>PAUSED</h1>
-            <div class="btn-container" style="flex-direction: column; align-items: center;">
-                <button class="btn btn-action" onclick="togglePause()">LANJUT MAIN</button>
-                <button class="btn btn-toko" style="width: 250px; margin-top: 0;" onclick="openShop()">🛒 BUKA TOKO</button>
-                <button class="btn btn-normal" style="width: 250px; margin-top: 0;" onclick="pauseSimpanKeluar()">UDAHAN & SIMPEN</button>
-                <button class="btn btn-sulit" style="width: 250px; margin-top: 0;" onclick="pauseNyerah()">NYERAH (EXIT)</button>
-            </div>
-        </div>
-
-        <!-- IN-GAME SCREENS -->
-        <div id="level-screen" class="screen hidden">
-            <h1 id="level-text-title" style="color: #00ffcc;">LEVEL 1</h1>
-            <h2 id="lives-title">NYAWA x 5</h2>
-        </div>
-
-        <div id="gameover-screen" class="screen hidden">
-            <h1 id="end-title">GAME OVER</h1>
-            <h2>SKOR: <span id="final-score">0</span></h2>
-            <button class="btn btn-action" style="margin-top:20px; width: 250px;" onclick="gameoverLanjut()">LANJUT</button>
         </div>
     </div>
 
@@ -229,14 +248,12 @@
             document.getElementById(id).classList.remove('hidden');
         }
 
-        // --- MENU NAVIGATION ---
         function showMainMenu() { showScreen('menu-screen'); playMenuTheme(); }
         function showNewGameScreen() { showScreen('newgame-screen'); }
         
         function startNewGame(diff) {
-            // Initiate a blank unsaved state
             activeSave = {
-                id: null, // Null means it hasn't been saved permanently yet
+                id: null,
                 name: "PLAYER",
                 diff: diff,
                 level: 1,
@@ -255,9 +272,9 @@
             currentLevel = 1;
             lives = activeSave.lives;
             
-            if (currentDiff === 'GAMPANG') { megaFishChance = 0.50; enemyBaseSpeed = 0.8; }
-            else if (currentDiff === 'NORMAL') { megaFishChance = 0.25; enemyBaseSpeed = 1.5; }
-            else if (currentDiff === 'SULIT') { megaFishChance = 0.05; enemyBaseSpeed = 3.0; }
+            if (currentDiff === 'GAMPANG') { megaFishChance = 0.50; enemyBaseSpeed = 1.0; }
+            else if (currentDiff === 'NORMAL') { megaFishChance = 0.25; enemyBaseSpeed = 2.0; }
+            else if (currentDiff === 'SULIT') { megaFishChance = 0.05; enemyBaseSpeed = 3.5; }
 
             player.isGiant = false; player.w = 32; player.h = 32; player.applyDifficultyPhysics();
             
@@ -267,11 +284,11 @@
         }
 
         function deleteSave(id, event) {
-            event.stopPropagation(); // Mencegah load game terpicu
+            event.stopPropagation();
             if (confirm("Yakin ingin menghapus save game ini?")) {
                 saves = saves.filter(s => s.id !== id);
                 localStorage.setItem('pahriBrosSaves_v2', JSON.stringify(saves));
-                showLoadGameScreen(); // Refresh list
+                showLoadGameScreen();
             }
         }
 
@@ -294,9 +311,7 @@
                         </div>
                     `;
                     card.onclick = () => {
-                        // Load exact clone
                         activeSave = JSON.parse(JSON.stringify(s));
-                        
                         currentDiff = activeSave.diff;
                         currentLevel = activeSave.level;
                         
@@ -311,9 +326,9 @@
                         else { score = activeSave.score; }
                         
                         sessionCoins = 0;
-                        if (currentDiff === 'GAMPANG') { megaFishChance = 0.50; enemyBaseSpeed = 0.8; }
-                        else if (currentDiff === 'NORMAL') { megaFishChance = 0.25; enemyBaseSpeed = 1.5; }
-                        else if (currentDiff === 'SULIT') { megaFishChance = 0.05; enemyBaseSpeed = 3.0; }
+                        if (currentDiff === 'GAMPANG') { megaFishChance = 0.50; enemyBaseSpeed = 1.0; }
+                        else if (currentDiff === 'NORMAL') { megaFishChance = 0.25; enemyBaseSpeed = 2.0; }
+                        else if (currentDiff === 'SULIT') { megaFishChance = 0.05; enemyBaseSpeed = 3.5; }
                         
                         player.isGiant = false; player.w = 32; player.h = 32; player.applyDifficultyPhysics();
                         
@@ -327,7 +342,6 @@
             showScreen('load-screen');
         }
 
-        // --- PAUSE & SAVE LOGIC ---
         function togglePause() {
             if (gameState === "PLAYING") {
                 gameState = "PAUSED";
@@ -393,7 +407,6 @@
             }
         }
 
-        // --- SISTEM TOKO ---
         const shopItems = [
             { id: 'g_kacamata', type: 'gaya', name: 'Kacamata Hitam', price: 1, icon: '🕶️', desc: 'Sederhana dan keren.' },
             { id: 'g_topijerami', type: 'gaya', name: 'Topi Jerami', price: 2, icon: '👒', desc: 'Topi santai.' },
@@ -519,19 +532,16 @@
             }
         }
 
-
         // --- ENGINE GAME ---
         const canvas = document.getElementById("gameCanvas"); const ctx = canvas.getContext("2d");
         let gameState = "INIT"; let currentDiff = "NORMAL";
         let score = 0, sessionCoins = 0, currentLevel = 1, lives = 5, timeLeft = 400, frameCount = 0;
-        let megaFishChance = 0.25; let enemyBaseSpeed = 1.5; let cameraX = 0;
+        let megaFishChance = 0.25; let enemyBaseSpeed = 2.0; let cameraX = 0;
         let lastCheckpoint = { x: 50, y: 50 }; 
         const keys = { left: false, right: false, up: false, shoot: false, justPressedUp: false };
         const TILE_SIZE = 40;
 
-        // --- LEVEL DESIGN PROGRESSION (1-10) ---
         const levels = [
-            // Level 1: Pengenalan Movement (Sangat Mudah, Aman)
             [
                 "                                                                    ",
                 "                                                                    ",
@@ -542,7 +552,6 @@
                 "####################################################################",
                 "####################################################################"
             ],
-            // Level 2: Pengenalan Enemy (Tanah datar, latihan menginjak/menembak)
             [
                 "                                                                    ",
                 "                                                                    ",
@@ -553,7 +562,6 @@
                 "####################             ###################################",
                 "####################^^^^^^^^^^^^^###################################"
             ],
-            // Level 3: Mekanik Menghancurkan Bata & Misteri
             [
                 "                                          F  F  F                   ",
                 "             B B ? B B                 B  B  B  B  B               |",
@@ -564,7 +572,6 @@
                 "#####   #####         ###############           #######         ####",
                 "#####^^^#####^^^^^^^^^###############^^^^^^^^^^^#######^^^^^^^^^####"
             ],
-            // Level 4: Spike & Lompatan Presisi
             [
                 "                                                                    ",
                 "                                                                    ",
@@ -575,7 +582,6 @@
                 "####   #^^^^#########^^^#^^^^^^^#^^^#^^^^^^^#^^^^^#       #^^^^^####",
                 "####^^^#^^^^#########^^^#^^^^^^^#^^^#^^^^^^^#^^^^^#       #^^^^^####"
             ],
-            // Level 5: Latihan Combat (Pasukan musuh lurus)
             [
                 "                                                                          ",
                 "               ?                                                         |",
@@ -586,7 +592,6 @@
                 "##########################################################################",
                 "##########################################################################"
             ],
-            // Level 6: Mekanik Mega Pahri (Box * pastikan drops Mega Fish 100%)
             [
                 "                                                                        ",
                 "                                                B B B B B B            |",
@@ -597,7 +602,6 @@
                 "########################################################################",
                 "########################################################################"
             ],
-            // Level 7: Vertikalitas / Lompatan Tinggi
             [
                 "                                                    F F F           |",
                 "                                                  B B B B B         |",
@@ -608,7 +612,6 @@
                 " M   M           M M             M M      #                         |",
                 "#######^^^^^^^^#######^^^^^^^^^#######^^^^###########################"
             ],
-            // Level 8: Rute Rahasia / Eksplorasi (Gunakan H block)
             [
                 "             F F F F F F F F F F F F F F F F F F             ",
                 "             # # # # # # # # # # # # # # # # # #            |",
@@ -619,7 +622,6 @@
                 "    B B B       M M M       M M M       M M M       M M M   |",
                 "#############################################################"
             ],
-            // Level 9: Tantangan Waktu Berlari
             [
                 "                                                                                                   ",
                 "                 F F F                                                                             ",
@@ -630,7 +632,6 @@
                 "###################^^^##########^^^#############^^^###############^^^######################^^^#####",
                 "###################^^^##########^^^#############^^^###############^^^######################^^^#####"
             ],
-            // Level 10: Final Boss Challenge
             [
                 "                                                                                    ",
                 "           F F F F F                                F F F F F                       ",
@@ -678,8 +679,9 @@
             }
         }
 
+        /* PERBAIKAN FISIKA: GRAVITASI 0.9, JUMP POWER -14.5, SPEED 6.0 (TIDAK MELAYANG) */
         const player = {
-            x: 50, y: 50, w: 32, h: 32, vx: 0, vy: 0, speed: 4.5, jumpPower: -12.5, baseGravity: 0.6, gravity: 0.6,
+            x: 50, y: 50, w: 32, h: 32, vx: 0, vy: 0, speed: 6.0, jumpPower: -14.5, baseGravity: 0.9, gravity: 0.9,
             grounded: false, facingRight: true, dead: false, isGiant: false, invulnerable: 0, hasDoubleJumped: false, 
             hasShield: false, shootCooldown: 0,
             
@@ -687,17 +689,17 @@
             
             applyDifficultyPhysics: function() {
                 if(currentDiff === 'GAMPANG') { 
-                    this.jumpPower = -14.5; this.speed = 5.5; this.baseGravity = 0.45; 
-                    this.coyoteMax = 12; this.bufferMax = 12; 
+                    this.jumpPower = -16.0; this.speed = 6.8; this.baseGravity = 0.8; 
+                    this.coyoteMax = 10; this.bufferMax = 10; 
                 } else if(currentDiff === 'NORMAL') { 
-                    this.jumpPower = -12.5; this.speed = 4.5; this.baseGravity = 0.6; 
+                    this.jumpPower = -14.5; this.speed = 6.0; this.baseGravity = 0.9; 
                     this.coyoteMax = 6; this.bufferMax = 6;
                 } else { // SULIT
-                    this.jumpPower = -11.5; this.speed = 4.0; this.baseGravity = 0.7; 
+                    this.jumpPower = -13.5; this.speed = 5.2; this.baseGravity = 1.0; 
                     this.coyoteMax = 2; this.bufferMax = 2; 
                 }
                 
-                if(this.isGiant) { this.jumpPower -= 2.5; this.speed += 2; }
+                if(this.isGiant) { this.jumpPower -= 2.0; this.speed += 2; }
                 this.applySkillPassive();
             },
             applySkillPassive: function() {
@@ -748,7 +750,7 @@
                 else { this.vx = 0; }
 
                 if (!keys.up && this.vy < 0 && sk !== 's_glide' && sk !== 's_fly') {
-                    this.vy *= 0.6; 
+                    this.vy *= 0.5; 
                 }
 
                 if (this.grounded) {
@@ -795,12 +797,12 @@
 
                 this.gravity = this.baseGravity;
                 if (sk === 's_glide' && keys.up && this.vy > 0 && !this.grounded) { 
-                    this.gravity = 0.15; 
-                    if (this.vy > 2) this.vy = 2; 
+                    this.gravity = 0.2; 
+                    if (this.vy > 2.5) this.vy = 2.5; 
                 }
 
                 this.vy += this.gravity;
-                if (this.vy > 16) this.vy = 16; 
+                if (this.vy > 18) this.vy = 18; 
 
                 this.x += this.vx; 
                 this.checkCollisions(true);
