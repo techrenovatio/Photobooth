@@ -49,17 +49,16 @@ header("X-XSS-Protection: 1; mode=block");
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen overflow-x-hidden">
 
-    <!-- GLOBAL WATERMARK LOGO (DIPERBESAR 5X DARI SEBELUMNYA) -->
+    <!-- GLOBAL WATERMARK LOGO -->
     <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
         <img src="Logohimsi.png" alt="HIMSI Giant Watermark" class="w-[550vw] max-w-[5500px] h-auto opacity-[0.12] select-none transform scale-[5]">
     </div>
 
-    <!-- HEADER / NAVIGATION (LOGO DIBUAT 5X LEBIH BESAR DARI SEBELUMNYA) -->
+    <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-4">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
             
             <a href="#tentang" class="flex items-center space-x-5 md:space-x-8 group">
-                <!-- LOGO HEADER DIBUAT 5X LEBIH BESAR -->
                 <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-[32rem] h-[32rem] sm:w-[40rem] sm:h-[40rem] md:w-[50rem] md:h-[50rem] max-w-[85vw] object-contain group-hover:scale-105 transition transform drop-shadow-md">
                 <div class="border-l-4 border-himsiMaroon pl-4 md:pl-6 py-2">
                     <span class="serif-title font-bold text-2xl sm:text-3xl md:text-5xl tracking-tight text-himsiMaroon block leading-tight">HIMSI UNIS</span>
@@ -91,13 +90,14 @@ header("X-XSS-Protection: 1; mode=block");
             </h1>
 
             <p class="text-slate-200 text-sm md:text-xl font-light max-w-3xl mx-auto mb-10 leading-relaxed drop-shadow-sm">
-                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang — Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
+                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang - Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
             </p>
 
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#layanan" class="bg-white text-himsiMaroon px-6 md:px-8 py-3.5 rounded-lg font-bold text-sm shadow-xl hover:bg-himsiCream transition transform hover:-translate-y-0.5">
                     Jelajahi Layanan Digital
                 </a>
+                <!-- TOMBOL LIHAT KARYA MAHASISWA DIRECT KE #karya -->
                 <a href="#karya" class="border-2 border-white/80 text-white px-6 md:px-8 py-3.5 rounded-lg font-bold text-sm hover:bg-white hover:text-himsiMaroon transition transform hover:-translate-y-0.5 backdrop-blur-sm">
                     Lihat Karya Mahasiswa 🎮
                 </a>
@@ -150,14 +150,14 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </section>
 
-    <!-- SECTION SHOWCASE KARYA MAHASISWA -->
-    <section id="karya" class="py-20 bg-slate-100/50 border-t border-slate-200 px-6 relative z-10">
+    <!-- SECTION SHOWCASE KARYA MAHASISWA (DITAMBAHKAN SCROLL-MT AGAR LANDING PAS) -->
+    <section id="karya" class="py-20 bg-slate-100/50 border-t border-slate-200 px-6 relative z-10 scroll-mt-28 lg:scroll-mt-36">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Student Showcase</span>
                 <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Karya & Inovasi Mahasiswa</h2>
                 <p class="text-slate-600 text-sm">
-                    Apresiasi dan portofolio hasil karya buatan mahasiswa Sistem Informasi UNIS Tangerang.
+                    Apresiasi dan portofolio hasil karya buatan Mahasiswa Sistem Informasi UNIS Tangerang.
                 </p>
             </div>
 
@@ -250,7 +250,7 @@ header("X-XSS-Protection: 1; mode=block");
                 <img src="Logohimsi.png" alt="Logo Footer" class="w-16 h-16 object-contain">
                 <div>
                     <h3 class="serif-title text-base font-bold text-white">HIMSI UNIS Tangerang</h3>
-                    <p class="text-slate-400 text-xs">Himpunan Mahasiswa Sistem Informasi — Kabinet Genesis</p>
+                    <p class="text-slate-400 text-xs">Himpunan Mahasiswa Sistem Informasi - Kabinet Genesis</p>
                 </div>
             </div>
 
