@@ -86,15 +86,15 @@ const frameData = [
             width: 1080,
             height: 1920,
             photos: [
-                // PERBAIKAN FINAL KOORDINAT FRAME 2 (Presisi 100% mengisi lubang putih)
+                // PERBAIKAN KOORDINAT FRAME 2 (SIMETRIS PRESISI)
                 // Kolom Kiri
-                { x: 54, y: 326, width: 425, height: 362 },
-                { x: 54, y: 800, width: 425, height: 362 },
-                { x: 54, y: 1274, width: 425, height: 362 },
+                { x: 75, y: 345, width: 390, height: 290 },
+                { x: 75, y: 810, width: 390, height: 290 },
+                { x: 75, y: 1275, width: 390, height: 290 },
                 // Kolom Kanan
-                { x: 600, y: 326, width: 425, height: 362 },
-                { x: 600, y: 800, width: 425, height: 362 },
-                { x: 600, y: 1274, width: 425, height: 362 }
+                { x: 615, y: 345, width: 390, height: 290 },
+                { x: 615, y: 810, width: 390, height: 290 },
+                { x: 615, y: 1275, width: 390, height: 290 }
             ]
         }
     },
