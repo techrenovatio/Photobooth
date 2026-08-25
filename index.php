@@ -87,7 +87,7 @@
             </h1>
 
             <p class="text-slate-200 text-sm md:text-xl font-light max-w-3xl mx-auto mb-10 leading-relaxed drop-shadow-sm">
-                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang — Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
+                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang - Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
             </p>
 
             <div class="flex flex-wrap justify-center gap-4">
@@ -176,7 +176,7 @@
                     </a>
                 </div>
 
-                <!-- PAHRI BROS -->
+                <!-- SUPER PAHRI -->
                 <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col justify-between group hover:-translate-y-1">
                     <div>
                         <div class="bg-slate-900 h-32 flex items-center justify-center relative overflow-hidden">
@@ -215,7 +215,7 @@
             <h2 class="serif-title text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Tentang Kabinet Genesis</h2>
             
             <p class="text-slate-700 text-base md:text-lg leading-relaxed mb-10">
-                Kabinet Genesis berdiri sebagai simbol awal baru yang membawa semangat inovasi teknologi, integritas akademik, dan kepemimpinan adaptif bagi seluruh mahasiswa Sistem Informasi Universitas Islam Syekh Yusuf Tangerang.
+                Kabinet Genesis berdiri sebagai simbol awal baru yang membawa semangat inovasi teknologi, integritas akademik, dan kepemimpinan adaptif bagi seluruh Mahasiswa Sistem Informasi Universitas Islam Syekh Yusuf Tangerang.
             </p>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-slate-100">
@@ -246,7 +246,7 @@
                 <img src="Logohimsi.png" alt="Logo Footer" class="w-16 h-16 object-contain">
                 <div>
                     <h3 class="serif-title text-base font-bold text-white">HIMSI UNIS Tangerang</h3>
-                    <p class="text-slate-400 text-xs">Himpunan Mahasiswa Sistem Informasi — Kabinet Genesis</p>
+                    <p class="text-slate-400 text-xs">Himpunan Mahasiswa Sistem Informasi - Kabinet Genesis</p>
                 </div>
             </div>
 
