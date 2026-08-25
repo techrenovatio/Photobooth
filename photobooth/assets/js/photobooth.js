@@ -86,15 +86,16 @@ const frameData = [
             width: 1080,
             height: 1920,
             photos: [
-                // PERBAIKAN KOORDINAT FRAME 2 (Retro Browser)
-                // Kolom Kiri
-                { x: 80, y: 476, width: 383, height: 286 },
-                { x: 80, y: 843, width: 383, height: 286 },
-                { x: 80, y: 1211, width: 383, height: 286 },
-                // Kolom Kanan
-                { x: 618, y: 476, width: 383, height: 286 },
-                { x: 618, y: 843, width: 383, height: 286 },
-                { x: 618, y: 1211, width: 383, height: 286 }
+                // PERBAIKAN KOORDINAT FRAME 2 (PRESISI KE KOTAK PUTIH RETRO BROWSER)
+                // Baris 1
+                { x: 60, y: 288, width: 420, height: 366 },
+                { x: 600, y: 288, width: 420, height: 366 },
+                // Baris 2
+                { x: 60, y: 752, width: 420, height: 366 },
+                { x: 600, y: 752, width: 420, height: 366 },
+                // Baris 3
+                { x: 60, y: 1216, width: 420, height: 366 },
+                { x: 600, y: 1216, width: 420, height: 366 }
             ]
         }
     },
