@@ -153,7 +153,7 @@
                 <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Student Showcase</span>
                 <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Karya & Inovasi Mahasiswa</h2>
                 <p class="text-slate-600 text-sm">
-                    Apresiasi dan portofolio hasil karya buatan mahasiswa Sistem Informasi UNIS Tangerang.
+                    Apresiasi dan portofolio hasil karya buatan Mahasiswa Sistem Informasi UNIS Tangerang.
                 </p>
             </div>
 
