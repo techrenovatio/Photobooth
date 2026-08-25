@@ -81,20 +81,20 @@ const frameData = [
         id: 2,
         name: "Frame 2",
         image: "assets/frame/frame2.png",
-        photoCount: 6, // Diubah menjadi 6 slot
+        photoCount: 6,
         config: {
             width: 1080,
             height: 1920,
             photos: [
-                // Baris 1
-                { x: 75, y: 390, width: 415, height: 280 },
-                { x: 590, y: 390, width: 415, height: 280 },
+                // Baris 1 (Telah Dikalibrasi Presisi)
+                { x: 55, y: 350, width: 440, height: 315 },
+                { x: 585, y: 350, width: 440, height: 315 },
                 // Baris 2
-                { x: 75, y: 760, width: 415, height: 280 },
-                { x: 590, y: 760, width: 415, height: 280 },
+                { x: 55, y: 740, width: 440, height: 315 },
+                { x: 585, y: 740, width: 440, height: 315 },
                 // Baris 3
-                { x: 75, y: 1130, width: 415, height: 280 },
-                { x: 590, y: 1130, width: 415, height: 280 }
+                { x: 55, y: 1130, width: 440, height: 315 },
+                { x: 585, y: 1130, width: 440, height: 315 }
             ]
         }
     },
@@ -265,7 +265,6 @@ function showToast(message, icon = '💡', duration = 0) {
     if (toastMsg) toastMsg.textContent = message;
     if (toastIcn) toastIcn.textContent = icon;
 
-    // Tampilkan notifikasi kapsul mengambang
     toastElem.classList.remove("hidden");
 
     if (duration > 0) {
