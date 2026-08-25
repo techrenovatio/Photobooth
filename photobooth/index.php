@@ -295,9 +295,9 @@ require_once "config.php";
 <!-- =================================
      ELEMEN NOTIFIKASI MENGAMBANG (TOAST)
 ================================= -->
-<div id="toastNotification" class="toast-floating hidden">
+<div id="toastNotification" class="toast-floating">
     <span id="toastIcon">👋</span>
-    <span id="toastMessage">Silakan isi identitas Anda terlebih dahulu.</span>
+    <span id="toastMessage">Selamat datang! Klik tombol 'TAP TO START' untuk memulai.</span>
 </div>
 
 <main class="app">
@@ -490,40 +490,20 @@ require_once "config.php";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <script>
-    // FIX NOTIFIKASI TOAST LENGKAP & STABIL
-    let currentToastTimeoutId = null;
-
-    function showToast(message, icon = '📸', duration = 3000) {
+    // PERBAIKAN TOAST AGAR SELALU TAMPIL TANPA DURATION
+    function showToast(message, icon = '📸') {
         const toast = document.getElementById('toastNotification');
         const toastMsg = document.getElementById('toastMessage');
         const toastIcn = document.getElementById('toastIcon');
 
         if (!toast || !toastMsg || !toastIcn) return;
 
-        if (currentToastTimeoutId !== null) {
-            clearTimeout(currentToastTimeoutId);
-            currentToastTimeoutId = null;
-        }
-
-        toast.classList.add('hidden');
-
-        setTimeout(() => {
-            toastMsg.textContent = message;
-            toastIcn.textContent = icon;
-            toast.classList.remove('hidden');
-
-            if (duration > 0) {
-                currentToastTimeoutId = setTimeout(() => {
-                    toast.classList.add('hidden');
-                }, duration);
-            }
-        }, 50);
+        toastMsg.textContent = message;
+        toastIcn.textContent = icon;
+        toast.classList.remove('hidden');
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-        showToast("Selamat datang! Klik tombol 'TAP TO START' untuk memulai.", "👋", 4000);
-    });
-
+    // LOGIKA TOGGLE THEME SYSTEM
     function applyTheme(themeName) {
         const body = document.body;
         const btn = document.getElementById('themeBtn');
@@ -617,7 +597,7 @@ require_once "config.php";
 
         document.getElementById('modalPresensi').style.display = 'flex';
 
-        showToast("Silakan isi identitas lengkap Anda.", "📝", 4000);
+        showToast("Silakan isi identitas lengkap Anda.", "📝");
     }
 
     function simpanPresensiDanLanjut() {
@@ -629,13 +609,13 @@ require_once "config.php";
         const email = document.getElementById('mabaEmail').value.trim();
 
         if (!nama || !nim || !fakultas || !prodi || !angkatan || !email) {
-            showToast("Harap lengkapi seluruh kolom presensi termasuk Email!", "⚠️", 3500);
+            showToast("Harap lengkapi seluruh kolom presensi termasuk Email!", "⚠️");
             return;
         }
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            showToast("Format Email tidak valid! Contoh: maba@gmail.com", "❌", 3500);
+            showToast("Format Email tidak valid! Contoh: maba@gmail.com", "❌");
             return;
         }
 
@@ -655,7 +635,7 @@ require_once "config.php";
             frameScreen.classList.add('active');
         }
 
-        showToast("Identitas disimpan! Silakan pilih frame.", "✅", 3000);
+        showToast("Identitas disimpan! Silakan pilih frame.", "✅");
     }
 </script>
 
