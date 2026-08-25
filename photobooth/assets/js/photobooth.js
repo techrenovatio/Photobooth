@@ -81,19 +81,20 @@ const frameData = [
         id: 2,
         name: "Frame 2",
         image: "assets/frame/frame2.png",
-        photoCount: 8,
+        photoCount: 6, // Diubah menjadi 6 slot
         config: {
             width: 1080,
             height: 1920,
             photos: [
-                { x: 50,  y: 200, width: 435, height: 324 },
-                { x: 593, y: 200, width: 435, height: 324 },
-                { x: 50,  y: 580, width: 435, height: 324 },
-                { x: 593, y: 580, width: 435, height: 324 },
-                { x: 50,  y: 960, width: 435, height: 325 },
-                { x: 593, y: 959, width: 435, height: 325 },
-                { x: 50,  y: 1329, width: 435, height: 325 },
-                { x: 593, y: 1338, width: 435, height: 325 }
+                // Baris 1
+                { x: 75, y: 390, width: 415, height: 280 },
+                { x: 590, y: 390, width: 415, height: 280 },
+                // Baris 2
+                { x: 75, y: 760, width: 415, height: 280 },
+                { x: 590, y: 760, width: 415, height: 280 },
+                // Baris 3
+                { x: 75, y: 1130, width: 415, height: 280 },
+                { x: 590, y: 1130, width: 415, height: 280 }
             ]
         }
     },
