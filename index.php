@@ -49,17 +49,16 @@ header("X-XSS-Protection: 1; mode=block");
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen overflow-x-hidden">
 
-    <!-- GLOBAL WATERMARK LOGO (DIPERKECIL 2X SUPAYA PROPORSIONAL) -->
+    <!-- GLOBAL WATERMARK LOGO -->
     <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
         <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-[275vw] max-w-[2750px] h-auto opacity-[0.12] select-none transform scale-[2.5]">
     </div>
 
-    <!-- HEADER / NAVIGATION (LOGO HEADER DIPERKECIL 2X AGAR RAPI) -->
+    <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-2.5">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
             
             <a href="#tentang" class="flex items-center space-x-3 md:space-x-5 group">
-                <!-- LOGO HEADER DIPERKECIL 2X DARI UKURAN PREVIOUS (DARI 50rem MENJADI 25rem/max-h-24) -->
                 <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain group-hover:scale-105 transition transform drop-shadow-sm">
                 <div class="border-l-2 md:border-l-3 border-himsiMaroon pl-3 md:pl-4 py-1">
                     <span class="serif-title font-bold text-lg sm:text-xl md:text-2xl tracking-tight text-himsiMaroon block leading-tight">HIMSI UNIS</span>
@@ -98,7 +97,6 @@ header("X-XSS-Protection: 1; mode=block");
                 <a href="#layanan" class="bg-white text-himsiMaroon px-6 md:px-8 py-3.5 rounded-lg font-bold text-sm shadow-xl hover:bg-himsiCream transition transform hover:-translate-y-0.5">
                     Jelajahi Layanan Digital
                 </a>
-                <!-- TOMBOL LIHAT KARYA MAHASISWA DIRECT KE #karya -->
                 <a href="#karya" class="border-2 border-white/80 text-white px-6 md:px-8 py-3.5 rounded-lg font-bold text-sm hover:bg-white hover:text-himsiMaroon transition transform hover:-translate-y-0.5 backdrop-blur-sm">
                     Lihat Karya Mahasiswa 🎮
                 </a>
@@ -106,8 +104,8 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </section>
 
-    <!-- PORTAL LAYANAN DIGITAL -->
-    <section id="layanan" class="py-20 px-6 max-w-7xl mx-auto relative z-10">
+    <!-- PORTAL LAYANAN DIGITAL (DITAMBAHKAN SCROLL-MT AGAR LANDING PAS) -->
+    <section id="layanan" class="py-20 px-6 max-w-7xl mx-auto relative z-10 scroll-mt-20 lg:scroll-mt-24">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Direct Hub Access</span>
             <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Layanan & Aplikasi Digital</h2>
