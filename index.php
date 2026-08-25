@@ -44,6 +44,19 @@ header("X-XSS-Protection: 1; mode=block");
         .serif-title {
             font-family: 'Merriweather', serif;
         }
+
+        /* Scrollbar kustom untuk galeri modal */
+        .gallery-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+        .gallery-scroll::-webkit-scrollbar-track {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        .gallery-scroll::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
     </style>
 </head>
 
@@ -59,16 +72,17 @@ header("X-XSS-Protection: 1; mode=block");
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
             
             <a href="#tentang" class="flex items-center space-x-3 md:space-x-5 group">
-                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 object-contain group-hover:scale-105 transition transform drop-shadow-md">
+                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain group-hover:scale-105 transition transform drop-shadow-md">
                 <div class="border-l-3 md:border-l-4 border-himsiMaroon pl-3 md:pl-4 py-1.5">
                     <span class="serif-title font-bold text-xl sm:text-2xl md:text-3xl tracking-tight text-himsiMaroon block leading-tight">HIMSI UNIS</span>
                     <span class="text-[11px] sm:text-xs md:text-sm text-slate-600 font-extrabold tracking-widest uppercase mt-1 block">Kabinet Genesis</span>
                 </div>
             </a>
 
-            <nav class="hidden lg:flex items-center space-x-8 text-lg font-bold text-slate-700">
+            <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-base lg:text-lg font-bold text-slate-700">
                 <a href="#beranda" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Beranda</a>
                 <a href="#layanan" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Layanan Digital</a>
+                <a href="#kegiatan" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Berita & Kegiatan</a>
                 <a href="#karya" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Karya Mahasiswa</a>
                 <a href="#tentang" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Tentang Kami</a>
             </nav>
@@ -77,7 +91,7 @@ header("X-XSS-Protection: 1; mode=block");
     </header>
 
     <!-- HERO SECTION -->
-    <section id="beranda" class="relative bg-himsiMaroon/90 text-white py-24 md:py-32 px-6 overflow-hidden z-10 border-b border-white/10 scroll-mt-28 lg:scroll-mt-36">
+    <section id="beranda" class="relative bg-himsiMaroon/90 text-white py-24 md:py-32 px-6 overflow-hidden z-10 border-b border-white/10 scroll-mt-36 sm:scroll-mt-44 md:scroll-mt-56">
         <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
 
         <div class="max-w-5xl mx-auto relative z-20 text-center">
@@ -90,7 +104,7 @@ header("X-XSS-Protection: 1; mode=block");
             </h1>
 
             <p class="text-slate-200 text-sm md:text-xl font-light max-w-3xl mx-auto mb-10 leading-relaxed drop-shadow-sm">
-                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang — Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
+                Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang - Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
             </p>
 
             <div class="flex flex-wrap justify-center gap-4">
@@ -104,8 +118,8 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </section>
 
-    <!-- PORTAL LAYANAN DIGITAL (SCROLL-MT DITAMBAHKAN AGAR MENDARAT DENGAN PRESISI PADA TEKS "DIRECT HUB ACCESS") -->
-    <section id="layanan" class="py-20 px-6 max-w-7xl mx-auto relative z-10 scroll-mt-28 lg:scroll-mt-32">
+    <!-- PORTAL LAYANAN DIGITAL (SCROLL-MT DIATUR UNTUK LANDING PRESISI PADA TEKS LAYANAN DIGITAL) -->
+    <section id="layanan" class="py-20 px-6 max-w-7xl mx-auto relative z-10 scroll-mt-36 sm:scroll-mt-44 md:scroll-mt-56">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Direct Hub Access</span>
             <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Layanan & Aplikasi Digital</h2>
@@ -149,8 +163,53 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </section>
 
-    <!-- SECTION SHOWCASE KARYA MAHASISWA (SCROLL-MT DITAMBAHKAN AGAR MENDARAT DENGAN PRESISI PADA TEKS "STUDENT SHOWCASE") -->
-    <section id="karya" class="py-20 bg-slate-100/50 border-t border-slate-200 px-6 relative z-10 scroll-mt-28 lg:scroll-mt-32">
+    <!-- SECTION BERITA & KEGIATAN (BARU) -->
+    <section id="kegiatan" class="py-20 bg-himsiCream/80 border-y border-slate-200 px-6 relative z-10 scroll-mt-36 sm:scroll-mt-44 md:scroll-mt-56">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">HIMSI News & Event</span>
+                <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Berita & Kegiatan</h2>
+                <p class="text-slate-600 text-sm">
+                    Dokumentasi kegiatan, acara, dan informasi terbaru seputar Himpunan Mahasiswa Sistem Informasi UNIS Tangerang.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- CARD KEGIATAN 1: PELANTIKAN -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group hover:-translate-y-1">
+                    <!-- Thumbnail Kegiatan (Gunakan gambar Anda jika sudah diupload ke folder kegiatan) -->
+                    <div class="h-48 bg-slate-200 overflow-hidden relative">
+                        <img src="kegiatan/pelantikan-1.png" alt="Pelantikan HIMSI 2026" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 fallback-bg" onerror="this.src='Logohimsi.png'; this.classList.add('p-8','object-contain','opacity-50')">
+                        <div class="absolute top-3 right-3 bg-himsiMaroon text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            10 Feb 2026
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="serif-title text-xl font-bold text-slate-900 mb-2 leading-tight">Pelantikan Pengurus HIMSI Kabinet Genesis</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3">
+                            Momen sakral pelantikan seluruh pengurus Himpunan Mahasiswa Sistem Informasi UNIS Tangerang periode 2026 secara resmi, membawa semangat integritas dan sinergi.
+                        </p>
+                        <!-- Tombol untuk membuka Modal -->
+                        <button onclick="bukaModalKegiatan('pelantikan')" class="w-full bg-slate-900 text-white font-bold text-sm py-3 rounded-xl hover:bg-slate-800 transition flex items-center justify-center gap-2">
+                            <span>📸</span> Lihat Dokumentasi
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CARD PLACEHOLDER UNTUK KEGIATAN BERIKUTNYA -->
+                <div class="bg-white/50 rounded-2xl border border-dashed border-slate-300 shadow-sm p-8 flex flex-col justify-center items-center text-center opacity-70">
+                    <span class="text-4xl mb-3">📰</span>
+                    <h3 class="serif-title font-bold text-slate-700">Kegiatan Selanjutnya</h3>
+                    <p class="text-xs text-slate-500 mt-2">Dokumentasi kegiatan HIMSI berikutnya akan segera dipublikasikan di sini.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION SHOWCASE KARYA MAHASISWA (SCROLL-MT DIATUR UNTUK LANDING PRESISI PADA TEKS KARYA MAHASISWA) -->
+    <section id="karya" class="py-20 bg-slate-100/50 border-t border-slate-200 px-6 relative z-10 scroll-mt-36 sm:scroll-mt-44 md:scroll-mt-56">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Student Showcase</span>
@@ -212,7 +271,7 @@ header("X-XSS-Protection: 1; mode=block");
     </section>
 
     <!-- SECTION TENTANG -->
-    <section id="tentang" class="bg-white/85 backdrop-blur-sm py-20 border-y border-slate-200 px-6 relative z-10 scroll-mt-28 lg:scroll-mt-32">
+    <section id="tentang" class="bg-white/85 backdrop-blur-sm py-20 border-y border-slate-200 px-6 relative z-10 scroll-mt-36 sm:scroll-mt-44 md:scroll-mt-56">
         <div class="max-w-4xl mx-auto text-center">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">HIMSI UNIS Tangerang</span>
             <h2 class="serif-title text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Tentang Kabinet Genesis</h2>
@@ -260,11 +319,45 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </footer>
 
-    <!-- MODAL EMBED GAME -->
-    <div id="gameModal" class="fixed inset-0 bg-black/85 z-50 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
-        <div class="bg-slate-900 rounded-2xl overflow-hidden w-[96vw] max-w-7xl h-auto md:h-[88vh] max-h-[85vh] shadow-2xl border border-slate-700 flex flex-col justify-between">
+    <!-- ============================================== -->
+    <!-- MODAL POPUP: DOKUMENTASI KEGIATAN & BERITA   -->
+    <!-- ============================================== -->
+    <div id="kegiatanModal" class="fixed inset-0 bg-black/95 z-[60] hidden items-center justify-center p-2 sm:p-6 backdrop-blur-md">
+        <div class="bg-slate-900 rounded-2xl overflow-hidden w-full max-w-5xl h-[95vh] md:h-[85vh] shadow-2xl border border-slate-700 flex flex-col">
             
-            <!-- HEADER MODAL -->
+            <!-- Header Modal -->
+            <div class="px-5 py-4 bg-slate-800 flex justify-between items-center border-b border-slate-700 shrink-0">
+                <div>
+                    <h3 id="modalKegiatanJudul" class="font-bold text-white text-lg md:text-xl tracking-wide">Dokumentasi Kegiatan</h3>
+                    <p id="modalKegiatanTanggal" class="text-slate-400 text-xs mt-1">Tanggal</p>
+                </div>
+                <button onclick="tutupModalKegiatan()" class="text-slate-400 hover:text-white text-3xl font-bold px-2 leading-none transition">&times;</button>
+            </div>
+
+            <!-- Body Modal (Galeri Display) -->
+            <div class="flex flex-col grow overflow-hidden bg-black relative">
+                <!-- Main Media Display -->
+                <div class="w-full h-full flex items-center justify-center grow p-2 relative group">
+                    <img id="mainMediaDisplay" src="" alt="Galeri" class="max-w-full max-h-full object-contain transition duration-300">
+                    <iframe id="mainVideoDisplay" src="" class="w-full h-full border-0 hidden" allowfullscreen></iframe>
+                </div>
+
+                <!-- Deskripsi Kegiatan -->
+                <div class="px-6 py-4 bg-slate-900 border-t border-slate-800 shrink-0">
+                    <p id="modalKegiatanDesc" class="text-slate-300 text-sm leading-relaxed"></p>
+                </div>
+
+                <!-- Thumbnail Slider di bagian bawah -->
+                <div class="h-24 bg-slate-950 border-t border-slate-800 p-3 shrink-0 flex items-center overflow-x-auto gallery-scroll space-x-3" id="thumbnailContainer">
+                    <!-- Thumbnails di-generate via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL EMBED GAME PAHRI BROS -->
+    <div id="gameModal" class="fixed inset-0 bg-black/85 z-[60] hidden items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
+        <div class="bg-slate-900 rounded-2xl overflow-hidden w-[96vw] max-w-7xl h-auto md:h-[88vh] max-h-[85vh] shadow-2xl border border-slate-700 flex flex-col justify-between">
             <div class="px-4 py-3 md:px-5 md:py-4 bg-slate-800 flex justify-between items-center border-b border-slate-700 shrink-0">
                 <div class="flex items-center gap-3">
                     <span class="text-xl md:text-3xl">🎮</span>
@@ -277,16 +370,17 @@ header("X-XSS-Protection: 1; mode=block");
                     <button onclick="tutupGameModal()" class="text-slate-400 hover:text-white text-2xl md:text-3xl font-bold px-2 leading-none transition">&times;</button>
                 </div>
             </div>
-
-            <!-- CONTAINER IFRAME GAME -->
             <div class="relative w-full h-[60vh] md:h-full bg-slate-950 flex items-center justify-center overflow-hidden grow p-0">
                 <iframe id="gameIframe" src="" class="w-full h-full border-0"></iframe>
             </div>
-
         </div>
     </div>
 
+    <!-- JAVASCRIPT UNTUK MODAL GAME & GALERI KEGIATAN -->
     <script>
+        // -----------------------------------------
+        // SCRIPT UNTUK MODAL KARYA GAME
+        // -----------------------------------------
         function bukaGameModal(gameUrl) {
             if (gameUrl.startsWith('karya/')) {
                 document.getElementById('gameIframe').src = gameUrl;
@@ -299,6 +393,100 @@ header("X-XSS-Protection: 1; mode=block");
             document.getElementById('gameIframe').src = '';
             document.getElementById('gameModal').classList.remove('flex');
             document.getElementById('gameModal').classList.add('hidden');
+        }
+
+        // -----------------------------------------
+        // SCRIPT UNTUK MODAL GALERI KEGIATAN HIMSI
+        // -----------------------------------------
+        
+        // Data Base Dummy untuk Kegiatan
+        const databaseKegiatan = {
+            'pelantikan': {
+                judul: 'Pelantikan Pengurus HIMSI Kabinet Genesis',
+                tanggal: '10 Februari 2026',
+                deskripsi: 'Dokumentasi resmi kegiatan pelantikan seluruh pengurus Himpunan Mahasiswa Sistem Informasi Universitas Islam Syekh Yusuf Tangerang periode 2026. Kabinet Genesis resmi mengemban amanah dengan visi inovasi teknologi.',
+                media: [
+                    { type: 'image', url: 'kegiatan/pelantikan-1.png' }, 
+                    { type: 'image', url: 'kegiatan/pelantikan-2.png' },
+                    { type: 'image', url: 'kegiatan/pelantikan-3.png' },
+                    { type: 'image', url: 'kegiatan/pelantikan-4.png' },
+                    { type: 'image', url: 'kegiatan/pelantikan-5.png' },
+                    { type: 'image', url: 'kegiatan/pelantikan-6.png' },
+                    { type: 'image', url: 'kegiatan/pelantikan-7.png' },
+                    { type: 'image', url: 'kegiatan/pelantikan-8.png' },
+                    { type: 'image', url: 'kegiatan/pelantikan-9.png' },
+                    { type: 'image', url: 'kegiatan/pelantikan-10.png' },
+                    { type: 'image', url: 'kegiatan/pelantikan-11.png' }
+                ]
+            }
+        };
+
+        function bukaModalKegiatan(idKegiatan) {
+            const data = databaseKegiatan[idKegiatan];
+            if(!data) return;
+
+            document.getElementById('modalKegiatanJudul').innerText = data.judul;
+            document.getElementById('modalKegiatanTanggal').innerText = data.tanggal;
+            document.getElementById('modalKegiatanDesc').innerText = data.deskripsi;
+
+            const thumbContainer = document.getElementById('thumbnailContainer');
+            thumbContainer.innerHTML = ''; // Kosongkan thumbnail sebelumnya
+
+            // Buat Thumbnail Loop
+            data.media.forEach((item, index) => {
+                const isVideo = item.type === 'video';
+                const thumbUrl = isVideo ? 'https://img.youtube.com/vi/'+ item.url.split('/').pop() +'/0.jpg' : item.url;
+                
+                const btn = document.createElement('button');
+                btn.className = `h-16 w-24 shrink-0 rounded-md overflow-hidden border-2 transition ${index === 0 ? 'border-himsiGold opacity-100' : 'border-transparent opacity-50 hover:opacity-100'} relative`;
+                btn.onclick = () => gantiMediaUtama(item, btn);
+                
+                btn.innerHTML = `
+                    <img src="${thumbUrl}" onerror="this.src='Logohimsi.png'" class="w-full h-full object-cover">
+                    ${isVideo ? '<div class="absolute inset-0 flex items-center justify-center bg-black/40"><span class="text-white text-xl">▶</span></div>' : ''}
+                `;
+                thumbContainer.appendChild(btn);
+            });
+
+            // Set media pertama aktif
+            gantiMediaUtama(data.media[0], thumbContainer.firstChild);
+
+            document.getElementById('kegiatanModal').classList.remove('hidden');
+            document.getElementById('kegiatanModal').classList.add('flex');
+        }
+
+        function gantiMediaUtama(mediaObj, activeBtn) {
+            const imgDisplay = document.getElementById('mainMediaDisplay');
+            const vidDisplay = document.getElementById('mainVideoDisplay');
+
+            // Reset UI Active Button
+            const thumbContainer = document.getElementById('thumbnailContainer');
+            Array.from(thumbContainer.children).forEach(btn => {
+                btn.classList.remove('border-himsiGold', 'opacity-100');
+                btn.classList.add('border-transparent', 'opacity-50');
+            });
+            activeBtn.classList.add('border-himsiGold', 'opacity-100');
+            activeBtn.classList.remove('border-transparent', 'opacity-50');
+
+            // Switch content Image vs Video
+            if (mediaObj.type === 'video') {
+                imgDisplay.classList.add('hidden');
+                vidDisplay.classList.remove('hidden');
+                vidDisplay.src = mediaObj.url;
+            } else {
+                vidDisplay.classList.add('hidden');
+                vidDisplay.src = '';
+                imgDisplay.classList.remove('hidden');
+                imgDisplay.src = mediaObj.url;
+                imgDisplay.onerror = function() { this.src='Logohimsi.png'; this.classList.add('opacity-50'); };
+                imgDisplay.classList.remove('opacity-50');
+            }
+        }
+
+        function tutupModalKegiatan() {
+            document.getElementById('kegiatanModal').classList.remove('flex');
+            document.getElementById('kegiatanModal').classList.add('hidden');
+            document.getElementById('mainVideoDisplay').src = ''; // Matikan video jika jalan
         }
     </script>
 
