@@ -49,19 +49,18 @@ header("X-XSS-Protection: 1; mode=block");
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen overflow-x-hidden">
 
-    <!-- GLOBAL WATERMARK LOGO -->
-    <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
-        <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-[180vw] max-w-[1800px] h-auto opacity-[0.12] select-none transform scale-[1.8]">
+    <!-- GLOBAL WATERMARK LOGO (PRESISI MEMENUHI LAYAR 100%) -->
+    <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden p-4 md:p-12">
+        <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-full h-full max-w-full max-h-full object-contain opacity-[0.10] select-none">
     </div>
 
-    <!-- HEADER / NAVIGATION (LOGO HEADER DIBUAT 5X BESARNYA) -->
+    <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-3">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
             
             <a href="#tentang" class="flex items-center space-x-4 md:space-x-6 group">
-                <!-- LOGO HEADER DIBUAT 5X LEBIH BESAR -->
-                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 object-contain group-hover:scale-105 transition transform drop-shadow-md">
-                <div class="border-l-3 md:border-l-4 border-himsiMaroon pl-3 md:pl-5 py-1.5">
+                <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain group-hover:scale-105 transition transform drop-shadow-md">
+                <div class="border-l-3 md:border-l-4 border-himsiMaroon pl-3.5 md:pl-5 py-1.5">
                     <span class="serif-title font-bold text-xl sm:text-2xl md:text-3xl tracking-tight text-himsiMaroon block leading-tight">HIMSI UNIS</span>
                     <span class="text-[11px] sm:text-xs md:text-sm text-slate-600 font-extrabold tracking-widest uppercase mt-1 block">Kabinet Genesis</span>
                 </div>
@@ -78,7 +77,7 @@ header("X-XSS-Protection: 1; mode=block");
     </header>
 
     <!-- HERO SECTION -->
-    <section id="beranda" class="relative bg-himsiMaroon/90 text-white py-24 md:py-32 px-6 overflow-hidden z-10 border-b border-white/10">
+    <section id="beranda" class="relative bg-himsiMaroon/90 text-white py-24 md:py-32 px-6 overflow-hidden z-10 border-b border-white/10 scroll-mt-28 lg:scroll-mt-36">
         <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
 
         <div class="max-w-5xl mx-auto relative z-20 text-center">
