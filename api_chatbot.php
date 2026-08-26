@@ -95,11 +95,11 @@ DATA RESMI ORGANISASI & KAMPUS:
 
 Gunakan bahasa Indonesia yang sopan dan bersahabat.";
 
-// 5. CALL GROQ API (Model Llama 3.1 8B Instant)
+// 5. CALL GROQ API (Model Llama 3.3 70B Versatile - Single Request)
 $url = "https://api.groq.com/openai/v1/chat/completions";
 
 $payload = [
-    "model" => "llama-3.1-8b-instant",
+    "model" => "llama-3.3-70b-versatile",
     "messages" => [
         [
             "role" => "system",
