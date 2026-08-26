@@ -1,0 +1,13 @@
+# Abaikan file konfigurasi sensitif (API Keys / Credentials)
+.env
+.env.local
+.env.*.local
+
+# Abaikan file log & sistem
+*.log
+.DS_Store
+Thumbs.db
+
+# Abaikan file temporary / cache
+*.tmp
+*.bak
