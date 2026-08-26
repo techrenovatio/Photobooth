@@ -7,12 +7,12 @@ header("X-Frame-Options: SAMEORIGIN");
 header("X-Content-Type-Options: nosniff");
 header("X-XSS-Protection: 1; mode=block");
 
-// 1. RATE LIMITING (Mencegah Spam & DoS Attack)
+// 1. RATE LIMITING
 $now = time();
 if (!isset($_SESSION['last_chat_time'])) {
     $_SESSION['last_chat_time'] = $now;
 } else {
-    if ($now - $_SESSION['last_chat_time'] < 1) { // Maksimal 1 pesan tiap 1 detik
+    if ($now - $_SESSION['last_chat_time'] < 1) {
         echo json_encode(['status' => 'error', 'reply' => 'Mohon tunggu sebentar sebelum mengirim pesan kembali.']);
         exit;
     }
@@ -30,7 +30,6 @@ function getEnvVar($key, $default = '') {
             if (strpos($line, '=') !== false) {
                 list($name, $value) = explode('=', $line, 2);
                 if (trim($name) === $key) {
-                    // Bersihkan tanda petik dan karakter newline/CRLF
                     $cleanValue = trim($value);
                     $cleanValue = trim($cleanValue, "\"'");
                     return str_replace(["\r", "\n"], '', $cleanValue);
@@ -43,7 +42,7 @@ function getEnvVar($key, $default = '') {
 
 $apiKey = getEnvVar('GEMINI_API_KEY');
 
-// 3. SANITASI INPUT USER (Mencegah Injeksi XSS)
+// 3. SANITASI INPUT USER
 $input = json_decode(file_get_contents('php://input'), true);
 $rawMessage = trim($input['message'] ?? '');
 $userMessage = htmlspecialchars(strip_tags($rawMessage), ENT_QUOTES, 'UTF-8');
@@ -82,25 +81,22 @@ DATA RESMI ORGANISASI & KAMPUS:
    - SIMAK Class (Mini Akademik Class), Seminar IT, PKKMB, dan Latihan Dasar SINERGI (Sistem Informasi Energik dan Inovatif).
 
 4. TAUTAN RESMI LAYANAN KAMPUS UNIS TANGERANG:
-   - SINA UNIS (Sistem Informasi Akademik / KRS / Perkuliahan / Nilai / Jadwal): https://sina.unis.ac.id/gate/index.php
-   - WISNU UNIS (Portal Mahasiswa / SIAKAD / KMT): https://wisnu.unis.ac.id/
-   - Perpustakaan / Bebas Pustaka / Skripsi: https://lib.unis.ac.id/
-   - Pendaftaran KKK / KKN (SIKKK UNIS): https://sikkk.unis.ac.id/
-   - Penerimaan Mahasiswa Baru / PMB: https://pmb.unis.ac.id/gate/index.php
-   - Portal Utama Kampus UNIS: https://unis.ac.id/
+   - SINA UNIS: https://sina.unis.ac.id/gate/index.php
+   - WISNU UNIS: https://wisnu.unis.ac.id/
+   - Perpustakaan: https://lib.unis.ac.id/
+   - Pendaftaran KKK / KKN: https://sikkk.unis.ac.id/
+   - PMB UNIS: https://pmb.unis.ac.id/gate/index.php
+   - Portal Utama UNIS: https://unis.ac.id/
 
 Gunakan bahasa Indonesia yang sopan dan bersahabat.";
 
 if (empty($apiKey)) {
-    echo json_encode([
-        'status' => 'success', 
-        'reply' => "Halo! Untuk informasi akademik perkuliahan dan pengisian KRS silakan akses SINA UNIS di https://sina.unis.ac.id/gate/index.php."
-    ]);
+    echo json_encode(['status' => 'error', 'reply' => '[ERROR]: GEMINI_API_KEY tidak ditemukan di file .env server.']);
     exit;
 }
 
-// 5. CALL GEMINI API (v1beta gemini-flash-latest via Header X-goog-api-key)
-$url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent";
+// 5. CALL GEMINI API (v1beta gemini-2.5-flash dengan Dual Key Authentication)
+$url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" . $apiKey;
 
 $payload = [
     "contents" => [
@@ -129,14 +125,13 @@ $response = curl_exec($ch);
 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
+$responseData = json_decode($response, true);
+
 if ($httpCode === 200) {
-    $responseData = json_decode($response, true);
     $reply = $responseData['candidates'][0]['content']['parts'][0]['text'] ?? "Maaf, HIMSI Bot belum dapat memproses pertanyaan tersebut saat ini.";
     echo json_encode(['status' => 'success', 'reply' => $reply]);
 } else {
-    // Mode Fallback Cadangan
-    echo json_encode([
-        'status' => 'success', 
-        'reply' => "Halo! Untuk informasi pengisian KRS dan akademik perkuliahan, silakan buka portal SINA UNIS di https://sina.unis.ac.id/gate/index.php atau ikuti Instagram kami di https://www.instagram.com/himsi_unis."
-    ]);
+    // Tampilkan Detail Error Resmi dari Google untuk Memudahkan Debugging
+    $errDetail = $responseData['error']['message'] ?? "Status Code " . $httpCode;
+    echo json_encode(['status' => 'error', 'reply' => '[ERROR GOOGLE API]: ' . $errDetail]);
 }
