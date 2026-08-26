@@ -1,5 +1,5 @@
 <?php
-// api_chatbot.php - Secure Backend API HIMSI Bot 24/7
+// api_chatbot.php - Secure Backend API HIMSI Bot 24/7 (Support Token AQ & AIzaSy)
 session_start();
 
 header("Content-Type: application/json; charset=UTF-8");
@@ -95,8 +95,18 @@ if (empty($apiKey)) {
     exit;
 }
 
-// 5. CALL GEMINI API (v1beta gemini-2.5-flash dengan Dual Key Authentication)
-$url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" . $apiKey;
+// 5. DETEKSI JENIS KUNCI (AQ... ATAU AIzaSy...) DAN ATUR ENDPOINT + HEADER
+$headers = ['Content-Type: application/json'];
+
+if (strpos($apiKey, 'AQ.') === 0) {
+    // Jika format kunci baru (AQ...), gunakan Header Bearer Authentication
+    $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
+    $headers[] = 'Authorization: Bearer ' . $apiKey;
+    $headers[] = 'X-goog-api-key: ' . $apiKey;
+} else {
+    // Jika format kunci standar (AIzaSy...)
+    $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" . $apiKey;
+}
 
 $payload = [
     "contents" => [
@@ -112,10 +122,7 @@ $payload = [
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Content-Type: application/json',
-    'X-goog-api-key: ' . $apiKey
-]);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
 curl_setopt($ch, CURLOPT_TIMEOUT, 15);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -131,7 +138,6 @@ if ($httpCode === 200) {
     $reply = $responseData['candidates'][0]['content']['parts'][0]['text'] ?? "Maaf, HIMSI Bot belum dapat memproses pertanyaan tersebut saat ini.";
     echo json_encode(['status' => 'success', 'reply' => $reply]);
 } else {
-    // Tampilkan Detail Error Resmi dari Google untuk Memudahkan Debugging
     $errDetail = $responseData['error']['message'] ?? "Status Code " . $httpCode;
     echo json_encode(['status' => 'error', 'reply' => '[ERROR GOOGLE API]: ' . $errDetail]);
 }
