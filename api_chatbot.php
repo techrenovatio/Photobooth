@@ -1,5 +1,5 @@
 <?php
-// api_chatbot.php - Secure Backend API HIMSI Bot 24/7 (Groq Cloud Llama 3)
+// api_chatbot.php - Secure Backend API HIMSI Bot 24/7 (Groq Cloud)
 session_start();
 
 header("Content-Type: application/json; charset=UTF-8");
@@ -95,11 +95,11 @@ if (empty($apiKey)) {
     exit;
 }
 
-// 5. CALL GROQ API (Model llama3-8b-8192)
+// 5. CALL GROQ API (Gunakan Model Aktif llama-3.1-8b-instant)
 $url = "https://api.groq.com/openai/v1/chat/completions";
 
 $payload = [
-    "model" => "llama3-8b-8192",
+    "model" => "llama-3.1-8b-instant",
     "messages" => [
         [
             "role" => "system",
