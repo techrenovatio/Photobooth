@@ -12,6 +12,29 @@ header("X-XSS-Protection: 1; mode=block");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HIMSI UNIS Tangerang | Kabinet Genesis</title>
 
+    <!-- Meta Tags Utama untuk SEO -->
+    <meta name="title" content="HIMSI UNIS Tangerang | Kabinet Genesis">
+    <meta name="description" content="Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang - Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital.">
+
+    <!-- Open Graph / Facebook / WhatsApp / Telegram / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://himsi-unis.104.154.207.125.sslip.io/">
+    <meta property="og:title" content="HIMSI UNIS Tangerang | Kabinet Genesis">
+    <meta property="og:description" content="Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang - Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital.">
+    <meta property="og:image" content="https://himsi-unis.104.154.207.125.sslip.io/Logohimsi.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://himsi-unis.104.154.207.125.sslip.io/">
+    <meta property="twitter:title" content="HIMSI UNIS Tangerang | Kabinet Genesis">
+    <meta property="twitter:description" content="Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang - Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital.">
+    <meta property="twitter:image" content="https://himsi-unis.104.154.207.125.sslip.io/Logohimsi.png">
+
+    <!-- Favicon Icon Tab Browser -->
+    <link rel="icon" type="image/png" href="Logohimsi.png">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
