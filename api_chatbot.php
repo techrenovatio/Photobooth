@@ -1,5 +1,5 @@
 <?php
-// api_chatbot.php - Secure Backend API HIMSI Bot 24/7 (Groq Cloud)
+// api_chatbot.php - Secure Backend API HIMSI Bot 24/7 (Groq Cloud Llama 3)
 session_start();
 
 header("Content-Type: application/json; charset=UTF-8");
@@ -41,6 +41,11 @@ function getEnvVar($key, $default = '') {
 }
 
 $apiKey = getEnvVar('GROQ_API_KEY');
+
+if (empty($apiKey)) {
+    echo json_encode(['status' => 'error', 'reply' => '[ERROR]: GROQ_API_KEY tidak ditemukan di file .env server.']);
+    exit;
+}
 
 // 3. SANITASI INPUT USER
 $input = json_decode(file_get_contents('php://input'), true);
@@ -90,12 +95,7 @@ DATA RESMI ORGANISASI & KAMPUS:
 
 Gunakan bahasa Indonesia yang sopan dan bersahabat.";
 
-if (empty($apiKey)) {
-    echo json_encode(['status' => 'error', 'reply' => '[ERROR]: GROQ_API_KEY tidak ditemukan di file .env server.']);
-    exit;
-}
-
-// 5. CALL GROQ API (Gunakan Model Aktif llama-3.1-8b-instant)
+// 5. CALL GROQ API (Model Llama 3.1 8B Instant)
 $url = "https://api.groq.com/openai/v1/chat/completions";
 
 $payload = [
