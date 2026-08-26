@@ -95,11 +95,11 @@ if (empty($apiKey)) {
     exit;
 }
 
-// 5. CALL GROQ API (Llama 3.1 8B Instant)
+// 5. CALL GROQ API (Model llama-3.3-70b-versatile)
 $url = "https://api.groq.com/openai/v1/chat/completions";
 
 $payload = [
-    "model" => "llama-3.1-8b-instant",
+    "model" => "llama-3.3-70b-versatile",
     "messages" => [
         [
             "role" => "system",
