@@ -1,6 +1,5 @@
 <?php
 // index.php - Portal Utama HIMSI UNIS Tangerang (Kabinet Genesis)
-// Mencegah clickjacking dengan Header Security
 header("X-Frame-Options: SAMEORIGIN");
 header("X-Content-Type-Options: nosniff");
 header("X-XSS-Protection: 1; mode=block");
@@ -45,7 +44,6 @@ header("X-XSS-Protection: 1; mode=block");
             font-family: 'Merriweather', serif;
         }
 
-        /* Scrollbar kustom untuk galeri modal */
         .gallery-scroll::-webkit-scrollbar {
             height: 6px;
         }
@@ -62,7 +60,7 @@ header("X-XSS-Protection: 1; mode=block");
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen overflow-x-hidden">
 
-    <!-- GLOBAL WATERMARK LOGO (Mengambang melayang di tengah layar saat di-scroll) -->
+    <!-- GLOBAL WATERMARK LOGO -->
     <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 select-none w-[85vw] max-w-[700px] aspect-square flex items-center justify-center">
         <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-full h-full object-contain opacity-[0.12]">
     </div>
@@ -70,7 +68,6 @@ header("X-XSS-Protection: 1; mode=block");
     <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-3 relative">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
-            
             <a href="#tentang" class="flex items-center space-x-3 md:space-x-5 group">
                 <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain group-hover:scale-105 transition transform drop-shadow-md">
                 <div class="border-l-3 md:border-l-4 border-himsiMaroon pl-3 md:pl-4 py-1.5">
@@ -88,7 +85,6 @@ header("X-XSS-Protection: 1; mode=block");
                 <a href="#tentang" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Tentang Kami</a>
             </nav>
 
-            <!-- Tombol Hamburger Menu Mobile -->
             <button id="mobileMenuBtn" class="lg:hidden text-slate-800 hover:text-himsiMaroon focus:outline-none p-2 transition-transform transform active:scale-95 z-50">
                 <svg class="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -96,7 +92,6 @@ header("X-XSS-Protection: 1; mode=block");
             </button>
         </div>
 
-        <!-- Dropdown Menu Mobile -->
         <div id="mobileMenuPanel" class="hidden lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xl flex flex-col py-4 px-6 space-y-4 font-bold text-slate-700">
             <a href="#beranda" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Beranda</a>
             <a href="#layanan" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Layanan Digital</a>
@@ -191,8 +186,6 @@ header("X-XSS-Protection: 1; mode=block");
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- CARD KEGIATAN 1: PELANTIKAN -->
                 <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group hover:-translate-y-1">
                     <div class="h-48 bg-slate-200 overflow-hidden relative">
                         <img src="kegiatan/pelantikan-1.webp" loading="lazy" alt="Pelantikan HIMSI 2026" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 fallback-bg" onerror="this.src='Logohimsi.png'; this.classList.add('p-8','object-contain','opacity-50')">
@@ -211,13 +204,11 @@ header("X-XSS-Protection: 1; mode=block");
                     </div>
                 </div>
 
-                <!-- CARD PLACEHOLDER -->
                 <div class="bg-white/50 rounded-2xl border border-dashed border-slate-300 shadow-sm p-8 flex flex-col justify-center items-center text-center opacity-70">
                     <span class="text-4xl mb-3">📰</span>
                     <h3 class="serif-title font-bold text-slate-700">Kegiatan Selanjutnya</h3>
                     <p class="text-xs text-slate-500 mt-2">Dokumentasi kegiatan HIMSI berikutnya akan segera dipublikasikan di sini.</p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -234,7 +225,6 @@ header("X-XSS-Protection: 1; mode=block");
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- PHOTOBOOTH -->
                 <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
                     <div>
                         <div class="w-14 h-14 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-himsiMaroon group-hover:text-white transition">
@@ -252,7 +242,6 @@ header("X-XSS-Protection: 1; mode=block");
                     </a>
                 </div>
 
-                <!-- SUPER PAHRI -->
                 <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col justify-between group hover:-translate-y-1">
                     <div>
                         <div class="bg-slate-900 h-32 flex items-center justify-center relative overflow-hidden">
@@ -274,7 +263,6 @@ header("X-XSS-Protection: 1; mode=block");
                     </div>
                 </div>
 
-                <!-- PLACEHOLDER -->
                 <div class="bg-white/75 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md p-6 flex flex-col justify-center items-center text-center opacity-60">
                     <span class="text-4xl mb-3">🚀</span>
                     <h3 class="serif-title font-bold text-slate-700">Project Selanjutnya</h3>
@@ -333,54 +321,6 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </footer>
 
-    <!-- ============================================== -->
-    <!-- FLOATING CHATBOT WIDGET (HIMSI BOT 24/7)       -->
-    <!-- ============================================== -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <!-- Floating Trigger Button -->
-        <button id="chatbotToggleBtn" onclick="toggleChatbot()" class="bg-himsiMaroon hover:bg-red-900 text-white rounded-full p-4 shadow-2xl transition transform hover:scale-110 flex items-center justify-center border-2 border-himsiGold">
-            <span class="text-2xl">🤖</span>
-        </button>
-
-        <!-- Chatbot Window Panel -->
-        <div id="chatbotPanel" class="hidden absolute bottom-16 right-0 w-[90vw] max-w-[380px] h-[520px] bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden">
-            <!-- Header Panel -->
-            <div class="bg-himsiMaroon text-white p-4 flex items-center justify-between shadow-md">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-xl border border-white/20">🤖</div>
-                    <div>
-                        <h4 class="font-bold text-sm leading-tight">HIMSI Bot 24/7</h4>
-                        <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1">
-                            <span class="w-2 h-2 bg-green-400 rounded-full inline-block animate-pulse"></span> Online • AI Support
-                        </span>
-                    </div>
-                </div>
-                <button onclick="toggleChatbot()" class="text-white/80 hover:text-white text-2xl font-bold leading-none">&times;</button>
-            </div>
-
-            <!-- Messages Container -->
-            <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-slate-50 text-xs">
-                <div class="flex items-start space-x-2">
-                    <div class="w-7 h-7 bg-himsiMaroon text-white rounded-full flex items-center justify-center shrink-0 font-bold text-[10px]">AI</div>
-                    <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 shadow-sm text-slate-700 leading-relaxed">
-                        Halo Mahasiswa SI! 👋 Saya **HIMSI Bot**. Ada yang bisa saya bantu terkait jadwal perkuliahan, layanan WISNU/SIAKAD, atau info seputar HIMSI UNIS?
-                    </div>
-                </div>
-            </div>
-
-            <!-- Typing Indicator -->
-            <div id="chatTyping" class="hidden px-4 py-2 bg-slate-50 text-[11px] text-slate-400 italic">
-                HIMSI Bot sedang mengetik...
-            </div>
-
-            <!-- Input Form -->
-            <div class="p-3 bg-white border-t border-slate-200 flex items-center gap-2">
-                <input type="text" id="chatInput" placeholder="Ketik pertanyaan Anda..." onkeydown="if(event.key==='Enter') sendChatMessage()" class="flex-1 text-xs border border-slate-300 rounded-xl px-3 py-2.5 focus:outline-none focus:border-himsiMaroon">
-                <button onclick="sendChatMessage()" class="bg-himsiMaroon text-white px-4 py-2.5 rounded-xl font-bold text-xs hover:bg-red-900 transition shadow-sm">Kirim</button>
-            </div>
-        </div>
-    </div>
-
     <!-- MODAL POPUP: DOKUMENTASI KEGIATAN -->
     <div id="kegiatanModal" class="fixed inset-0 bg-black/95 z-[60] hidden items-center justify-center p-2 sm:p-6 backdrop-blur-md">
         <div class="bg-slate-900 rounded-2xl overflow-hidden w-full max-w-5xl h-[95vh] md:h-[85vh] shadow-2xl border border-slate-700 flex flex-col">
@@ -437,14 +377,61 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </div>
 
+    <!-- FLOATING CHATBOT WIDGET (HIMSI BOT 24/7) -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button id="chatbotToggleBtn" onclick="toggleChatbot()" class="bg-himsiMaroon hover:bg-red-900 text-white rounded-full p-4 shadow-2xl transition transform hover:scale-110 flex items-center justify-center border-2 border-himsiGold">
+            <span class="text-2xl">🤖</span>
+        </button>
+
+        <div id="chatbotPanel" class="hidden absolute bottom-16 right-0 w-[90vw] max-w-[380px] h-[520px] bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden">
+            <div class="bg-himsiMaroon text-white p-4 flex items-center justify-between shadow-md">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-xl border border-white/20">🤖</div>
+                    <div>
+                        <h4 class="font-bold text-sm leading-tight">HIMSI Bot 24/7</h4>
+                        <span class="text-[10px] text-amber-300 font-semibold flex items-center gap-1">
+                            <span class="w-2 h-2 bg-green-400 rounded-full inline-block animate-pulse"></span> Online • AI Support
+                        </span>
+                    </div>
+                </div>
+                <button onclick="toggleChatbot()" class="text-white/80 hover:text-white text-2xl font-bold leading-none">&times;</button>
+            </div>
+
+            <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-slate-50 text-xs">
+                <div class="flex items-start space-x-2">
+                    <div class="w-7 h-7 bg-himsiMaroon text-white rounded-full flex items-center justify-center shrink-0 font-bold text-[10px]">AI</div>
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 shadow-sm text-slate-700 leading-relaxed">
+                        Halo! 👋 Saya <b>HIMSI Ai</b>. Ada yang bisa saya bantu terkait jadwal perkuliahan, layanan Kampus UNIS, atau info seputar HIMSI UNIS?
+                    </div>
+                </div>
+            </div>
+
+            <div id="chatTyping" class="hidden px-4 py-2 bg-slate-50 text-[11px] text-slate-400 italic">
+                HIMSI Bot sedang mengetik...
+            </div>
+
+            <div class="p-3 bg-white border-t border-slate-200 flex items-center gap-2">
+                <input type="text" id="chatInput" placeholder="Ketik pertanyaan Anda..." onkeydown="if(event.key==='Enter') sendChatMessage()" class="flex-1 text-xs border border-slate-300 rounded-xl px-3 py-2.5 focus:outline-none focus:border-himsiMaroon">
+                <button onclick="sendChatMessage()" class="bg-himsiMaroon text-white px-4 py-2.5 rounded-xl font-bold text-xs hover:bg-red-900 transition shadow-sm">Kirim</button>
+            </div>
+        </div>
+    </div>
+
     <!-- JAVASCRIPT SYSTEM -->
     <script>
-        // -----------------------------------------
-        // SCRIPT UNTUK CHATBOT WIDGET
-        // -----------------------------------------
+        // Chatbot Panel Toggle
         function toggleChatbot() {
             const panel = document.getElementById('chatbotPanel');
             panel.classList.toggle('hidden');
+        }
+
+        function formatMarkdownText(text) {
+            if (!text) return '';
+            let formatted = text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+            formatted = formatted.replace(/\*(.*?)\*/g, '<i>$1</i>');
+            formatted = formatted.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" class="text-sky-600 underline font-semibold">$1</a>');
+            formatted = formatted.replace(/\n/g, '<br>');
+            return formatted;
         }
 
         async function sendChatMessage() {
@@ -455,11 +442,10 @@ header("X-XSS-Protection: 1; mode=block");
 
             if (!userMsg) return;
 
-            // Render Pesan User
             messages.innerHTML += `
                 <div class="flex items-end justify-end space-x-2">
                     <div class="bg-himsiMaroon text-white p-3 rounded-2xl rounded-tr-none shadow-sm text-xs max-w-[80%] leading-relaxed">
-                        ${userMsg}
+                        ${userMsg.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
                     </div>
                 </div>
             `;
@@ -478,15 +464,13 @@ header("X-XSS-Protection: 1; mode=block");
 
                 typing.classList.add('hidden');
 
-                // Render Pesan Bot
-                let botReply = data.reply ? data.reply.replace(/\n/g, '<br>') : 'Maaf, terjadi masalah.';
-                botReply = botReply.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" class="text-sky-600 underline font-semibold">$1</a>');
+                let botReplyFormatted = formatMarkdownText(data.reply);
 
                 messages.innerHTML += `
                     <div class="flex items-start space-x-2">
                         <div class="w-7 h-7 bg-himsiMaroon text-white rounded-full flex items-center justify-center shrink-0 font-bold text-[10px]">AI</div>
                         <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 shadow-sm text-slate-700 leading-relaxed max-w-[85%]">
-                            ${botReply}
+                            ${botReplyFormatted}
                         </div>
                     </div>
                 `;
