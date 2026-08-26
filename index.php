@@ -1,5 +1,10 @@
 <?php
 // index.php - Portal Utama HIMSI UNIS Tangerang (Kabinet Genesis)
+if ($_SERVER['HTTP_HOST'] !== 'himsi-unis.34.9.82.228.sslip.io' || empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === 'off') {
+    header("Location: https://himsi-unis.34.9.82.228.sslip.io" . $_SERVER['REQUEST_URI'], true, 301);
+    exit;
+}
+
 header("X-Frame-Options: SAMEORIGIN");
 header("X-Content-Type-Options: nosniff");
 header("X-XSS-Protection: 1; mode=block");
