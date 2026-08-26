@@ -18,19 +18,19 @@ header("X-XSS-Protection: 1; mode=block");
 
     <!-- Open Graph / Facebook / WhatsApp / Telegram / LinkedIn -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://himsi-unis.104.154.207.125.sslip.io/">
+    <meta property="og:url" content="https://himsi-unis.34.9.82.228.sslip.io/">
     <meta property="og:title" content="HIMSI UNIS Tangerang | Kabinet Genesis">
     <meta property="og:description" content="Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang - Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital.">
-    <meta property="og:image" content="https://himsi-unis.104.154.207.125.sslip.io/Logohimsi.png">
+    <meta property="og:image" content="https://himsi-unis.34.9.82.228.sslip.io/Logohimsi.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
     <!-- Twitter / X -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://himsi-unis.104.154.207.125.sslip.io/">
+    <meta property="twitter:url" content="https://himsi-unis.34.9.82.228.sslip.io/">
     <meta property="twitter:title" content="HIMSI UNIS Tangerang | Kabinet Genesis">
     <meta property="twitter:description" content="Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang - Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital.">
-    <meta property="twitter:image" content="https://himsi-unis.104.154.207.125.sslip.io/Logohimsi.png">
+    <meta property="twitter:image" content="https://himsi-unis.34.9.82.228.sslip.io/Logohimsi.png">
 
     <!-- Favicon Icon Tab Browser -->
     <link rel="icon" type="image/png" href="Logohimsi.png">
@@ -77,6 +77,25 @@ header("X-XSS-Protection: 1; mode=block");
         .gallery-scroll::-webkit-scrollbar-thumb {
             background: #475569;
             border-radius: 4px;
+        }
+
+        /* Responsive Mobile Chatbot Styles */
+        @media (max-width: 768px) {
+            #chatbotPanel {
+                width: 88vw !important;
+                max-width: 320px !important;
+                height: 400px !important;
+                max-height: 60vh !important;
+                right: 0 !important;
+                bottom: 70px !important;
+                border-radius: 16px !important;
+            }
+
+            #chatbotToggleBtn {
+                width: 52px !important;
+                height: 52px !important;
+                padding: 0 !important;
+            }
         }
     </style>
 </head>
