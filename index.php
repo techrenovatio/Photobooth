@@ -62,9 +62,9 @@ header("X-XSS-Protection: 1; mode=block");
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen overflow-x-hidden">
 
-    <!-- GLOBAL WATERMARK LOGO (Dikecilkan ukurannya agar proporsional di HP) -->
-    <div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden p-4 md:p-12">
-        <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-full h-full object-contain opacity-[0.14] select-none transform scale-[1.3] md:scale-[1.2]">
+    <!-- GLOBAL WATERMARK LOGO (Tetap mengambang presisi di tengah layar saat di-scroll) -->
+    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 select-none w-[85vw] max-w-[700px] aspect-square flex items-center justify-center">
+        <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-full h-full object-contain opacity-[0.12]">
     </div>
 
     <!-- HEADER / NAVIGATION -->
