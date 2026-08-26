@@ -1,5 +1,5 @@
 <?php
-// api_chatbot.php - Secure Backend API HIMSI Bot 24/7 (Support Token AQ & AIzaSy)
+// api_chatbot.php - Secure Backend API HIMSI Bot 24/7 (Groq Cloud Llama 3)
 session_start();
 
 header("Content-Type: application/json; charset=UTF-8");
@@ -40,7 +40,7 @@ function getEnvVar($key, $default = '') {
     return getenv($key) ?: $default;
 }
 
-$apiKey = getEnvVar('GEMINI_API_KEY');
+$apiKey = getEnvVar('GROQ_API_KEY');
 
 // 3. SANITASI INPUT USER
 $input = json_decode(file_get_contents('php://input'), true);
@@ -91,38 +91,36 @@ DATA RESMI ORGANISASI & KAMPUS:
 Gunakan bahasa Indonesia yang sopan dan bersahabat.";
 
 if (empty($apiKey)) {
-    echo json_encode(['status' => 'error', 'reply' => '[ERROR]: GEMINI_API_KEY tidak ditemukan di file .env server.']);
+    echo json_encode(['status' => 'error', 'reply' => '[ERROR]: GROQ_API_KEY tidak ditemukan di file .env server.']);
     exit;
 }
 
-// 5. DETEKSI JENIS KUNCI (AQ... ATAU AIzaSy...) DAN ATUR ENDPOINT + HEADER
-$headers = ['Content-Type: application/json'];
-
-if (strpos($apiKey, 'AQ.') === 0) {
-    // Jika format kunci baru (AQ...), gunakan Header Bearer Authentication
-    $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
-    $headers[] = 'Authorization: Bearer ' . $apiKey;
-    $headers[] = 'X-goog-api-key: ' . $apiKey;
-} else {
-    // Jika format kunci standar (AIzaSy...)
-    $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" . $apiKey;
-}
+// 5. CALL GROQ API (Llama 3.1 8B Instant)
+$url = "https://api.groq.com/openai/v1/chat/completions";
 
 $payload = [
-    "contents" => [
+    "model" => "llama-3.1-8b-instant",
+    "messages" => [
+        [
+            "role" => "system",
+            "content" => $systemKnowledge
+        ],
         [
             "role" => "user",
-            "parts" => [
-                ["text" => $systemKnowledge . "\n\nPertanyaan Mahasiswa: " . $userMessage]
-            ]
+            "content" => $userMessage
         ]
-    ]
+    ],
+    "temperature" => 0.7,
+    "max_tokens" => 500
 ];
 
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Content-Type: application/json',
+    'Authorization: Bearer ' . $apiKey
+]);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
 curl_setopt($ch, CURLOPT_TIMEOUT, 15);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -135,9 +133,9 @@ curl_close($ch);
 $responseData = json_decode($response, true);
 
 if ($httpCode === 200) {
-    $reply = $responseData['candidates'][0]['content']['parts'][0]['text'] ?? "Maaf, HIMSI Bot belum dapat memproses pertanyaan tersebut saat ini.";
+    $reply = $responseData['choices'][0]['message']['content'] ?? "Maaf, HIMSI Bot belum dapat memproses pertanyaan tersebut saat ini.";
     echo json_encode(['status' => 'success', 'reply' => $reply]);
 } else {
     $errDetail = $responseData['error']['message'] ?? "Status Code " . $httpCode;
-    echo json_encode(['status' => 'error', 'reply' => '[ERROR GOOGLE API]: ' . $errDetail]);
+    echo json_encode(['status' => 'error', 'reply' => '[ERROR GROQ API]: ' . $errDetail]);
 }
