@@ -241,163 +241,153 @@ const frameData = [
     },
     {
         id: 11,
-        name: "Frame 11",
+        name: "Frame 11 (Tomat Piknik)",
         image: "assets/frame/frame11.png",
-        photoCount: 6,
+        photoCount: 8,
         config: {
             width: 1080,
             height: 1920,
             photos: [
-                { x: 61,  y: 425, width: 388, height: 334 },
-                { x: 622, y: 400, width: 389, height: 334 },
-                { x: 63,  y: 868, width: 389, height: 334 },
-                { x: 623, y: 848, width: 388, height: 334 },
-                { x: 63,  y: 1314, width: 389, height: 334 },
-                { x: 627, y: 1298, width: 389, height: 334 }
+                { x: 105, y: 175, width: 390, height: 260, shape: "circle" },
+                { x: 585, y: 165, width: 390, height: 260, shape: "circle" },
+                { x: 90,  y: 480, width: 390, height: 260, shape: "circle" },
+                { x: 585, y: 470, width: 390, height: 260, shape: "circle" },
+                { x: 90,  y: 810, width: 390, height: 260, shape: "circle" },
+                { x: 585, y: 800, width: 390, height: 260, shape: "circle" },
+                { x: 90,  y: 1130, width: 390, height: 260, shape: "circle" },
+                { x: 585, y: 1130, width: 390, height: 260, shape: "circle" }
             ]
         }
     },
     {
         id: 12,
-        name: "Frame 12",
+        name: "Frame 12 (Rumah Waffle)",
         image: "assets/frame/frame12.png",
         photoCount: 6,
         config: {
             width: 1080,
             height: 1920,
             photos: [
-                { x: 77, y: 488, width: 398, height: 290 },
-                { x: 77, y: 848, width: 398, height: 290 },
-                { x: 77, y: 1221, width: 398, height: 290 },
-                { x: 618, y: 488, width: 398, height: 290 },
-                { x: 618, y: 848, width: 398, height: 290 },
-                { x: 618, y: 1221, width: 398, height: 290 }
+                { x: 115, y: 488, width: 325, height: 235 },
+                { x: 638, y: 488, width: 325, height: 235 },
+                { x: 115, y: 785, width: 325, height: 235 },
+                { x: 638, y: 785, width: 325, height: 235 },
+                { x: 115, y: 1075, width: 325, height: 235 },
+                { x: 638, y: 1075, width: 325, height: 235 }
             ]
         }
     },
     {
         id: 13,
-        name: "Frame 13",
+        name: "Frame 13 (Movie Time)",
         image: "assets/frame/frame13.png",
-        photoCount: 6,
+        photoCount: 5,
         config: {
             width: 1080,
             height: 1920,
             photos: [
-                { x: 61,  y: 425, width: 388, height: 334 },
-                { x: 622, y: 400, width: 389, height: 334 },
-                { x: 63,  y: 868, width: 389, height: 334 },
-                { x: 623, y: 848, width: 388, height: 334 },
-                { x: 63,  y: 1314, width: 389, height: 334 },
-                { x: 627, y: 1298, width: 389, height: 334 }
+                { x: 118, y: 698, width: 285, height: 388 },
+                { x: 635, y: 282, width: 330, height: 320 },
+                { x: 635, y: 630, width: 330, height: 320 },
+                { x: 635, y: 980, width: 330, height: 320 },
+                { x: 635, y: 1330, width: 330, height: 320 }
             ]
         }
     },
     {
         id: 14,
-        name: "Frame 14",
+        name: "Frame 14 (Polaroid Koran)",
         image: "assets/frame/frame14.png",
-        photoCount: 6,
+        photoCount: 1,
         config: {
             width: 1080,
             height: 1920,
             photos: [
-                { x: 77, y: 488, width: 398, height: 290 },
-                { x: 77, y: 848, width: 398, height: 290 },
-                { x: 77, y: 1221, width: 398, height: 290 },
-                { x: 618, y: 488, width: 398, height: 290 },
-                { x: 618, y: 848, width: 398, height: 290 },
-                { x: 618, y: 1221, width: 398, height: 290 }
+                { x: 118, y: 710, width: 835, height: 590 }
             ]
         }
     },
     {
         id: 15,
-        name: "Frame 15",
+        name: "Frame 15 (Teletubbies)",
         image: "assets/frame/frame15.png",
-        photoCount: 6,
+        photoCount: 4,
         config: {
             width: 1080,
             height: 1920,
             photos: [
-                { x: 61,  y: 425, width: 388, height: 334 },
-                { x: 622, y: 400, width: 389, height: 334 },
-                { x: 63,  y: 868, width: 389, height: 334 },
-                { x: 623, y: 848, width: 388, height: 334 },
-                { x: 63,  y: 1314, width: 389, height: 334 },
-                { x: 627, y: 1298, width: 389, height: 334 }
+                { x: 102, y: 1185, width: 142, height: 142, shape: "circle" },
+                { x: 275, y: 1115, width: 165, height: 165, shape: "circle" },
+                { x: 512, y: 1068, width: 132, height: 150, shape: "circle" },
+                { x: 752, y: 1005, width: 198, height: 215, shape: "circle" }
             ]
         }
     },
     {
         id: 16,
-        name: "Frame 16",
+        name: "Frame 16 (Es Krim Cones)",
         image: "assets/frame/frame16.png",
-        photoCount: 6,
+        photoCount: 4,
         config: {
             width: 1080,
             height: 1920,
             photos: [
-                { x: 77, y: 488, width: 398, height: 290 },
-                { x: 77, y: 848, width: 398, height: 290 },
-                { x: 77, y: 1221, width: 398, height: 290 },
-                { x: 618, y: 488, width: 398, height: 290 },
-                { x: 618, y: 848, width: 398, height: 290 },
-                { x: 618, y: 1221, width: 398, height: 290 }
+                { x: 390, y: 305, width: 338, height: 338, shape: "circle" },
+                { x: 62,  y: 525, width: 338, height: 338, shape: "circle" },
+                { x: 678, y: 502, width: 338, height: 338, shape: "circle" },
+                { x: 380, y: 735, width: 338, height: 338, shape: "circle" }
             ]
         }
     },
     {
         id: 17,
-        name: "Frame 17",
+        name: "Frame 17 (Zootopia Selfie)",
         image: "assets/frame/frame17.png",
-        photoCount: 6,
+        photoCount: 4,
         config: {
             width: 1080,
             height: 1920,
             photos: [
-                { x: 61,  y: 425, width: 388, height: 334 },
-                { x: 622, y: 400, width: 389, height: 334 },
-                { x: 63,  y: 868, width: 389, height: 334 },
-                { x: 623, y: 848, width: 388, height: 334 },
-                { x: 63,  y: 1314, width: 389, height: 334 },
-                { x: 627, y: 1298, width: 389, height: 334 }
+                { x: 73, y: 92,   width: 395, height: 295 },
+                { x: 73, y: 500,  width: 395, height: 295 },
+                { x: 73, y: 908,  width: 395, height: 295 },
+                { x: 75, y: 1322, width: 395, height: 295 }
             ]
         }
     },
     {
         id: 18,
-        name: "Frame 18",
+        name: "Frame 18 (Spongebob & Patrick)",
         image: "assets/frame/frame18.png",
-        photoCount: 6,
+        photoCount: 4,
         config: {
             width: 1080,
             height: 1920,
             photos: [
-                { x: 77, y: 488, width: 398, height: 290 },
-                { x: 77, y: 848, width: 398, height: 290 },
-                { x: 77, y: 1221, width: 398, height: 290 },
-                { x: 618, y: 488, width: 398, height: 290 },
-                { x: 618, y: 848, width: 398, height: 290 },
-                { x: 618, y: 1221, width: 398, height: 290 }
+                { x: 73, y: 92,   width: 395, height: 295 },
+                { x: 73, y: 500,  width: 395, height: 295 },
+                { x: 73, y: 908,  width: 395, height: 295 },
+                { x: 75, y: 1322, width: 395, height: 295 }
             ]
         }
     },
     {
         id: 19,
-        name: "Frame 19",
+        name: "Frame 19 (Dual Aesthetic)",
         image: "assets/frame/frame19.png",
-        photoCount: 6,
+        photoCount: 8,
         config: {
             width: 1080,
             height: 1920,
             photos: [
-                { x: 61,  y: 425, width: 388, height: 334 },
-                { x: 622, y: 400, width: 389, height: 334 },
-                { x: 63,  y: 868, width: 389, height: 334 },
-                { x: 623, y: 848, width: 388, height: 334 },
-                { x: 63,  y: 1314, width: 389, height: 334 },
-                { x: 627, y: 1298, width: 389, height: 334 }
+                { x: 70,  y: 190,  width: 395, height: 295 },
+                { x: 613, y: 200,  width: 395, height: 295 },
+                { x: 70,  y: 630,  width: 395, height: 295 },
+                { x: 613, y: 610,  width: 395, height: 295 },
+                { x: 70,  y: 1018, width: 395, height: 295 },
+                { x: 613, y: 1018, width: 395, height: 295 },
+                { x: 70,  y: 1435, width: 395, height: 295 },
+                { x: 622, y: 1435, width: 395, height: 295 }
             ]
         }
     }
