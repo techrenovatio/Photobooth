@@ -86,12 +86,9 @@ const frameData = [
             width: 1080,
             height: 1920,
             photos: [
-                // KOORDINAT AKURAT FRAME 2 (Sesuai Gambar Asli)
-                // Kolom Kiri
                 { x: 77, y: 488, width: 398, height: 290 },
                 { x: 77, y: 848, width: 398, height: 290 },
                 { x: 77, y: 1221, width: 398, height: 290 },
-                // Kolom Kanan
                 { x: 618, y: 488, width: 398, height: 290 },
                 { x: 618, y: 848, width: 398, height: 290 },
                 { x: 618, y: 1221, width: 398, height: 290 }
@@ -239,6 +236,168 @@ const frameData = [
                 { x: 632, y: 849, width: 364, height: 364 },
                 { x: 98,  y: 1131, width: 362, height: 362 },
                 { x: 632, y: 1282, width: 364, height: 364 }
+            ]
+        }
+    },
+    {
+        id: 11,
+        name: "Frame 11",
+        image: "assets/frame/frame11.png",
+        photoCount: 6,
+        config: {
+            width: 1080,
+            height: 1920,
+            photos: [
+                { x: 61,  y: 425, width: 388, height: 334 },
+                { x: 622, y: 400, width: 389, height: 334 },
+                { x: 63,  y: 868, width: 389, height: 334 },
+                { x: 623, y: 848, width: 388, height: 334 },
+                { x: 63,  y: 1314, width: 389, height: 334 },
+                { x: 627, y: 1298, width: 389, height: 334 }
+            ]
+        }
+    },
+    {
+        id: 12,
+        name: "Frame 12",
+        image: "assets/frame/frame12.png",
+        photoCount: 6,
+        config: {
+            width: 1080,
+            height: 1920,
+            photos: [
+                { x: 77, y: 488, width: 398, height: 290 },
+                { x: 77, y: 848, width: 398, height: 290 },
+                { x: 77, y: 1221, width: 398, height: 290 },
+                { x: 618, y: 488, width: 398, height: 290 },
+                { x: 618, y: 848, width: 398, height: 290 },
+                { x: 618, y: 1221, width: 398, height: 290 }
+            ]
+        }
+    },
+    {
+        id: 13,
+        name: "Frame 13",
+        image: "assets/frame/frame13.png",
+        photoCount: 6,
+        config: {
+            width: 1080,
+            height: 1920,
+            photos: [
+                { x: 61,  y: 425, width: 388, height: 334 },
+                { x: 622, y: 400, width: 389, height: 334 },
+                { x: 63,  y: 868, width: 389, height: 334 },
+                { x: 623, y: 848, width: 388, height: 334 },
+                { x: 63,  y: 1314, width: 389, height: 334 },
+                { x: 627, y: 1298, width: 389, height: 334 }
+            ]
+        }
+    },
+    {
+        id: 14,
+        name: "Frame 14",
+        image: "assets/frame/frame14.png",
+        photoCount: 6,
+        config: {
+            width: 1080,
+            height: 1920,
+            photos: [
+                { x: 77, y: 488, width: 398, height: 290 },
+                { x: 77, y: 848, width: 398, height: 290 },
+                { x: 77, y: 1221, width: 398, height: 290 },
+                { x: 618, y: 488, width: 398, height: 290 },
+                { x: 618, y: 848, width: 398, height: 290 },
+                { x: 618, y: 1221, width: 398, height: 290 }
+            ]
+        }
+    },
+    {
+        id: 15,
+        name: "Frame 15",
+        image: "assets/frame/frame15.png",
+        photoCount: 6,
+        config: {
+            width: 1080,
+            height: 1920,
+            photos: [
+                { x: 61,  y: 425, width: 388, height: 334 },
+                { x: 622, y: 400, width: 389, height: 334 },
+                { x: 63,  y: 868, width: 389, height: 334 },
+                { x: 623, y: 848, width: 388, height: 334 },
+                { x: 63,  y: 1314, width: 389, height: 334 },
+                { x: 627, y: 1298, width: 389, height: 334 }
+            ]
+        }
+    },
+    {
+        id: 16,
+        name: "Frame 16",
+        image: "assets/frame/frame16.png",
+        photoCount: 6,
+        config: {
+            width: 1080,
+            height: 1920,
+            photos: [
+                { x: 77, y: 488, width: 398, height: 290 },
+                { x: 77, y: 848, width: 398, height: 290 },
+                { x: 77, y: 1221, width: 398, height: 290 },
+                { x: 618, y: 488, width: 398, height: 290 },
+                { x: 618, y: 848, width: 398, height: 290 },
+                { x: 618, y: 1221, width: 398, height: 290 }
+            ]
+        }
+    },
+    {
+        id: 17,
+        name: "Frame 17",
+        image: "assets/frame/frame17.png",
+        photoCount: 6,
+        config: {
+            width: 1080,
+            height: 1920,
+            photos: [
+                { x: 61,  y: 425, width: 388, height: 334 },
+                { x: 622, y: 400, width: 389, height: 334 },
+                { x: 63,  y: 868, width: 389, height: 334 },
+                { x: 623, y: 848, width: 388, height: 334 },
+                { x: 63,  y: 1314, width: 389, height: 334 },
+                { x: 627, y: 1298, width: 389, height: 334 }
+            ]
+        }
+    },
+    {
+        id: 18,
+        name: "Frame 18",
+        image: "assets/frame/frame18.png",
+        photoCount: 6,
+        config: {
+            width: 1080,
+            height: 1920,
+            photos: [
+                { x: 77, y: 488, width: 398, height: 290 },
+                { x: 77, y: 848, width: 398, height: 290 },
+                { x: 77, y: 1221, width: 398, height: 290 },
+                { x: 618, y: 488, width: 398, height: 290 },
+                { x: 618, y: 848, width: 398, height: 290 },
+                { x: 618, y: 1221, width: 398, height: 290 }
+            ]
+        }
+    },
+    {
+        id: 19,
+        name: "Frame 19",
+        image: "assets/frame/frame19.png",
+        photoCount: 6,
+        config: {
+            width: 1080,
+            height: 1920,
+            photos: [
+                { x: 61,  y: 425, width: 388, height: 334 },
+                { x: 622, y: 400, width: 389, height: 334 },
+                { x: 63,  y: 868, width: 389, height: 334 },
+                { x: 623, y: 848, width: 388, height: 334 },
+                { x: 63,  y: 1314, width: 389, height: 334 },
+                { x: 627, y: 1298, width: 389, height: 334 }
             ]
         }
     }
