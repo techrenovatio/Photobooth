@@ -197,7 +197,7 @@
                                                             <i id="pend-btn" class="fa-solid fa-chevron-up text-red-800 text-[10px] transition-transform"></i>
                                                         </div>
                                                         <div id="div-pendidikan" class="collapsible-content text-[11px] text-slate-700 space-y-1 font-medium">
-                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Firda Nur Sofia</div>
+                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Firda Nur Sopiarahma</div>
                                                             <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> M Rizky R.</div>
                                                             <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Teguh F.</div>
                                                         </div>
@@ -350,7 +350,7 @@
                     </div>
                     <div id="mob-pend" class="collapsible-content mt-2">
                         <ul class="text-xs text-slate-700 space-y-2 pt-1 font-medium">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-user-check text-red-800 text-[11px]"></i> Firda Nur Sofia</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-user-check text-red-800 text-[11px]"></i> Firda Nur Sopiarahma</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-user-check text-red-800 text-[11px]"></i> M Rizky Ramadhan</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-user-check text-red-800 text-[11px]"></i> Teguh Firmansyah</li>
                         </ul>
