@@ -133,6 +133,7 @@ header("X-XSS-Protection: 1; mode=block");
                 <a href="#kegiatan" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Berita & Kegiatan</a>
                 <a href="#karya" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Karya Mahasiswa</a>
                 <a href="#tentang" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Tentang Kami</a>
+                <a href="#benefit" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Benefit Anggota</a>
                 <a href="#gabung" class="bg-himsiMaroon text-white px-5 py-2 rounded-xl hover:bg-red-900 transition shadow-sm text-sm flex items-center gap-2">
                     <i class="fa-solid fa-user-plus"></i> Gabung HIMSI
                 </a>
@@ -151,6 +152,7 @@ header("X-XSS-Protection: 1; mode=block");
             <a href="#kegiatan" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Berita & Kegiatan</a>
             <a href="#karya" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Karya Mahasiswa</a>
             <a href="#tentang" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Tentang Kami</a>
+            <a href="#benefit" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Benefit Anggota</a>
             <a href="#gabung" class="mobile-link bg-himsiMaroon text-white text-center py-3 rounded-xl font-bold">✨ Bergabung Bersama HIMSI</a>
         </div>
     </header>
@@ -384,7 +386,7 @@ header("X-XSS-Protection: 1; mode=block");
     </section>
 
     <!-- SECTION MANFAAT & PEMBELAJARAN HIMSI -->
-    <section class="py-16 bg-slate-50 border-t border-slate-200 px-6 relative z-10">
+    <section id="benefit" class="py-16 bg-slate-50 border-t border-slate-200 px-6 relative z-10 scroll-mt-36 sm:scroll-mt-44 md:scroll-mt-56">
         <div class="max-w-6xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <span class="text-xs font-bold uppercase tracking-wider text-red-800 bg-red-100 px-3 py-1 rounded-full">
@@ -623,7 +625,8 @@ header("X-XSS-Protection: 1; mode=block");
             let formatted = text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
             formatted = formatted.replace(/\*(.*?)\*/g, '<i>$1</i>');
             formatted = formatted.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" class="text-sky-600 underline font-semibold">$1</a>');
-            formatted = formatted.replace(/\n/g, '<br>');
+            formatted = formatted.replace(/
+/g, '<br>');
             return formatted;
         }
 
