@@ -10,26 +10,24 @@
         /* Desain Background & Scroll */
         body { background-color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         
-        /* PERBAIKAN PENTING: Container agar bisa di-scroll di HP */
         .tree-container { 
             width: 100%; 
             height: calc(100vh - 60px); 
-            overflow: auto; /* Mengizinkan scroll vertikal dan horizontal */
+            overflow: auto; 
             padding: 40px 20px; 
             cursor: grab; 
-            display: flex;          /* Tambahkan Flexbox */
-            justify-content: center; /* Pusatkan bagan */
+            display: flex;
+            justify-content: center; 
             align-items: flex-start; 
         }
         
-        /* Agar saat di HP bagan melebar dan memicu scroll horizontal */
         @media (max-width: 1024px) {
             .tree-container {
-                justify-content: flex-start; /* Jangan pusatkan di HP, mulai dari kiri agar scrollable */
+                justify-content: flex-start; 
                 padding: 20px;
             }
             .tree {
-                min-width: max-content; /* Paksa bagan tetap lebar sesuai isinya */
+                min-width: max-content; 
             }
         }
 
@@ -39,7 +37,7 @@
         .tree ul {
             padding-top: 30px; position: relative;
             transition: all 0.5s; display: flex; justify-content: center; padding-left: 0;
-            margin: 0; /* Reset margin */
+            margin: 0;
         }
         .tree li {
             float: left; text-align: center; list-style-type: none;
@@ -94,17 +92,20 @@
 
     <!-- PHP Helper -->
     <?php
-    function renderNode($name, $imgFile, $role, $hasChild = true) {
+    // Menambahkan parameter $startCollapsed untuk menentukan apakah dia ditutup secara default
+    function renderNode($name, $imgFile, $role, $hasChild = true, $startCollapsed = false) {
         $safeName = urlencode($name);
         $fallback = "https://ui-avatars.com/api/?name={$safeName}&background=6b0f1a&color=fff&bold=true";
         $imageSrc = ($imgFile !== "") ? "foto_pengurus/" . $imgFile : $fallback;
+        
         $childClass = $hasChild ? "" : "no-child";
+        $iconClass = $startCollapsed ? "fa-plus" : "fa-minus"; // Jika tertutup dari awal, pakai plus
         
         return "
         <div class='org-node {$childClass}'>
             <div class='avatar-wrapper'>
                 <img src='{$imageSrc}' loading='lazy' onerror=\"this.src='{$fallback}'\" alt='{$name}' class='cursor-pointer hover:scale-105 transition-transform' onclick='openModal(\"{$name}\", this.src, \"{$role}\")'>
-                <div class='toggle-btn' onclick='toggleBranch(this)'><i class='fa-solid fa-minus'></i></div>
+                <div class='toggle-btn' onclick='toggleBranch(this)'><i class='fa-solid {$iconClass}'></i></div>
             </div>
             <div class='name cursor-pointer hover:text-red-700 transition-colors' onclick='openModal(\"{$name}\", \"{$imageSrc}\", \"{$role}\")'>{$name}</div>
             <div class='role'>{$role}</div>
@@ -130,26 +131,26 @@
                         <li>
                             <?= renderNode("Neyna Carissa", "Neyna Carissa.webp", "Wakil Ketua HIMSI") ?>
                             <ul>
-                                <!-- SEKRETARIS GROUP -->
+                                <!-- SEKRETARIS GROUP (TERTUTUP DEFAULT) -->
                                 <li>
-                                    <?= renderNode("Sekretaris", "", "Departemen") ?>
-                                    <ul>
+                                    <?= renderNode("Sekretaris", "", "Departemen", true, true) ?>
+                                    <ul style="display: none;">
                                         <li><?= renderNode("Novita Zahra", "Novita Zahra.webp", "Sekretaris 1", false) ?></li>
                                         <li><?= renderNode("M Fajrun Naafi", "M Fajrun Naafi.webp", "Sekretaris 2", false) ?></li>
                                     </ul>
                                 </li>
-                                <!-- BENDAHARA GROUP -->
+                                <!-- BENDAHARA GROUP (TERTUTUP DEFAULT) -->
                                 <li>
-                                    <?= renderNode("Bendahara", "", "Departemen") ?>
-                                    <ul>
+                                    <?= renderNode("Bendahara", "", "Departemen", true, true) ?>
+                                    <ul style="display: none;">
                                         <li><?= renderNode("Julia Nurmawati", "Julia Nurmawati.webp", "Bendahara 1", false) ?></li>
                                         <li><?= renderNode("Silvia Azzlina Endraeni", "Silvia Azzlina Endraeni.webp", "Bendahara 2", false) ?></li>
                                     </ul>
                                 </li>
-                                <!-- KOORDINATOR DIVISI -->
+                                <!-- KOORDINATOR DIVISI (TERTUTUP DEFAULT) -->
                                 <li>
-                                    <?= renderNode("Muhamad Dimyati", "Muhamad Dimyati.webp", "Koordinator Divisi") ?>
-                                    <ul>
+                                    <?= renderNode("Muhamad Dimyati", "Muhamad Dimyati.webp", "Koordinator Divisi", true, true) ?>
+                                    <ul style="display: none;">
                                         <!-- DIVISI PENDIDIKAN -->
                                         <li>
                                             <?= renderNode("Pendidikan", "", "Divisi") ?>
@@ -197,17 +198,14 @@
 
     <!-- MODAL / POPUP PROFILE RESPONSIVE -->
     <div id="profileModal" class="fixed inset-0 z-[100] bg-black/70 hidden flex items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm p-4">
-        <!-- Peningkatan max-width khusus layar besar (lg:max-w-[700px]) -->
         <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-10 lg:p-16 w-full max-w-[320px] md:max-w-[420px] lg:max-w-[700px] text-center relative transform scale-95 transition-transform duration-300" id="modalContent">
             
             <button onclick="closeModal()" class="absolute top-4 right-5 md:top-6 md:right-7 text-gray-400 hover:text-red-600 transition text-2xl md:text-3xl lg:text-4xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             
-            <!-- Foto membesar signifikan di layar besar (lg:w-80 lg:h-80) -->
             <img id="modalImg" src="" alt="Profile" class="w-32 h-32 md:w-48 md:h-48 lg:w-80 lg:h-80 rounded-full object-cover border-4 md:border-[6px] lg:border-[10px] border-[#d4af37] mx-auto mb-4 md:mb-6 lg:mb-8 shadow-xl bg-gray-100">
             
-            <!-- Teks lebih besar di PC -->
             <h2 id="modalName" class="text-xl md:text-2xl lg:text-4xl font-extrabold text-slate-800">Nama</h2>
             <p id="modalRole" class="text-xs md:text-sm lg:text-lg font-semibold text-red-900 bg-red-100 py-1.5 px-4 md:py-2 md:px-6 lg:py-3 lg:px-8 rounded-full inline-block mt-2 md:mt-3 lg:mt-5 tracking-wide">Jabatan</p>
         </div>
