@@ -475,8 +475,8 @@ header("X-XSS-Protection: 1; mode=block");
                 <a href="https://instagram.com/himsi_unis" target="_blank" rel="noopener noreferrer" class="bg-himsiGold text-slate-900 px-8 py-4 rounded-xl font-bold text-sm shadow-xl hover:bg-yellow-400 transition transform hover:-translate-y-0.5 flex items-center gap-2">
                     <i class="fa-brands fa-instagram text-lg"></i> Info Pendaftaran via Instagram
                 </a>
-                <a href="https://wa.me/6281234567890?text=Halo%20Admin%20HIMSI,%20saya%20ingin%20bertanya%20seputar%20pendaftaran%20anggota" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white hover:text-himsiMaroon border border-white/30 text-white px-8 py-4 rounded-xl font-bold text-sm transition transform hover:-translate-y-0.5 backdrop-blur-sm flex items-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> Hubungi Humas HIMSI
+                <a href="https://forms.gle/XS3AHjB9BDsX5CdT6" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white hover:text-himsiMaroon border border-white/30 text-white px-8 py-4 rounded-xl font-bold text-sm transition transform hover:-translate-y-0.5 backdrop-blur-sm flex items-center gap-2">
+                    <i class="fa-solid fa-envelope-open-text text-lg"></i> Hubungi Humas via Form
                 </a>
             </div>
         </div>
