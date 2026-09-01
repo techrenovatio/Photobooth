@@ -110,7 +110,7 @@ header("X-XSS-Protection: 1; mode=block");
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen overflow-x-hidden">
 
-    <!-- PERBAIKAN: GLOBAL WATERMARK LOGO DIUBAH AGAR TIDAK MENGHALANGI KLIK (pointer-events-none secara absolut) -->
+    <!-- GLOBAL WATERMARK LOGO -->
     <div class="fixed inset-0 pointer-events-none z-0 select-none flex items-center justify-center">
         <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-[85vw] max-w-[700px] object-contain opacity-[0.12] pointer-events-none">
     </div>
@@ -383,7 +383,7 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </section>
 
-    <!-- SECTION MANFAAT & PEMBELAJARAN HIMSI -->
+    <!-- SECTION MANFAAT & PEMBELAJARAN HIMSI (INTERAKTIF MODAL) -->
     <section id="benefit" class="py-16 bg-slate-50 border-t border-slate-200 px-6 relative z-10 scroll-mt-36 sm:scroll-mt-44 md:scroll-mt-56">
         <div class="max-w-6xl mx-auto relative z-20">
             <div class="text-center max-w-2xl mx-auto mb-12">
@@ -392,51 +392,73 @@ header("X-XSS-Protection: 1; mode=block");
                 </span>
                 <h2 class="serif-title text-3xl font-bold text-slate-900 mt-3">Apa yang Akan Kamu Pelajari di HIMSI?</h2>
                 <p class="text-slate-600 text-sm mt-2">
-                    Asah keterampilan teknis dan akademis di bidang Teknologi Informasi bersama HIMSI UNIS Tangerang.
+                    Asah keterampilan teknis dan akademis di bidang Teknologi Informasi. <span class="font-semibold text-himsiMaroon">Klik kartu untuk melihat detail silabus & roadmap!</span>
                 </p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Cards -->
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">💻</div>
-                    <h3 class="font-bold text-slate-900 text-base mb-1">Dasar Pemrograman</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed">Logika algoritma, pemecahan masalah, dan dasar penulisan kode sintaks.</p>
+                <!-- Card 1 -->
+                <div onclick="bukaModalBenefit('pemrograman')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4 group-hover:bg-himsiMaroon group-hover:text-white transition">💻</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Dasar Pemrograman</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-3">Logika algoritma, pemecahan masalah, dan dasar penulisan kode sintaks.</p>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform">Lihat Detail Silabus &rarr;</span>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">⚙️</div>
-                    <h3 class="font-bold text-slate-900 text-base mb-1">Fundamental ERP</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed">Pemahaman sistem perencanaan sumber daya perusahaan terintegrasi.</p>
+
+                <!-- Card 2 -->
+                <div onclick="bukaModalBenefit('erp')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4 group-hover:bg-himsiMaroon group-hover:text-white transition">⚙️</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Fundamental ERP</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-3">Pemahaman sistem perencanaan sumber daya perusahaan terintegrasi.</p>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform">Lihat Detail Silabus &rarr;</span>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">🗄️</div>
-                    <h3 class="font-bold text-slate-900 text-base mb-1">Konsep Basis Data</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed">Perancangan, manipulasi data (SQL), dan pengelolaan sistem database.</p>
+
+                <!-- Card 3 -->
+                <div onclick="bukaModalBenefit('database')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4 group-hover:bg-himsiMaroon group-hover:text-white transition">🗄️</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Konsep Basis Data</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-3">Perancangan, manipulasi data (SQL), dan pengelolaan sistem database.</p>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform">Lihat Detail Silabus &rarr;</span>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">🌐</div>
-                    <h3 class="font-bold text-slate-900 text-base mb-1">Fundamental Jaringan</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed">Konsep LAN/WAN, IP addressing, komunikasi data, dan infrastruktur IT.</p>
+
+                <!-- Card 4 -->
+                <div onclick="bukaModalBenefit('jaringan')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4 group-hover:bg-himsiMaroon group-hover:text-white transition">🌐</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Fundamental Jaringan</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-3">Konsep LAN/WAN, IP addressing, komunikasi data, dan infrastruktur IT.</p>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform">Lihat Detail Silabus &rarr;</span>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">📊</div>
-                    <h3 class="font-bold text-slate-900 text-base mb-1">Data Science</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed">Pengolahan data, analisis statistik, visualisasi data, dan pola tren.</p>
+
+                <!-- Card 5 -->
+                <div onclick="bukaModalBenefit('datascience')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4 group-hover:bg-himsiMaroon group-hover:text-white transition">📊</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Data Science</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-3">Pengolahan data, analisis statistik, visualisasi data, dan pola tren.</p>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform">Lihat Detail Silabus &rarr;</span>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">🎨</div>
-                    <h3 class="font-bold text-slate-900 text-base mb-1">Design UI/UX</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed">Perancangan antarmuka aplikasi intuitif dan riset pengalaman pengguna.</p>
+
+                <!-- Card 6 -->
+                <div onclick="bukaModalBenefit('uiux')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4 group-hover:bg-himsiMaroon group-hover:text-white transition">🎨</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Design UI/UX</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-3">Perancangan antarmuka aplikasi intuitif dan riset pengalaman pengguna.</p>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform">Lihat Detail Silabus &rarr;</span>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">🤖</div>
-                    <h3 class="font-bold text-slate-900 text-base mb-1">Machine Learning</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed">Konsep model kecerdasan buatan dan pemrosesan data otomatis.</p>
+
+                <!-- Card 7 -->
+                <div onclick="bukaModalBenefit('machinelearning')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4 group-hover:bg-himsiMaroon group-hover:text-white transition">🤖</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Machine Learning</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-3">Konsep model kecerdasan buatan dan pemrosesan data otomatis.</p>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform">Lihat Detail Silabus &rarr;</span>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">🛡️</div>
-                    <h3 class="font-bold text-slate-900 text-base mb-1">Keamanan Siber</h3>
-                    <p class="text-slate-500 text-xs leading-relaxed">Prinsip perlindungan data, kesadaran celah keamanan, dan etika IT.</p>
+
+                <!-- Card 8 -->
+                <div onclick="bukaModalBenefit('cybersecurity')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4 group-hover:bg-himsiMaroon group-hover:text-white transition">🛡️</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Keamanan Siber</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed mb-3">Prinsip perlindungan data, kesadaran celah keamanan, dan etika IT.</p>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform">Lihat Detail Silabus &rarr;</span>
                 </div>
             </div>
         </div>
@@ -500,6 +522,69 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </footer>
 
+    <!-- MODAL POPUP: DETAIL BENEFIT ANGGOTA -->
+    <div id="benefitModal" class="fixed inset-0 bg-black/80 z-[90] hidden items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl overflow-hidden w-full max-w-2xl shadow-2xl border border-slate-200 flex flex-col relative transform transition-all">
+            <!-- Header Modal -->
+            <div class="px-6 py-5 bg-himsiMaroon text-white flex justify-between items-center relative">
+                <div class="flex items-center gap-3">
+                    <span id="benefitIcon" class="text-3xl">💻</span>
+                    <div>
+                        <h3 id="benefitJudul" class="font-bold text-lg md:text-xl leading-tight">Detail Pembelajaran</h3>
+                        <p class="text-xs text-slate-200 mt-0.5">Silabus & Output Pembelajaran Anggota HIMSI</p>
+                    </div>
+                </div>
+                <button onclick="tutupModalBenefit()" class="text-white/80 hover:text-white text-3xl font-bold px-2 leading-none transition">&times;</button>
+            </div>
+
+            <!-- Body Modal -->
+            <div class="p-6 overflow-y-auto max-h-[75vh] space-y-6 text-sm text-slate-700">
+                <!-- Deskripsi & Kegiatan -->
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-1.5 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-info text-himsiMaroon"></i> Ringkasan Materi
+                    </h4>
+                    <p id="benefitDeskripsi" class="text-slate-600 leading-relaxed text-xs sm:text-sm"></p>
+                    <div id="benefitKegiatan" class="mt-2 text-xs font-semibold text-himsiMaroon bg-red-50 p-2.5 rounded-xl border border-red-100 inline-block"></div>
+                </div>
+
+                <!-- Tools & Teknologi -->
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-screwdriver-wrench text-himsiMaroon"></i> Teknologi & Tools
+                    </h4>
+                    <div id="benefitTools" class="flex flex-wrap gap-2"></div>
+                </div>
+
+                <!-- Roadmap Belajar -->
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-route text-himsiMaroon"></i> Roadmap Belajar 4 Minggu
+                    </h4>
+                    <ul id="benefitRoadmap" class="space-y-2 text-xs sm:text-sm"></ul>
+                </div>
+
+                <!-- Output Proyek -->
+                <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200">
+                    <h4 class="font-bold text-amber-900 mb-1 flex items-center gap-2 text-xs sm:text-sm">
+                        <i class="fa-solid fa-trophy text-amber-600"></i> Target Output Proyek
+                    </h4>
+                    <p id="benefitOutput" class="text-xs sm:text-sm text-amber-800 font-medium"></p>
+                </div>
+            </div>
+
+            <!-- Footer Modal -->
+            <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex justify-between items-center gap-4">
+                <button onclick="tutupModalBenefit()" class="text-slate-500 hover:text-slate-800 text-xs font-semibold py-2 px-4 transition">
+                    Tutup
+                </button>
+                <a href="#gabung" onclick="tutupModalBenefit()" class="bg-himsiMaroon hover:bg-red-900 text-white font-bold text-xs sm:text-sm py-2.5 px-6 rounded-xl transition shadow-md flex items-center gap-2">
+                    <span>🚀</span> Daftar & Belajar
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- MODAL POPUP: DOKUMENTASI KEGIATAN -->
     <div id="kegiatanModal" class="fixed inset-0 bg-black/95 z-[70] hidden items-center justify-center p-2 sm:p-6 backdrop-blur-md">
         <div class="bg-slate-900 rounded-2xl overflow-hidden w-full max-w-5xl h-[95vh] md:h-[85vh] shadow-2xl border border-slate-700 flex flex-col">
@@ -556,7 +641,7 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </div>
 
-    <!-- FLOATING CHATBOT WIDGET (HIMSI BOT 24/7) - PERBAIKAN Z-INDEX -->
+    <!-- FLOATING CHATBOT WIDGET (HIMSI BOT 24/7) -->
     <div class="fixed bottom-6 right-6 z-[100]">
         <button id="chatbotToggleBtn" onclick="toggleChatbot()" class="bg-himsiMaroon hover:bg-red-900 text-white rounded-full p-4 shadow-2xl transition transform hover:scale-110 flex items-center justify-center border-2 border-himsiGold relative z-[100] cursor-pointer">
             <span class="text-2xl pointer-events-none">🤖</span>
@@ -598,6 +683,164 @@ header("X-XSS-Protection: 1; mode=block");
 
     <!-- JAVASCRIPT SYSTEM -->
     <script>
+        // --- DATABASE INTERAKTIF BENEFIT ANGGOTA ---
+        const databaseBenefit = {
+            'pemrograman': {
+                judul: 'Dasar Pemrograman',
+                ikon: '💻',
+                deskripsi: 'Mempelajari logika algoritma dan pemecahan masalah (problem solving) sebagai pondasi awal yang krusial bagi Mahasiswa Sistem Informasi.',
+                kegiatan: '💡 4x Sesi Workshop & Mentoring Kode 1-on-1',
+                tools: ['Python', 'C++', 'JavaScript', 'VS Code'],
+                roadmap: [
+                    '<b>Minggu 1:</b> Pengenalan Logika Algoritma & Konsep Variabel',
+                    '<b>Minggu 2:</b> Pengondisian (If-Else) & Perulangan (Looping)',
+                    '<b>Minggu 3:</b> Fungsi, Array, & Error Handling',
+                    '<b>Minggu 4:</b> Mini Project: Kalkulator & Aplikasi Konsol'
+                ],
+                output: 'Aplikasi Manajemen Data Sederhana Berbasis Konsol / Terminal.'
+            },
+            'erp': {
+                judul: 'Fundamental ERP',
+                ikon: '⚙️',
+                deskripsi: 'Memahami bagaimana sistem Enterprise Resource Planning (ERP) mengintegrasikan seluruh alur bisnis perusahaan secara terpusat.',
+                kegiatan: '🏬 Study Case Alur Bisnis Perusahaan Digital',
+                tools: ['Odoo', 'SAP Basic Concept', 'Draw.io'],
+                roadmap: [
+                    '<b>Minggu 1:</b> Konsep Dasar & Pentingnya ERP di Industri',
+                    '<b>Minggu 2:</b> Modul Sales, Purchase, & Inventory',
+                    '<b>Minggu 3:</b> Modul Human Resource & Accounting',
+                    '<b>Minggu 4:</b> Simulasi Transaksi Alur Bisnis Terintegrasi'
+                ],
+                output: 'Pemetaan Blueprint & Konfigurasi Sistem Bisnis ERP.'
+            },
+            'database': {
+                judul: 'Konsep Basis Data',
+                ikon: '🗄️',
+                deskripsi: 'Merancang dan mengelola penyimpanan data yang aman, terstruktur, serta efisien untuk kebutuhan aplikasi modern.',
+                kegiatan: '📊 Praktikum Live SQL Query & Database Design',
+                tools: ['MySQL', 'PostgreSQL', 'phpMyAdmin'],
+                roadmap: [
+                    '<b>Minggu 1:</b> Perancangan ERD (Entity Relationship Diagram)',
+                    '<b>Minggu 2:</b> Normalisasi Data & DDL (Data Definition Language)',
+                    '<b>Minggu 3:</b> DML Query (SELECT, INSERT, UPDATE, JOIN)',
+                    '<b>Minggu 4:</b> Database Security & Backup Strategy'
+                ],
+                output: 'Rancangan Struktur Database Lengkap Siap Pakai.'
+            },
+            'jaringan': {
+                judul: 'Fundamental Jaringan',
+                ikon: '🌐',
+                deskripsi: 'Memahami arsitektur komunikasi data, infrastruktur LAN/WAN, IP Addressing, serta protokol jaringan internet.',
+                kegiatan: '🔌 Simulasi Topologi & Konfigurasi Jaringan',
+                tools: ['Cisco Packet Tracer', 'Wireshark'],
+                roadmap: [
+                    '<b>Minggu 1:</b> Model OSI Layer & Protokol TCP/IP',
+                    '<b>Minggu 2:</b> Subnetting & Pengalamatan IP Address',
+                    '<b>Minggu 3:</b> Perancangan Topologi Jaringan Komputer',
+                    '<b>Minggu 4:</b> Troubleshooting & Pengujian Koneksi'
+                ],
+                output: 'Simulasi Topologi Jaringan Komputer Perusahaan.'
+            },
+            'datascience': {
+                judul: 'Data Science',
+                ikon: '📊',
+                deskripsi: 'Mengolah data mentah menjadi wawasan bisnis (insight) yang berharga menggunakan teknik statistik dan visualisasi.',
+                kegiatan: '📈 Olah Data Publik & Visualisasi Grafik Interaktif',
+                tools: ['Python', 'Pandas', 'Matplotlib', 'Jupyter Notebook'],
+                roadmap: [
+                    '<b>Minggu 1:</b> Pengenalan Data Science & Python for Data',
+                    '<b>Minggu 2:</b> Data Cleaning & Preprocessing',
+                    '<b>Minggu 3:</b> Exploratory Data Analysis (EDA)',
+                    '<b>Minggu 4:</b> Visualisasi Dashboard Insight'
+                ],
+                output: 'Laporan Analisis Data & Dashboard Insight Interaktif.'
+            },
+            'uiux': {
+                judul: 'Design UI/UX',
+                ikon: '🎨',
+                deskripsi: 'Merancang antarmuka aplikasi yang menarik (UI) dan pengalaman pengguna yang nyaman (UX) berbasis riset.',
+                kegiatan: '🎨 Mentoring Desain & Usability Testing',
+                tools: ['Figma', 'Whimsical', 'Color Hunt'],
+                roadmap: [
+                    '<b>Minggu 1:</b> User Research & Wireframing Low-Fidelity',
+                    '<b>Minggu 2:</b> UI Design System & Component Guidelines',
+                    '<b>Minggu 3:</b> High-Fidelity Design & Prototyping',
+                    '<b>Minggu 4:</b> Usability Testing & Design Review'
+                ],
+                output: 'Prototype Aplikasi Mobile / Web Interaktif Siap Uji.'
+            },
+            'machinelearning': {
+                judul: 'Machine Learning',
+                ikon: '🤖',
+                deskripsi: 'Mempelajari konsep awal kecerdasan buatan (AI) agar komputer mampu memprediksi dan belajar dari pola data.',
+                kegiatan: '🧠 Pelatihan Model Prediksi Sederhana',
+                tools: ['Python', 'Scikit-Learn', 'Google Colab'],
+                roadmap: [
+                    '<b>Minggu 1:</b> Konsep dasar AI vs Machine Learning',
+                    '<b>Minggu 2:</b> Supervised vs Unsupervised Learning',
+                    '<b>Minggu 3:</b> Pembuatan Model Regresi / Klasifikasi',
+                    '<b>Minggu 4:</b> Evaluasi Akurasi & Pengujian Model'
+                ],
+                output: 'Model AI Prediksi Sederhana Berbasis Python.'
+            },
+            'cybersecurity': {
+                judul: 'Keamanan Siber',
+                ikon: '🛡️',
+                deskripsi: 'Menanamkan kesadaran etika IT, menganalisis celah keamanan sistem, serta prinsip dasar perlindungan data.',
+                kegiatan: '🔐 Hands-on Analisis Celah Keamanan Dasar',
+                tools: ['Kali Linux Basic', 'Burp Suite', 'Nmap'],
+                roadmap: [
+                    '<b>Minggu 1:</b> Prinsip Dasar Information Security (CIA Triad)',
+                    '<b>Minggu 2:</b> Menganalisis Potensi Kerentanan Web (OWASP Top 10)',
+                    '<b>Minggu 3:</b> Konsep Enkripsi & Perlindungan Password',
+                    '<b>Minggu 4:</b> Best Practices Hardening System & Etika IT'
+                ],
+                output: 'Laporan Audit & Rekomendasi Keamanan Sistem.'
+            }
+        };
+
+        // --- FUNGSI OPEN & CLOSE MODAL BENEFIT ---
+        function bukaModalBenefit(key) {
+            const data = databaseBenefit[key];
+            if (!data) return;
+
+            document.getElementById('benefitIcon').textContent = data.ikon;
+            document.getElementById('benefitJudul').textContent = data.judul;
+            document.getElementById('benefitDeskripsi').textContent = data.deskripsi;
+            document.getElementById('benefitKegiatan').textContent = data.kegiatan;
+            document.getElementById('benefitOutput').textContent = data.output;
+
+            // Render Tools
+            const toolsContainer = document.getElementById('benefitTools');
+            toolsContainer.innerHTML = '';
+            data.tools.forEach(tool => {
+                const span = document.createElement('span');
+                span.className = 'px-3 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg border border-slate-200';
+                span.textContent = tool;
+                toolsContainer.appendChild(span);
+            });
+
+            // Render Roadmap
+            const roadmapContainer = document.getElementById('benefitRoadmap');
+            roadmapContainer.innerHTML = '';
+            data.roadmap.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'flex items-start gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100';
+                li.innerHTML = `<span class="text-himsiMaroon font-bold">•</span> <span>${item}</span>`;
+                roadmapContainer.appendChild(li);
+            });
+
+            const modal = document.getElementById('benefitModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function tutupModalBenefit() {
+            const modal = document.getElementById('benefitModal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
         // Chatbot Panel Toggle
         function toggleChatbot() {
             const panel = document.getElementById('chatbotPanel');
