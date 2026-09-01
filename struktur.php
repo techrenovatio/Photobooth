@@ -53,7 +53,7 @@
             background-color: #f1f5f9; position: relative; z-index: 10;
         }
         
-        /* Tombol Plus/Minus */
+        /* Tombol Plus/Minus (Bulatan Orange) */
         .toggle-btn {
             position: absolute; bottom: 0; right: 0;
             background-color: #ea580c; color: white; border-radius: 50%;
@@ -81,18 +81,16 @@
         return "
         <div class='org-node {$childClass}'>
             <div class='avatar-wrapper'>
-                <!-- Tambah class cursor-pointer dan onclick panggil openModal -->
                 <img src='{$imageSrc}' onerror=\"this.src='{$fallback}'\" alt='{$name}' class='cursor-pointer hover:scale-105 transition-transform' onclick='openModal(\"{$name}\", this.src, \"{$role}\")'>
                 <div class='toggle-btn' onclick='toggleBranch(this)'><i class='fa-solid fa-minus'></i></div>
             </div>
-            <!-- Nama bisa diklik juga -->
             <div class='name cursor-pointer hover:text-red-700 transition-colors' onclick='openModal(\"{$name}\", \"{$imageSrc}\", \"{$role}\")'>{$name}</div>
             <div class='role'>{$role}</div>
         </div>";
     }
     ?>
 
-    <!-- Header UI (Ditambah Tombol Kembali) -->
+    <!-- Header UI -->
     <div class="bg-red-950 text-white px-6 py-4 flex items-center shadow-md sticky top-0 z-50 gap-4">
         <a href="index.php" class="flex items-center gap-2 hover:text-red-300 transition border-r border-red-800 pr-4 text-sm font-semibold">
             <i class="fa-solid fa-arrow-left"></i> Kembali
@@ -110,6 +108,7 @@
                         <li>
                             <?= renderNode("Neyna Carissa", "Neyna Carissa.png", "Wakil Ketua HIMSI") ?>
                             <ul>
+                                
                                 <!-- SEKRETARIS GROUP -->
                                 <li>
                                     <?= renderNode("Sekretaris", "", "Departemen") ?>
@@ -118,6 +117,7 @@
                                         <li><?= renderNode("M Fajrun Naafi", "M Fajrun Naafi.png", "Sekretaris 2", false) ?></li>
                                     </ul>
                                 </li>
+
                                 <!-- BENDAHARA GROUP -->
                                 <li>
                                     <?= renderNode("Bendahara", "", "Departemen") ?>
@@ -126,6 +126,7 @@
                                         <li><?= renderNode("Silvia Azzlina Endraeni", "Silvia Azzlina Endraeni.png", "Bendahara 2", false) ?></li>
                                     </ul>
                                 </li>
+                                
                                 <!-- KOORDINATOR DIVISI -->
                                 <li>
                                     <?= renderNode("Muhamad Dimyati", "Muhamad Dimyati.png", "Koordinator Divisi") ?>
@@ -167,6 +168,7 @@
                                         </li>
                                     </ul>
                                 </li>
+
                             </ul>
                         </li>
                     </ul>
@@ -175,26 +177,29 @@
         </div>
     </div>
 
-    <!-- MODAL / POPUP PROFILE -->
-    <div id="profileModal" class="fixed inset-0 z-[100] bg-black/60 hidden flex items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm">
-        <div class="bg-white rounded-3xl shadow-2xl p-8 w-80 text-center relative transform scale-95 transition-transform duration-300" id="modalContent">
-            <!-- Tombol Close -->
-            <button onclick="closeModal()" class="absolute top-4 right-5 text-gray-400 hover:text-red-600 transition text-2xl">
+    <!-- MODAL / POPUP PROFILE RESPONSIVE -->
+    <!-- Penambahan class p-4 agar di HP tidak menempel ke pinggir layar -->
+    <div id="profileModal" class="fixed inset-0 z-[100] bg-black/70 hidden flex items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm p-4">
+        <!-- Pengaturan ukuran max-width yang menyesuaikan perangkat (w-full max-w-[320px] untuk HP, md:max-w-md untuk tablet, lg:max-w-lg untuk desktop) -->
+        <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-10 lg:p-12 w-full max-w-[320px] md:max-w-[420px] lg:max-w-[500px] text-center relative transform scale-95 transition-transform duration-300" id="modalContent">
+            
+            <!-- Tombol Close yang membesar sedikit di Desktop -->
+            <button onclick="closeModal()" class="absolute top-4 right-5 md:top-6 md:right-7 text-gray-400 hover:text-red-600 transition text-2xl md:text-3xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             
-            <!-- Foto Besar -->
-            <img id="modalImg" src="" alt="Profile" class="w-32 h-32 rounded-full object-cover border-4 border-[#d4af37] mx-auto mb-4 shadow-lg bg-gray-100">
+            <!-- Foto Besar (Otomatis menyesuaikan ukuran layar) -->
+            <!-- w-32 (HP) -> md:w-48 (Tablet) -> lg:w-56 (Desktop) -->
+            <img id="modalImg" src="" alt="Profile" class="w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full object-cover border-4 md:border-[6px] lg:border-8 border-[#d4af37] mx-auto mb-4 md:mb-6 shadow-lg bg-gray-100">
             
-            <!-- Nama & Jabatan -->
-            <h2 id="modalName" class="text-xl font-extrabold text-slate-800">Nama</h2>
-            <p id="modalRole" class="text-xs font-semibold text-red-900 bg-red-100 py-1.5 px-4 rounded-full inline-block mt-2 tracking-wide">Jabatan</p>
+            <!-- Nama & Jabatan (Otomatis menyesuaikan font) -->
+            <h2 id="modalName" class="text-xl md:text-2xl lg:text-3xl font-extrabold text-slate-800">Nama</h2>
+            <p id="modalRole" class="text-xs md:text-sm lg:text-base font-semibold text-red-900 bg-red-100 py-1.5 px-4 md:py-2 md:px-6 rounded-full inline-block mt-2 md:mt-3 tracking-wide">Jabatan</p>
         </div>
     </div>
 
     <!-- Javascript -->
     <script>
-        // --- FUNGSI BUKA TUTUP CABANG (TREE) ---
         function toggleBranch(btn) {
             const li = btn.closest('li');
             const ul = li.querySelector('ul');
@@ -213,7 +218,6 @@
             }
         }
 
-        // --- FUNGSI DRAG TO SCROLL ---
         const slider = document.getElementById('tree-container');
         let isDown = false;
         let startX;
@@ -235,24 +239,21 @@
             slider.scrollLeft = scrollLeft - walk;
         });
 
-        // --- FUNGSI POPUP (MODAL) PROFILE ---
+        // Fitur Modal Pop-up
         const modal = document.getElementById('profileModal');
         const modalContent = document.getElementById('modalContent');
         const modalImg = document.getElementById('modalImg');
 
         function openModal(name, imgSrc, role) {
-            // Isi data ke dalam modal
             document.getElementById('modalName').textContent = name;
             document.getElementById('modalRole').textContent = role;
             
-            // Setel gambar dan antisipasi jika gambar gagal diload (fallback)
             modalImg.src = imgSrc;
             const safeName = encodeURIComponent(name);
             modalImg.onerror = function() {
                 this.src = 'https://ui-avatars.com/api/?name=' + safeName + '&background=6b0f1a&color=fff&bold=true';
             };
 
-            // Tampilkan Modal
             modal.classList.remove('hidden');
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
@@ -261,7 +262,6 @@
         }
 
         function closeModal() {
-            // Sembunyikan dengan animasi
             modal.classList.add('opacity-0');
             modalContent.classList.add('scale-95');
             setTimeout(() => {
@@ -269,7 +269,6 @@
             }, 300);
         }
 
-        // Jika area gelap di luar kotak putih di-klik, modal akan menutup
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 closeModal();
