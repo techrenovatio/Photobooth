@@ -12,7 +12,7 @@
         .tree-container { width: 100%; height: calc(100vh - 60px); overflow: auto; padding: 40px 20px; cursor: grab; }
         .tree-container:active { cursor: grabbing; }
 
-        /* Struktur CSS Tree (Garis Horizontal) */
+        /* Struktur CSS Tree */
         .tree ul {
             padding-top: 30px; position: relative;
             transition: all 0.5s; display: flex; justify-content: center; padding-left: 0;
@@ -22,7 +22,6 @@
             position: relative; padding: 30px 10px 0 10px; transition: all 0.5s;
         }
         
-        /* Garis Penghubung */
         .tree li::before, .tree li::after {
             content: ''; position: absolute; top: 0; right: 50%;
             border-top: 2px solid #cbd5e1; width: 50%; height: 30px;
@@ -32,7 +31,6 @@
         .tree li:only-child { padding-top: 0; }
         .tree li:first-child::before, .tree li:last-child::after { border: 0 none; }
         
-        /* Lengkungan Garis */
         .tree li:last-child::before { border-right: 2px solid #cbd5e1; border-radius: 0 8px 0 0; }
         .tree li:first-child::after { border-radius: 8px 0 0 0; }
         .tree ul ul::before {
@@ -40,7 +38,7 @@
             border-left: 2px solid #cbd5e1; width: 0; height: 30px; transform: translateX(-50%);
         }
 
-        /* Desain Kartu / Node */
+        /* Node */
         .org-node {
             display: inline-flex; flex-direction: column; align-items: center;
             position: relative; padding: 0 10px;
@@ -53,7 +51,7 @@
             background-color: #f1f5f9; position: relative; z-index: 10;
         }
         
-        /* Tombol Plus/Minus (Bulatan Orange) */
+        /* Tombol Plus/Minus */
         .toggle-btn {
             position: absolute; bottom: 0; right: 0;
             background-color: #ea580c; color: white; border-radius: 50%;
@@ -81,7 +79,7 @@
         return "
         <div class='org-node {$childClass}'>
             <div class='avatar-wrapper'>
-                <img src='{$imageSrc}' onerror=\"this.src='{$fallback}'\" alt='{$name}' class='cursor-pointer hover:scale-105 transition-transform' onclick='openModal(\"{$name}\", this.src, \"{$role}\")'>
+                <img src='{$imageSrc}' loading='lazy' onerror=\"this.src='{$fallback}'\" alt='{$name}' class='cursor-pointer hover:scale-105 transition-transform' onclick='openModal(\"{$name}\", this.src, \"{$role}\")'>
                 <div class='toggle-btn' onclick='toggleBranch(this)'><i class='fa-solid fa-minus'></i></div>
             </div>
             <div class='name cursor-pointer hover:text-red-700 transition-colors' onclick='openModal(\"{$name}\", \"{$imageSrc}\", \"{$role}\")'>{$name}</div>
@@ -103,72 +101,68 @@
         <div class="tree">
             <ul>
                 <li>
-                    <?= renderNode("Rafli Fahrezi", "Rafli Fahrezi.png", "Ketua HIMSI") ?>
+                    <?= renderNode("Rafli Fahrezi", "Rafli Fahrezi.webp", "Ketua HIMSI") ?>
                     <ul>
                         <li>
-                            <?= renderNode("Neyna Carissa", "Neyna Carissa.png", "Wakil Ketua HIMSI") ?>
+                            <?= renderNode("Neyna Carissa", "Neyna Carissa.webp", "Wakil Ketua HIMSI") ?>
                             <ul>
-                                
                                 <!-- SEKRETARIS GROUP -->
                                 <li>
                                     <?= renderNode("Sekretaris", "", "Departemen") ?>
                                     <ul>
-                                        <li><?= renderNode("Novita Zahra", "Novita Zahra.png", "Sekretaris 1", false) ?></li>
-                                        <li><?= renderNode("M Fajrun Naafi", "M Fajrun Naafi.png", "Sekretaris 2", false) ?></li>
+                                        <li><?= renderNode("Novita Zahra", "Novita Zahra.webp", "Sekretaris 1", false) ?></li>
+                                        <li><?= renderNode("M Fajrun Naafi", "M Fajrun Naafi.webp", "Sekretaris 2", false) ?></li>
                                     </ul>
                                 </li>
-
                                 <!-- BENDAHARA GROUP -->
                                 <li>
                                     <?= renderNode("Bendahara", "", "Departemen") ?>
                                     <ul>
-                                        <li><?= renderNode("Julia Nurmawati", "Julia Nurmawati.png", "Bendahara 1", false) ?></li>
-                                        <li><?= renderNode("Silvia Azzlina Endraeni", "Silvia Azzlina Endraeni.png", "Bendahara 2", false) ?></li>
+                                        <li><?= renderNode("Julia Nurmawati", "Julia Nurmawati.webp", "Bendahara 1", false) ?></li>
+                                        <li><?= renderNode("Silvia Azzlina Endraeni", "Silvia Azzlina Endraeni.webp", "Bendahara 2", false) ?></li>
                                     </ul>
                                 </li>
-                                
                                 <!-- KOORDINATOR DIVISI -->
                                 <li>
-                                    <?= renderNode("Muhamad Dimyati", "Muhamad Dimyati.png", "Koordinator Divisi") ?>
+                                    <?= renderNode("Muhamad Dimyati", "Muhamad Dimyati.webp", "Koordinator Divisi") ?>
                                     <ul>
                                         <!-- DIVISI PENDIDIKAN -->
                                         <li>
                                             <?= renderNode("Pendidikan", "", "Divisi") ?>
                                             <ul>
-                                                <li><?= renderNode("Firda Nur Sopiarahma", "Firda Nur Sopiarahma.png", "Anggota", false) ?></li>
-                                                <li><?= renderNode("M Rizky Ramadhan", "M Rizky Ramadhan.png", "Anggota", false) ?></li>
-                                                <li><?= renderNode("Teguh Firmansyah", "Teguh Firmansyah.png", "Anggota", false) ?></li>
+                                                <li><?= renderNode("Firda Nur Sopiarahma", "Firda Nur Sopiarahma.webp", "Anggota", false) ?></li>
+                                                <li><?= renderNode("M Rizky Ramadhan", "M Rizky Ramadhan.webp", "Anggota", false) ?></li>
+                                                <li><?= renderNode("Teguh Firmansyah", "Teguh Firmansyah.webp", "Anggota", false) ?></li>
                                             </ul>
                                         </li>
                                         <!-- DIVISI HUMAS -->
                                         <li>
                                             <?= renderNode("Humas Int & Eks", "", "Divisi") ?>
                                             <ul>
-                                                <li><?= renderNode("Risnanda Mei Damayanti", "Risnanda Mei Damayanti.png", "Anggota", false) ?></li>
-                                                <li><?= renderNode("Ronal Ardiyansah", "Ronal Ardiyansah.png", "Anggota", false) ?></li>
-                                                <li><?= renderNode("Salwania Azzizah Nst", "Salwania Azzizah Nst.png", "Anggota", false) ?></li>
+                                                <li><?= renderNode("Risnanda Mei Damayanti", "Risnanda Mei Damayanti.webp", "Anggota", false) ?></li>
+                                                <li><?= renderNode("Ronal Ardiyansah", "Ronal Ardiyansah.webp", "Anggota", false) ?></li>
+                                                <li><?= renderNode("Salwania Azzizah Nst", "Salwania Azzizah Nst.webp", "Anggota", false) ?></li>
                                             </ul>
                                         </li>
                                         <!-- DIVISI PDD -->
                                         <li>
                                             <?= renderNode("Publikasi & Desain", "", "Divisi PDD") ?>
                                             <ul>
-                                                <li><?= renderNode("Dinda Rahmi Ramadhani", "Dinda Rahmi Ramadhani.png", "Anggota", false) ?></li>
-                                                <li><?= renderNode("Alvina Ramadani", "Alvina Ramadani.png", "Anggota", false) ?></li>
+                                                <li><?= renderNode("Dinda Rahmi Ramadhani", "Dinda Rahmi Ramadhani.webp", "Anggota", false) ?></li>
+                                                <li><?= renderNode("Alvina Ramadani", "Alvina Ramadani.webp", "Anggota", false) ?></li>
                                             </ul>
                                         </li>
                                         <!-- DIVISI LOGISTIK -->
                                         <li>
                                             <?= renderNode("Logistik", "", "Divisi") ?>
                                             <ul>
-                                                <li><?= renderNode("Satria Radityo Mumtaz", "Satria Radityo Mumtaz.png", "Anggota", false) ?></li>
-                                                <li><?= renderNode("Maisatul Hikmah", "Maisatul Hikmah.png", "Anggota", false) ?></li>
-                                                <li><?= renderNode("Hani Qurrotu Aini", "Hani Qurrotu Aini.png", "Anggota", false) ?></li>
+                                                <li><?= renderNode("Satria Radityo Mumtaz", "Satria Radityo Mumtaz.webp", "Anggota", false) ?></li>
+                                                <li><?= renderNode("Maisatul Hikmah", "Maisatul Hikmah.webp", "Anggota", false) ?></li>
+                                                <li><?= renderNode("Hani Qurrotu Aini", "Hani Qurrotu Aini.webp", "Anggota", false) ?></li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </li>
-
                             </ul>
                         </li>
                     </ul>
@@ -178,23 +172,20 @@
     </div>
 
     <!-- MODAL / POPUP PROFILE RESPONSIVE -->
-    <!-- Penambahan class p-4 agar di HP tidak menempel ke pinggir layar -->
     <div id="profileModal" class="fixed inset-0 z-[100] bg-black/70 hidden flex items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm p-4">
-        <!-- Pengaturan ukuran max-width yang menyesuaikan perangkat (w-full max-w-[320px] untuk HP, md:max-w-md untuk tablet, lg:max-w-lg untuk desktop) -->
-        <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-10 lg:p-12 w-full max-w-[320px] md:max-w-[420px] lg:max-w-[500px] text-center relative transform scale-95 transition-transform duration-300" id="modalContent">
+        <!-- Peningkatan max-width khusus layar besar (lg:max-w-[700px]) -->
+        <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-10 lg:p-16 w-full max-w-[320px] md:max-w-[420px] lg:max-w-[700px] text-center relative transform scale-95 transition-transform duration-300" id="modalContent">
             
-            <!-- Tombol Close yang membesar sedikit di Desktop -->
-            <button onclick="closeModal()" class="absolute top-4 right-5 md:top-6 md:right-7 text-gray-400 hover:text-red-600 transition text-2xl md:text-3xl">
+            <button onclick="closeModal()" class="absolute top-4 right-5 md:top-6 md:right-7 text-gray-400 hover:text-red-600 transition text-2xl md:text-3xl lg:text-4xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             
-            <!-- Foto Besar (Otomatis menyesuaikan ukuran layar) -->
-            <!-- w-32 (HP) -> md:w-48 (Tablet) -> lg:w-56 (Desktop) -->
-            <img id="modalImg" src="" alt="Profile" class="w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full object-cover border-4 md:border-[6px] lg:border-8 border-[#d4af37] mx-auto mb-4 md:mb-6 shadow-lg bg-gray-100">
+            <!-- Foto membesar signifikan di layar besar (lg:w-80 lg:h-80) -->
+            <img id="modalImg" src="" alt="Profile" class="w-32 h-32 md:w-48 md:h-48 lg:w-80 lg:h-80 rounded-full object-cover border-4 md:border-[6px] lg:border-[10px] border-[#d4af37] mx-auto mb-4 md:mb-6 lg:mb-8 shadow-xl bg-gray-100">
             
-            <!-- Nama & Jabatan (Otomatis menyesuaikan font) -->
-            <h2 id="modalName" class="text-xl md:text-2xl lg:text-3xl font-extrabold text-slate-800">Nama</h2>
-            <p id="modalRole" class="text-xs md:text-sm lg:text-base font-semibold text-red-900 bg-red-100 py-1.5 px-4 md:py-2 md:px-6 rounded-full inline-block mt-2 md:mt-3 tracking-wide">Jabatan</p>
+            <!-- Teks lebih besar di PC -->
+            <h2 id="modalName" class="text-xl md:text-2xl lg:text-4xl font-extrabold text-slate-800">Nama</h2>
+            <p id="modalRole" class="text-xs md:text-sm lg:text-lg font-semibold text-red-900 bg-red-100 py-1.5 px-4 md:py-2 md:px-6 lg:py-3 lg:px-8 rounded-full inline-block mt-2 md:mt-3 lg:mt-5 tracking-wide">Jabatan</p>
         </div>
     </div>
 
