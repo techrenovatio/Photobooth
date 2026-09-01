@@ -87,7 +87,6 @@ header("X-XSS-Protection: 1; mode=block");
             border-radius: 4px;
         }
 
-        /* Responsive Mobile Chatbot Styles */
         @media (max-width: 768px) {
             #chatbotPanel {
                 width: 88vw !important;
@@ -344,16 +343,21 @@ header("X-XSS-Protection: 1; mode=block");
                     Profil Organisasi
                 </span>
                 <h3 class="text-2xl font-bold text-slate-800 mt-3">Kabinet Genesis</h3>
-                <p class="text-slate-500 text-sm mt-1 mb-6">Pimpinan Himpunan Mahasiswa Sistem Informasi Periode 2026/2027</p>
+                <p class="text-slate-500 text-sm mt-1 mb-6">Pimpinan Himpunan Mahasiswa Sistem Informasi Periode 2026/2027 <br><span class="text-xs text-himsiMaroon font-semibold">(Klik nama pimpinan untuk melihat foto profil)</span></p>
 
+                <!-- PERBAIKAN: DITAMBAHKAN ONCLICK KE KARTU PIMPINAN -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <div onclick="bukaModalPimpinan('Rafli Fahrezi', 'foto_pengurus/Rafli Fahrezi.webp', 'Ketua HIMSI')" class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover:border-himsiMaroon hover:shadow-md transition cursor-pointer group">
                         <div class="text-xs font-semibold text-red-700">Ketua HIMSI</div>
-                        <div class="font-bold text-slate-800 text-lg mt-1">Rafli Fahrezi</div>
+                        <div class="font-bold text-slate-800 text-lg mt-1 group-hover:text-himsiMaroon transition flex items-center justify-center gap-1.5">
+                            Rafli Fahrezi <i class="fa-solid fa-circle-user text-sm text-himsiGold"></i>
+                        </div>
                     </div>
-                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <div onclick="bukaModalPimpinan('Neyna Carissa', 'foto_pengurus/Neyna Carissa.webp', 'Wakil Ketua HIMSI')" class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover:border-himsiMaroon hover:shadow-md transition cursor-pointer group">
                         <div class="text-xs font-semibold text-red-700">Wakil Ketua HIMSI</div>
-                        <div class="font-bold text-slate-800 text-lg mt-1">Neyna Carissa</div>
+                        <div class="font-bold text-slate-800 text-lg mt-1 group-hover:text-himsiMaroon transition flex items-center justify-center gap-1.5">
+                            Neyna Carissa <i class="fa-solid fa-circle-user text-sm text-himsiGold"></i>
+                        </div>
                     </div>
                 </div>
 
@@ -522,6 +526,20 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </footer>
 
+    <!-- MODAL POPUP: FOTO PROFIL PIMPINAN (BARU) -->
+    <div id="pimpinanModal" class="fixed inset-0 bg-black/70 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="tutupModalPimpinan(event)">
+        <div class="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-sm text-center relative transform transition-transform" id="pimpinanModalContent">
+            <button onclick="tutupModalPimpinanDirect()" class="absolute top-4 right-5 text-gray-400 hover:text-red-600 transition text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <img id="pimpinanImg" src="" alt="Foto Pimpinan" class="w-40 h-40 rounded-full object-cover border-4 border-[#d4af37] mx-auto mb-4 shadow-xl bg-gray-100">
+            
+            <h3 id="pimpinanNama" class="text-xl font-extrabold text-slate-800">Nama</h3>
+            <p id="pimpinanJabatan" class="text-xs font-semibold text-red-900 bg-red-100 py-1.5 px-4 rounded-full inline-block mt-2 tracking-wide">Jabatan</p>
+        </div>
+    </div>
+
     <!-- MODAL POPUP: DETAIL BENEFIT ANGGOTA -->
     <div id="benefitModal" class="fixed inset-0 bg-black/80 z-[90] hidden items-center justify-center p-4 backdrop-blur-sm">
         <div class="bg-white rounded-3xl overflow-hidden w-full max-w-2xl shadow-2xl border border-slate-200 flex flex-col relative transform transition-all">
@@ -539,7 +557,6 @@ header("X-XSS-Protection: 1; mode=block");
 
             <!-- Body Modal -->
             <div class="p-6 overflow-y-auto max-h-[75vh] space-y-6 text-sm text-slate-700">
-                <!-- Deskripsi & Kegiatan -->
                 <div>
                     <h4 class="font-bold text-slate-900 mb-1.5 flex items-center gap-2">
                         <i class="fa-solid fa-circle-info text-himsiMaroon"></i> Ringkasan Materi
@@ -548,7 +565,6 @@ header("X-XSS-Protection: 1; mode=block");
                     <div id="benefitKegiatan" class="mt-2 text-xs font-semibold text-himsiMaroon bg-red-50 p-2.5 rounded-xl border border-red-100 inline-block"></div>
                 </div>
 
-                <!-- Tools & Teknologi -->
                 <div>
                     <h4 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-screwdriver-wrench text-himsiMaroon"></i> Teknologi & Tools
@@ -556,7 +572,6 @@ header("X-XSS-Protection: 1; mode=block");
                     <div id="benefitTools" class="flex flex-wrap gap-2"></div>
                 </div>
 
-                <!-- Roadmap Belajar -->
                 <div>
                     <h4 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-route text-himsiMaroon"></i> Roadmap Belajar 4 Minggu
@@ -564,7 +579,6 @@ header("X-XSS-Protection: 1; mode=block");
                     <ul id="benefitRoadmap" class="space-y-2 text-xs sm:text-sm"></ul>
                 </div>
 
-                <!-- Output Proyek -->
                 <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200">
                     <h4 class="font-bold text-amber-900 mb-1 flex items-center gap-2 text-xs sm:text-sm">
                         <i class="fa-solid fa-trophy text-amber-600"></i> Target Output Proyek
@@ -683,6 +697,35 @@ header("X-XSS-Protection: 1; mode=block");
 
     <!-- JAVASCRIPT SYSTEM -->
     <script>
+        // --- FUNGSI MODAL PIMPINAN (BARU) ---
+        function bukaModalPimpinan(nama, imgSrc, jabatan) {
+            document.getElementById('pimpinanNama').textContent = nama;
+            document.getElementById('pimpinanJabatan').textContent = jabatan;
+            
+            const img = document.getElementById('pimpinanImg');
+            img.src = imgSrc;
+            const safeName = encodeURIComponent(nama);
+            img.onerror = function() {
+                this.src = 'https://ui-avatars.com/api/?name=' + safeName + '&background=6b0f1a&color=fff&bold=true';
+            };
+
+            const modal = document.getElementById('pimpinanModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function tutupModalPimpinan(e) {
+            if (e.target === document.getElementById('pimpinanModal')) {
+                tutupModalPimpinanDirect();
+            }
+        }
+
+        function tutupModalPimpinanDirect() {
+            const modal = document.getElementById('pimpinanModal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
         // --- DATABASE INTERAKTIF BENEFIT ANGGOTA ---
         const databaseBenefit = {
             'pemrograman': {
@@ -810,7 +853,6 @@ header("X-XSS-Protection: 1; mode=block");
             document.getElementById('benefitKegiatan').textContent = data.kegiatan;
             document.getElementById('benefitOutput').textContent = data.output;
 
-            // Render Tools
             const toolsContainer = document.getElementById('benefitTools');
             toolsContainer.innerHTML = '';
             data.tools.forEach(tool => {
@@ -820,7 +862,6 @@ header("X-XSS-Protection: 1; mode=block");
                 toolsContainer.appendChild(span);
             });
 
-            // Render Roadmap
             const roadmapContainer = document.getElementById('benefitRoadmap');
             roadmapContainer.innerHTML = '';
             data.roadmap.forEach(item => {
