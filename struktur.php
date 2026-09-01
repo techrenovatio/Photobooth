@@ -142,10 +142,10 @@
         <div class="hidden lg:flex justify-center items-center w-full overflow-x-auto pb-12 pt-2">
             <div class="w-full max-w-7xl mx-auto flex justify-center">
                 <div class="tree-node-wrapper w-full">
-                    <!-- PRESIDIUM UTAMA NODE -->
+                    <!-- Ketua dan Wakil Ketua NODE -->
                     <div onclick="toggleBranch('presidium-branch', 'presidium-btn')" class="cursor-pointer group relative bg-red-950 text-white border-2 border-red-900 p-3.5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 w-64 text-center hover:-translate-y-1 mx-auto">
                         <div class="flex items-center justify-center gap-1.5 text-[10px] font-bold text-red-300 uppercase tracking-wider mb-1">
-                            <span>Presidium Utama</span>
+                            <span>Ketua dan Wakil Ketua</span>
                             <i id="presidium-btn" class="fa-solid fa-chevron-up text-xs ml-1 transition-transform"></i>
                         </div>
                         <div class="font-extrabold text-base">Rafli Fahrezi</div>
