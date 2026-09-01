@@ -9,7 +9,7 @@
     <style>
         /* Desain Background & Scroll */
         body { background-color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .tree-container { width: 100%; overflow-x: auto; padding: 40px 20px; cursor: grab; }
+        .tree-container { width: 100%; height: calc(100vh - 60px); overflow: auto; padding: 40px 20px; cursor: grab; }
         .tree-container:active { cursor: grabbing; }
 
         /* Struktur CSS Tree (Garis Horizontal) */
@@ -53,7 +53,7 @@
             background-color: #f1f5f9; position: relative; z-index: 10;
         }
         
-        /* Tombol Plus/Minus (Bulatan Orange) */
+        /* Tombol Plus/Minus */
         .toggle-btn {
             position: absolute; bottom: 0; right: 0;
             background-color: #ea580c; color: white; border-radius: 50%;
@@ -75,26 +75,29 @@
     function renderNode($name, $imgFile, $role, $hasChild = true) {
         $safeName = urlencode($name);
         $fallback = "https://ui-avatars.com/api/?name={$safeName}&background=6b0f1a&color=fff&bold=true";
-        
         $imageSrc = ($imgFile !== "") ? "foto_pengurus/" . $imgFile : $fallback;
-        
         $childClass = $hasChild ? "" : "no-child";
         
         return "
         <div class='org-node {$childClass}'>
             <div class='avatar-wrapper'>
-                <img src='{$imageSrc}' onerror=\"this.src='{$fallback}'\" alt='{$name}'>
+                <!-- Tambah class cursor-pointer dan onclick panggil openModal -->
+                <img src='{$imageSrc}' onerror=\"this.src='{$fallback}'\" alt='{$name}' class='cursor-pointer hover:scale-105 transition-transform' onclick='openModal(\"{$name}\", this.src, \"{$role}\")'>
                 <div class='toggle-btn' onclick='toggleBranch(this)'><i class='fa-solid fa-minus'></i></div>
             </div>
-            <div class='name'>{$name}</div>
+            <!-- Nama bisa diklik juga -->
+            <div class='name cursor-pointer hover:text-red-700 transition-colors' onclick='openModal(\"{$name}\", \"{$imageSrc}\", \"{$role}\")'>{$name}</div>
             <div class='role'>{$role}</div>
         </div>";
     }
     ?>
 
-    <!-- Header UI -->
-    <div class="bg-red-950 text-white px-6 py-4 flex items-center shadow-md">
-        <div class="font-bold text-lg tracking-wider">HIMSI UNIS <span class="text-red-300 font-normal text-sm ml-2">| Organization Chart</span></div>
+    <!-- Header UI (Ditambah Tombol Kembali) -->
+    <div class="bg-red-950 text-white px-6 py-4 flex items-center shadow-md sticky top-0 z-50 gap-4">
+        <a href="index.php" class="flex items-center gap-2 hover:text-red-300 transition border-r border-red-800 pr-4 text-sm font-semibold">
+            <i class="fa-solid fa-arrow-left"></i> Kembali
+        </a>
+        <div class="font-bold text-lg tracking-wider">HIMSI UNIS <span class="text-red-300 font-normal text-sm ml-2 hidden sm:inline-block">| Organization Chart</span></div>
     </div>
 
     <!-- Area Bagan Struktur Organisasi -->
@@ -107,7 +110,6 @@
                         <li>
                             <?= renderNode("Neyna Carissa", "Neyna Carissa.png", "Wakil Ketua HIMSI") ?>
                             <ul>
-                                
                                 <!-- SEKRETARIS GROUP -->
                                 <li>
                                     <?= renderNode("Sekretaris", "", "Departemen") ?>
@@ -116,7 +118,6 @@
                                         <li><?= renderNode("M Fajrun Naafi", "M Fajrun Naafi.png", "Sekretaris 2", false) ?></li>
                                     </ul>
                                 </li>
-
                                 <!-- BENDAHARA GROUP -->
                                 <li>
                                     <?= renderNode("Bendahara", "", "Departemen") ?>
@@ -125,7 +126,6 @@
                                         <li><?= renderNode("Silvia Azzlina Endraeni", "Silvia Azzlina Endraeni.png", "Bendahara 2", false) ?></li>
                                     </ul>
                                 </li>
-                                
                                 <!-- KOORDINATOR DIVISI -->
                                 <li>
                                     <?= renderNode("Muhamad Dimyati", "Muhamad Dimyati.png", "Koordinator Divisi") ?>
@@ -153,7 +153,6 @@
                                             <?= renderNode("Publikasi & Desain", "", "Divisi PDD") ?>
                                             <ul>
                                                 <li><?= renderNode("Dinda Rahmi Ramadhani", "Dinda Rahmi Ramadhani.png", "Anggota", false) ?></li>
-                                                <!-- Andika dihapus -->
                                                 <li><?= renderNode("Alvina Ramadani", "Alvina Ramadani.png", "Anggota", false) ?></li>
                                             </ul>
                                         </li>
@@ -168,7 +167,6 @@
                                         </li>
                                     </ul>
                                 </li>
-
                             </ul>
                         </li>
                     </ul>
@@ -177,8 +175,26 @@
         </div>
     </div>
 
-    <!-- Javascript untuk Efek Klik & Drag Scroll -->
+    <!-- MODAL / POPUP PROFILE -->
+    <div id="profileModal" class="fixed inset-0 z-[100] bg-black/60 hidden flex items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl shadow-2xl p-8 w-80 text-center relative transform scale-95 transition-transform duration-300" id="modalContent">
+            <!-- Tombol Close -->
+            <button onclick="closeModal()" class="absolute top-4 right-5 text-gray-400 hover:text-red-600 transition text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <!-- Foto Besar -->
+            <img id="modalImg" src="" alt="Profile" class="w-32 h-32 rounded-full object-cover border-4 border-[#d4af37] mx-auto mb-4 shadow-lg bg-gray-100">
+            
+            <!-- Nama & Jabatan -->
+            <h2 id="modalName" class="text-xl font-extrabold text-slate-800">Nama</h2>
+            <p id="modalRole" class="text-xs font-semibold text-red-900 bg-red-100 py-1.5 px-4 rounded-full inline-block mt-2 tracking-wide">Jabatan</p>
+        </div>
+    </div>
+
+    <!-- Javascript -->
     <script>
+        // --- FUNGSI BUKA TUTUP CABANG (TREE) ---
         function toggleBranch(btn) {
             const li = btn.closest('li');
             const ul = li.querySelector('ul');
@@ -197,6 +213,7 @@
             }
         }
 
+        // --- FUNGSI DRAG TO SCROLL ---
         const slider = document.getElementById('tree-container');
         let isDown = false;
         let startX;
@@ -204,17 +221,59 @@
 
         slider.addEventListener('mousedown', (e) => {
             isDown = true;
+            slider.style.cursor = 'grabbing';
             startX = e.pageX - slider.offsetLeft;
             scrollLeft = slider.scrollLeft;
         });
-        slider.addEventListener('mouseleave', () => { isDown = false; });
-        slider.addEventListener('mouseup', () => { isDown = false; });
+        slider.addEventListener('mouseleave', () => { isDown = false; slider.style.cursor = 'grab'; });
+        slider.addEventListener('mouseup', () => { isDown = false; slider.style.cursor = 'grab'; });
         slider.addEventListener('mousemove', (e) => {
             if (!isDown) return;
             e.preventDefault();
             const x = e.pageX - slider.offsetLeft;
             const walk = (x - startX) * 2;
             slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // --- FUNGSI POPUP (MODAL) PROFILE ---
+        const modal = document.getElementById('profileModal');
+        const modalContent = document.getElementById('modalContent');
+        const modalImg = document.getElementById('modalImg');
+
+        function openModal(name, imgSrc, role) {
+            // Isi data ke dalam modal
+            document.getElementById('modalName').textContent = name;
+            document.getElementById('modalRole').textContent = role;
+            
+            // Setel gambar dan antisipasi jika gambar gagal diload (fallback)
+            modalImg.src = imgSrc;
+            const safeName = encodeURIComponent(name);
+            modalImg.onerror = function() {
+                this.src = 'https://ui-avatars.com/api/?name=' + safeName + '&background=6b0f1a&color=fff&bold=true';
+            };
+
+            // Tampilkan Modal
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeModal() {
+            // Sembunyikan dengan animasi
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Jika area gelap di luar kotak putih di-klik, modal akan menutup
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
         });
     </script>
 </body>
