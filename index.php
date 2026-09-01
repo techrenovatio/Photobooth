@@ -389,7 +389,7 @@ header("X-XSS-Protection: 1; mode=block");
                 </span>
                 <h2 class="serif-title text-3xl font-bold text-slate-900 mt-3">Apa yang Akan Kamu Pelajari di HIMSI?</h2>
                 <p class="text-slate-600 text-sm mt-2">
-                    Asah keterampilan teknis dan akademis di bidang IT. <span class="font-semibold text-himsiMaroon">Klik kartu untuk mencoba fitur UI/UX Interactive Sandbox!</span>
+                    Asah keterampilan teknis dan akademis di bidang IT. <span class="font-semibold text-himsiMaroon">Klik kartu untuk melihat detail silabus teori, praktek & interactive sandbox!</span>
                 </p>
             </div>
 
@@ -601,7 +601,7 @@ header("X-XSS-Protection: 1; mode=block");
                             <h3 id="benefitJudul" class="font-bold text-lg md:text-xl leading-tight">Detail Pembelajaran</h3>
                             <span id="benefitLevelBadge" class="text-[10px] font-extrabold px-2.5 py-0.5 rounded-md"></span>
                         </div>
-                        <p class="text-xs text-slate-200 mt-0.5">Silabus, Roadmap, & UI/UX Interactive Sandbox</p>
+                        <p class="text-xs text-slate-200 mt-0.5">Silabus, Roadmap Teori/Praktek, & Interactive Sandbox</p>
                     </div>
                 </div>
                 <button onclick="tutupModalBenefit()" class="text-white/80 hover:text-white text-3xl font-bold px-2 leading-none transition">&times;</button>
@@ -638,9 +638,9 @@ header("X-XSS-Protection: 1; mode=block");
 
                     <div>
                         <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                            <i class="fa-solid fa-route text-himsiMaroon"></i> Roadmap Belajar 4 Minggu
+                            <i class="fa-solid fa-route text-himsiMaroon"></i> Roadmap Belajar (Teori & Praktek)
                         </h4>
-                        <div id="benefitRoadmap" class="space-y-3 relative border-l-2 border-red-200 ml-3 pl-4"></div>
+                        <div id="benefitRoadmap" class="space-y-4 relative border-l-2 border-red-200 ml-3 pl-4"></div>
                     </div>
 
                     <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200">
@@ -654,7 +654,7 @@ header("X-XSS-Protection: 1; mode=block");
                 <!-- TAB 2: INTERACTIVE SANDBOX -->
                 <div id="modalContentSandbox" class="hidden">
                     <div id="sandboxContainer" class="bg-slate-900 text-white rounded-2xl p-5 border border-slate-700 shadow-inner">
-                        <!-- Dynamic Content Sandbox akan di-render di sini via JS -->
+                        <!-- Dynamic Content Sandbox -->
                     </div>
                 </div>
             </div>
@@ -836,7 +836,7 @@ header("X-XSS-Protection: 1; mode=block");
             });
         }
 
-        // --- DATABASE INTERAKTIF BENEFIT ANGGOTA ---
+        // --- DATABASE INTERAKTIF BENEFIT ANGGOTA (TEORI & PRAKTEK LENGKAP) ---
         const databaseBenefit = {
             'pemrograman': {
                 judul: 'Dasar Pemrograman',
@@ -847,10 +847,10 @@ header("X-XSS-Protection: 1; mode=block");
                 kegiatan: '💡 4x Sesi Workshop & Mentoring Kode 1-on-1',
                 tools: ['Python', 'C++', 'JavaScript', 'VS Code'],
                 roadmap: [
-                    'Pengenalan Logika Algoritma & Konsep Variabel Dasar',
-                    'Pengondisian (If-Else) & Perulangan (Looping)',
-                    'Fungsi, Array, & Error Handling Praktis',
-                    'Mini Project: Kalkulator & Aplikasi Konsol Interaktif'
+                    { teori: 'Pengenalan algoritma, flowchart, variabel, tipe data (string, integer, boolean), dan I/O.', praktek: 'Membuat program CLI sederhana untuk konversi suhu & kalkulator aritmatika.' },
+                    { teori: 'Pengondisian (if-else, switch-case) & perulangan (for, while).', praktek: 'Membuat program validasi nilai akademik & penentu kelulusan mahasiswa.' },
+                    { teori: 'Konsep modularisasi dengan Fungsi (functions), parameter, return value, & Array/List.', praktek: 'Membuat program pencatatan daftar tugas (To-Do List) berbasis konsol.' },
+                    { teori: 'Penanganan error (exception handling) & clean code principles.', praktek: '<b>Mini Project:</b> Sistem Manajemen Data Kas/Keuangan Sederhana berbasis Terminal.' }
                 ],
                 output: 'Aplikasi Manajemen Data Sederhana Berbasis Konsol / Terminal.'
             },
@@ -863,10 +863,10 @@ header("X-XSS-Protection: 1; mode=block");
                 kegiatan: '🏬 Study Case Alur Bisnis Perusahaan Digital',
                 tools: ['Odoo', 'SAP Basic Concept', 'Draw.io'],
                 roadmap: [
-                    'Konsep Dasar & Pentingnya ERP di Industri Digital',
-                    'Modul Sales, Purchase, & Manajemen Inventory',
-                    'Modul Human Resource & Accounting System',
-                    'Simulasi Transaksi Alur Bisnis Terintegrasi'
+                    { teori: 'Konsep dasar ERP, integrasi antar-departemen, & analisis business process.', praktek: 'Pemetaan alur bisnis (blueprint) perusahaan dagang menggunakan Draw.io.' },
+                    { teori: 'Alur Request for Quotation (RFQ), Purchase Order (PO), & manajemen stock warehouse.', praktek: 'Simulasi input data barang masuk & pengelolaan stok menggunakan Odoo ERP.' },
+                    { teori: 'Alur Quotation, Sales Order (SO), penerbitan Invoice, & rekonsiliasi kas.', praktek: 'Simulasi transaksi penjualan produk hingga pembuatan laporan arus kas otomatis.' },
+                    { teori: 'Sinkronisasi data antar-modul secara real-time & pelaporan analitik bisnis.', praktek: '<b>Mini Project:</b> Simulasi transaksi bisnis terintegrasi dari order pelanggan hingga laporan keuangan.' }
                 ],
                 output: 'Pemetaan Blueprint & Konfigurasi Sistem Bisnis ERP.'
             },
@@ -879,10 +879,10 @@ header("X-XSS-Protection: 1; mode=block");
                 kegiatan: '📊 Praktikum Live SQL Query & Database Design',
                 tools: ['MySQL', 'PostgreSQL', 'phpMyAdmin'],
                 roadmap: [
-                    'Perancangan ERD (Entity Relationship Diagram)',
-                    'Normalisasi Data & DDL (Data Definition Language)',
-                    'DML Query (SELECT, INSERT, UPDATE, JOIN)',
-                    'Database Security & Backup Strategy'
+                    { teori: 'Konsep RDBMS, entitas, atribut, primary key, & foreign key.', praktek: 'Merancang Entity Relationship Diagram (ERD) untuk Sistem Informasi Perpustakaan.' },
+                    { teori: 'Tahapan normalisasi data (1NF, 2NF, 3NF) & SQL DDL (CREATE, ALTER, DROP).', praktek: 'Mengimplementasikan skema ERD ke dalam database engine MySQL via phpMyAdmin.' },
+                    { teori: 'Perintah DML (INSERT, UPDATE, DELETE) & teknik penggabungan tabel (JOIN).', praktek: 'Eksekusi kompleks SQL Query untuk menampilkan laporan data relasional terfilter.' },
+                    { teori: 'Indeksasi tabel, stored procedure, serta konsep backup & restore data.', praktek: '<b>Mini Project:</b> Membuat skema basis data e-commerce lengkap dengan sampel data relasional.' }
                 ],
                 output: 'Rancangan Struktur Database Lengkap Siap Pakai.'
             },
@@ -895,10 +895,10 @@ header("X-XSS-Protection: 1; mode=block");
                 kegiatan: '🔌 Simulasi Topologi & Konfigurasi Jaringan',
                 tools: ['Cisco Packet Tracer', 'Wireshark'],
                 roadmap: [
-                    'Model OSI Layer & Protokol TCP/IP',
-                    'Subnetting & Pengalamatan IP Address',
-                    'Perancangan Topologi Jaringan Komputer',
-                    'Troubleshooting & Pengujian Koneksi'
+                    { teori: 'Pengenalan 7 Layer OSI, model TCP/IP, perangkat jaringan, & media transmisi.', praktek: 'Pengenalan interface Cisco Packet Tracer & pembuatan jaringan dasar 2 PC.' },
+                    { teori: 'Konsep IPv4 (Class A, B, C), subnet mask, CIDR, & teknik subnetting.', praktek: 'Menghitung alokasi IP Address & mengonfigurasi IP Statis pada skema jaringan lokal.' },
+                    { teori: 'Topologi jaringan (Star, Mesh, Bus) & prinsip kerja Dynamic & Static Routing.', praktek: 'Merancang jaringan antar-gedung kampus menggunakan Router & Switch di Packet Tracer.' },
+                    { teori: 'Analisis lalu lintas data, protokol DNS, DHCP, HTTP, & metode troubleshooting.', praktek: '<b>Mini Project:</b> Simulasi infrastruktur LAN perkantoran terintegrasi dengan layanan DHCP Server.' }
                 ],
                 output: 'Simulasi Topologi Jaringan Komputer Perusahaan.'
             },
@@ -911,10 +911,10 @@ header("X-XSS-Protection: 1; mode=block");
                 kegiatan: '📈 Olah Data Publik & Visualisasi Grafik Interaktif',
                 tools: ['Python', 'Pandas', 'Matplotlib', 'Jupyter Notebook'],
                 roadmap: [
-                    'Pengenalan Data Science & Python for Data Analysis',
-                    'Data Cleaning & Preprocessing Data Mentah',
-                    'Exploratory Data Analysis (EDA)',
-                    'Visualisasi Dashboard Insight Interaktif'
+                    { teori: 'Konsep Data Science, tipe data terstruktur, & pengenalan NumPy & Pandas.', praktek: 'Membaca, memfilter, & mengolah file CSV/Excel menggunakan Pandas di Jupyter Notebook.' },
+                    { teori: 'Penanganan missing values, data duplikat, konversi tipe data, & outliers.', praktek: 'Melakukan data cleansing pada dataset mentah publik.' },
+                    { teori: 'Analisis deskriptif, korelasi antar-variabel, & prinsip pemetaan grafik efektif.', praktek: 'Membuat visualisasi grafik batang, garis, & heatmap menggunakan Matplotlib & Seaborn.' },
+                    { teori: 'Menyusun narasi berbasis data (data storytelling) & penarikan kesimpulan bisnis.', praktek: '<b>Mini Project:</b> Menyusun Laporan EDA & Dashboard Insight berbasis Notebook.' }
                 ],
                 output: 'Laporan Analisis Data & Dashboard Insight Interaktif.'
             },
@@ -927,10 +927,10 @@ header("X-XSS-Protection: 1; mode=block");
                 kegiatan: '🎨 Mentoring Desain & Usability Testing',
                 tools: ['Figma', 'Whimsical', 'Color Hunt'],
                 roadmap: [
-                    'User Research & Wireframing Low-Fidelity',
-                    'UI Design System & Component Guidelines',
-                    'High-Fidelity Design & Prototyping Interaktif',
-                    'Usability Testing & Design Review'
+                    { teori: 'Konsep UX, Design Thinking, User Persona, User Journey Map, & Information Architecture.', praktek: 'Melakukan wawancara pengguna sederhana & merancang struktur alur aplikasi (wireflow).' },
+                    { teori: 'Konsep User Interface (UI), hierarki visual, teori warna, tipografi, & Design System.', praktek: 'Membuat sketsa Low-Fidelity Wireframe & menyusun komponen desain di Figma.' },
+                    { teori: 'Transisi antarlayar, micro-interaction, & Responsive Web/Mobile Design.', praktek: 'Mengubah wireframe menjadi tampilan High-Fidelity lengkap dengan prototype interaktif.' },
+                    { teori: 'Metode Usability Testing (UT), penyusunan skenario pengujian, & analisis umpan balik.', praktek: '<b>Mini Project:</b> Pengujian prototype aplikasi mobile kepada pengguna & iterasi desain.' }
                 ],
                 output: 'Prototype Aplikasi Mobile / Web Interaktif Siap Uji.'
             },
@@ -943,10 +943,10 @@ header("X-XSS-Protection: 1; mode=block");
                 kegiatan: '🧠 Pelatihan Model Prediksi Sederhana',
                 tools: ['Python', 'Scikit-Learn', 'Google Colab'],
                 roadmap: [
-                    'Konsep dasar AI vs Machine Learning',
-                    'Supervised vs Unsupervised Learning',
-                    'Pembuatan Model Regresi / Klasifikasi Data',
-                    'Evaluasi Akurasi & Pengujian Model AI'
+                    { teori: 'Perbedaan AI, ML, & Deep Learning; kategori ML (Supervised, Unsupervised, Reinforcement).', praktek: 'Mengonfigurasi lingkungan kerja Google Colab & memuat pustaka Scikit-Learn.' },
+                    { teori: 'Algoritma Linear Regression, Logistic Regression, & Decision Tree.', praktek: 'Melatih model prediksi harga rumah atau klasifikasi email spam sederhana.' },
+                    { teori: 'Algoritma K-Means Clustering & metrik evaluasi (Accuracy, Precision, Recall, Confusion Matrix).', praktek: 'Mengelompokkan segmentasi pelanggan berbasis pola transaksi.' },
+                    { teori: 'Konsep pengujian data baru (predict new data) & menyimpan model yang dilatih.', praktek: '<b>Mini Project:</b> Membuat skrip prediksi otomatis berbasis Python yang siap dipanggil.' }
                 ],
                 output: 'Model AI Prediksi Sederhana Berbasis Python.'
             },
@@ -959,16 +959,16 @@ header("X-XSS-Protection: 1; mode=block");
                 kegiatan: '🔐 Hands-on Analisis Celah Keamanan Dasar',
                 tools: ['Kali Linux Basic', 'Burp Suite', 'Nmap'],
                 roadmap: [
-                    'Prinsip Dasar Information Security (CIA Triad)',
-                    'Menganalisis Potensi Kerentanan Web (OWASP Top 10)',
-                    'Konsep Enkripsi & Perlindungan Password',
-                    'Best Practices Hardening System & Etika IT'
+                    { teori: 'Prinsip CIA Triad (Confidentiality, Integrity, Availability), ancaman siber, & etika IT.', praktek: 'Analisis identifikasi percobaan serangan phishing & konfigurasi 2FA.' },
+                    { teori: 'Kerentanan web populer (OWASP Top 10: SQL Injection, XSS, Broken Auth).', praktek: 'Simulasi pengujian celah keamanan web sederhana pada lingkungan sandbox lokal.' },
+                    { teori: 'Konsep enkripsi simetris & asimetris, fungsi hashing (MD5, SHA-256), & sertifikat SSL/TLS.', praktek: 'Mengenkripsi teks/file & melakukan verifikasi keaslian file dengan checksum hash.' },
+                    { teori: 'Langkah pencegahan (system hardening), manajemen patch, & etika pelaporan celah.', praktek: '<b>Mini Project:</b> Menyusun Laporan Audit Keamanan Sederhana beserta rekomendasi penutupannya.' }
                 ],
                 output: 'Laporan Audit & Rekomendasi Keamanan Sistem.'
             }
         };
 
-        // --- FUNGSI TAB IN-MODAL (SILABUS VS SANDBOX) ---
+        // --- FUNGSI TAB IN-MODAL ---
         function switchModalTab(tab) {
             const btnSilabus = document.getElementById('modalTabSilabus');
             const btnSandbox = document.getElementById('modalTabSandbox');
@@ -1112,7 +1112,7 @@ header("X-XSS-Protection: 1; mode=block");
                         <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
                             <span class="text-[10px] text-slate-400 block mb-2 font-mono">ESTIMASI SKILL SCORE:</span>
                             <div class="w-full bg-slate-800 h-6 rounded-lg overflow-hidden p-0.5">
-                                <div id="chartBarOutput" class="bg-gradient-to-r from-amber-500 to-emerald-400 h-full rounded-md transition-all duration-300 flex items-center justify-end pr-2 text-[10px] font-bold text-slate-900" style="w-60%">60 Pts</div>
+                                <div id="chartBarOutput" class="bg-gradient-to-r from-amber-500 to-emerald-400 h-full rounded-md transition-all duration-300 flex items-center justify-end pr-2 text-[10px] font-bold text-slate-900" style="width: 60%">60 Pts</div>
                             </div>
                         </div>
                     </div>
@@ -1353,7 +1353,6 @@ header("X-XSS-Protection: 1; mode=block");
                 txt.className = 'font-bold text-emerald-400';
             }
 
-            // Simple hash representation demo
             hash.textContent = Array.from(val).reduce((acc, char) => (acc + char.charCodeAt(0).toString(16)), '') + 'a8f9c210b3e';
         }
 
@@ -1384,7 +1383,7 @@ header("X-XSS-Protection: 1; mode=block");
                 toolsContainer.appendChild(span);
             });
 
-            // Render Timeline Roadmap
+            // Render Timeline Roadmap (Teori & Praktek)
             const roadmapContainer = document.getElementById('benefitRoadmap');
             roadmapContainer.innerHTML = '';
             data.roadmap.forEach((item, index) => {
@@ -1392,8 +1391,11 @@ header("X-XSS-Protection: 1; mode=block");
                 div.className = 'relative pl-2';
                 div.innerHTML = `
                     <div class="absolute -left-[21px] top-1 w-3.5 h-3.5 rounded-full bg-himsiMaroon border-2 border-white shadow-sm"></div>
-                    <span class="text-xs font-bold text-himsiMaroon block mb-0.5">Minggu ${index + 1}</span>
-                    <p class="text-xs text-slate-600 leading-relaxed">${item}</p>
+                    <span class="text-xs font-bold text-himsiMaroon block mb-1">Minggu ${index + 1}</span>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs space-y-1.5">
+                        <div><span class="font-bold text-slate-800">📖 Teori:</span> <span class="text-slate-600">${item.teori}</span></div>
+                        <div><span class="font-bold text-himsiMaroon">🛠️ Praktek:</span> <span class="text-slate-700">${item.praktek}</span></div>
+                    </div>
                 `;
                 roadmapContainer.appendChild(div);
             });
