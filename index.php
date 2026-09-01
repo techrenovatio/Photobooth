@@ -40,6 +40,9 @@ header("X-XSS-Protection: 1; mode=block");
     <!-- Favicon Icon Tab Browser -->
     <link rel="icon" type="image/png" href="Logohimsi.png">
 
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -198,7 +201,7 @@ header("X-XSS-Protection: 1; mode=block");
                         Mengenal lebih dekat visi, misi, divisi, dan pengurus Himpunan Mahasiswa Sistem Informasi UNIS Tangerang periode 2026.
                     </p>
                 </div>
-                <a href="#tentang" class="inline-flex items-center justify-center w-full bg-slate-900 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-slate-800 transition shadow-sm">
+                <a href="struktur.php" class="inline-flex items-center justify-center w-full bg-slate-900 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-slate-800 transition shadow-sm">
                     Lihat Struktur Organisasi &rarr;
                 </a>
             </div>
@@ -328,6 +331,32 @@ header("X-XSS-Protection: 1; mode=block");
             <p class="text-slate-700 text-base md:text-lg leading-relaxed mb-10">
                 Kabinet Genesis berdiri sebagai simbol awal baru yang membawa semangat inovasi teknologi, integritas akademik, dan kepemimpinan adaptif bagi seluruh Mahasiswa Sistem Informasi Universitas Islam Syekh Yusuf Tangerang.
             </p>
+
+            <!-- Card Preview Struktur Organisasi Pimpinan -->
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200 mb-10 text-center max-w-2xl mx-auto">
+                <span class="text-xs font-bold uppercase tracking-wider text-red-800 bg-red-100 px-3 py-1 rounded-full">
+                    Profil Organisasi
+                </span>
+                <h3 class="text-2xl font-bold text-slate-800 mt-3">Kabinet Genesis</h3>
+                <p class="text-slate-500 text-sm mt-1 mb-6">Pimpinan Himpunan Mahasiswa Sistem Informasi Periode 2026/2027</p>
+
+                <!-- Preview Pimpinan Utama -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <div class="text-xs font-semibold text-red-700">Ketua HIMSI</div>
+                        <div class="font-bold text-slate-800 text-lg mt-1">Rafli Fahrezi</div>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <div class="text-xs font-semibold text-red-700">Wakil Ketua HIMSI</div>
+                        <div class="font-bold text-slate-800 text-lg mt-1">Neyna Carissa</div>
+                    </div>
+                </div>
+
+                <!-- Tombol Lihat Keseluruhan -->
+                <a href="struktur.php" class="inline-flex items-center justify-center gap-2 bg-himsiMaroon hover:bg-red-900 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg w-full sm:w-auto">
+                    <i class="fa-solid fa-sitemap"></i> Lihat Struktur Organisasi Lengkap
+                </a>
+            </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-slate-100">
                 <div class="p-4 rounded-xl bg-slate-50/80">
