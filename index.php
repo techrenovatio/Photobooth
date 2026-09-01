@@ -110,13 +110,13 @@ header("X-XSS-Protection: 1; mode=block");
 
 <body class="text-slate-800 antialiased selection:bg-himsiMaroon selection:text-white relative min-h-screen overflow-x-hidden">
 
-    <!-- GLOBAL WATERMARK LOGO -->
-    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 select-none w-[85vw] max-w-[700px] aspect-square flex items-center justify-center">
-        <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-full h-full object-contain opacity-[0.12]">
+    <!-- PERBAIKAN: GLOBAL WATERMARK LOGO DIUBAH AGAR TIDAK MENGHALANGI KLIK (pointer-events-none secara absolut) -->
+    <div class="fixed inset-0 pointer-events-none z-0 select-none flex items-center justify-center">
+        <img src="Logohimsi.png" alt="HIMSI Watermark" class="w-[85vw] max-w-[700px] object-contain opacity-[0.12] pointer-events-none">
     </div>
 
     <!-- HEADER / NAVIGATION -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-3 relative">
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-3 relative">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
             <a href="#tentang" class="flex items-center space-x-3 md:space-x-5 group">
                 <img src="Logohimsi.png" alt="Logo HIMSI UNIS" class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain group-hover:scale-105 transition transform drop-shadow-md">
@@ -127,26 +127,26 @@ header("X-XSS-Protection: 1; mode=block");
             </a>
 
             <!-- Navigasi Desktop -->
-            <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-base lg:text-lg font-bold text-slate-700">
+            <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-base lg:text-lg font-bold text-slate-700 relative z-50">
                 <a href="#beranda" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Beranda</a>
                 <a href="#layanan" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Layanan Digital</a>
                 <a href="#kegiatan" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Berita & Kegiatan</a>
                 <a href="#karya" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Karya Mahasiswa</a>
                 <a href="#tentang" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Tentang Kami</a>
                 <a href="#benefit" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Benefit Anggota</a>
-                <a href="#gabung" class="bg-himsiMaroon text-white px-5 py-2 rounded-xl hover:bg-red-900 transition shadow-sm text-sm flex items-center gap-2">
+                <a href="#gabung" class="bg-himsiMaroon text-white px-5 py-2 rounded-xl hover:bg-red-900 transition shadow-sm text-sm flex items-center gap-2 relative z-50">
                     <i class="fa-solid fa-user-plus"></i> Gabung HIMSI
                 </a>
             </nav>
 
-            <button id="mobileMenuBtn" class="lg:hidden text-slate-800 hover:text-himsiMaroon focus:outline-none p-2 transition-transform transform active:scale-95 z-50">
+            <button id="mobileMenuBtn" class="lg:hidden text-slate-800 hover:text-himsiMaroon focus:outline-none p-2 transition-transform transform active:scale-95 relative z-50">
                 <svg class="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
         </div>
 
-        <div id="mobileMenuPanel" class="hidden lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xl flex flex-col py-4 px-6 space-y-4 font-bold text-slate-700">
+        <div id="mobileMenuPanel" class="hidden lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xl flex flex-col py-4 px-6 space-y-4 font-bold text-slate-700 z-50">
             <a href="#beranda" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Beranda</a>
             <a href="#layanan" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Layanan Digital</a>
             <a href="#kegiatan" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Berita & Kegiatan</a>
@@ -174,7 +174,7 @@ header("X-XSS-Protection: 1; mode=block");
                 Selamat Datang di Portal Resmi Himpunan Mahasiswa Sistem Informasi (HIMSI) UNIS Tangerang - Kabinet Genesis. Pusat informasi akademik, kegiatan organisasi, dan layanan digital himpunan.
             </p>
 
-            <div class="flex flex-wrap justify-center gap-4">
+            <div class="flex flex-wrap justify-center gap-4 relative z-30">
                 <a href="#gabung" class="bg-himsiGold text-slate-900 px-6 md:px-8 py-3.5 rounded-lg font-bold text-sm shadow-xl hover:bg-yellow-400 transition transform hover:-translate-y-0.5 flex items-center gap-2">
                     <span>🚀</span> Daftar Anggota HIMSI
                 </a>
@@ -187,7 +187,7 @@ header("X-XSS-Protection: 1; mode=block");
 
     <!-- PORTAL LAYANAN DIGITAL -->
     <section id="layanan" class="py-20 px-6 max-w-7xl mx-auto relative z-10 scroll-mt-36 sm:scroll-mt-44 md:scroll-mt-56">
-        <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-center max-w-2xl mx-auto mb-16 relative z-20">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Direct Hub Access</span>
             <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Layanan & Aplikasi Digital</h2>
             <p class="text-slate-600 text-sm">
@@ -195,7 +195,7 @@ header("X-XSS-Protection: 1; mode=block");
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto relative z-20">
             <div class="bg-white/85 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 p-8 flex flex-col justify-between group hover:-translate-y-1">
                 <div>
                     <div class="w-14 h-14 bg-amber-50 text-amber-700 rounded-xl flex items-center justify-center text-3xl font-bold mb-6 group-hover:bg-himsiMaroon group-hover:text-white transition">
@@ -207,7 +207,7 @@ header("X-XSS-Protection: 1; mode=block");
                         Mengenal lebih dekat visi, misi, divisi, dan pengurus Himpunan Mahasiswa Sistem Informasi UNIS Tangerang periode 2026.
                     </p>
                 </div>
-                <a href="struktur" class="inline-flex items-center justify-center w-full bg-slate-900 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-slate-800 transition shadow-sm">
+                <a href="struktur.php" class="inline-flex items-center justify-center w-full bg-slate-900 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-slate-800 transition shadow-sm relative z-30">
                     Lihat Struktur Organisasi &rarr;
                 </a>
             </div>
@@ -223,7 +223,7 @@ header("X-XSS-Protection: 1; mode=block");
                         Pusat modul perkuliahan Sistem Informasi, bank soal, panduan tugas akhir, serta informasi beasiswa dan magang IT.
                     </p>
                 </div>
-                <button disabled class="w-full bg-slate-100 text-slate-400 font-bold text-sm py-3.5 rounded-xl cursor-not-allowed">
+                <button disabled class="w-full bg-slate-100 text-slate-400 font-bold text-sm py-3.5 rounded-xl cursor-not-allowed relative z-30">
                     Segera Hadir
                 </button>
             </div>
@@ -232,7 +232,7 @@ header("X-XSS-Protection: 1; mode=block");
 
     <!-- SECTION BERITA & KEGIATAN -->
     <section id="kegiatan" class="py-20 bg-himsiCream/80 border-y border-slate-200 px-6 relative z-10 scroll-mt-36 sm:scroll-mt-44 md:scroll-mt-56">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-7xl mx-auto relative z-20">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">HIMSI News & Event</span>
                 <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Berita & Kegiatan</h2>
@@ -254,7 +254,7 @@ header("X-XSS-Protection: 1; mode=block");
                         <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3">
                             Momen sakral pelantikan seluruh pengurus Himpunan Mahasiswa Sistem Informasi UNIS Tangerang periode 2026 secara resmi, membawa semangat integritas dan sinergi.
                         </p>
-                        <button onclick="bukaModalKegiatan('pelantikan')" class="w-full bg-slate-900 text-white font-bold text-sm py-3 rounded-xl hover:bg-slate-800 transition flex items-center justify-center gap-2">
+                        <button onclick="bukaModalKegiatan('pelantikan')" class="w-full bg-slate-900 text-white font-bold text-sm py-3 rounded-xl hover:bg-slate-800 transition flex items-center justify-center gap-2 relative z-30">
                             <span>📸</span> Lihat Dokumentasi
                         </button>
                     </div>
@@ -271,7 +271,7 @@ header("X-XSS-Protection: 1; mode=block");
 
     <!-- SECTION SHOWCASE KARYA MAHASISWA -->
     <section id="karya" class="py-20 bg-slate-100/50 border-t border-slate-200 px-6 relative z-10 scroll-mt-36 sm:scroll-mt-44 md:scroll-mt-56">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-7xl mx-auto relative z-20">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">Student Showcase</span>
                 <h2 class="serif-title text-3xl md:text-4xl font-bold text-slate-900 mb-4">Karya & Inovasi Mahasiswa</h2>
@@ -293,7 +293,7 @@ header("X-XSS-Protection: 1; mode=block");
                             Abadikan momen seru dengan frame eksklusif Kabinet Genesis. Dilengkapi auto-send email softfile dan QR Code scanner.
                         </p>
                     </div>
-                    <a href="photobooth/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full bg-himsiMaroon text-white font-bold text-sm py-3.5 rounded-xl hover:bg-opacity-90 transition shadow-sm">
+                    <a href="photobooth/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full bg-himsiMaroon text-white font-bold text-sm py-3.5 rounded-xl hover:bg-opacity-90 transition shadow-sm relative z-30">
                         Buka Aplikasi Photobooth &rarr;
                     </a>
                 </div>
@@ -313,7 +313,7 @@ header("X-XSS-Protection: 1; mode=block");
                         </div>
                     </div>
                     <div class="p-6 pt-0">
-                        <button onclick="bukaGameModal('karya/pahri-bros/')" class="w-full bg-himsiMaroon text-white font-bold text-sm py-3.5 rounded-xl hover:bg-opacity-90 transition flex items-center justify-center gap-2 shadow-sm">
+                        <button onclick="bukaGameModal('karya/pahri-bros/')" class="w-full bg-himsiMaroon text-white font-bold text-sm py-3.5 rounded-xl hover:bg-opacity-90 transition flex items-center justify-center gap-2 shadow-sm relative z-30">
                             <span>▶️</span> Mainkan Game Sekarang
                         </button>
                     </div>
@@ -330,7 +330,7 @@ header("X-XSS-Protection: 1; mode=block");
 
     <!-- SECTION TENTANG -->
     <section id="tentang" class="bg-white/85 backdrop-blur-sm py-20 border-y border-slate-200 px-6 relative z-10 scroll-mt-36 sm:scroll-mt-44 md:scroll-mt-56">
-        <div class="max-w-4xl mx-auto text-center">
+        <div class="max-w-4xl mx-auto text-center relative z-20">
             <span class="text-himsiMaroon font-bold text-xs uppercase tracking-widest block mb-2">HIMSI UNIS Tangerang</span>
             <h2 class="serif-title text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Tentang Kabinet Genesis</h2>
             
@@ -346,7 +346,6 @@ header("X-XSS-Protection: 1; mode=block");
                 <h3 class="text-2xl font-bold text-slate-800 mt-3">Kabinet Genesis</h3>
                 <p class="text-slate-500 text-sm mt-1 mb-6">Pimpinan Himpunan Mahasiswa Sistem Informasi Periode 2026/2027</p>
 
-                <!-- Preview Pimpinan Utama -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
                         <div class="text-xs font-semibold text-red-700">Ketua HIMSI</div>
@@ -358,8 +357,7 @@ header("X-XSS-Protection: 1; mode=block");
                     </div>
                 </div>
 
-                <!-- Tombol Lihat Keseluruhan -->
-                <a href="struktur" class="inline-flex items-center justify-center gap-2 bg-himsiMaroon hover:bg-red-900 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg w-full sm:w-auto">
+                <a href="struktur.php" class="inline-flex items-center justify-center gap-2 bg-himsiMaroon hover:bg-red-900 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg w-full sm:w-auto relative z-30">
                     <i class="fa-solid fa-sitemap"></i> Lihat Struktur Organisasi Lengkap
                 </a>
             </div>
@@ -387,7 +385,7 @@ header("X-XSS-Protection: 1; mode=block");
 
     <!-- SECTION MANFAAT & PEMBELAJARAN HIMSI -->
     <section id="benefit" class="py-16 bg-slate-50 border-t border-slate-200 px-6 relative z-10 scroll-mt-36 sm:scroll-mt-44 md:scroll-mt-56">
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-6xl mx-auto relative z-20">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <span class="text-xs font-bold uppercase tracking-wider text-red-800 bg-red-100 px-3 py-1 rounded-full">
                     Benefit Anggota
@@ -399,56 +397,42 @@ header("X-XSS-Protection: 1; mode=block");
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Card 1 -->
+                <!-- Cards -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
                     <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">💻</div>
                     <h3 class="font-bold text-slate-900 text-base mb-1">Dasar Pemrograman</h3>
                     <p class="text-slate-500 text-xs leading-relaxed">Logika algoritma, pemecahan masalah, dan dasar penulisan kode sintaks.</p>
                 </div>
-
-                <!-- Card 2 -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
                     <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">⚙️</div>
                     <h3 class="font-bold text-slate-900 text-base mb-1">Fundamental ERP</h3>
                     <p class="text-slate-500 text-xs leading-relaxed">Pemahaman sistem perencanaan sumber daya perusahaan terintegrasi.</p>
                 </div>
-
-                <!-- Card 3 -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
                     <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">🗄️</div>
                     <h3 class="font-bold text-slate-900 text-base mb-1">Konsep Basis Data</h3>
                     <p class="text-slate-500 text-xs leading-relaxed">Perancangan, manipulasi data (SQL), dan pengelolaan sistem database.</p>
                 </div>
-
-                <!-- Card 4 -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
                     <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">🌐</div>
                     <h3 class="font-bold text-slate-900 text-base mb-1">Fundamental Jaringan</h3>
                     <p class="text-slate-500 text-xs leading-relaxed">Konsep LAN/WAN, IP addressing, komunikasi data, dan infrastruktur IT.</p>
                 </div>
-
-                <!-- Card 5 -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
                     <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">📊</div>
                     <h3 class="font-bold text-slate-900 text-base mb-1">Data Science</h3>
                     <p class="text-slate-500 text-xs leading-relaxed">Pengolahan data, analisis statistik, visualisasi data, dan pola tren.</p>
                 </div>
-
-                <!-- Card 6 -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
                     <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">🎨</div>
                     <h3 class="font-bold text-slate-900 text-base mb-1">Design UI/UX</h3>
                     <p class="text-slate-500 text-xs leading-relaxed">Perancangan antarmuka aplikasi intuitif dan riset pengalaman pengguna.</p>
                 </div>
-
-                <!-- Card 7 -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
                     <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">🤖</div>
                     <h3 class="font-bold text-slate-900 text-base mb-1">Machine Learning</h3>
                     <p class="text-slate-500 text-xs leading-relaxed">Konsep model kecerdasan buatan dan pemrosesan data otomatis.</p>
                 </div>
-
-                <!-- Card 8 -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
                     <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">🛡️</div>
                     <h3 class="font-bold text-slate-900 text-base mb-1">Keamanan Siber</h3>
@@ -460,7 +444,7 @@ header("X-XSS-Protection: 1; mode=block");
 
     <!-- SECTION BERGABUNG DENGAN HIMSI UNIS -->
     <section id="gabung" class="py-20 bg-gradient-to-br from-himsiMaroon via-red-900 to-darkNavy text-white px-6 relative z-10 border-t border-white/10 scroll-mt-24">
-        <div class="max-w-5xl mx-auto text-center">
+        <div class="max-w-5xl mx-auto text-center relative z-20">
             <span class="text-himsiGold font-bold text-xs uppercase tracking-widest bg-white/10 px-4 py-1.5 rounded-full inline-block mb-4 border border-white/10">
                 Open Recruitment 2026/2027
             </span>
@@ -487,7 +471,7 @@ header("X-XSS-Protection: 1; mode=block");
                 </div>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-4">
+            <div class="flex flex-wrap justify-center gap-4 relative z-30">
                 <a href="https://instagram.com/himsi_unis" target="_blank" rel="noopener noreferrer" class="bg-himsiGold text-slate-900 px-8 py-4 rounded-xl font-bold text-sm shadow-xl hover:bg-yellow-400 transition transform hover:-translate-y-0.5 flex items-center gap-2">
                     <i class="fa-brands fa-instagram text-lg"></i> Info Pendaftaran via Instagram
                 </a>
@@ -500,7 +484,7 @@ header("X-XSS-Protection: 1; mode=block");
 
     <!-- FOOTER -->
     <footer id="kontak" class="bg-darkNavy/95 text-white py-12 px-6 relative z-10">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 relative z-20">
             <div class="flex items-center space-x-4">
                 <img src="Logohimsi.png" alt="Logo Footer" class="w-16 h-16 object-contain">
                 <div>
@@ -517,7 +501,7 @@ header("X-XSS-Protection: 1; mode=block");
     </footer>
 
     <!-- MODAL POPUP: DOKUMENTASI KEGIATAN -->
-    <div id="kegiatanModal" class="fixed inset-0 bg-black/95 z-[60] hidden items-center justify-center p-2 sm:p-6 backdrop-blur-md">
+    <div id="kegiatanModal" class="fixed inset-0 bg-black/95 z-[70] hidden items-center justify-center p-2 sm:p-6 backdrop-blur-md">
         <div class="bg-slate-900 rounded-2xl overflow-hidden w-full max-w-5xl h-[95vh] md:h-[85vh] shadow-2xl border border-slate-700 flex flex-col">
             <div class="px-5 py-4 bg-slate-800 flex justify-between items-center border-b border-slate-700 shrink-0">
                 <div>
@@ -552,7 +536,7 @@ header("X-XSS-Protection: 1; mode=block");
     </div>
 
     <!-- MODAL EMBED GAME PAHRI BROS -->
-    <div id="gameModal" class="fixed inset-0 bg-black/85 z-[60] hidden items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
+    <div id="gameModal" class="fixed inset-0 bg-black/85 z-[70] hidden items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
         <div class="bg-slate-900 rounded-2xl overflow-hidden w-[96vw] max-w-7xl h-auto md:h-[88vh] max-h-[85vh] shadow-2xl border border-slate-700 flex flex-col justify-between">
             <div class="px-4 py-3 md:px-5 md:py-4 bg-slate-800 flex justify-between items-center border-b border-slate-700 shrink-0">
                 <div class="flex items-center gap-3">
@@ -572,10 +556,10 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </div>
 
-    <!-- FLOATING CHATBOT WIDGET (HIMSI BOT 24/7) -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <button id="chatbotToggleBtn" onclick="toggleChatbot()" class="bg-himsiMaroon hover:bg-red-900 text-white rounded-full p-4 shadow-2xl transition transform hover:scale-110 flex items-center justify-center border-2 border-himsiGold">
-            <span class="text-2xl">🤖</span>
+    <!-- FLOATING CHATBOT WIDGET (HIMSI BOT 24/7) - PERBAIKAN Z-INDEX -->
+    <div class="fixed bottom-6 right-6 z-[100]">
+        <button id="chatbotToggleBtn" onclick="toggleChatbot()" class="bg-himsiMaroon hover:bg-red-900 text-white rounded-full p-4 shadow-2xl transition transform hover:scale-110 flex items-center justify-center border-2 border-himsiGold relative z-[100] cursor-pointer">
+            <span class="text-2xl pointer-events-none">🤖</span>
         </button>
 
         <div id="chatbotPanel" class="hidden absolute bottom-16 right-0 w-[90vw] max-w-[380px] h-[520px] bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden">
@@ -625,8 +609,7 @@ header("X-XSS-Protection: 1; mode=block");
             let formatted = text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
             formatted = formatted.replace(/\*(.*?)\*/g, '<i>$1</i>');
             formatted = formatted.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" class="text-sky-600 underline font-semibold">$1</a>');
-            formatted = formatted.replace(/
-/g, '<br>');
+            formatted = formatted.replace(/\n/g, '<br>');
             return formatted;
         }
 
