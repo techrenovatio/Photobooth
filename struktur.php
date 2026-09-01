@@ -70,13 +70,12 @@
 </head>
 <body>
 
-    <!-- PHP Helper yang Diperbarui -->
+    <!-- PHP Helper -->
     <?php
     function renderNode($name, $imgFile, $role, $hasChild = true) {
         $safeName = urlencode($name);
         $fallback = "https://ui-avatars.com/api/?name={$safeName}&background=6b0f1a&color=fff&bold=true";
         
-        // Logika Folder: Jika imgFile diisi, arahkan ke folder foto_pengurus/
         $imageSrc = ($imgFile !== "") ? "foto_pengurus/" . $imgFile : $fallback;
         
         $childClass = $hasChild ? "" : "no-child";
@@ -109,11 +108,23 @@
                             <?= renderNode("Neyna Carissa", "Neyna Carissa.png", "Wakil Ketua HIMSI") ?>
                             <ul>
                                 
-                                <!-- SEKRETARIS & BENDAHARA -->
-                                <li><?= renderNode("Novita Zahra", "Novita Zahra.png", "Sekretaris 1", false) ?></li>
-                                <li><?= renderNode("M Fajrun Naafi", "M Fajrun Naafi.png", "Sekretaris 2", false) ?></li>
-                                <li><?= renderNode("Julia Nurmawati", "Julia Nurmawati.png", "Bendahara 1", false) ?></li>
-                                <li><?= renderNode("Silvia Azzlina Endraeni", "Silvia Azzlina Endraeni.png", "Bendahara 2", false) ?></li>
+                                <!-- SEKRETARIS GROUP -->
+                                <li>
+                                    <?= renderNode("Sekretaris", "", "Departemen") ?>
+                                    <ul>
+                                        <li><?= renderNode("Novita Zahra", "Novita Zahra.png", "Sekretaris 1", false) ?></li>
+                                        <li><?= renderNode("M Fajrun Naafi", "M Fajrun Naafi.png", "Sekretaris 2", false) ?></li>
+                                    </ul>
+                                </li>
+
+                                <!-- BENDAHARA GROUP -->
+                                <li>
+                                    <?= renderNode("Bendahara", "", "Departemen") ?>
+                                    <ul>
+                                        <li><?= renderNode("Julia Nurmawati", "Julia Nurmawati.png", "Bendahara 1", false) ?></li>
+                                        <li><?= renderNode("Silvia Azzlina Endraeni", "Silvia Azzlina Endraeni.png", "Bendahara 2", false) ?></li>
+                                    </ul>
+                                </li>
                                 
                                 <!-- KOORDINATOR DIVISI -->
                                 <li>
@@ -142,7 +153,7 @@
                                             <?= renderNode("Publikasi & Desain", "", "Divisi PDD") ?>
                                             <ul>
                                                 <li><?= renderNode("Dinda Rahmi Ramadhani", "Dinda Rahmi Ramadhani.png", "Anggota", false) ?></li>
-                                                <li><?= renderNode("Andika Rizky Pratama", "Andika Rizky Pratama.png", "Anggota", false) ?></li>
+                                                <!-- Andika dihapus -->
                                                 <li><?= renderNode("Alvina Ramadani", "Alvina Ramadani.png", "Anggota", false) ?></li>
                                             </ul>
                                         </li>
