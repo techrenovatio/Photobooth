@@ -36,7 +36,7 @@
                 display: flex;
                 justify-content: center;
                 position: relative;
-                padding-top: 24px;
+                padding-top: 20px;
                 transition: all 0.3s ease;
             }
 
@@ -46,13 +46,13 @@
                 top: 0;
                 left: 50%;
                 width: 2px;
-                height: 24px;
+                height: 20px;
                 background-color: #991b1b;
             }
 
             .tree-child-item {
                 position: relative;
-                padding: 0 12px;
+                padding: 0 6px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -61,20 +61,20 @@
             .tree-child-item::before {
                 content: '';
                 position: absolute;
-                top: -24px;
+                top: -20px;
                 left: 0;
                 width: 50%;
-                height: 24px;
+                height: 20px;
                 border-top: 2px solid #991b1b;
             }
 
             .tree-child-item::after {
                 content: '';
                 position: absolute;
-                top: -24px;
+                top: -20px;
                 right: 0;
                 width: 50%;
-                height: 24px;
+                height: 20px;
                 border-top: 2px solid #991b1b;
             }
 
@@ -86,11 +86,11 @@
             .tree-child-item > .tree-node-wrapper::before {
                 content: '';
                 position: absolute;
-                top: -24px;
+                top: -20px;
                 left: 50%;
                 transform: translateX(-50%);
                 width: 2px;
-                height: 24px;
+                height: 20px;
                 background-color: #991b1b;
             }
         }
@@ -138,37 +138,37 @@
             </button>
         </div>
 
-        <!-- LAYOUT DESKTOP (Interactive Tree View) -->
-        <div class="hidden lg:block overflow-x-auto pb-12 pt-2">
-            <div class="min-w-[1050px] flex justify-center">
-                <div class="tree-node-wrapper">
+        <!-- LAYOUT DESKTOP (Interactive Tree View - Dynamic Auto Fit) -->
+        <div class="hidden lg:flex justify-center items-center w-full overflow-x-auto pb-12 pt-2">
+            <div class="w-full max-w-7xl mx-auto flex justify-center">
+                <div class="tree-node-wrapper w-full">
                     <!-- PRESIDIUM UTAMA NODE -->
-                    <div onclick="toggleBranch('presidium-branch', 'presidium-btn')" class="cursor-pointer group relative bg-red-950 text-white border-2 border-red-900 p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 w-72 text-center hover:-translate-y-1">
+                    <div onclick="toggleBranch('presidium-branch', 'presidium-btn')" class="cursor-pointer group relative bg-red-950 text-white border-2 border-red-900 p-3.5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 w-64 text-center hover:-translate-y-1 mx-auto">
                         <div class="flex items-center justify-center gap-1.5 text-[10px] font-bold text-red-300 uppercase tracking-wider mb-1">
                             <span>Presidium Utama</span>
                             <i id="presidium-btn" class="fa-solid fa-chevron-up text-xs ml-1 transition-transform"></i>
                         </div>
-                        <div class="font-extrabold text-lg">Rafli Fahrezi</div>
-                        <div class="text-xs text-red-200 font-medium">Ketua HIMSI</div>
-                        <div class="border-t border-red-800/80 my-2"></div>
-                        <div class="font-extrabold text-lg">Neyna Carissa</div>
-                        <div class="text-xs text-red-200 font-medium">Wakil Ketua HIMSI</div>
+                        <div class="font-extrabold text-base">Rafli Fahrezi</div>
+                        <div class="text-[11px] text-red-200 font-medium">Ketua HIMSI</div>
+                        <div class="border-t border-red-800/80 my-1.5"></div>
+                        <div class="font-extrabold text-base">Neyna Carissa</div>
+                        <div class="text-[11px] text-red-200 font-medium">Wakil Ketua HIMSI</div>
                     </div>
 
                     <!-- PRESIDIUM BRANCH (CHILDREN) -->
-                    <div id="presidium-branch" class="collapsible-content">
+                    <div id="presidium-branch" class="collapsible-content w-full">
                         <div class="tree-children">
                             <!-- SEKRETARIS NODE -->
                             <div class="tree-child-item">
                                 <div class="tree-node-wrapper">
-                                    <div onclick="toggleBranch('sekretaris-branch', 'sekretaris-btn')" class="cursor-pointer bg-red-900 hover:bg-red-800 text-white p-3.5 rounded-2xl shadow-md border border-red-700 w-52 text-center transition group hover:-translate-y-0.5">
+                                    <div onclick="toggleBranch('sekretaris-branch', 'sekretaris-btn')" class="cursor-pointer bg-red-900 hover:bg-red-800 text-white p-3 rounded-2xl shadow-md border border-red-700 w-44 text-center transition group hover:-translate-y-0.5">
                                         <div class="flex items-center justify-center gap-1 text-[10px] font-bold text-red-200 uppercase">
                                             <span>Sekretaris</span>
                                             <i id="sekretaris-btn" class="fa-solid fa-chevron-up text-[10px] transition-transform"></i>
                                         </div>
                                         <div id="sekretaris-branch" class="collapsible-content mt-1">
-                                            <div class="text-xs font-bold mt-1 text-slate-100">1. Novita Zahra</div>
-                                            <div class="text-xs font-bold text-slate-100">2. M Fajrun Naafi</div>
+                                            <div class="text-[11px] font-bold mt-1 text-slate-100">1. Novita Zahra</div>
+                                            <div class="text-[11px] font-bold text-slate-100">2. M Fajrun Naafi</div>
                                         </div>
                                     </div>
                                 </div>
@@ -177,12 +177,12 @@
                             <!-- KOORDINATOR DIVISI NODE -->
                             <div class="tree-child-item">
                                 <div class="tree-node-wrapper">
-                                    <div onclick="toggleBranch('koor-branch', 'koor-btn')" class="cursor-pointer bg-red-900 hover:bg-red-800 text-white p-3.5 rounded-2xl shadow-md border border-red-700 w-56 text-center transition group hover:-translate-y-0.5">
+                                    <div onclick="toggleBranch('koor-branch', 'koor-btn')" class="cursor-pointer bg-red-900 hover:bg-red-800 text-white p-3 rounded-2xl shadow-md border border-red-700 w-48 text-center transition group hover:-translate-y-0.5">
                                         <div class="flex items-center justify-center gap-1 text-[10px] font-bold text-red-200 uppercase">
                                             <span>Koordinator Divisi</span>
                                             <i id="koor-btn" class="fa-solid fa-chevron-up text-[10px] transition-transform"></i>
                                         </div>
-                                        <div class="text-sm font-extrabold mt-1">Muhamad Dimyati</div>
+                                        <div class="text-xs font-extrabold mt-1">Muhamad Dimyati</div>
                                     </div>
 
                                     <!-- DIVISI CHILDREN BRANCH -->
@@ -191,15 +191,15 @@
                                             <!-- Divisi Pendidikan -->
                                             <div class="tree-child-item">
                                                 <div class="tree-node-wrapper">
-                                                    <div onclick="toggleBranch('div-pendidikan', 'pend-btn')" class="cursor-pointer bg-white hover:bg-slate-50 border-2 border-red-900 p-3.5 rounded-2xl shadow-md w-48 text-left transition group">
-                                                        <div class="flex justify-between items-center text-[11px] font-extrabold text-red-950 uppercase border-b border-red-100 pb-1 mb-2">
+                                                    <div onclick="toggleBranch('div-pendidikan', 'pend-btn')" class="cursor-pointer bg-white hover:bg-slate-50 border-2 border-red-900 p-3 rounded-2xl shadow-md w-40 text-left transition group">
+                                                        <div class="flex justify-between items-center text-[10px] font-extrabold text-red-950 uppercase border-b border-red-100 pb-1 mb-1.5">
                                                             <span>Pendidikan</span>
                                                             <i id="pend-btn" class="fa-solid fa-chevron-up text-red-800 text-[10px] transition-transform"></i>
                                                         </div>
-                                                        <div id="div-pendidikan" class="collapsible-content text-xs text-slate-700 space-y-1 font-medium">
-                                                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[10px] text-red-800"></i> Firda Sofia</div>
-                                                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[10px] text-red-800"></i> M Rizky Ramadhan</div>
-                                                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[10px] text-red-800"></i> Teguh Firmansyah</div>
+                                                        <div id="div-pendidikan" class="collapsible-content text-[11px] text-slate-700 space-y-1 font-medium">
+                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Firda Sofia</div>
+                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> M Rizky R.</div>
+                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Teguh F.</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -208,15 +208,15 @@
                                             <!-- Divisi Humas -->
                                             <div class="tree-child-item">
                                                 <div class="tree-node-wrapper">
-                                                    <div onclick="toggleBranch('div-humas', 'humas-btn')" class="cursor-pointer bg-white hover:bg-slate-50 border-2 border-red-900 p-3.5 rounded-2xl shadow-md w-52 text-left transition group">
-                                                        <div class="flex justify-between items-center text-[11px] font-extrabold text-red-950 uppercase border-b border-red-100 pb-1 mb-2">
+                                                    <div onclick="toggleBranch('div-humas', 'humas-btn')" class="cursor-pointer bg-white hover:bg-slate-50 border-2 border-red-900 p-3 rounded-2xl shadow-md w-44 text-left transition group">
+                                                        <div class="flex justify-between items-center text-[10px] font-extrabold text-red-950 uppercase border-b border-red-100 pb-1 mb-1.5">
                                                             <span>Humas Int & Eks</span>
                                                             <i id="humas-btn" class="fa-solid fa-chevron-up text-red-800 text-[10px] transition-transform"></i>
                                                         </div>
-                                                        <div id="div-humas" class="collapsible-content text-xs text-slate-700 space-y-1 font-medium">
-                                                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[10px] text-red-800"></i> Risnanda Mei D.</div>
-                                                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[10px] text-red-800"></i> Ronal Ardiyansah</div>
-                                                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[10px] text-red-800"></i> Salwania Azzizah</div>
+                                                        <div id="div-humas" class="collapsible-content text-[11px] text-slate-700 space-y-1 font-medium">
+                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Risnanda Mei D.</div>
+                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Ronal Ardiyansah</div>
+                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Salwania A.</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -225,15 +225,15 @@
                                             <!-- Divisi PDD -->
                                             <div class="tree-child-item">
                                                 <div class="tree-node-wrapper">
-                                                    <div onclick="toggleBranch('div-pdd', 'pdd-btn')" class="cursor-pointer bg-white hover:bg-slate-50 border-2 border-red-900 p-3.5 rounded-2xl shadow-md w-48 text-left transition group">
-                                                        <div class="flex justify-between items-center text-[11px] font-extrabold text-red-950 uppercase border-b border-red-100 pb-1 mb-2">
+                                                    <div onclick="toggleBranch('div-pdd', 'pdd-btn')" class="cursor-pointer bg-white hover:bg-slate-50 border-2 border-red-900 p-3 rounded-2xl shadow-md w-40 text-left transition group">
+                                                        <div class="flex justify-between items-center text-[10px] font-extrabold text-red-950 uppercase border-b border-red-100 pb-1 mb-1.5">
                                                             <span>Divisi PDD</span>
                                                             <i id="pdd-btn" class="fa-solid fa-chevron-up text-red-800 text-[10px] transition-transform"></i>
                                                         </div>
-                                                        <div id="div-pdd" class="collapsible-content text-xs text-slate-700 space-y-1 font-medium">
-                                                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[10px] text-red-800"></i> Dinda Rahmi R.</div>
-                                                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[10px] text-red-800"></i> Andika Rizky P.</div>
-                                                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[10px] text-red-800"></i> Alvina Ramadani</div>
+                                                        <div id="div-pdd" class="collapsible-content text-[11px] text-slate-700 space-y-1 font-medium">
+                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Dinda Rahmi R.</div>
+                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Andika Rizky P.</div>
+                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Alvina Ramadani</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -242,15 +242,15 @@
                                             <!-- Divisi Logistik -->
                                             <div class="tree-child-item">
                                                 <div class="tree-node-wrapper">
-                                                    <div onclick="toggleBranch('div-logistik', 'log-btn')" class="cursor-pointer bg-white hover:bg-slate-50 border-2 border-red-900 p-3.5 rounded-2xl shadow-md w-48 text-left transition group">
-                                                        <div class="flex justify-between items-center text-[11px] font-extrabold text-red-950 uppercase border-b border-red-100 pb-1 mb-2">
+                                                    <div onclick="toggleBranch('div-logistik', 'log-btn')" class="cursor-pointer bg-white hover:bg-slate-50 border-2 border-red-900 p-3 rounded-2xl shadow-md w-40 text-left transition group">
+                                                        <div class="flex justify-between items-center text-[10px] font-extrabold text-red-950 uppercase border-b border-red-100 pb-1 mb-1.5">
                                                             <span>Divisi Logistik</span>
                                                             <i id="log-btn" class="fa-solid fa-chevron-up text-red-800 text-[10px] transition-transform"></i>
                                                         </div>
-                                                        <div id="div-logistik" class="collapsible-content text-xs text-slate-700 space-y-1 font-medium">
-                                                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[10px] text-red-800"></i> Satria Radityo M.</div>
-                                                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[10px] text-red-800"></i> Maisatul Hikmah</div>
-                                                            <div class="flex items-center gap-1.5"><i class="fa-solid fa-user-check text-[10px] text-red-800"></i> Hani Qurrotu Aini</div>
+                                                        <div id="div-logistik" class="collapsible-content text-[11px] text-slate-700 space-y-1 font-medium">
+                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Satria Radityo M.</div>
+                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Maisatul H.</div>
+                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Hani Qurrotu A.</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -263,14 +263,14 @@
                             <!-- BENDAHARA NODE -->
                             <div class="tree-child-item">
                                 <div class="tree-node-wrapper">
-                                    <div onclick="toggleBranch('bendahara-branch', 'bendahara-btn')" class="cursor-pointer bg-red-900 hover:bg-red-800 text-white p-3.5 rounded-2xl shadow-md border border-red-700 w-52 text-center transition group hover:-translate-y-0.5">
+                                    <div onclick="toggleBranch('bendahara-branch', 'bendahara-btn')" class="cursor-pointer bg-red-900 hover:bg-red-800 text-white p-3 rounded-2xl shadow-md border border-red-700 w-44 text-center transition group hover:-translate-y-0.5">
                                         <div class="flex items-center justify-center gap-1 text-[10px] font-bold text-red-200 uppercase">
                                             <span>Bendahara</span>
                                             <i id="bendahara-btn" class="fa-solid fa-chevron-up text-[10px] transition-transform"></i>
                                         </div>
                                         <div id="bendahara-branch" class="collapsible-content mt-1">
-                                            <div class="text-xs font-bold mt-1 text-slate-100">1. Julia Nurmawati</div>
-                                            <div class="text-xs font-bold text-slate-100">2. Silvia Azzlina E.</div>
+                                            <div class="text-[11px] font-bold mt-1 text-slate-100">1. Julia Nurmawati</div>
+                                            <div class="text-[11px] font-bold text-slate-100">2. Silvia Azzlina E.</div>
                                         </div>
                                     </div>
                                 </div>
