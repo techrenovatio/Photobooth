@@ -197,7 +197,7 @@
                                                             <i id="pend-btn" class="fa-solid fa-chevron-up text-red-800 text-[10px] transition-transform"></i>
                                                         </div>
                                                         <div id="div-pendidikan" class="collapsible-content text-[11px] text-slate-700 space-y-1 font-medium">
-                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Firda Sofia</div>
+                                                            <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Firda Nur Sofia</div>
                                                             <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> M Rizky R.</div>
                                                             <div class="flex items-center gap-1"><i class="fa-solid fa-user-check text-[9px] text-red-800"></i> Teguh F.</div>
                                                         </div>
@@ -287,7 +287,7 @@
             <div onclick="toggleBranch('mob-presidium', 'mob-pres-btn')" class="cursor-pointer bg-red-950 text-white p-5 rounded-2xl shadow-md border border-red-900 relative">
                 <div class="flex justify-between items-center border-b border-red-800 pb-2 mb-2">
                     <span class="text-[10px] font-bold uppercase tracking-wider text-red-300 bg-red-900 px-2.5 py-1 rounded-full border border-red-700">
-                        Presidium Utama
+                        Ketua dan Wakil Ketua
                     </span>
                     <i id="mob-pres-btn" class="fa-solid fa-chevron-up text-red-300 transition-transform"></i>
                 </div>
