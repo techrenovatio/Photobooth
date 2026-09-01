@@ -201,7 +201,7 @@ header("X-XSS-Protection: 1; mode=block");
                         Mengenal lebih dekat visi, misi, divisi, dan pengurus Himpunan Mahasiswa Sistem Informasi UNIS Tangerang periode 2026.
                     </p>
                 </div>
-                <a href="struktur.php" class="inline-flex items-center justify-center w-full bg-slate-900 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-slate-800 transition shadow-sm">
+                <a href="struktur" class="inline-flex items-center justify-center w-full bg-slate-900 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-slate-800 transition shadow-sm">
                     Lihat Struktur Organisasi &rarr;
                 </a>
             </div>
@@ -352,8 +352,8 @@ header("X-XSS-Protection: 1; mode=block");
                     </div>
                 </div>
 
-                <!-- Tombol Lihat Keseluruhan -->
-                <a href="struktur.php" class="inline-flex items-center justify-center gap-2 bg-himsiMaroon hover:bg-red-900 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg w-full sm:w-auto">
+                <!-- Tombol Lihat Keseluruhan (Link Bersih: /struktur) -->
+                <a href="struktur" class="inline-flex items-center justify-center gap-2 bg-himsiMaroon hover:bg-red-900 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg w-full sm:w-auto">
                     <i class="fa-solid fa-sitemap"></i> Lihat Struktur Organisasi Lengkap
                 </a>
             </div>

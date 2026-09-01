@@ -62,7 +62,7 @@
     <!-- Header Navigation -->
     <nav class="bg-red-950 text-white p-4 shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.php" class="flex items-center gap-2 font-bold text-lg hover:text-red-200 transition">
+            <a href="/" class="flex items-center gap-2 font-bold text-lg hover:text-red-200 transition">
                 <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
             </a>
             <span class="font-semibold text-sm bg-red-800 px-3 py-1 rounded-full">Kabinet Genesis 2026/2027</span>
