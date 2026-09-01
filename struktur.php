@@ -168,7 +168,7 @@
                                         </li>
                                         <!-- DIVISI HUMAS -->
                                         <li>
-                                            <?= renderNode("Humas Int & Eks", "", "Divisi") ?>
+                                            <?= renderNode("Humas Internal & Eksternal", "", "Divisi") ?>
                                             <ul>
                                                 <li><?= renderNode("Risnanda Mei Damayanti", "Risnanda Mei Damayanti.webp", "Anggota", false) ?></li>
                                                 <li><?= renderNode("Ronal Ardiyansah", "Ronal Ardiyansah.webp", "Anggota", false) ?></li>
