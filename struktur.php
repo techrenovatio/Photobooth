@@ -8,7 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         /* Desain Background & Scroll */
-        body { background-color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; position: relative; }
         
         .tree-container { 
             width: 100%; 
@@ -19,6 +19,8 @@
             display: flex;
             justify-content: center; 
             align-items: flex-start; 
+            position: relative;
+            z-index: 10; /* Agar bagan tetap di atas logo */
         }
         
         @media (max-width: 1024px) {
@@ -70,7 +72,7 @@
         .org-node img {
             width: 75px; height: 75px; border-radius: 50%; object-fit: cover;
             border: 4px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            background-color: #f1f5f9; position: relative; z-index: 10;
+            background-color: #f1f5f9; position: relative; z-index: 20;
         }
         
         /* Tombol Plus/Minus */
@@ -78,7 +80,7 @@
             position: absolute; bottom: 0; right: 0;
             background-color: #ea580c; color: white; border-radius: 50%;
             width: 22px; height: 22px; display: flex; align-items: center; justify-content: center;
-            font-size: 11px; cursor: pointer; z-index: 20; border: 2px solid white;
+            font-size: 11px; cursor: pointer; z-index: 30; border: 2px solid white;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: transform 0.2s;
         }
         .toggle-btn:hover { transform: scale(1.1); }
@@ -90,16 +92,20 @@
 </head>
 <body>
 
+    <!-- WATERMARK LOGO HIMSI (Transparan di tengah) -->
+    <div class="fixed inset-0 z-0 flex items-center justify-center pointer-events-none opacity-[0.08]">
+        <img src="Logohimsi.png" alt="Watermark HIMSI" class="w-[80vw] md:w-[450px] lg:w-[600px] object-contain">
+    </div>
+
     <!-- PHP Helper -->
     <?php
-    // Menambahkan parameter $startCollapsed untuk menentukan apakah dia ditutup secara default
     function renderNode($name, $imgFile, $role, $hasChild = true, $startCollapsed = false) {
         $safeName = urlencode($name);
         $fallback = "https://ui-avatars.com/api/?name={$safeName}&background=6b0f1a&color=fff&bold=true";
         $imageSrc = ($imgFile !== "") ? "foto_pengurus/" . $imgFile : $fallback;
         
         $childClass = $hasChild ? "" : "no-child";
-        $iconClass = $startCollapsed ? "fa-plus" : "fa-minus"; // Jika tertutup dari awal, pakai plus
+        $iconClass = $startCollapsed ? "fa-plus" : "fa-minus";
         
         return "
         <div class='org-node {$childClass}'>
@@ -114,11 +120,11 @@
     ?>
 
     <!-- Header UI -->
-    <div class="bg-red-950 text-white px-6 py-4 flex items-center shadow-md sticky top-0 z-50 gap-4">
+    <div class="bg-red-950 text-white px-6 py-4 flex items-center shadow-md sticky top-0 z-50 gap-4 relative">
         <a href="index.php" class="flex items-center gap-2 hover:text-red-300 transition border-r border-red-800 pr-4 text-sm font-semibold">
             <i class="fa-solid fa-arrow-left"></i> Kembali
         </a>
-        <div class="font-bold text-lg tracking-wider">HIMSI UNIS <span class="text-red-300 font-normal text-sm ml-2 hidden sm:inline-block">| Organization Chart Kabinet Genesis</span></div>
+        <div class="font-bold text-lg tracking-wider">HIMSI UNIS KABINET GENESIS<span class="text-red-300 font-normal text-sm ml-2 hidden sm:inline-block">| Organization Chart Kabinet Genesis</span></div>
     </div>
 
     <!-- Area Bagan Struktur Organisasi -->
@@ -131,7 +137,7 @@
                         <li>
                             <?= renderNode("Neyna Carissa", "Neyna Carissa.webp", "Wakil Ketua HIMSI") ?>
                             <ul>
-                                <!-- SEKRETARIS GROUP (TERTUTUP DEFAULT) -->
+                                <!-- SEKRETARIS GROUP -->
                                 <li>
                                     <?= renderNode("Sekretaris", "", "Departemen", true, true) ?>
                                     <ul style="display: none;">
@@ -139,7 +145,7 @@
                                         <li><?= renderNode("M Fajrun Naafi", "M Fajrun Naafi.webp", "Sekretaris 2", false) ?></li>
                                     </ul>
                                 </li>
-                                <!-- BENDAHARA GROUP (TERTUTUP DEFAULT) -->
+                                <!-- BENDAHARA GROUP -->
                                 <li>
                                     <?= renderNode("Bendahara", "", "Departemen", true, true) ?>
                                     <ul style="display: none;">
@@ -147,7 +153,7 @@
                                         <li><?= renderNode("Silvia Azzlina Endraeni", "Silvia Azzlina Endraeni.webp", "Bendahara 2", false) ?></li>
                                     </ul>
                                 </li>
-                                <!-- KOORDINATOR DIVISI (TERTUTUP DEFAULT) -->
+                                <!-- KOORDINATOR DIVISI -->
                                 <li>
                                     <?= renderNode("Muhamad Dimyati", "Muhamad Dimyati.webp", "Koordinator Divisi", true, true) ?>
                                     <ul style="display: none;">
