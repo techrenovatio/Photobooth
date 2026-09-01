@@ -389,7 +389,7 @@ header("X-XSS-Protection: 1; mode=block");
                 </span>
                 <h2 class="serif-title text-3xl font-bold text-slate-900 mt-3">Apa yang Akan Kamu Pelajari di HIMSI?</h2>
                 <p class="text-slate-600 text-sm mt-2">
-                    Asah keterampilan teknis dan akademis di bidang IT. <span class="font-semibold text-himsiMaroon">Klik kartu untuk melihat detail silabus & roadmap!</span>
+                    Asah keterampilan teknis dan akademis di bidang IT. <span class="font-semibold text-himsiMaroon">Klik kartu untuk mencoba fitur UI/UX Interactive Sandbox!</span>
                 </p>
             </div>
 
@@ -422,7 +422,7 @@ header("X-XSS-Protection: 1; mode=block");
                         <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Dasar Pemrograman</h3>
                         <p class="text-slate-500 text-xs leading-relaxed mb-3">Logika algoritma, pemecahan masalah, dan dasar penulisan kode sintaks.</p>
                     </div>
-                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Detail Silabus &rarr;</span>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Silabus & Sandbox &rarr;</span>
                 </div>
 
                 <!-- Card 2 -->
@@ -435,7 +435,7 @@ header("X-XSS-Protection: 1; mode=block");
                         <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Fundamental ERP</h3>
                         <p class="text-slate-500 text-xs leading-relaxed mb-3">Pemahaman sistem perencanaan sumber daya perusahaan terintegrasi.</p>
                     </div>
-                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Detail Silabus &rarr;</span>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Silabus & Sandbox &rarr;</span>
                 </div>
 
                 <!-- Card 3 -->
@@ -448,7 +448,7 @@ header("X-XSS-Protection: 1; mode=block");
                         <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Konsep Basis Data</h3>
                         <p class="text-slate-500 text-xs leading-relaxed mb-3">Perancangan, manipulasi data (SQL), dan pengelolaan sistem database.</p>
                     </div>
-                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Detail Silabus &rarr;</span>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Silabus & Sandbox &rarr;</span>
                 </div>
 
                 <!-- Card 4 -->
@@ -461,7 +461,7 @@ header("X-XSS-Protection: 1; mode=block");
                         <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Fundamental Jaringan</h3>
                         <p class="text-slate-500 text-xs leading-relaxed mb-3">Konsep LAN/WAN, IP addressing, komunikasi data, dan infrastruktur IT.</p>
                     </div>
-                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Detail Silabus &rarr;</span>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Silabus & Sandbox &rarr;</span>
                 </div>
 
                 <!-- Card 5 -->
@@ -474,7 +474,7 @@ header("X-XSS-Protection: 1; mode=block");
                         <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Data Science</h3>
                         <p class="text-slate-500 text-xs leading-relaxed mb-3">Pengolahan data, analisis statistik, visualisasi data, dan pola tren.</p>
                     </div>
-                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Detail Silabus &rarr;</span>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Silabus & Sandbox &rarr;</span>
                 </div>
 
                 <!-- Card 6 -->
@@ -487,7 +487,7 @@ header("X-XSS-Protection: 1; mode=block");
                         <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Design UI/UX</h3>
                         <p class="text-slate-500 text-xs leading-relaxed mb-3">Perancangan antarmuka aplikasi intuitif dan riset pengalaman pengguna.</p>
                     </div>
-                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Detail Silabus &rarr;</span>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Silabus & Sandbox &rarr;</span>
                 </div>
 
                 <!-- Card 7 -->
@@ -500,7 +500,7 @@ header("X-XSS-Protection: 1; mode=block");
                         <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Machine Learning</h3>
                         <p class="text-slate-500 text-xs leading-relaxed mb-3">Konsep model kecerdasan buatan dan pemrosesan data otomatis.</p>
                     </div>
-                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Detail Silabus &rarr;</span>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Silabus & Sandbox &rarr;</span>
                 </div>
 
                 <!-- Card 8 -->
@@ -513,7 +513,7 @@ header("X-XSS-Protection: 1; mode=block");
                         <h3 class="font-bold text-slate-900 text-base mb-1 group-hover:text-himsiMaroon transition">Keamanan Siber</h3>
                         <p class="text-slate-500 text-xs leading-relaxed mb-3">Prinsip perlindungan data, kesadaran celah keamanan, dan etika IT.</p>
                     </div>
-                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Detail Silabus &rarr;</span>
+                    <span class="text-[11px] font-bold text-himsiMaroon flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-2">Lihat Silabus & Sandbox &rarr;</span>
                 </div>
             </div>
         </div>
@@ -577,7 +577,7 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </footer>
 
-    <!-- MODAL POPUP: FOTO PROFIL PIMPINAN (RESPONSIF & SUPER BESAR) -->
+    <!-- MODAL POPUP: FOTO PROFIL PIMPINAN -->
     <div id="pimpinanModal" class="fixed inset-0 bg-black/75 z-[100] hidden items-center justify-center p-4 backdrop-blur-md" onclick="tutupModalPimpinan(event)">
         <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 w-full max-w-[90vw] sm:max-w-lg md:max-w-2xl text-center relative transform transition-all" id="pimpinanModalContent">
             <button onclick="tutupModalPimpinanDirect()" class="absolute top-4 right-5 md:top-6 md:right-7 text-gray-400 hover:text-red-600 transition text-3xl md:text-4xl">
@@ -589,11 +589,11 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </div>
 
-    <!-- MODAL POPUP: DETAIL BENEFIT ANGGOTA (DENGAN TIMELINE & BADGE) -->
+    <!-- MODAL POPUP: DETAIL BENEFIT ANGGOTA & INTERACTIVE SANDBOX -->
     <div id="benefitModal" class="fixed inset-0 bg-black/80 z-[90] hidden items-center justify-center p-4 backdrop-blur-sm">
         <div class="bg-white rounded-3xl overflow-hidden w-full max-w-2xl shadow-2xl border border-slate-200 flex flex-col relative transform transition-all">
             <!-- Header Modal -->
-            <div class="px-6 py-5 bg-himsiMaroon text-white flex justify-between items-center relative">
+            <div class="px-6 py-4 bg-himsiMaroon text-white flex justify-between items-center relative">
                 <div class="flex items-center gap-3">
                     <span id="benefitIcon" class="text-3xl">💻</span>
                     <div>
@@ -601,45 +601,61 @@ header("X-XSS-Protection: 1; mode=block");
                             <h3 id="benefitJudul" class="font-bold text-lg md:text-xl leading-tight">Detail Pembelajaran</h3>
                             <span id="benefitLevelBadge" class="text-[10px] font-extrabold px-2.5 py-0.5 rounded-md"></span>
                         </div>
-                        <p class="text-xs text-slate-200 mt-0.5">Silabus & Roadmap Pembelajaran Anggota HIMSI</p>
+                        <p class="text-xs text-slate-200 mt-0.5">Silabus, Roadmap, & UI/UX Interactive Sandbox</p>
                     </div>
                 </div>
                 <button onclick="tutupModalBenefit()" class="text-white/80 hover:text-white text-3xl font-bold px-2 leading-none transition">&times;</button>
             </div>
 
+            <!-- Tab Buttons dalam Modal -->
+            <div class="bg-slate-100 border-b border-slate-200 px-6 pt-3 flex gap-4 text-xs font-bold">
+                <button id="modalTabSilabus" onclick="switchModalTab('silabus')" class="pb-3 border-b-2 border-himsiMaroon text-himsiMaroon flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-book-open"></i> Silabus & Roadmap
+                </button>
+                <button id="modalTabSandbox" onclick="switchModalTab('sandbox')" class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-gamepad"></i> Interactive Sandbox 🎮
+                </button>
+            </div>
+
             <!-- Body Modal -->
-            <div class="p-6 overflow-y-auto max-h-[75vh] space-y-6 text-sm text-slate-700">
-                <!-- Deskripsi -->
-                <div>
-                    <h4 class="font-bold text-slate-900 mb-1.5 flex items-center gap-2">
-                        <i class="fa-solid fa-circle-info text-himsiMaroon"></i> Ringkasan Materi
-                    </h4>
-                    <p id="benefitDeskripsi" class="text-slate-600 leading-relaxed text-xs sm:text-sm"></p>
-                    <div id="benefitKegiatan" class="mt-2 text-xs font-semibold text-himsiMaroon bg-red-50 p-2.5 rounded-xl border border-red-100 inline-block"></div>
+            <div class="p-6 overflow-y-auto max-h-[65vh] text-sm text-slate-700">
+                <!-- TAB 1: SILABUS & ROADMAP -->
+                <div id="modalContentSilabus" class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1.5 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info text-himsiMaroon"></i> Ringkasan Materi
+                        </h4>
+                        <p id="benefitDeskripsi" class="text-slate-600 leading-relaxed text-xs sm:text-sm"></p>
+                        <div id="benefitKegiatan" class="mt-2 text-xs font-semibold text-himsiMaroon bg-red-50 p-2.5 rounded-xl border border-red-100 inline-block"></div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-screwdriver-wrench text-himsiMaroon"></i> Teknologi & Tools
+                        </h4>
+                        <div id="benefitTools" class="flex flex-wrap gap-2"></div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-route text-himsiMaroon"></i> Roadmap Belajar 4 Minggu
+                        </h4>
+                        <div id="benefitRoadmap" class="space-y-3 relative border-l-2 border-red-200 ml-3 pl-4"></div>
+                    </div>
+
+                    <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200">
+                        <h4 class="font-bold text-amber-900 mb-1 flex items-center gap-2 text-xs sm:text-sm">
+                            <i class="fa-solid fa-trophy text-amber-600"></i> Target Output Proyek
+                        </h4>
+                        <p id="benefitOutput" class="text-xs sm:text-sm text-amber-800 font-medium"></p>
+                    </div>
                 </div>
 
-                <!-- Tools & Teknologi -->
-                <div>
-                    <h4 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-screwdriver-wrench text-himsiMaroon"></i> Teknologi & Tools
-                    </h4>
-                    <div id="benefitTools" class="flex flex-wrap gap-2"></div>
-                </div>
-
-                <!-- Visual Roadmap Belajar (Timeline Style) -->
-                <div>
-                    <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-route text-himsiMaroon"></i> Roadmap Belajar 4 Minggu
-                    </h4>
-                    <div id="benefitRoadmap" class="space-y-3 relative border-l-2 border-red-200 ml-3 pl-4"></div>
-                </div>
-
-                <!-- Output Proyek -->
-                <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200">
-                    <h4 class="font-bold text-amber-900 mb-1 flex items-center gap-2 text-xs sm:text-sm">
-                        <i class="fa-solid fa-trophy text-amber-600"></i> Target Output Proyek
-                    </h4>
-                    <p id="benefitOutput" class="text-xs sm:text-sm text-amber-800 font-medium"></p>
+                <!-- TAB 2: INTERACTIVE SANDBOX -->
+                <div id="modalContentSandbox" class="hidden">
+                    <div id="sandboxContainer" class="bg-slate-900 text-white rounded-2xl p-5 border border-slate-700 shadow-inner">
+                        <!-- Dynamic Content Sandbox akan di-render di sini via JS -->
+                    </div>
                 </div>
             </div>
 
@@ -753,6 +769,8 @@ header("X-XSS-Protection: 1; mode=block");
 
     <!-- JAVASCRIPT SYSTEM -->
     <script>
+        let activeBenefitKey = '';
+
         // --- FUNGSI MODAL PIMPINAN ---
         function bukaModalPimpinan(nama, imgSrc, jabatan) {
             document.getElementById('pimpinanNama').textContent = nama;
@@ -950,8 +968,398 @@ header("X-XSS-Protection: 1; mode=block");
             }
         };
 
+        // --- FUNGSI TAB IN-MODAL (SILABUS VS SANDBOX) ---
+        function switchModalTab(tab) {
+            const btnSilabus = document.getElementById('modalTabSilabus');
+            const btnSandbox = document.getElementById('modalTabSandbox');
+            const contentSilabus = document.getElementById('modalContentSilabus');
+            const contentSandbox = document.getElementById('modalContentSandbox');
+
+            if (tab === 'silabus') {
+                btnSilabus.className = 'pb-3 border-b-2 border-himsiMaroon text-himsiMaroon flex items-center gap-1.5 transition font-bold';
+                btnSandbox.className = 'pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition font-bold';
+                contentSilabus.classList.remove('hidden');
+                contentSandbox.classList.add('hidden');
+            } else {
+                btnSandbox.className = 'pb-3 border-b-2 border-himsiMaroon text-himsiMaroon flex items-center gap-1.5 transition font-bold';
+                btnSilabus.className = 'pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition font-bold';
+                contentSandbox.classList.remove('hidden');
+                contentSilabus.classList.add('hidden');
+                renderInteractiveSandbox(activeBenefitKey);
+            }
+        }
+
+        // --- RENDER INTERACTIVE SANDBOX BY BENEFIT KEY ---
+        function renderInteractiveSandbox(key) {
+            const container = document.getElementById('sandboxContainer');
+
+            if (key === 'pemrograman') {
+                container.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+                            <span class="text-xs font-bold text-amber-400 flex items-center gap-1.5"><i class="fa-solid fa-code"></i> Live Code Playground</span>
+                            <select id="codePreset" onchange="runCodePreset()" class="bg-slate-800 text-xs text-slate-200 border border-slate-600 rounded-lg px-2.5 py-1 focus:outline-none">
+                                <option value="hello">Hello HIMSI</option>
+                                <option value="logic">If-Else Logic</option>
+                                <option value="loop">Looping Statement</option>
+                            </select>
+                        </div>
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-sky-300">
+                            <pre id="codeEditorDisplay">print("Halo, Selamat Datang di HIMSI UNIS!")</pre>
+                        </div>
+                        <button onclick="runCodePreset()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-play"></i> Jalankan Kode (Run)
+                        </button>
+                        <div class="bg-black/80 p-3 rounded-xl border border-slate-800 text-xs font-mono">
+                            <span class="text-slate-500 block mb-1 text-[10px] uppercase tracking-wider">Console Output:</span>
+                            <div id="codeConsoleOutput" class="text-emerald-400 font-semibold">> Halo, Selamat Datang di HIMSI UNIS!</div>
+                        </div>
+                    </div>
+                `;
+            } else if (key === 'erp') {
+                container.innerHTML = `
+                    <div class="space-y-4 text-xs">
+                        <div class="border-b border-slate-700 pb-2 flex justify-between items-center">
+                            <span class="font-bold text-amber-400"><i class="fa-solid fa-network-wired"></i> ERP Business Process Simulator</span>
+                            <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Odoo Module Workflow</span>
+                        </div>
+                        <p class="text-slate-300 text-[11px]">Klik tahapan bisnis untuk melihat integrasi modul ERP secara otomatis:</p>
+                        <div class="grid grid-cols-3 gap-2 text-center font-bold">
+                            <button onclick="updateErpSim(1)" id="erpBtn1" class="p-2.5 rounded-xl border border-amber-400 bg-amber-400/20 text-amber-300">1. Order Masuk</button>
+                            <button onclick="updateErpSim(2)" id="erpBtn2" class="p-2.5 rounded-xl border border-slate-700 bg-slate-800 text-slate-400">2. Cek Stok</button>
+                            <button onclick="updateErpSim(3)" id="erpBtn3" class="p-2.5 rounded-xl border border-slate-700 bg-slate-800 text-slate-400">3. Invoice</button>
+                        </div>
+                        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1.5" id="erpSimOutput">
+                            <div class="text-amber-400 font-bold">▶ Status: Sales Order Created</div>
+                            <div class="text-slate-400 text-[11px]">Modul CRM mencatat pesanan baru dari pelanggan. Siap diverifikasi oleh modul persediaan.</div>
+                        </div>
+                    </div>
+                `;
+            } else if (key === 'database') {
+                container.innerHTML = `
+                    <div class="space-y-3 text-xs">
+                        <div class="border-b border-slate-700 pb-2 flex justify-between items-center">
+                            <span class="font-bold text-amber-400"><i class="fa-solid fa-database"></i> Visual SQL Playground</span>
+                            <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">MySQL Filter</span>
+                        </div>
+                        <div class="bg-slate-950 p-2.5 rounded-xl font-mono text-[11px] text-sky-300 border border-slate-800">
+                            SELECT * FROM mahasiswa <span id="sqlFilterText">WHERE ipk >= 3.5</span>;
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="filterSqlDemo('all')" class="bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-lg text-[11px] font-bold">Semua</button>
+                            <button onclick="filterSqlDemo('cumlaude')" class="bg-slate-800 hover:bg-slate-700 text-amber-400 px-3 py-1.5 rounded-lg text-[11px] font-bold">IPK >= 3.5</button>
+                            <button onclick="filterSqlDemo('ang2026')" class="bg-slate-800 hover:bg-slate-700 text-sky-400 px-3 py-1.5 rounded-lg text-[11px] font-bold">Angkatan 2026</button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-[11px] border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-800 text-slate-300">
+                                        <th class="p-2">NPM</th>
+                                        <th class="p-2">Nama</th>
+                                        <th class="p-2">IPK</th>
+                                        <th class="p-2">Angkatan</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sqlTableBody" class="divide-y divide-slate-800 text-slate-200">
+                                    <tr><td class="p-2">26001</td><td class="p-2">Rafli F</td><td class="p-2 text-amber-400 font-bold">3.85</td><td class="p-2">2026</td></tr>
+                                    <tr><td class="p-2">26002</td><td class="p-2">Neyna C</td><td class="p-2 text-amber-400 font-bold">3.90</td><td class="p-2">2026</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            } else if (key === 'jaringan') {
+                container.innerHTML = `
+                    <div class="space-y-4 text-xs">
+                        <div class="border-b border-slate-700 pb-2 flex justify-between items-center">
+                            <span class="font-bold text-amber-400"><i class="fa-solid fa-network-wired"></i> Packet Ping Simulator</span>
+                            <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">ICMP Protocol</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-slate-950 p-4 rounded-xl border border-slate-800 relative">
+                            <div class="text-center">
+                                <div class="w-10 h-10 bg-sky-600 rounded-full flex items-center justify-center text-lg mx-auto mb-1">💻</div>
+                                <span class="text-[10px] block font-bold">Client PC</span>
+                                <span class="text-[9px] text-slate-400">192.168.1.10</span>
+                            </div>
+                            <div class="flex-1 px-4 text-center relative">
+                                <div class="h-1 bg-slate-700 w-full rounded relative overflow-hidden">
+                                    <div id="pingPacket" class="h-full w-1/3 bg-emerald-400 rounded transition-all duration-700 translate-x-0 opacity-0"></div>
+                                </div>
+                                <span id="pingStatus" class="text-[10px] text-slate-400 block mt-2 font-mono">Status: Idle</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-10 h-10 bg-himsiMaroon rounded-full flex items-center justify-center text-lg mx-auto mb-1">🖥️</div>
+                                <span class="text-[10px] block font-bold">HIMSI Server</span>
+                                <span class="text-[9px] text-slate-400">34.9.82.228</span>
+                            </div>
+                        </div>
+                        <button onclick="runPingSim()" class="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs py-2.5 rounded-xl transition">
+                            <i class="fa-solid fa-paper-plane"></i> Send Ping Packet
+                        </button>
+                    </div>
+                `;
+            } else if (key === 'datascience') {
+                container.innerHTML = `
+                    <div class="space-y-4 text-xs">
+                        <div class="border-b border-slate-700 pb-2 flex justify-between items-center">
+                            <span class="font-bold text-amber-400"><i class="fa-solid fa-chart-simple"></i> Live Chart Generator</span>
+                            <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Pandas & Matplotlib</span>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] text-slate-300 mb-1">Ubah Aktivitas Belajar (Jam/Minggu): <span id="chartValText" class="font-bold text-amber-400">20 Jam</span></label>
+                            <input type="range" id="chartRangeInput" min="5" max="40" value="20" oninput="updateChartSim(this.value)" class="w-full accent-himsiMaroon cursor-pointer">
+                        </div>
+                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                            <span class="text-[10px] text-slate-400 block mb-2 font-mono">ESTIMASI SKILL SCORE:</span>
+                            <div class="w-full bg-slate-800 h-6 rounded-lg overflow-hidden p-0.5">
+                                <div id="chartBarOutput" class="bg-gradient-to-r from-amber-500 to-emerald-400 h-full rounded-md transition-all duration-300 flex items-center justify-end pr-2 text-[10px] font-bold text-slate-900" style="w-60%">60 Pts</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (key === 'uiux') {
+                container.innerHTML = `
+                    <div class="space-y-4 text-xs">
+                        <div class="border-b border-slate-700 pb-2 flex justify-between items-center">
+                            <span class="font-bold text-amber-400"><i class="fa-solid fa-palette"></i> Live Design System Styler</span>
+                            <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Figma Interactive</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[10px] text-slate-300 mb-1">Warna Utama Button:</label>
+                                <select onchange="updateUiTheme('color', this.value)" class="w-full bg-slate-800 text-xs text-white border border-slate-700 rounded-lg p-1.5 focus:outline-none">
+                                    <option value="bg-himsiMaroon">HIMSI Maroon</option>
+                                    <option value="bg-sky-600">Sky Blue</option>
+                                    <option value="bg-emerald-600">Emerald Green</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] text-slate-300 mb-1">Border Radius:</label>
+                                <select onchange="updateUiTheme('radius', this.value)" class="w-full bg-slate-800 text-xs text-white border border-slate-700 rounded-lg p-1.5 focus:outline-none">
+                                    <option value="rounded-xl">Rounded XL</option>
+                                    <option value="rounded-full">Pill / Full</option>
+                                    <option value="rounded-none">Square / Sharp</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 flex items-center justify-center">
+                            <button id="uiPreviewBtn" class="bg-himsiMaroon rounded-xl text-white font-bold px-6 py-3 shadow-lg transition transform hover:scale-105">
+                                Preview Interactive Button ✨
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else if (key === 'machinelearning') {
+                container.innerHTML = `
+                    <div class="space-y-4 text-xs">
+                        <div class="border-b border-slate-700 pb-2 flex justify-between items-center">
+                            <span class="font-bold text-amber-400"><i class="fa-solid fa-brain"></i> ML Grade Predictor</span>
+                            <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Regression Model</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div>
+                                <label class="block text-[10px] text-slate-300">Kehadiran Perkuliahan: <span id="mlValAtt" class="text-amber-400 font-bold">90%</span></label>
+                                <input type="range" min="50" max="100" value="90" oninput="updateMlPredict()" id="mlInputAtt" class="w-full accent-himsiMaroon cursor-pointer">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] text-slate-300">Skor Tugas & Praktikum: <span id="mlValTask" class="text-amber-400 font-bold">85</span></label>
+                                <input type="range" min="40" max="100" value="85" oninput="updateMlPredict()" id="mlInputTask" class="w-full accent-himsiMaroon cursor-pointer">
+                            </div>
+                        </div>
+                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center">
+                            <span class="text-[10px] text-slate-400 block mb-1">PREDIKSI NILAI AKHIR MAHASISWA:</span>
+                            <span id="mlOutputGrade" class="text-3xl font-extrabold text-emerald-400 block">A (88.5)</span>
+                            <span class="text-[9px] text-slate-500 mt-1 block">Akurasi Model ML: 96.4%</span>
+                        </div>
+                    </div>
+                `;
+            } else if (key === 'cybersecurity') {
+                container.innerHTML = `
+                    <div class="space-y-3 text-xs">
+                        <div class="border-b border-slate-700 pb-2 flex justify-between items-center">
+                            <span class="font-bold text-amber-400"><i class="fa-solid fa-shield-halved"></i> Password Strength & Hash Analyzer</span>
+                            <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">SHA-256</span>
+                        </div>
+                        <input type="text" id="pwdInput" onkeyup="analyzePwd(this.value)" placeholder="Ketik kata sandi untuk diuji..." class="w-full bg-slate-950 text-xs border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-amber-400">
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-2">
+                            <div class="flex justify-between items-center text-[11px]">
+                                <span>Kekuatan Sandi:</span>
+                                <span id="pwdScoreText" class="font-bold text-slate-400">Lakukan pengetikan...</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div id="pwdBar" class="h-full w-0 bg-red-500 transition-all duration-300"></div>
+                            </div>
+                            <div class="text-[10px] font-mono text-slate-400 break-all pt-1 border-t border-slate-800">
+                                <span class="text-amber-400 block font-sans font-bold">SHA-256 Hash:</span>
+                                <span id="pwdHash">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // --- INTERACTIVE HANDLERS FOR SANDBOX ---
+        function runCodePreset() {
+            const preset = document.getElementById('codePreset').value;
+            const editor = document.getElementById('codeEditorDisplay');
+            const consoleOut = document.getElementById('codeConsoleOutput');
+
+            if (preset === 'hello') {
+                editor.textContent = 'print("Halo, Selamat Datang di HIMSI UNIS!")';
+                consoleOut.textContent = '> Halo, Selamat Datang di HIMSI UNIS!';
+            } else if (preset === 'logic') {
+                editor.textContent = 'nilai = 85\nif nilai >= 75:\n    print("Status: LULUS Sempurna!")';
+                consoleOut.textContent = '> Status: LULUS Sempurna!';
+            } else if (preset === 'loop') {
+                editor.textContent = 'for i in range(1, 4):\n    print(f"Sesi Belajar HIMSI Ke-{i}")';
+                consoleOut.textContent = '> Sesi Belajar HIMSI Ke-1\n> Sesi Belajar HIMSI Ke-2\n> Sesi Belajar HIMSI Ke-3';
+            }
+        }
+
+        function updateErpSim(step) {
+            const btn1 = document.getElementById('erpBtn1');
+            const btn2 = document.getElementById('erpBtn2');
+            const btn3 = document.getElementById('erpBtn3');
+            const output = document.getElementById('erpSimOutput');
+
+            [btn1, btn2, btn3].forEach(btn => btn.className = 'p-2.5 rounded-xl border border-slate-700 bg-slate-800 text-slate-400');
+
+            if (step === 1) {
+                btn1.className = 'p-2.5 rounded-xl border border-amber-400 bg-amber-400/20 text-amber-300 font-bold';
+                output.innerHTML = '<div class="text-amber-400 font-bold">▶ Status: Sales Order Created</div><div class="text-slate-400 text-[11px]">Modul CRM mencatat pesanan baru dari pelanggan. Siap diverifikasi oleh modul persediaan.</div>';
+            } else if (step === 2) {
+                btn2.className = 'p-2.5 rounded-xl border border-amber-400 bg-amber-400/20 text-amber-300 font-bold';
+                output.innerHTML = '<div class="text-sky-400 font-bold">▶ Status: Inventory Reserved</div><div class="text-slate-400 text-[11px]">Modul Stok otomatis mengurangi stok gudang & menyiapkan alur pengiriman barang.</div>';
+            } else if (step === 3) {
+                btn3.className = 'p-2.5 rounded-xl border border-emerald-400 bg-emerald-400/20 text-emerald-300 font-bold';
+                output.innerHTML = '<div class="text-emerald-400 font-bold">▶ Status: Invoice Generated & Paid</div><div class="text-slate-400 text-[11px]">Modul Keuangan membuat faktur tagihan dan memperbarui laporan kas perusahaan.</div>';
+            }
+        }
+
+        function filterSqlDemo(type) {
+            const txt = document.getElementById('sqlFilterText');
+            const body = document.getElementById('sqlTableBody');
+
+            if (type === 'all') {
+                txt.textContent = '';
+                body.innerHTML = `
+                    <tr><td class="p-2">26001</td><td class="p-2">Rafli F</td><td class="p-2 text-amber-400 font-bold">3.85</td><td class="p-2">2026</td></tr>
+                    <tr><td class="p-2">26002</td><td class="p-2">Neyna C</td><td class="p-2 text-amber-400 font-bold">3.90</td><td class="p-2">2026</td></tr>
+                    <tr><td class="p-2">25010</td><td class="p-2">Budi S</td><td class="p-2 text-slate-300">3.20</td><td class="p-2">2025</td></tr>
+                `;
+            } else if (type === 'cumlaude') {
+                txt.textContent = 'WHERE ipk >= 3.5';
+                body.innerHTML = `
+                    <tr><td class="p-2">26001</td><td class="p-2">Rafli F</td><td class="p-2 text-amber-400 font-bold">3.85</td><td class="p-2">2026</td></tr>
+                    <tr><td class="p-2">26002</td><td class="p-2">Neyna C</td><td class="p-2 text-amber-400 font-bold">3.90</td><td class="p-2">2026</td></tr>
+                `;
+            } else if (type === 'ang2026') {
+                txt.textContent = "WHERE angkatan = '2026'";
+                body.innerHTML = `
+                    <tr><td class="p-2">26001</td><td class="p-2">Rafli F</td><td class="p-2 text-amber-400 font-bold">3.85</td><td class="p-2">2026</td></tr>
+                    <tr><td class="p-2">26002</td><td class="p-2">Neyna C</td><td class="p-2 text-amber-400 font-bold">3.90</td><td class="p-2">2026</td></tr>
+                `;
+            }
+        }
+
+        function runPingSim() {
+            const packet = document.getElementById('pingPacket');
+            const status = document.getElementById('pingStatus');
+
+            status.textContent = 'Status: Sending ICMP Request...';
+            status.className = 'text-[10px] text-amber-400 block mt-2 font-mono';
+            packet.className = 'h-full w-1/3 bg-amber-400 rounded transition-all duration-700 opacity-100 translate-x-full';
+
+            setTimeout(() => {
+                packet.className = 'h-full w-1/3 bg-emerald-400 rounded transition-all duration-700 opacity-100 translate-x-0';
+                status.textContent = 'Status: Reply from 34.9.82.228: bytes=32 time=12ms TTL=56';
+                status.className = 'text-[10px] text-emerald-400 block mt-2 font-mono font-bold';
+            }, 750);
+        }
+
+        function updateChartSim(val) {
+            document.getElementById('chartValText').textContent = val + ' Jam';
+            const bar = document.getElementById('chartBarOutput');
+            const score = Math.min(100, Math.round(val * 2.4));
+            bar.style.width = score + '%';
+            bar.textContent = score + ' Pts';
+        }
+
+        function updateUiTheme(type, val) {
+            const btn = document.getElementById('uiPreviewBtn');
+            if (type === 'color') {
+                btn.className = `${val} ${btn.className.split(' ').filter(c => !c.startsWith('bg-')).join(' ')}`;
+            } else if (type === 'radius') {
+                btn.className = `${val} ${btn.className.split(' ').filter(c => !c.startsWith('rounded-')).join(' ')}`;
+            }
+        }
+
+        function updateMlPredict() {
+            const att = parseInt(document.getElementById('mlInputAtt').value);
+            const task = parseInt(document.getElementById('mlInputTask').value);
+
+            document.getElementById('mlValAtt').textContent = att + '%';
+            document.getElementById('mlValTask').textContent = task;
+
+            const finalScore = (att * 0.3 + task * 0.7).toFixed(1);
+            let letter = 'C';
+            let color = 'text-amber-400';
+
+            if (finalScore >= 85) { letter = 'A'; color = 'text-emerald-400'; }
+            else if (finalScore >= 75) { letter = 'B'; color = 'text-sky-400'; }
+
+            const out = document.getElementById('mlOutputGrade');
+            out.textContent = `${letter} (${finalScore})`;
+            out.className = `text-3xl font-extrabold ${color} block`;
+        }
+
+        function analyzePwd(val) {
+            const bar = document.getElementById('pwdBar');
+            const txt = document.getElementById('pwdScoreText');
+            const hash = document.getElementById('pwdHash');
+
+            if (!val) {
+                bar.style.width = '0%';
+                txt.textContent = 'Lakukan pengetikan...';
+                txt.className = 'font-bold text-slate-400';
+                hash.textContent = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855';
+                return;
+            }
+
+            let score = 0;
+            if (val.length >= 6) score += 25;
+            if (val.length >= 10) score += 25;
+            if (/[A-Z]/.test(val)) score += 25;
+            if (/[0-9!@#$%^&*]/.test(val)) score += 25;
+
+            bar.style.width = score + '%';
+
+            if (score <= 25) {
+                bar.className = 'h-full bg-red-500 transition-all duration-300';
+                txt.textContent = 'Sangat Lemah ⚠️';
+                txt.className = 'font-bold text-red-400';
+            } else if (score <= 50) {
+                bar.className = 'h-full bg-amber-500 transition-all duration-300';
+                txt.textContent = 'Sedang 🟡';
+                txt.className = 'font-bold text-amber-400';
+            } else if (score <= 75) {
+                bar.className = 'h-full bg-sky-500 transition-all duration-300';
+                txt.textContent = 'Kuat 🛡️';
+                txt.className = 'font-bold text-sky-400';
+            } else {
+                bar.className = 'h-full bg-emerald-500 transition-all duration-300';
+                txt.textContent = 'Sangat Aman 🔒';
+                txt.className = 'font-bold text-emerald-400';
+            }
+
+            // Simple hash representation demo
+            hash.textContent = Array.from(val).reduce((acc, char) => (acc + char.charCodeAt(0).toString(16)), '') + 'a8f9c210b3e';
+        }
+
         // --- FUNGSI OPEN & CLOSE MODAL BENEFIT ---
         function bukaModalBenefit(key) {
+            activeBenefitKey = key;
             const data = databaseBenefit[key];
             if (!data) return;
 
@@ -989,6 +1397,8 @@ header("X-XSS-Protection: 1; mode=block");
                 `;
                 roadmapContainer.appendChild(div);
             });
+
+            switchModalTab('silabus');
 
             const modal = document.getElementById('benefitModal');
             modal.classList.remove('hidden');
