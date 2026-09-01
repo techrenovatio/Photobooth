@@ -345,7 +345,7 @@ header("X-XSS-Protection: 1; mode=block");
                 <h3 class="text-2xl font-bold text-slate-800 mt-3">Kabinet Genesis</h3>
                 <p class="text-slate-500 text-sm mt-1 mb-6">Pimpinan Himpunan Mahasiswa Sistem Informasi Periode 2026/2027 <br><span class="text-xs text-himsiMaroon font-semibold">(Klik nama pimpinan untuk melihat foto profil)</span></p>
 
-                <!-- PERBAIKAN: DITAMBAHKAN ONCLICK KE KARTU PIMPINAN -->
+                <!-- KARTU PIMPINAN DENGAN ONCLICK -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div onclick="bukaModalPimpinan('Rafli Fahrezi', 'foto_pengurus/Rafli Fahrezi.webp', 'Ketua HIMSI')" class="bg-slate-50 p-4 rounded-xl border border-slate-200 hover:border-himsiMaroon hover:shadow-md transition cursor-pointer group">
                         <div class="text-xs font-semibold text-red-700">Ketua HIMSI</div>
@@ -526,17 +526,20 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </footer>
 
-    <!-- MODAL POPUP: FOTO PROFIL PIMPINAN (BARU) -->
-    <div id="pimpinanModal" class="fixed inset-0 bg-black/70 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm" onclick="tutupModalPimpinan(event)">
-        <div class="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-sm text-center relative transform transition-transform" id="pimpinanModalContent">
-            <button onclick="tutupModalPimpinanDirect()" class="absolute top-4 right-5 text-gray-400 hover:text-red-600 transition text-2xl">
+    <!-- MODAL POPUP: FOTO PROFIL PIMPINAN (RESPONSIF & SUPER BESAR) -->
+    <div id="pimpinanModal" class="fixed inset-0 bg-black/75 z-[100] hidden items-center justify-center p-4 backdrop-blur-md" onclick="tutupModalPimpinan(event)">
+        <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 w-full max-w-[90vw] sm:max-w-lg md:max-w-2xl text-center relative transform transition-all" id="pimpinanModalContent">
+            <!-- Tombol Close -->
+            <button onclick="tutupModalPimpinanDirect()" class="absolute top-4 right-5 md:top-6 md:right-7 text-gray-400 hover:text-red-600 transition text-3xl md:text-4xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             
-            <img id="pimpinanImg" src="" alt="Foto Pimpinan" class="w-40 h-40 rounded-full object-cover border-4 border-[#d4af37] mx-auto mb-4 shadow-xl bg-gray-100">
+            <!-- Foto Profil: w-80 h-80 di HP/Tablet (2x), md:w-[480px] md:h-[480px] di Laptop (3x) -->
+            <img id="pimpinanImg" src="" alt="Foto Pimpinan" class="w-80 h-80 md:w-[480px] md:h-[480px] rounded-full object-cover border-4 md:border-8 border-[#d4af37] mx-auto mb-6 shadow-2xl bg-gray-100">
             
-            <h3 id="pimpinanNama" class="text-xl font-extrabold text-slate-800">Nama</h3>
-            <p id="pimpinanJabatan" class="text-xs font-semibold text-red-900 bg-red-100 py-1.5 px-4 rounded-full inline-block mt-2 tracking-wide">Jabatan</p>
+            <!-- Nama & Jabatan -->
+            <h3 id="pimpinanNama" class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-800 tracking-tight">Nama</h3>
+            <p id="pimpinanJabatan" class="text-sm sm:text-base md:text-lg font-bold text-red-900 bg-red-100 py-2 px-6 rounded-full inline-block mt-3 tracking-wide">Jabatan</p>
         </div>
     </div>
 
@@ -697,7 +700,7 @@ header("X-XSS-Protection: 1; mode=block");
 
     <!-- JAVASCRIPT SYSTEM -->
     <script>
-        // --- FUNGSI MODAL PIMPINAN (BARU) ---
+        // --- FUNGSI MODAL PIMPINAN ---
         function bukaModalPimpinan(nama, imgSrc, jabatan) {
             document.getElementById('pimpinanNama').textContent = nama;
             document.getElementById('pimpinanJabatan').textContent = jabatan;
