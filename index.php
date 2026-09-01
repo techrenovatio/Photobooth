@@ -464,7 +464,7 @@ header("X-XSS-Protection: 1; mode=block");
             </span>
             <h2 class="serif-title text-3xl sm:text-5xl font-bold mb-6">Bergabung Bersama HIMSI UNIS</h2>
             <p class="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-                Jadilah bagian dari Kabinet Genesis! Tingkatkan wawasan teknologi, perluas jaringan koneksi, serta kembangkan karakter kepemimpinan kamu bersama keluarga besar Sistem Informasi.
+                Jadilah bagian dari Himpunan Mahasiswa Sistem Informasi - HIMSI UNIS! Tingkatkan wawasan teknologi, perluas jaringan koneksi, serta kembangkan karakter kepemimpinan kamu bersama keluarga besar Sistem Informasi.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-left">
