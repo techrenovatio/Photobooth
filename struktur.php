@@ -9,13 +9,37 @@
     <style>
         /* Desain Background & Scroll */
         body { background-color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .tree-container { width: 100%; height: calc(100vh - 60px); overflow: auto; padding: 40px 20px; cursor: grab; }
+        
+        /* PERBAIKAN PENTING: Container agar bisa di-scroll di HP */
+        .tree-container { 
+            width: 100%; 
+            height: calc(100vh - 60px); 
+            overflow: auto; /* Mengizinkan scroll vertikal dan horizontal */
+            padding: 40px 20px; 
+            cursor: grab; 
+            display: flex;          /* Tambahkan Flexbox */
+            justify-content: center; /* Pusatkan bagan */
+            align-items: flex-start; 
+        }
+        
+        /* Agar saat di HP bagan melebar dan memicu scroll horizontal */
+        @media (max-width: 1024px) {
+            .tree-container {
+                justify-content: flex-start; /* Jangan pusatkan di HP, mulai dari kiri agar scrollable */
+                padding: 20px;
+            }
+            .tree {
+                min-width: max-content; /* Paksa bagan tetap lebar sesuai isinya */
+            }
+        }
+
         .tree-container:active { cursor: grabbing; }
 
         /* Struktur CSS Tree */
         .tree ul {
             padding-top: 30px; position: relative;
             transition: all 0.5s; display: flex; justify-content: center; padding-left: 0;
+            margin: 0; /* Reset margin */
         }
         .tree li {
             float: left; text-align: center; list-style-type: none;
