@@ -352,7 +352,7 @@ header("X-XSS-Protection: 1; mode=block");
                     </div>
                 </div>
 
-                <!-- Tombol Lihat Keseluruhan (Link Bersih: /struktur) -->
+                <!-- Tombol Lihat Keseluruhan -->
                 <a href="struktur" class="inline-flex items-center justify-center gap-2 bg-himsiMaroon hover:bg-red-900 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg w-full sm:w-auto">
                     <i class="fa-solid fa-sitemap"></i> Lihat Struktur Organisasi Lengkap
                 </a>
@@ -374,6 +374,79 @@ header("X-XSS-Protection: 1; mode=block");
                 <div class="p-4 rounded-xl bg-slate-50/80">
                     <span class="block text-2xl font-bold text-himsiMaroon serif-title">0001 1010</span>
                     <span class="text-[11px] text-slate-500 font-semibold uppercase tracking-wider">Technology Innovation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION MANFAAT & PEMBELAJARAN HIMSI -->
+    <section class="py-16 bg-slate-50 border-t border-slate-200 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-wider text-red-800 bg-red-100 px-3 py-1 rounded-full">
+                    Benefit Anggota
+                </span>
+                <h2 class="serif-title text-3xl font-bold text-slate-900 mt-3">Apa yang Akan Kamu Pelajari di HIMSI?</h2>
+                <p class="text-slate-600 text-sm mt-2">
+                    Asah keterampilan teknis dan akademis di bidang Teknologi Informasi bersama HIMSI UNIS Tangerang.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">💻</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Dasar Pemrograman</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Logika algoritma, pemecahan masalah, dan dasar penulisan kode sintaks.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">⚙️</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Fundamental ERP</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Pemahaman sistem perencanaan sumber daya perusahaan terintegrasi.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">🗄️</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Konsep Basis Data</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Perancangan, manipulasi data (SQL), dan pengelolaan sistem database.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">🌐</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Fundamental Jaringan</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Konsep LAN/WAN, IP addressing, komunikasi data, dan infrastruktur IT.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">📊</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Data Science</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Pengolahan data, analisis statistik, visualisasi data, dan pola tren.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">🎨</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Design UI/UX</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Perancangan antarmuka aplikasi intuitif dan riset pengalaman pengguna.</p>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">🤖</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Machine Learning</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Konsep model kecerdasan buatan dan pemrosesan data otomatis.</p>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-red-50 text-himsiMaroon rounded-xl flex items-center justify-center text-2xl font-bold mb-4">🛡️</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Keamanan Siber</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Prinsip perlindungan data, kesadaran celah keamanan, dan etika IT.</p>
                 </div>
             </div>
         </div>
