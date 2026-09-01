@@ -117,7 +117,7 @@
         <a href="index.php" class="flex items-center gap-2 hover:text-red-300 transition border-r border-red-800 pr-4 text-sm font-semibold">
             <i class="fa-solid fa-arrow-left"></i> Kembali
         </a>
-        <div class="font-bold text-lg tracking-wider">HIMSI UNIS <span class="text-red-300 font-normal text-sm ml-2 hidden sm:inline-block">| Organization Chart</span></div>
+        <div class="font-bold text-lg tracking-wider">HIMSI UNIS <span class="text-red-300 font-normal text-sm ml-2 hidden sm:inline-block">| Organization Chart Kabinet Genesis</span></div>
     </div>
 
     <!-- Area Bagan Struktur Organisasi -->
