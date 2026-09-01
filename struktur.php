@@ -350,7 +350,7 @@
                     </div>
                     <div id="mob-pend" class="collapsible-content mt-2">
                         <ul class="text-xs text-slate-700 space-y-2 pt-1 font-medium">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-user-check text-red-800 text-[11px]"></i> Firda Sofia</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-user-check text-red-800 text-[11px]"></i> Firda Nur Sofia</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-user-check text-red-800 text-[11px]"></i> M Rizky Ramadhan</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-user-check text-red-800 text-[11px]"></i> Teguh Firmansyah</li>
                         </ul>
