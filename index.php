@@ -133,6 +133,9 @@ header("X-XSS-Protection: 1; mode=block");
                 <a href="#kegiatan" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Berita & Kegiatan</a>
                 <a href="#karya" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Karya Mahasiswa</a>
                 <a href="#tentang" class="hover:text-himsiMaroon transition py-2 border-b-2 border-transparent hover:border-himsiMaroon">Tentang Kami</a>
+                <a href="#gabung" class="bg-himsiMaroon text-white px-5 py-2 rounded-xl hover:bg-red-900 transition shadow-sm text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-user-plus"></i> Gabung HIMSI
+                </a>
             </nav>
 
             <button id="mobileMenuBtn" class="lg:hidden text-slate-800 hover:text-himsiMaroon focus:outline-none p-2 transition-transform transform active:scale-95 z-50">
@@ -147,7 +150,8 @@ header("X-XSS-Protection: 1; mode=block");
             <a href="#layanan" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Layanan Digital</a>
             <a href="#kegiatan" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Berita & Kegiatan</a>
             <a href="#karya" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Karya Mahasiswa</a>
-            <a href="#tentang" class="mobile-link block hover:text-himsiMaroon transition pb-2">Tentang Kami</a>
+            <a href="#tentang" class="mobile-link block hover:text-himsiMaroon transition border-b border-slate-100 pb-3">Tentang Kami</a>
+            <a href="#gabung" class="mobile-link bg-himsiMaroon text-white text-center py-3 rounded-xl font-bold">✨ Bergabung Bersama HIMSI</a>
         </div>
     </header>
 
@@ -169,11 +173,11 @@ header("X-XSS-Protection: 1; mode=block");
             </p>
 
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#layanan" class="bg-white text-himsiMaroon px-6 md:px-8 py-3.5 rounded-lg font-bold text-sm shadow-xl hover:bg-himsiCream transition transform hover:-translate-y-0.5">
-                    Jelajahi Layanan Digital
+                <a href="#gabung" class="bg-himsiGold text-slate-900 px-6 md:px-8 py-3.5 rounded-lg font-bold text-sm shadow-xl hover:bg-yellow-400 transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <span>🚀</span> Daftar Anggota HIMSI
                 </a>
-                <a href="#karya" class="border-2 border-white/80 text-white px-6 md:px-8 py-3.5 rounded-lg font-bold text-sm hover:bg-white hover:text-himsiMaroon transition transform hover:-translate-y-0.5 backdrop-blur-sm">
-                    Lihat Karya Mahasiswa 🎮
+                <a href="#layanan" class="bg-white/10 text-white border border-white/30 px-6 md:px-8 py-3.5 rounded-lg font-bold text-sm hover:bg-white hover:text-himsiMaroon transition transform hover:-translate-y-0.5 backdrop-blur-sm">
+                    Jelajahi Layanan Digital
                 </a>
             </div>
         </div>
@@ -452,6 +456,46 @@ header("X-XSS-Protection: 1; mode=block");
         </div>
     </section>
 
+    <!-- SECTION BERGABUNG DENGAN HIMSI UNIS -->
+    <section id="gabung" class="py-20 bg-gradient-to-br from-himsiMaroon via-red-900 to-darkNavy text-white px-6 relative z-10 border-t border-white/10 scroll-mt-24">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="text-himsiGold font-bold text-xs uppercase tracking-widest bg-white/10 px-4 py-1.5 rounded-full inline-block mb-4 border border-white/10">
+                Open Recruitment 2026/2027
+            </span>
+            <h2 class="serif-title text-3xl sm:text-5xl font-bold mb-6">Bergabung Bersama HIMSI UNIS</h2>
+            <p class="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                Jadilah bagian dari Kabinet Genesis! Tingkatkan wawasan teknologi, perluas jaringan koneksi, serta kembangkan karakter kepemimpinan kamu bersama keluarga besar Sistem Informasi.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-left">
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15">
+                    <div class="text-himsiGold font-bold text-2xl mb-2">01.</div>
+                    <h3 class="font-bold text-lg mb-1">Status Mahasiswa</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed">Mahasiswa/i aktif Program Studi Sistem Informasi UNIS Tangerang.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15">
+                    <div class="text-himsiGold font-bold text-2xl mb-2">02.</div>
+                    <h3 class="font-bold text-lg mb-1">Komitmen & Antusias</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed">Memiliki semangat belajar, berkembang, dan berkontribusi aktif dalam himpunan.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15">
+                    <div class="text-himsiGold font-bold text-2xl mb-2">03.</div>
+                    <h3 class="font-bold text-lg mb-1">Isi Formulir</h3>
+                    <p class="text-slate-300 text-xs leading-relaxed">Lengkapi data diri melalui formulir pendaftaran resmi HIMSI UNIS.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://instagram.com/himsi_unis" target="_blank" rel="noopener noreferrer" class="bg-himsiGold text-slate-900 px-8 py-4 rounded-xl font-bold text-sm shadow-xl hover:bg-yellow-400 transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <i class="fa-brands fa-instagram text-lg"></i> Info Pendaftaran via Instagram
+                </a>
+                <a href="https://wa.me/6281234567890?text=Halo%20Admin%20HIMSI,%20saya%20ingin%20bertanya%20seputar%20pendaftaran%20anggota" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white hover:text-himsiMaroon border border-white/30 text-white px-8 py-4 rounded-xl font-bold text-sm transition transform hover:-translate-y-0.5 backdrop-blur-sm flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Hubungi Humas HIMSI
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer id="kontak" class="bg-darkNavy/95 text-white py-12 px-6 relative z-10">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
@@ -550,7 +594,7 @@ header("X-XSS-Protection: 1; mode=block");
                 <div class="flex items-start space-x-2">
                     <div class="w-7 h-7 bg-himsiMaroon text-white rounded-full flex items-center justify-center shrink-0 font-bold text-[10px]">AI</div>
                     <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 shadow-sm text-slate-700 leading-relaxed">
-                        Halo! 👋 Saya <b>HIMSI Ai</b>. Ada yang bisa saya bantu terkait jadwal perkuliahan, layanan Kampus UNIS, atau info seputar HIMSI UNIS?
+                        Halo! 👋 Saya <b>HIMSI Ai</b>. Ada yang bisa saya bantu terkait pendaftaran HIMSI, jadwal perkuliahan, atau info seputar HIMSI UNIS?
                     </div>
                 </div>
             </div>
