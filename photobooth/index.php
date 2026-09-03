@@ -51,53 +51,66 @@ require_once "config.php";
 
         /* STYLING NOTIFIKASI MENGAMBANG (FLOATING TOAST) DEFAULT (PC & LAPTOP) */
         .toast-floating {
-            position: fixed;
-            top: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 9999999;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            background: var(--toast-bg);
-            color: var(--toast-text);
-            border: 1px solid var(--toast-border);
-            border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-            font-size: 14px;
-            font-weight: 700;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            pointer-events: none;
+            position: fixed !important;
+            top: 24px !important;
+            bottom: auto !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            z-index: 9999999 !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            width: auto !important;
+            height: auto !important;
+            max-width: 500px !important;
+            padding: 12px 24px !important;
+            background: var(--toast-bg) !important;
+            color: var(--toast-text) !important;
+            border: 1px solid var(--toast-border) !important;
+            border-radius: 50px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+            font-size: 14px !important;
+            font-weight: 700 !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+            pointer-events: none !important;
         }
 
-        /* PERBAIKAN KHUSUS MOBILE: DIPINDAHKAN KE BAWAH AGAR POPUP ATAS BERSIH & TIDAK NORTON DENGAN HEADER */
+        /* KUNCI PAKSA KHUSUS HP & TABLET: MENGUNCI UKURAN KAPSUL RAMPING DI BAWAH */
         @media (max-width: 768px) {
             .toast-floating {
-                top: auto;
-                bottom: 60px; /* Melayang aman di atas footer */
-                width: 84%;
-                max-width: 320px;
-                padding: 6px 12px;
-                font-size: 10px;
-                border-radius: 20px;
-                text-align: center;
-                justify-content: center;
-                line-height: 1.2;
-                gap: 6px;
+                top: auto !important;
+                bottom: 75px !important; /* Melayang pas di atas footer kredit */
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                width: 82% !important;
+                max-width: 320px !important;
+                height: auto !important;
+                min-height: unset !important;
+                padding: 8px 14px !important;
+                font-size: 11px !important;
+                border-radius: 20px !important;
+                text-align: center !important;
+                justify-content: center !important;
+                line-height: 1.3 !important;
+                gap: 6px !important;
             }
 
             .toast-floating #toastIcon {
-                font-size: 12px;
+                font-size: 13px !important;
+            }
+
+            .toast-floating #toastMessage {
+                font-size: 11px !important;
+                display: inline-block !important;
             }
         }
 
         .toast-floating.hidden {
-            opacity: 0;
-            visibility: hidden;
-            transform: translate(-50%, 20px);
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transform: translate(-50%, 20px) !important;
         }
 
         /* OVERRIDE SELURUH CONTAINER LAYAR AGAR BISA DARK MODE */
