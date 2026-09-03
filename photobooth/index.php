@@ -49,7 +49,7 @@ require_once "config.php";
             --toast-border: rgba(255, 255, 255, 0.15);
         }
 
-        /* STYLING NOTIFIKASI MENGAMBANG (FLOATING TOAST) */
+        /* STYLING NOTIFIKASI MENGAMBANG (FLOATING TOAST) DEFAULT (PC & LAPTOP) */
         .toast-floating {
             position: fixed;
             top: 24px;
@@ -73,16 +73,23 @@ require_once "config.php";
             pointer-events: none;
         }
 
-        /* PERBAIKAN KHUSUS TAMPILAN HP AGAR RAMPING & TIDAK KEBESARAN */
-        @media (max-width: 480px) {
+        /* RESPONSIVE LAYAR PERANGKAT MOBILE & TABLET (ANDROID, APPLE, TAB) */
+        @media (max-width: 768px) {
             .toast-floating {
-                top: 65px;
-                width: 82%;
-                padding: 8px 14px;
-                font-size: 11px;
-                border-radius: 16px;
+                top: 72px; /* Posisi turun di bawah tombol header agar tidak menutupi */
+                width: 88%;
+                max-width: 360px;
+                padding: 6px 12px; /* Padding lebih tipis & proporsional */
+                font-size: 10px; /* Ukuran font diperkecil agar tidak kebesaran */
+                border-radius: 20px;
                 text-align: center;
                 justify-content: center;
+                line-height: 1.3;
+                gap: 6px;
+            }
+
+            .toast-floating #toastIcon {
+                font-size: 12px;
             }
         }
 
@@ -369,7 +376,6 @@ require_once "config.php";
         </div>
     </div>
 
-
     <!-- =================================
          SCREEN 1 : WELCOME
     ================================= -->
@@ -503,7 +509,6 @@ require_once "config.php";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <script>
-    // PERBAIKAN TOAST AGAR SELALU TAMPIL TANPA DURATION
     function showToast(message, icon = '📸') {
         const toast = document.getElementById('toastNotification');
         const toastMsg = document.getElementById('toastMessage');
@@ -516,7 +521,6 @@ require_once "config.php";
         toast.classList.remove('hidden');
     }
 
-    // LOGIKA TOGGLE THEME SYSTEM
     function applyTheme(themeName) {
         const body = document.body;
         const btn = document.getElementById('themeBtn');
