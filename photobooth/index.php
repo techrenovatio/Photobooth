@@ -73,18 +73,19 @@ require_once "config.php";
             pointer-events: none;
         }
 
-        /* RESPONSIVE LAYAR PERANGKAT MOBILE & TABLET (ANDROID, APPLE, TAB) */
+        /* PERBAIKAN KHUSUS MOBILE: DIPINDAHKAN KE BAWAH AGAR POPUP ATAS BERSIH & TIDAK NORTON DENGAN HEADER */
         @media (max-width: 768px) {
             .toast-floating {
-                top: 72px; /* Posisi turun di bawah tombol header agar tidak menutupi */
-                width: 88%;
-                max-width: 360px;
-                padding: 6px 12px; /* Padding lebih tipis & proporsional */
-                font-size: 10px; /* Ukuran font diperkecil agar tidak kebesaran */
+                top: auto;
+                bottom: 60px; /* Melayang aman di atas footer */
+                width: 84%;
+                max-width: 320px;
+                padding: 6px 12px;
+                font-size: 10px;
                 border-radius: 20px;
                 text-align: center;
                 justify-content: center;
-                line-height: 1.3;
+                line-height: 1.2;
                 gap: 6px;
             }
 
@@ -96,7 +97,7 @@ require_once "config.php";
         .toast-floating.hidden {
             opacity: 0;
             visibility: hidden;
-            transform: translate(-50%, -20px);
+            transform: translate(-50%, 20px);
         }
 
         /* OVERRIDE SELURUH CONTAINER LAYAR AGAR BISA DARK MODE */
