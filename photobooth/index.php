@@ -73,6 +73,19 @@ require_once "config.php";
             pointer-events: none;
         }
 
+        /* PERBAIKAN KHUSUS TAMPILAN HP AGAR RAMPING & TIDAK KEBESARAN */
+        @media (max-width: 480px) {
+            .toast-floating {
+                top: 65px;
+                width: 82%;
+                padding: 8px 14px;
+                font-size: 11px;
+                border-radius: 16px;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+
         .toast-floating.hidden {
             opacity: 0;
             visibility: hidden;
