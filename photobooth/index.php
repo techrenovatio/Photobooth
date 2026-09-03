@@ -49,7 +49,7 @@ require_once "config.php";
             --toast-border: rgba(255, 255, 255, 0.15);
         }
 
-        /* STYLING NOTIFIKASI MENGAMBANG (FLOATING TOAST) DEFAULT (PC & LAPTOP) */
+        /* STYLING NOTIFIKASI MENGAMBANG (FLOATING TOAST) DEFAULT (DESKTOP / LAPTOP) */
         .toast-floating {
             position: fixed !important;
             top: 24px !important;
@@ -77,18 +77,18 @@ require_once "config.php";
             pointer-events: none !important;
         }
 
-        /* KUNCI PAKSA KHUSUS HP & TABLET: MENGUNCI UKURAN KAPSUL RAMPING DI BAWAH */
+        /* KHUSUS DISPLAY HP & TABLET: DIPINDAHKAN TEPAT DI ATAS LOGO KAMERA */
         @media (max-width: 768px) {
             .toast-floating {
-                top: auto !important;
-                bottom: 75px !important; /* Melayang pas di atas footer kredit */
+                top: 75px !important; /* Presisi di bawah tombol header & di atas logo kamera */
+                bottom: auto !important;
                 left: 50% !important;
                 transform: translateX(-50%) !important;
-                width: 82% !important;
+                width: 84% !important;
                 max-width: 320px !important;
                 height: auto !important;
                 min-height: unset !important;
-                padding: 8px 14px !important;
+                padding: 7px 14px !important;
                 font-size: 11px !important;
                 border-radius: 20px !important;
                 text-align: center !important;
@@ -98,7 +98,7 @@ require_once "config.php";
             }
 
             .toast-floating #toastIcon {
-                font-size: 13px !important;
+                font-size: 12px !important;
             }
 
             .toast-floating #toastMessage {
@@ -110,7 +110,7 @@ require_once "config.php";
         .toast-floating.hidden {
             opacity: 0 !important;
             visibility: hidden !important;
-            transform: translate(-50%, 20px) !important;
+            transform: translate(-50%, -15px) !important;
         }
 
         /* OVERRIDE SELURUH CONTAINER LAYAR AGAR BISA DARK MODE */
